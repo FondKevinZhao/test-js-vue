@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="./images/js中的转义符.jpg" alt="">
+  <script>
+    // var str = "10"; // 字符串
+    // var str = '11'; // 字符串
+    // 字符串可以使用单引号，也可以使用双引号
+    // 字符串的长度如何获取？变量名.length
+
+    var str = 'what are you non sha ne';
+    // 字符串的个数有多少？或者说这个字符串的长度有多少？
+
+    // 方法一
+    console.log(str.length); // 23
+
+    // 方法二
+    var num = 0;
+    for (var i = 0; i < str.length; i++) {
+      num++
+    };
+    console.log(num)
+
+
+    // html中的转义符：<：&lt;  >：&gt; 空格：&npsp;
+
+    // js中的字符串里也有转义符(有图片)
+    // tab键 ---- 水平制表符
+    // 输出水平制表符有多少个空格
+    console.log('哈哈\t嘎嘎'); // 哈哈	嘎嘎
+
+
+    console.log('哈哈\\嘎嘎'); // 哈哈\嘎嘎
+    console.log('哈哈\d嘎嘎'); // 哈哈d嘎嘎
+    console.log('哈哈\嘎嘎'); // 哈哈嘎嘎
+    console.log('哈哈\"\"嘎嘎'); // 哈哈""嘎嘎
+
+
+    // 字符串的拼接：使用加号(+)，可以把多个字符串进行拼接
+    // var str1 = "您好";
+    // var str2 = "我好";
+    // console.log(str1 + str2); // 您好我好
+
+    var str1 = '10';
+    var str2 = '20';
+    console.log(str1 + str2); // 1020
+
+    var str3 = 30;
+    // 只要有一个是字符串，结果也是拼接
+    console.log(str1 + str3); // 1030 
+
+    // 如果是减号就不会拼接
+    // 浏览器帮助我们自动的把字符串类型转换成了数字类型，这种方式叫作：隐式转换
+    var str111 = '10';
+    var num111 = 5;
+    console.log(str111 - num111); //5
+
+    var num222 = '5'
+    console.log(str111 - num222); // 5
+
+    var num333 = 'a5';
+    console.log(str111 - num333); // NaN
+
+    console.log(str111 * num111); // 50
+    console.log(str111 / num111); // 2
+  </script>
+</body>
+
+</html>
