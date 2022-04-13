@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 生产环境版本，优化了尺寸和速度 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    /* 
+      1. 引入vue
+      2. 在body当中必须写一个挂载点 如：<div id="app"></div>
+      3. 实例化一个Vue的实例化对象，和挂载点进行挂载
+
+      // 函数首先是函数 函数还是对象(函数对象)
+      // 函数是有两个角色 函数可以当函数去用(在函数名后面加括号)，也可以当对象去用(函数.属性)
+      // 函数当函数用可以有多种用法：
+        1. 普通函数调用         直接函数名+()      this指向：window
+        2. 构造函数调用         new + 函数名+()    this指向：实例化对象
+        3. 方法(对象里面的函数)  a.b()             this指向：调用的方法的对象(当前对象)
+        4. 回调函数             自己定义，自己不用  this指向：事件源
+        5. call 和 apply        让一个对象去借用另外一个对象的方法 this指向：自己给定的对象
+        6. 箭头函数              this指向：离它最近的外层执行上下文的this
+
+        下面函数的 this 指向都是window(不管套几层，只要是普通调用都指向window)
+        function fn() {
+          console.log(this)
+          function fn1() {
+            console.log(this)
+          }
+          fn1()
+        }
+        fn()
+    */
+   const vm = new Vue({
+     el: '#app',
+     data: {
+
+     }
+   })
+  </script>
+</body>
+
+</html>
