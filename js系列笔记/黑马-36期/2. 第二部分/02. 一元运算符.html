@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      ++ -- 都是运算符
+
+      ++ 和 -- 可以分为：前+ 和 后+     前- 和 后-
+
+      如果++在后面，如：num++ + 10 参与运算
+      先参与运算，运算结束后自身再加1
+
+      如果++在前面，如：++num + 10 参与运算
+      先自身加1，然后再参与运算
+
+      总结：
+        ++ 在前还是后面，如果没有参与运算，结果都是一样的。如：10++ 和 ++10 结果是一样的
+    */
+
+    // var num = 10;
+    // num++; // 自身加1，简称自加
+    // console.log(num); // 11
+
+    // var num = 10;
+    // ++num; // 自身加1，简称自加
+    // console.log(num); // 11
+
+    // var num = 10;
+    // var sum = num++ + 10;
+    // console.log(num); // 11
+    // console.log(sum); // 20
+    
+    // var num = 10;
+    // var sum = ++num + 10;
+    // console.log(num); // 11
+    // console.log(sum); // 21
+
+    // var num = 10;
+    // var sum = --num + 10;
+    // console.log(sum); // 19
+    // console.log(num); // 9
+
+    var num = 10;
+    var sum = num-- + 10;
+    console.log(sum); // 20
+    console.log(num); // 9
+  </script>
+</body>
+
+</html>
