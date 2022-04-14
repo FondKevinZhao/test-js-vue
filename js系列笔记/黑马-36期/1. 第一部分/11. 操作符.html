@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      操作符：一些符号 ----- 用来计算
+
+      算术运算符：+ - * / %
+      算术运算表达式：由算术运算符连接起来的表达式
+
+      一元运算符：这个操作符只需要一个操作数就可以运算的符号，++ --
+      二元运算符：这个操作符需要两个操作数就可以运算的符号
+      三元运算符 ---- 明天讲
+
+      复合合运算符：+= -= *= /= %=
+      复合运算表达式：由复合运算符连接起来的表达式
+
+      赋值运算符：=
+
+      关系运算符：> < >= <= ==(不严格的) ===(严格的) !=(不严格的不等) !==(严格的不等)
+      不严格：只是值的比较。严格：类型和值都要比较
+      关系运算表达式：由关系运算符连接起来的表达式
+      注意：关系运算符表达式的结果是布尔类型。console.log(5>10); // fasle  console.log(5>3); // true
+
+      逻辑运算符: &&(逻辑与) ||(逻辑或) !(逻辑非)
+      逻辑运算表达式：由逻辑运算符连接起来的表达式
+    */
+
+    /*
+      // 算术运算符：+ - * / %
+      var num = 10;
+      var result = num % 3; // num变量与3取余 ---》10/3的余数
+      console.log(result); // 1 
+    */
+
+    /* 
+      // 复合合运算符：+= -= *= /= %=
+      // 复合运算表达式：由复合运算符连接起来的表达式
+      var num = 20;
+      num = num + 5; // 等同于 num += 5;
+      console.log(num); // 25
+    */
+
+    // 逻辑运算符: &&(逻辑与) ||(逻辑或) !(逻辑非)
+    /* var num1 = 10;
+    var num2 = 20;
+    console.log(num1 == num2 && 5 > 6); // false */
+
+    var result = 4 >= 6 || '人' != '狗' && !(12 * 2 == 144) && true;
+    // 注意：'人' != '狗' 是true，'人' !== '狗'也是true。
+    // '人' == '狗' 是false，'人' === '狗'也是true。
+    console.log(result); // true
+
+    var num = 10;
+    var result2 = 5 == num / 2 && (2 + 2 * num).toString() === '22';
+    // true && true
+    console.log(result2); // true
+
+    /*
+      // 注意：
+      表达式1 && 表达式2
+        如果有一个为false，整个的结果就是false
+
+      表达式1 || 表达式2
+        如果有一个为true，整个的结果就是true
+
+      !表达式1
+        表达式1的结果是true，整个结果为false
+        表达式1的结果为false，真个结果为true 
+    */
+
+    /* 
+      扩展：
+        字面量：把一个值直接赋值给一个变量。如：var num = 10; // 这里也是声明变量并初始化。
+
+        var y = 10; // 字面量
+        var n = y; // 这里不能叫字面量，因为y是一个变量。
+    */
+  </script>
+</body>
+
+</html>
