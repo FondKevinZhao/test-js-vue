@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <!-- 表单类元素：form里面 input(text, password, radio, checkbox, button, reset, submit, file, date, number, email, tel) select textarea -->
+  <div id="app">
+    <!-- 单项数据绑定：数据只能从data流向页面 -->
+    <!-- <input type="text" :value="msg"> -->
+
+    <!-- 双向数据绑定：一般情况下只针对表单类元素才使用双向数据绑定。另外的情况：在高级的时候会讲双向数据绑定用在组件身上 -->
+    <input type="text" v-model="msg">
+    <p>我爱你{{msg}}</p>
+
+    <!-- 
+      MVVM 说的就是双向数据绑定模型：
+        M   代表的model，就是我们的数据
+        V   代表的view，就是我们的页面
+        VM  代表的就是Vue的实例化对象
+
+      双向数据绑定：数据可以从data流向页面，而页面的数据被更改，也会从页面流向data。(当data的数据被更改以后，又会重新流向页面。)
+    -->
+  </div>
+
+  <script>
+    // 第一种写法(通用写法)
+    /* const vm = new Vue({
+      el: '#app', // 一般情况下挂载的时候都是书写配置项
+      // data可以是对象也可以是函数
+      // data: {}
+      data() {
+        return {
+          msg: '赵丽颖'
+        }
+      }
+    }) */
+
+    // 第二种写法(基本不用)
+    const vm = new Vue({
+      // el: '#app', // 一般情况下挂载的时候都是书写配置项
+      // data可以是对象也可以是函数
+      // data: {}
+      data() {
+        return {
+          msg: '赵丽颖'
+        }
+      }
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

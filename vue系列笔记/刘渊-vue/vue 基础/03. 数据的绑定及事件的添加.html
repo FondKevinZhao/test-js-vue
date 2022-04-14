@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <!-- 一旦用了指令，那么这个被指令使用的属性，属性值就是js代码了，而原本的双引号不再代表字符串的边界，而代表的是js的边界 -->
+    <a v-bind:href="url" target="_blank">点击去学习</a>
+    <a :href="url" target="_blank">点击去学习</a><br><br>
+
+    <!-- 事件三要素：事件源(如：button)，事件类型(如：click)，事件回调 -->
+    <button v-on:click="test">点我</button>
+    <button @click="test">点我</button>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'i love you zhaoliying',
+        url: 'http://www.atguigu.com'
+      },
+      methods: {
+        // 这里面是专门用来写函数的
+        // 无论是data里面的数据，还是methods当中的方法，最终都会被vm代理
+        test() {
+          console.log(this.url)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

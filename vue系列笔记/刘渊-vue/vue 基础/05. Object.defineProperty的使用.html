@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Object.defineProperty()
+    // 这个方法在为对象添加或者修改 属性成为响应式属性
+    let obj = {
+      firstName: 'zhao',
+      lastName: 'liying'
+    }
+
+    obj.fullName = 'zhao-liying';
+    console.log(obj); // {firstName: 'zhao', lastName: 'liying', fullName: 'zhao-liying'}
+
+    obj.firstName = 'liu';
+    console.log(obj); // {firstName: 'liu', lastName: 'liying', fullName: 'zhao-liying'}
+  </script>
+</body>
+
+</html>
