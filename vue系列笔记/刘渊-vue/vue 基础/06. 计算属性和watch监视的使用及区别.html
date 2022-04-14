@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    姓：<input type="text" v-model="firstName"><br><br>
+    名：<input type="text" v-model="lastName"><br><br>
+
+    <!-- 展示全名 -->
+    <!-- 数据在模板当中，this全部指向的是vm，只不过模板当中的this可以省略 -->
+    <!-- 第一种方法： 使用js的拼接-->
+    <p>全名1：{{ firstName }}-{{ lastName }}</p>
+    <p>全名1：{{ firstName + '-' + lastName }}</p>
+
+    <!-- 第二种方法：封装函数去写。括号不能省略 -->
+    <p>全名2：{{ getFullName() }}</p>
+
+    <!-- 第三种方法：计算属性 -->
+    <!-- 计算属性展示时： -->
+    <p>全名3：{{ fullName }}</p>
+    <!-- 计算属性修改时： -->
+    计算属性修改：<input type="text" v-model="fullName">
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          firstName: 'zhao',
+          lastName: 'liying'
+        }
+      },
+      methods: {
+        getFullName() {
+          // 在vue中所有的函数内部的this都指向vm，因为这些方法或者函数都会被vm代理
+          return this.firstName + '-' + this.lastName
+        }
+      },
+      // 什么时候用计算属性？当我需要一个数据但是这个数据我又没有，并且这个数据是由目前我有的数据计算而来的
+      computed: {
+        // 简单写法：如果计算属性当中只有get方法就可以用简单写法
+        // fullName() {
+        //   // 计算属性一定要return，不然没意义
+        //   return this.firstName + '-' + this.lastName;
+        // }
+
+        // 复杂写法: 这个写法相当于在data中添加了一个属性，这个属性有get也有set
+        fullName: {
+          get() {
+            return this.firstName + '-' + this.lastName;
+          },
+          set(val) {
+            console.log(val);
+            this.firstName = val.split('-')[0]
+            this.lastName = val.split('-')[1]
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

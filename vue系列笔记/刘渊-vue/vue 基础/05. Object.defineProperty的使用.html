@@ -11,17 +11,82 @@
 <body>
   <script>
     // Object.defineProperty()
-    // 这个方法在为对象添加或者修改 属性成为响应式属性
+    // 这个方法在为对象添加或者修改属性, 使属性成为响应式属性
     let obj = {
       firstName: 'zhao',
       lastName: 'liying'
     }
 
-    obj.fullName = 'zhao-liying';
-    console.log(obj); // {firstName: 'zhao', lastName: 'liying', fullName: 'zhao-liying'}
+    // obj.fullName = 'zhao-liying';
+    // console.log(obj); // {firstName: 'zhao', lastName: 'liying', fullName: 'zhao-liying'}
 
-    obj.firstName = 'liu';
-    console.log(obj); // {firstName: 'liu', lastName: 'liying', fullName: 'zhao-liying'}
+    // obj.firstName = 'liu';
+    // console.log(obj); // {firstName: 'liu', lastName: 'liying', fullName: 'zhao-liying'}
+
+    // obj.fullName = 'liu-yifei'
+    // console.log(obj); // {firstName: 'liu', lastName: 'liying', fullName: 'liu-yifei'}
+
+    /* 
+      Object.defineProperty(obj, 'fullName', {
+        get() {
+          // 当访问对象的fullName属性的时候
+          // 这里必须要有return
+          return this.firstName + '-' + this.lastName;
+        },
+        set(val) {
+          // 当设置对象的fullName属性的时候
+          // console.log(val); //liu-yifei'
+          // String.split('-') 以指定的切割符切割成数组
+          let arr = val.split('-');
+          // console.log(arr); // ['liu', 'yifei']
+          this.firstName = arr[0];
+          this.lastName = arr[1];
+        }
+      })
+      console.log(obj); // {firstName: 'zhao', lastName: 'liying'}
+      obj.fullName = 'liu-yifei'; // 修改fullName
+      console.log(obj); // {firstName: 'liu', lastName: 'yifei'} 
+    */
+
+
+    // 同时还可以做其他的事情，比如还有一个对象
+    obj2 = {}
+    Object.defineProperty(obj, 'fullName', {
+      get() {
+        return this.firstName + '-' + this.lastName;
+      },
+      set(val) {
+        obj2.firstName = this.firstName;
+        obj2.lastName = this.lastName;
+        obj2.fullName = val
+      }
+    })
+    obj.fullName = 'liu-yifei';
+    console.log(obj2); // {firstName: 'zhao', lastName: 'liying', fullName: 'liu-yifei'}
+
+
+
+
+    // 模拟数据代理
+    let vm = {}
+    let data = { msg: 'zhaoliying' }
+
+    Object.defineProperty(vm, 'msg', {
+      get() {
+        return data.msg
+      },
+      set(val) {
+        data.msg = val
+      }
+    })
+
+    console.log(vm);  // 响应式对象 { msg: "zhaoliying" }
+    console.log(vm.msg); // 'zhaoliying'
+
+    vm.msg = 'heihei';
+    console.log(vm.msg); // 'heihei'
+    // 最终修改的其实是data里面的值
+    console.log(data); // {msg: 'heihei'}
   </script>
 </body>
 
