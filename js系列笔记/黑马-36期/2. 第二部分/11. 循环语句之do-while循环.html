@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      do-while循环
+        语法：
+        do {
+          循环体
+        } while(条件/表达式);
+
+        执行过程：
+          先执行一次循环体，然后判断条件是否成立，不成立，则跳出循环，成立则执行循环体，然后再判断条件是否成立，成立则继续循环，否则跳出。。。
+    */
+
+
+    // 输出：哈哈，我又变帅了。。10次
+    /* var i = 10; // 计数器
+    do {
+      console.log('我又变帅了');
+      i++;
+    } while (i < 10); */
+
+
+
+    // 问用户：你觉得我帅吗？用户请输入y/n，如果是n就一直问，如果是y就显示回答正确
+    do {
+      // 把用户输入的结果存储到answer变量中
+      var answer = prompt('您觉得我帅吗？请输入y/n');
+    } while (answer !== "y");
+    console.log('回答正确');
+  </script>
+</body>
+
+</html>

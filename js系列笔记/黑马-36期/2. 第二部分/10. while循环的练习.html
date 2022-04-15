@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 求6的阶乘
+    /* var i = 1; // 阶乘这里不用为0
+    var result = 1; // 阶乘这里不用为0
+    while (i <= 6) {
+      result *= i; // result = result * i
+      i++;
+    }
+    console.log(result); */
+
+
+
+    // 求1-100之间所有的偶数的和
+    /* var i = 0;
+    var sum = 0;
+    while (i <= 100) {
+      if (i % 2 == 0) {
+        sum += i;
+      }
+      i++
+    }
+    console.log(sum); // 2550 */
+
+
+
+    // 求1-100之间所有的奇数的和
+    /* var i = 0;
+    var result = 0;
+    while (i <= 100) {
+      if (i % 2 != 0) {
+        result += i
+      }
+      i++;
+    }
+    console.log(result); // 2500 */
+
+
+
+    // 请输出1-100之间所有能够被7整除的数字
+    /* var i = 1;
+    while (i <= 100) {
+      if (i % 7 == 0) {
+        console.log(i);
+      }
+      i++;
+    } */
+
+
+
+    // 求账号和密码是否一致，登录的效果实现
+    // 提示用户输入账号
+    // 提示用户输入密码
+    // 如果账号和密码不对，则一致提示用户输入账号和密码
+    // 账号--admin
+    // 密码--123 --- 密码应该是字符串类型的，因为密码一般不是纯数字
+
+    var userName = prompt('请输入账号'); // 存储账号的
+    var userPwd = prompt('请输入密码'); // 存储密码
+    var i = 0;
+    while (userName !== 'admin' || userPwd != '123') {
+      userName = prompt('请您输入账号');
+      userPwd = prompt('请您输入密码');
+    }
+    console.log('登陆成功');
+
+
+  </script>
+</body>
+
+</html>
