@@ -28,6 +28,17 @@
     <p>全名3：{{ fullName }}</p>
     <!-- 计算属性修改时： -->
     计算属性修改：<input type="text" v-model="fullName">
+
+    <!-- 第四种方法：watch 监视 -->
+    <p>全名4：{{ fullName2 }}</p>
+
+    <!-- 通过computed异步返回数据，不行 -->
+    <p>{{ fullName3 }}</p>
+
+    <!-- 通过watch异步更新数据，可行 -->
+    <p>{{ fullName4 }}</p>
+
+
   </div>
 
   <script>
@@ -36,7 +47,9 @@
       data() {
         return {
           firstName: 'zhao',
-          lastName: 'liying'
+          lastName: 'liying',
+          fullName2: '', // 监视的时候必须有这个属性，属性值是什么不确定，后面根据监视去给它赋值
+          fullName4: '' // watch异步测试，可行
         }
       },
       methods: {
@@ -63,9 +76,59 @@
             this.firstName = val.split('-')[0]
             this.lastName = val.split('-')[1]
           }
+        },
+
+        // computed 异步测试, 不行
+        fullName3() {
+          // coumputed 内部只能是同步返回数据，不能是异步返回数据
+          let a = null;
+          setTimeout(() => {
+            a = 'hehe'
+          }, 1000)
+          return a;
         }
+      },
+
+      // 监视的数据一定是存在的，而且是可以变化的
+      watch: {
+        firstName: {
+          // 这个对象是一个配置对象，这个handler是属性
+          handler(newVal, oldVal) {
+            // console.log(newVal, oldVal);
+            this.fullName2 = newVal + '-' + this.lastName
+
+            // watch 异步测试, 可行
+            setTimeout(() => {
+              this.fullName4 = "heihei"
+            }, 3000)
+          },
+          immediate: true // 配置这个配置项的作用是无论监视的属性发生不发生变化，都要强制的执行一次回调
+        },
+        lastName: {
+          handler(newVal, oldVal) {
+            // console.log(newVal, oldVal);
+            this.fullName2 = this.firstName + '-' + newVal
+          }
+        },
+
       }
     })
+
+    /*
+      使用方法去获取姓名和使用计算属性去计算姓名的区别：
+        - 对于方法调用：你使用了几次方法调用，那么这个方法就被调用了几次
+        - 对于计算属性：你使用了不管多少次计算属性，计算属性的get方法值调用了一次
+        - 计算属性一定存在缓存，这样有缓存使用多次的时候，效率比使用方法高得多 
+
+      注意点：
+        - computed是计算属性：一般是没有这个值但是想要用这个值，那么根据已有的去做计算
+        - watch 是监视属性：一般监视属性，监视的属性已经后期要更改的属性都必须有
+        - 通常能用computed的场合都可以使用watch去解决，但是能用watch解决的computed不一定能解决
+        - computed函数当中只能使用同步，而watch当中可以是同步也可以是异步
+
+      // 我们去比较computed和watch的时候，其实比较的是计算属性的get方法
+      // 计算属性的set没什么说的，其实仅仅是对计算的属性添加了监视(当计算属性的值修改之后，会调用set)
+    */
   </script>
 </body>
 
