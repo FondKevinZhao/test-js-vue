@@ -32,11 +32,24 @@
 
 
     // 问用户：你觉得我帅吗？用户请输入y/n，如果是n就一直问，如果是y就显示回答正确
-    do {
+    /* do {
       // 把用户输入的结果存储到answer变量中
       var answer = prompt('您觉得我帅吗？请输入y/n');
     } while (answer !== "y");
-    console.log('回答正确');
+    console.log('回答正确'); */
+
+
+
+    // 100以内所有3的倍数的和
+    var i = 0;
+    var sum = 0;
+    do {
+      if (i % 3 == 0) {
+        sum += i;
+      }
+      i++; // 循环时，这个i++千万不能省略，不然就要完犊子了。
+    } while (i <= 100);
+    console.log(sum); // 1683
   </script>
 </body>
 

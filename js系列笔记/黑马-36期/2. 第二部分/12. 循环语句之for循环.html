@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      for 循环：
+        语法：
+          for(表达式1; 表达式2; 表达式3) {
+            // 循环体
+          }
+
+        表达式1只会执行一次
+
+        执行过程：
+          1. 先执行表达式1，然后判断表达式2，如果不成立则直接跳出循环
+          2. 如果表达式2成立，执行循环体的代码，结束后，跳到表达式3执行，然后跳到表达式2，判断表达式2是否成立，不成立则跳出循环
+          3. 如果表达式2成立则执行循环体，然后再跳到表达式3，再跳到表达式2，判断是否成立
+
+    */
+
+    // 例子：打印10次：哈哈，我又变帅了
+    /* for (var i = 0; i < 10; i++) {
+      console.log('哈哈，我又变帅了');
+    } */
+
+
+
+    // 如果三个表达式都不写就是死循环
+    /* for (;;) {
+      console.log('哈哈')
+    } */
+
+
+
+    // 1-100之间所有数字的和
+    var sum = 0;
+    for (var i = 0; i <= 100; i++) {
+        sum += i;
+    }
+    console.log('sum是：' + sum);
+
+  </script>
+</body>
+
+</html>
