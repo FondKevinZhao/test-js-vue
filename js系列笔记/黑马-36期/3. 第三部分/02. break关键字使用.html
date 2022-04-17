@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      break关键字：如果在循环中使用，遇到了break，则立刻跳出当前所在的循环
+    */
+    /* while (true) {
+      console.log('haha');
+      break;
+    } */
+
+
+
+    // 求整数1-100的累加值，但要求碰到个位为3的数则停止累加
+    var sum = 0;
+    for (var i = 0; i < 100; i++) {
+      if (i % 10 !== 3) {
+        console.log(i);
+        sum += i;
+        continue;
+      }
+    }
+    console.log(sum);
+
+
+
+
+    // 找到100-200之间第一个可以被7整除的数字
+    /* var num = 0
+    for (var i = 100; i <= 200; i++) {
+      if (i % 7 === 0) {
+        num = i;
+        break;
+      }
+    }
+    console.log(num); */
+  </script>
+</body>
+
+</html>

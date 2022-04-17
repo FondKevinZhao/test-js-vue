@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // continue: 再循环中如果遇到continue关键字，直接开始下一次循环
+
+
+    // 求整数100-200的累加值，但要求跳过所有个数为3的数
+    /* var sum = 0;
+    for(var i = 100; i <= 200; i++) {
+      if(i % 10 === 3) {
+        console.log(i);
+        continue
+      }
+      sum += i;
+    }
+    console.log(sum); */
+
+
+
+    // 求100-200之间所有奇数的和(continue)
+    // 普通写法
+    /* var sum = 0;
+    for (var i = 100; i <= 200; i++) {
+      if (i % 2 != 0) {
+        sum += i;
+      }
+    }
+    console.log(sum); */
+
+
+    // for + continue写法
+    /* var sum = 0;
+    for (var i = 100; i <= 200; i++) {
+      if (i % 2 == 0) {
+        console.log(i);
+        continue
+      }
+      sum += i;
+    }
+    console.log(sum); */
+
+
+    // while + continue 写法
+    /* var i = 100;
+    var sum = 0;
+    while(i <= 200) {
+      if(i % 2 == 0) {
+        i++; // 这个 i++ 不能省略，否则i的值不会变，会死循环
+        continue;
+      }
+      sum+=i;
+      i++; // 这个 i++ 不能省略，否则i的值不会变，会死循环
+    }
+    console.log(sum); */
+  </script>
+</body>
+
+</html>
