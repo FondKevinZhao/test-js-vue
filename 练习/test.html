@@ -10,7 +10,22 @@
 
 <body>
   <script>
+    let obj = {
+      name: 'zly',
+      age: 18
+    }
 
+    // 用for in
+    for (let key in obj) {
+      console.log(key, obj[key]);
+    }
+
+    // 用forEach
+    Object.keys(obj).forEach(item => {
+      console.log(item);
+      console.log(obj.name);
+      console.log(obj.age);
+    })
   </script>
 </body>
 
