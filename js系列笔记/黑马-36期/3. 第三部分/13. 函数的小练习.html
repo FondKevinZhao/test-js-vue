@@ -10,6 +10,21 @@
 
 <body>
   <script>
+    /* 
+      函数调用之前需要先定义
+      函数名字：要遵循驼峰命名法
+      函数重名：后面的函数会覆盖前面的函数
+      一个函数最好就是一个功能
+      
+      function f1() {
+        console.log('aaa');
+      }
+      function f1() {
+        console.log('bbb');
+      }
+      console.log(f1());
+    */
+
     // 求两个数字的和
     /* function sum(num1, num2) {
       var sum1 = num1 + num2;
@@ -103,6 +118,16 @@
       return sum;
     }
     console.log(getArrSum()); */
+
+    var arr = [2, 3, 4, 5];
+    function getArrSum(arr1) {
+      var sum = 0;
+      for (var i = 0; i < arr1.length; i++) {
+        sum += arr[i];
+      }
+      return sum;
+    }
+    console.log(getArrSum(arr));
   </script>
 </body>
 
