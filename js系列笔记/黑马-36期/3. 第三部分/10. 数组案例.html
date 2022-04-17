@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 案例6：把数组中每个元素用竖线拼接到一起产生一个字符串并输出
+    // 最后一个有竖线
+    /* var arr6 = [10, 20, 30, 'aaa', true];
+    str = '';
+    for(var i = 0; i < arr6.length; i++) {
+      str += arr6[i] + '|'; // str = str + arr6[i] + '|'
+    }
+    console.log(str); */
+
+    // 最后一个没有竖线(方法1)
+    /* var arr6 = [10, 20, 30, 'aaa', true];
+    str = '';
+    for (var i = 0; i < arr6.length -1; i++) {
+      str += arr6[i] + '|';
+    }
+    str += arr6[arr6.length-1]; // str = str + arr6[arr6.length -1];
+    console.log(str); */
+
+    // 最后一个没有竖线(方法2)
+    /* var arr6 = [10, 20, 30, 'aaa', true];
+    str = '';
+    // 从索引1开始算
+    for(var i = 1; i < arr6.length; i++) {
+      str+= '|' + arr6[i];
+    }
+    str = arr6[0] + str;
+    console.log(str); */
+
+
+    // 案例7：去掉数组中重复的0
+
+
+    // 案例8：提示用户输入班级人数，求总成绩，平均值，最高分，最低分
+
+
+    // 案例9：翻转数组
+    
+
+    // 案例10：冒泡排序
+  </script>
+</body>
+</html>

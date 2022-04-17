@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 案例1：求数组中所有元素的和
+    /* var arr1 = [10, 20, 30, 40, 50];
+    var sum = 0;
+    for(var i = 0; i < arr1.length; i++) {
+      // console.log(arr1[i]);
+      sum += arr1[i];
+    }
+    console.log(sum); // 150 */
+
+
+    // 案例2：求数组中所有元素的平均值
+    /* var arr2 = [10, 20, 30, 40, 50];
+    var sum = 0;
+    var average = 0;
+    for(var i = 0; i < arr2.length; i++){
+      sum += arr2[i];
+    }
+    average = sum / arr2.length;
+    console.log(average); // 30 */
+
+
+    // 案例3：求数组中所有元素中的最大值
+    // 方法1：
+    /* var arr3 = [10, 20, 30, 20, 50, 10, 2, 70, 1];
+    var max = arr3[0];
+    for (var i = 0; i < arr3.length; i++) {
+      arr3[i] > arr3[0] ? (max = arr3[i]) : '';
+    }
+    console.log(max); */
+
+    // 方法2：
+    /* var arr3 = [10, 20, 30, 20, 50, 10, 2, 70, 1];
+    // 假设max变量中存储的是最大值
+    var max = arr3[0];
+    for(var i = 0; i < arr3.length; i++) {
+      // 判断谁更大，把更大的放到max中
+      if(arr3[i] > max) {
+        max = arr3[i];
+      } 
+    }
+    console.log(max); // 70 */
+
+
+    // 案例4：求数组中所有元素的最小值
+    /* var arr4 = [10, 20, 30, 20, 50, 10, 2, 70, 1];
+    var min = arr4[0];
+    for(var i = 0; i < arr4.length; i++) {
+      if(arr4[i]<min) {
+        min = arr4[i];
+      }
+    }
+    console.log(min); // 1 */
+
+
+    // 案例5：倒序遍历数组
+    // 正序
+    /* var arr5 = [10, 20, 30];
+    for (var i = 0; i < arr5.length; i++) {
+      console.log(arr5[i]); // 10 20 30
+    } */
+
+    // 倒序
+    /* var arr5 = [10, 20, 30];
+    for (var i = arr5.length-1; i >= 0; i--) {
+      console.log(arr5[i]);
+    } */
+  </script>
+</body>
+
+</html>
