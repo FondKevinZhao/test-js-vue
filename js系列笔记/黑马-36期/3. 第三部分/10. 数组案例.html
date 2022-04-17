@@ -37,7 +37,27 @@
     console.log(str); */
 
 
-    // 案例7：去掉数组中重复的0
+    // 案例7：去掉数组中重复的0，把其他的数据放在一个新的数组中
+    // 方法1：
+    /* var arr7 = [1, 0, 39, 8, 0, 5, 0];
+    var newArr = [];
+    for(var i = 0; i < arr7.length; i++) {
+      if(arr7[i] != 0) {
+        newArr.push(arr7[i]);
+      }
+    }
+    console.log(newArr); */
+
+    // 方法2：
+    var arr7 = [1, 0, 39, 8, 0, 5, 0];
+    var newArr = [];
+    for(var i = 0; i < arr7.length; i++){
+      if(arr7[i] != 0) {
+        // 把新数组的长度作为下标使用，数组的长度是可以改变的
+        newArr[newArr.length] = arr7[i];
+      }
+    }
+    console.log(newArr);
 
 
     // 案例8：提示用户输入班级人数，求总成绩，平均值，最高分，最低分
