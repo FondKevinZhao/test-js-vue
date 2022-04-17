@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [10, 2, 3, 4, 1];
+    // 数组长度
+    console.log(arr.length); // 5
+
+
+    // 数组中存储的数据类型一定是一样的吗？类型可以不一样，但是实际开发中，类型基本存一样的，方便整体的操作
+    var arr = [10, 'haha', true, null, undefined, new Object()];
+    console.log(arr);
+
+
+    // 数组的长度一定可以改变吗？长度可以改变
+    var arr = [];
+    console.log(arr.length); // 0
+    // 通过索引来设置数组中的元素的值
+    arr[0] = 10;
+    console.log(arr.length); // 1
+    arr[1] = 20;
+    console.log(arr.length); // 2
+    console.log(arr[1]); // 20
+    console.log(arr.length - 1); // 1
+    console.log(arr[arr.length - 1]); // 20
+
+
+    // 获取元素的值，通过索引的方式
+  </script>
+</body>
+
+</html>
