@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" placeholder="请输入过滤的条件" v-model="keyword">
+    <ul>
+      <li v-for="person in newPersons" :key="person.id">
+        {{person.id}} -- {{person.name}} -- {{person.age}}
+      </li>
+    </ul>
+    <!-- <button @click="test(1)">按年龄升序</button>
+    <button @click="test(2)">按年龄降序</button>
+    <button @click="test(0)">按原样排序</button> -->
+    <button @click="sortType=1">按年龄升序</button>
+    <button @click="sortType=2">按年龄降序</button>
+    <button @click="sortType=0">按原样排序</button>
+  </div>
+
+  <script>
+    // 去掉控制台的生产提示
+    Vue.config.productionTip = false;
+
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          keyword: '',
+          persons: [
+            { id: 1, name: 'zhaoliying', age: 33 },
+            { id: 2, name: 'yangmi', age: 34 },
+            { id: 3, name: 'qiwei', age: 40 },
+            { id: 4, name: 'dilireba', age: 28 },
+          ],
+          sortType: 0 // 0 1 2    0 代表原样  1 代表升序 2 代表降序
+        }
+      },
+      methods: {
+        // test(num) {
+        //   // 回调函数当中如果只有一行代码，可以省略函数，直接把代码写在上面
+        //   this.sortType = num;
+        // }
+      },
+      computed: {
+        newPersons() {
+          // 从vm身上获取keyword和persons(这样就可以省略写this)
+          let { keyword, persons } = this
+
+          // 根据获取的这两个数据计算新的数据
+          // 函数和方法最主要的三要素(此处针对当前功能)：
+          // 1. 功能：从原数组当中过滤出一个新的数组
+          // 2. 参数：回调函数(同步的回调)
+          // 回调函数的参数：当前项，当前项的索引，当前遍历的数组
+          // 功能：对遍历的每一项执行回调函数
+          // 返回值：返回的是一个布尔值，(布尔值，条件表达式)，根据这个布尔值的真假来决定当前遍历的对象要不要收集到新的数组中
+          // 3. 返回值：返回新的数组
+          let arr = persons.filter(item => {
+            return item.name.indexOf(keyword) !== -1;
+          })
+          return arr;
+        }
+      }
+    })
+    // 什么是运算符？参与运算的符号。一元运算符: ++ --
+    // 什么是表达式？由变量或者常量和运算符组成的式子，表达式都是有值的。如：var a = 20; a + 10; // a + 10是表达式
+    // 函数调用也是表达式，全称叫函数调用表达式。如：fn()
+  </script>
+</body>
+
+</html>
