@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p v-if="isOk">表白成功</p>
+    <p v-else>表白失败</p>
+
+    <p v-show="isOk">求婚成功</p>
+    <p v-show="!isOk">求婚失败</p>
+
+    <!-- 
+      v-if 和 v-show 都可以达到条件渲染的效果，但是它们是有很大的区别的
+    
+    
+    -->
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          isOk: true
+        }
+      }
+    })
+  </script>
+</body>
+</html>

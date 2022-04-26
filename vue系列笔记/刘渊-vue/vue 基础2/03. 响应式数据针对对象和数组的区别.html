@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in persons" :key="item.id">{{ item.id }} - {{ item.name}} - {{ item.age }}</li>
+    </ul>
+    <button @click="update">点击修改第一项的name</button>
+  </div>
+
+  <script>
+    // 去掉控制台的生产提示
+    Vue.config.productionTip = false;
+
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          persons: [
+            { id: 1, name: 'zhaoliying', age: 33 },
+            { id: 2, name: 'yangmi', age: 34 },
+            { id: 3, name: 'qiwei', age: 40 },
+            { id: 4, name: 'dilireba', age: 20 }
+          ]
+        }
+      },
+      methods: {
+        update() {
+          // 第一种写法：数据变了，页面也变了
+          // this.persons[0].name = 'yingbao';
+
+          // 第二种写法：数据变了，页面没变
+          // this.persons[0] = { id: 1, name: 'yingbao', age: 33 }
+
+          // 第三种写法：数据变了，页面也变了
+          /* 
+            splice 根据参数不同，功能不同，参数是不一样的
+            返回值都是删除元素组成的数组
+
+            splice 参数只有两个，代表删除，第一个起始位置，第二个删几个
+            splice 参数是多个，是增还是改，看第二个参数，第二个参数是0，代表增。如果不是0，嗲表改。
+          */
+          this.persons.splice(0,1, { id: 1, name: 'yingbao', age: 33 });
+        }
+      }
+    })
+
+    // 在vue当中 一开始data中的属性数据都是响应式的
+    // 数组的数据：说的是每个数组当中元素整体
+    // 对象的数据：说的是对象的属性
+
+    // Vue 当中处理响应式数据对于数组和对象是不一样的
+    // 1. 如果修改的是对象的属性，随便改，都是响应式的。因为Vue一开始就为data当中所有的属性通过Object.defineProperty添加了get和set
+    // 2. 数组的数据修改的时候，必须使用特定的几个方法才能是响应式，如果直接通过下标操作数组的数据，不是响应式的
+      // 2.1 为什么数组的方法就可以是响应式呢？
+      // 此splice非原生的splice，Vue当中给数组部分方法(push(), pop(), shift(), unshift(), splice(), sort(), reverse())添加了修改页面的功能(重写数组的方法)
+
+    // 总结：vue 在对待数组和对象的时候处理响应式数据是不一样的。
+    // 对象是通过Object.defineProperty添加了get和set
+    // 数组是重写数组的部分方法
+  </script>
+</body>
+
+</html>
