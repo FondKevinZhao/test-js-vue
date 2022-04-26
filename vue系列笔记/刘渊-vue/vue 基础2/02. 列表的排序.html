@@ -40,6 +40,7 @@
             { id: 3, name: 'qiwei', age: 40 },
             { id: 4, name: 'dilireba', age: 28 },
           ],
+          // 排序首先要设计这个数据，标志用户点击到底是什么排序类型
           sortType: 0 // 0 1 2    0 代表原样  1 代表升序 2 代表降序
         }
       },
@@ -52,7 +53,7 @@
       computed: {
         newPersons() {
           // 从vm身上获取keyword和persons(这样就可以省略写this)
-          let { keyword, persons } = this
+          let { keyword, persons, sortType } = this
 
           // 根据获取的这两个数据计算新的数据
           // 函数和方法最主要的三要素(此处针对当前功能)：
@@ -65,6 +66,21 @@
           let arr = persons.filter(item => {
             return item.name.indexOf(keyword) !== -1;
           })
+
+          // 在过滤的基础上排序完成再返回
+          if (sortType !== 0) {
+            arr.sort((a, b) => {
+              // if(sortType === 1) {
+              //   return a.age - b.age;
+              // } else {
+              //   return b.age - a.age;
+              // }
+
+              // 三元的写法：
+              return sortType === 1 ? a.age - b.age : b.age - a.age
+            })
+          }
+
           return arr;
         }
       }

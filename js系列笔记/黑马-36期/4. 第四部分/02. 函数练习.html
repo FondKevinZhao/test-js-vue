@@ -33,19 +33,24 @@
     console.log(result); */
 
 
-    // 判断一个数是否是素数(质数)，质数是从2开始的
-    /* var num = parseInt(prompt('请输入一个数字'))
-    function getPrimeNumber(num) {
-      console.log(num);
-      if(num > 1 && ) {
 
-      } else {
-        return `${num} 不是素数`
+    // 判断一个数是否是素数(质数：只能被1和自身整除的数)，质数是从2开始的
+    // 思路：用这个数字和这个数字前面的所有的数字整除一次(这个整除是不包括1和自身的)
+    function isPrimeNumber(num) {
+      for (var i = 2; i < num; i++) {
+        if (num % i == 0) {
+          // 说明有一个数字整除了，就没有必要向后继续整除了，此时就已经验证出，这个数不是质数
+          return false;
+        }
       }
+      return true;
     }
-    getPrimeNumber(num); */
-    // var result = getPrimeNumber(num);
-    // console.log(result);
+    var result = isPrimeNumber(8);
+    if(result) {
+      console.log('这个数字是质数');
+    } else {
+      console.log('这个数字不是质数');
+    }
   </script>
 </body>
 
