@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 求菲波那切数列， 12个月
+    // 1 1 2 3 5 8 13 21 34 55 89 144
+    /* function getFib(num) {
+      var num1 = 1; 
+      var num2 = 1;
+      var sum = 0;
+      for(var i = 3; i <= num; i++) {
+        sum = num1 + num2;
+        num1 = num2;
+        num2 = sum;
+      }
+      return sum;
+    }
+    console.log(getFib(12)); */
+
+
+    
+
+
+    // 输入：年月日，获取这个日期是这一年的第多少天
+    function getDays(year, month, day) {
+      // 定义变量存储对应的天数
+      var days = day;
+      if(month == 1) {
+        // 如果用户输入的是1月份，没必要向后算，直接返回
+        return days;
+      }
+
+      // 代码执行到这里---说明用户输入的不是1月份
+      // 比如：用户输入的是4月份23日---1，2，3 + 23
+      // 定义一个数组，存储每个月份的天数
+      var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      // month - 1，这个month是用户输入的月份，-1是因为索引从0开始
+      for(var i = 0; i < month - 1; i++) {
+        days += months[i];
+      }
+
+      // 需要判断这个年份是不是闰年的问题
+      if(isLeapYear(year) && month > 2) {
+        days++;
+      }
+      return days;
+
+    }
+
+    function isLeapYear(year) {
+      return year % 4 == 0 && year % 100 != 0 || year % 400 ==0;
+    }
+
+    console.log(getDays(2017, 3, 2));
+  </script>
+</body>
+</html>

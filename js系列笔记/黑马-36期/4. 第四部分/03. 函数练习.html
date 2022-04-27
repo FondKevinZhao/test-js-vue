@@ -51,25 +51,116 @@
 
 
 
-
-
-
-
-
     // 求一组数字中的最小值
+    /* function getMin() {
+      var min = arguments[0];
+      for(var i = 0; i < arguments.length; i++) {
+        if(min > arguments[i]) {
+          min = arguments[i];
+        }
+      }
+      return min;
+    }
+    var min = getMin(10, 20, 4, 80, 1);
+    console.log(min); */
 
 
 
     // 求一组数字的和
+    /* function getSum(array) {
+      var sum = 0;
+      for(var i = 0; i < array.length; i++) {
+        sum += array[i];
+      }
+      return sum;
+    }
+    var array = [10, 20, 3];
+    console.log(getSum(array)); */
+
+
+
+    // 求一个数组中的最大值和最小值还有和
+    /* function getData(array) {
+      var max = array[0];
+      var min = array[0];
+      var sum = 0;
+      for (var i = 0; i < array.length; i++) {
+        if(max < array[i]) {
+          max = array[i];
+        }
+        if(min > array[i]) {
+          min = array[i];
+        }
+        console.log('sum', array[i]);
+        sum += array[i];
+      }
+      return [max, min, sum];
+    }
+    var array = [10, 5, 3, 30];
+    console.log(getData(array)); */
 
 
 
     // 通过函数实现数组反转
-
+    /* function reverseArray(arr) {
+      for(var i = 0; i < arr.length/2; i++) {
+        var temp = arr[i];
+        arr[i] = arr[arr.length-1-i];
+        arr[arr.length-1-i] = temp;
+      }
+      return arr;
+    }
+    console.log(reverseArray([1, 2, 3, 4, 5])); */
 
 
 
     // 通过函数实现冒泡排序
+    /* function sortArray(arr) {
+      for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            var temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+      return arr
+    }
+    var array = [2, 3, 4, 2, 1];
+    console.log(sortArray(array)); */
+
+
+
+    // 求一个数字的阶乘
+    function getJieCheng(num) {
+      var result = 1;
+      for(var i = 1; i <= num; i++) {
+        result *= i;
+      }
+      return result;
+    }
+    console.log(getJieCheng(5)); // 1*2*3*4*5 // 120
+
+
+    // 求一个数字的阶乘和：如果你输入的是5，那么结果就是5的阶乘+4的阶乘+3的阶乘+2的阶乘+1的阶乘 = 阶乘和
+    function getJieChengSum(num) {
+      var sum = 0; // 和
+      for(var i = 1; i <= num; i++) {
+        console.log(i)
+        sum += getJieCheng(i);
+      }
+      return sum;
+    } 
+    console.log(getJieChengSum(5)); // 153
+    /* 
+      1 的阶乘：1 * 1 = 1
+      2 的阶乘：1 * 2 = 2
+      3 的阶乘：1 * 2 * 3 = 6
+      4 的阶乘：1 * 2 * 3 * 4 = 24
+      5 的阶乘：1 * 2 * 3 * 4 * 5 = 120 
+      1 + 2 + 6 + 24 + 120 = 153
+    */
   </script>
 </body>
 

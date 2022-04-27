@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      命名函数：函数如果有名字，就是命名函数
+
+
+      匿名函数：函数如果没有名字，就是匿名函数(两种使用：函数表达式，匿名函数自调用IIFE)
+
+
+      函数的另一种定义方式：
+      函数定义：
+        1. 函数声明：如果两个或多个函数重名，后面的会覆盖前面的
+          function 函数名() {
+            函数体
+          }
+
+          // 调用：函数名()
+        
+        2. 函数表达式：把一个函数给一个变量，此时就形成了函数表达式
+          // 如果是函数表达式，那么此时前面的变量中存储的就是一个函数，而这个变量就相当于是一个函数，就可以直接加小括号调用
+          // 如果两个或多个函数重名，后面的函数不会覆盖前面的函数(相当于重新赋值)，类似于: var num = 10; console.log(num) // 10;  num = 100; console.log(num); // 100;
+
+          var f1 = function () {
+            函数体
+          }
+          // 调用：f1();
+
+          3. 匿名函数自调用IIFE：这个函数是一次性的，执行完后就会销毁
+            (function() {console.log('aaa')})(); // aaa
+    */
+
+    var f1 = function () {
+      console.log('aaa');
+    }
+    f1();
+  </script>
+</body>
+
+</html>

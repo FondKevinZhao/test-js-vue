@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      函数可以作为参数使用，如果一个函数作为参数，那么我们说这个参数(函数)，可以叫回调函数。
+
+      只要是看到一个函数作为参数使用了，那就是回调函数。
+    */
+
+    /* function f1(x, y) {
+      console.log(x + y);
+    }
+    f1(10, 20); // number 类型
+
+
+    function f2(x, y) {
+      console.log( x + y);
+    }
+    f2('aaa', 'bbb'); // string 类型
+
+
+    function f3(x) {
+      console.log(x);
+    }
+    f3(true); // boolean 类型 */
+
+
+    function f1(fn) {
+      fn(); // 函数调用
+    }
+
+    function f2() {
+      console.log('哦，这也可以');
+    }
+    f1(f2); // 这里的f2不能加()，否则会执行f2里面的代码，而f2函数没有return，所以结果是undefined，那么undefined作为f1的参数，那fn() 就等于 undefined()。结果会报错
+
+  </script>
+</body>
+</html>
