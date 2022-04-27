@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <!-- 动态绑定样式  绑定类和绑定style样式两种方式 -->
+  <style>
+    .classA{
+      background-color: hotpink;
+    }
+
+    .classB{
+      color: green;
+    }
+
+    .classC{
+      font-size: 80px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="app">
+    <!-- 第一种情况(用得很少)：我不知道这个元素用的是哪个类，用哪个类式后台数据告诉我的 -->
+    <!-- 注意：动态绑定class以后，静态class仍然可以使用 -->
+    <p :class="myClass" class="classB">我爱你赵丽颖1</p>
+
+    <!-- 第二种情况(用得最多)：这个元素绑定的是哪个类或者是哪些个类确定了，但是哪个类生效不清楚，生效不生效由数据决定 -->
+    <p :class="{classA: isA, classB: isB}">我爱你赵丽颖2</p>
+
+    <!-- 第三种情况(用得很少)：这个元素一下子有好多个类 -->
+    <!-- <p class="classA classB classC">我爱你赵丽颖3</p> 这个是静态数据绑定，直接写。v-bind 就是动态数据绑定 -->
+    <p :class="[myClass, 'classB', 'classC']">我爱你赵丽颖3</p>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          myClass: 'classA',
+          isA: false,
+          isB: true,
+        }
+      }
+    })
+  </script>
+</body>
+</html>
