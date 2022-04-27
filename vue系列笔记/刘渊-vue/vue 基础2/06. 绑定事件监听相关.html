@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 第一种：事件监听的完整写法-->
+    <button v-on:click="test1">test1</button>
+
+    <!-- 第二种：事件监听的简写 -->
+    <!-- 在vue的模板当中，事件回调函数在调用的时候可以传递$event，名字不能随意改，这个东西就是事件对象 -->
+    <button @click="test2($event)">test2</button>
+
+    <!-- 第三种：事件在添加的时候，除了事件对象以外还要传递自己的参数的时候，必须写$event -->
+    <button @click="test3('yangmi', $event)">test3</button>
+  </div>
+  
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+
+        }
+      },
+      methods: {
+        test1(event) {
+          console.log(event.target.innerHTML); // test1
+          // console.log(event.target); // 目标元素(一般在事件委派里用的最多)
+        },
+        test2(event) {
+          console.log(event.target.innerHTML); // test2
+        },
+        test3(event, b) {
+          console.log(event); // yangmi
+          console.log(b); // 事件对象
+        }
+      }
+    })
+
+    /* 
+      复习：
+        事件对象：
+          什么是事件对象？ 
+            - 回调函数：自己定义 自己没调用 最后函数执行了(系统执行的(浏览器内核))
+            - 系统调用回调函数的时候默认传递了一个实参，这个实参就是我们的事件对象
+            - 事件对象是这一次事件触发后相关的所有一切信息，都被封装在一个对象当中
+
+          为什么浏览器调用回调要传递事件对象？
+             - 是为了防止用户在函数内部用到这次事件相关的信息
+
+
+      var box = document.getElementById('box');
+      box.onclick = function (event) {
+        console.log(event.target.innerHTML);
+        console.log(event.stopPropagation());
+        console.log(event.preventDefault());
+        console.log(event.clientx);
+        console.log(event.clientY);
+        console.log(event.offsetX);
+        console.log(event.offsetY);
+        console.log(event.pageX);
+        console.log(event.pageY);
+
+      }
+    */
+  </script>
+</body>
+</html>

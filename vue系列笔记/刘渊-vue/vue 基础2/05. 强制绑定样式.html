@@ -34,6 +34,13 @@
     <!-- 第三种情况(用得很少)：这个元素一下子有好多个类 -->
     <!-- <p class="classA classB classC">我爱你赵丽颖3</p> 这个是静态数据绑定，直接写。v-bind 就是动态数据绑定 -->
     <p :class="[myClass, 'classB', 'classC']">我爱你赵丽颖3</p>
+
+
+
+    <!-- 绑定style -->
+    <!-- <p style="color:red; font-size: 40px;">我爱你赵丽颖4</p> 静态数据的style写法 -->
+    <!-- 动态数据要写在对象里，font-size要变成fontSize，因为此处写的是js代码 -->
+    <p :style="{color:myColor, fontSize:mySize}">我爱你赵丽颖4</p>
   </div>
 
   <script>
@@ -44,6 +51,8 @@
           myClass: 'classA',
           isA: false,
           isB: true,
+          myColor: 'red',
+          mySize: '40px'
         }
       }
     })
