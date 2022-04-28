@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      预解析中，变量的提升只会在当前的作用域中提升，提前到当前作用域的最上面。
+
+      函数中的变量只会提前到函数的作用域中的最前面，不会出去。
+
+      预解析会分段，多对的script标签中函数重名，预解析的时候不会冲突。
+
+      变量名和函数名相同时，变量名提升在函数名前面
+    */
+
+    /* function f1() {
+      console.log(num); // undefined
+      var num = 20;
+    }
+    f1()
+    console.log(num); // 报错 */
+
+    
+      /* 
+      
+        // 注意这题：变量名和函数名相同时，变量名提升在函数名前面
+        // console.log(a);
+        // function a() {
+        //   console.log('aaaaa');
+        // }
+        // var a = 1;
+        // console.log(a);
+
+        // 预解析后：
+        var a;
+        function a() {
+          console.log('aaaaa');
+        }
+        console.log(a);
+        a = 1;
+        console.log(a); 
+      
+      */
+
+
+    /* 
+      f1();
+      console.log(c);
+      console.log(b);
+      console.log(a);
+      function f1() {
+        var a = b = c = 9;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+      }
+    */
+   function f1() {
+     var a;
+     b = 9;
+     c = 9;
+     console.log(a); // 9
+     console.log(b); // 9
+     console.log(c); // 9
+   }
+   f1();
+   console.log(c); // 9
+   console.log(b); // 9
+   console.log(a); // 报错
+
+
+    function f2() {
+      console.log('haha');
+    }
+    f2();
+  </script>
+
+  <script>
+    function f2() {
+      console.log('gaga');
+    }
+    f2();
+  </script>
+</body>
+</html>
