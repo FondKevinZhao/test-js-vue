@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 如何判断一个数是不是质数
+    /* 
+      // 方法一：
+      var num = 7;
+      function isPrimeNumber(num) {
+        for(var i = 2; i < num; i++) {
+          if(num % i == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      console.log(isPrimeNumber(num));
+    */
+
+    // 方法二：其实可以优化，也就是除以2，一个数字最多的倍数也就是自己的二分之一。比如说：13这个数，你没必要从1开始取余一区取到12，取到6就能有答案了。
+    /* var num = 13;
+    function getPrimeNumber(num) {
+      // 这里i <= num，要小于等于，不然4就是漏网之鱼了
+      for (var i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+    console.log(getPrimeNumber(num)); */
+  </script>
+</body>
+
+</html>

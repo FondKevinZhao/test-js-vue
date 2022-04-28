@@ -15,7 +15,9 @@
 
       预解析会分段，多对的script标签中函数重名，预解析的时候不会冲突。
 
-      变量名和函数名相同时，变量名提升在函数名前面
+      变量名和函数名相同时，变量名提升在函数名前面。
+
+      函数表达式只会提升前面的变量名，不会提升等号后面的函数。
     */
 
     /* function f1() {
@@ -60,18 +62,18 @@
         console.log(c);
       }
     */
-   function f1() {
-     var a;
-     b = 9;
-     c = 9;
-     console.log(a); // 9
-     console.log(b); // 9
-     console.log(c); // 9
-   }
-   f1();
-   console.log(c); // 9
-   console.log(b); // 9
-   console.log(a); // 报错
+
+
+    
+      /* 
+        f1();
+        var f1 = function () {
+          console.log(a);
+          var a = 10;
+        }  
+      */
+      
+   
 
 
     function f2() {
