@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,51 @@
   <title>Document</title>
   <script src="./vue.js"></script>
 </head>
+
 <body>
   <div id="app">
-    <label for="in1">用户名：</label>
+    <!-- <label for="in1">用户名：</label>
     <input type="text" id="in1"><br><br>
 
     <label for="in2">密码：</label>
-    <input type="text" id="in2"><br><br>
+    <input type="password" id="in2"><br><br>
+
+    <label for="in3">男</label>
+    <input type="radio" id="in3"><br><br>
+
+    <label for="in4">女</label>
+    <input type="radio" id="in4"><br><br> -->
 
     <!-- 还可以直接用label包住 -->
-    <!-- <label>用户名：<input type="text"><br><br></label>
-    <label>密码：<input type="text"><br><br></label> -->
+    <!-- v-model 默认收集的其实是你表单元素当中的value值 -->
+    <label>用户名：<input type="text" v-model="userInfo.username"><br><br></label>
+    <label>密码：<input type="password" v-model="userInfo.password"><br><br></label>
+
+    性别：
+    <!-- type 为radio的input框，必须给value值，不然搞不定 -->
+    <label>男：<input type="radio" name="sex" value="male" v-model="userInfo.gender"></label>
+    <label>女：<input type="radio" name="sex" value="female" v-model="userInfo.gender"><br><br></label>
+
+    爱好：
+    <!-- type 为checkbox的input框，必须给value值，并且这个favs必须是一个数组，不然搞不定 -->
+    <label>篮球：<input type="checkbox" name="hobby" value="basketball" v-model="userInfo.favs"></label>
+    <label>足球：<input type="checkbox" name="hobby" value="football"  v-model="userInfo.favs"></label>
+    <label>乒乓球：<input type="checkbox" name="hobby" value="pingpong" v-model="userInfo.favs"></label><br><br>
+
+    城市：
+    <!-- select 这个标签它的value值是选中的option的value值，所以v-model最终要写在select身上，拿的是选中的option的value值 -->
+    <!-- 一般收集的都是选中的option的id，option里的id切记加冒号 -->
+    <select name="" id="" v-model="userInfo.cityId">
+      <option :value="city.id" v-for="city in cities" :key="city.id">{{ city.name }}</option>
+    </select><br><br>
+
+    个人简介：
+    <textarea id="" cols="30" rows="10" v-model="userInfo.desc">
+
+    </textarea><br><br>
+
+    <button @click="submit">提交</button>
+
   </div>
 
   <script>
@@ -25,11 +60,36 @@
       el: '#app',
       data() {
         return {
+          // select 框里面的option
+          cities:[
+            {id:1, name:'北京'},
+            {id:2, name:'上海'},
+            {id:3, name:'深圳'}
+          ],
 
+          // 收集表单数据
+          userInfo: {
+            username: '',
+            password: '',
+            gender: 'male', // 默认为男
+            favs: ['basketball'], // 默认篮球
+            cityId: 1, // 默认是id为1，北京
+            desc: ''
+          }
         }
       },
-
+      methods: {
+        submit() {
+          // 模拟把数据发送到后端服务器
+          axios({
+            url: '后台给你的接口地址',
+            method: 'post',
+            data: this.userInfo
+          })
+        }
+      }
     })
   </script>
 </body>
+
 </html>

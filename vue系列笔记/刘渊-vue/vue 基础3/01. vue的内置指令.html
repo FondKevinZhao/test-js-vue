@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+
+        }
+      },
+      methods: {
+
+      }
+    })
+
+    /* 
+      1. v-text
+      2. v-html
+      3. v-bind
+      4. v-model
+      5. v-on
+      6. v-show
+      7. v-if
+      8. v-else-if
+      9. v-else
+      10. v-for
+      11. v-once：只会执行一次渲染，当数据发生变化时，不会再改变(不常用)
+      v-once 举例：
+      // <div id="app">
+      //     <p v-once>{{msg}}</p>
+      //     <input v-model="msg" type="text" />
+      // </div>
+      // let vue = new Vue({
+      //   el:"#app",
+      //   data:{
+      //       msg:'今天气温'
+      //   }
+      // })
+    */
+  </script>
+</body>
+</html>
