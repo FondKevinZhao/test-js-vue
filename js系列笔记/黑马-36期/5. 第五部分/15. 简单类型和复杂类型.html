@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      原始数据类型：number, string, boolean, undefined, null, object
+
+      基本类型(简单类型/值类型)：number, string, boolean, undefined, null
+      复杂类型(引用类型)：object
+
+      // 值类型的值在哪一块空间中存储？栈中存储
+      // 引用类型的值在哪一块空间中存储？地址在栈中存储，对象在堆中存储
+
+      // 值类型之间的传递，传递的是值。
+    */
+    
+    // 练习
+    function f1(x) {
+      x = 100; // 如果是 var x = 100; 结果也是一样的
+      console.log('x', x); // x 100
+    }
+    var num = 10;
+    f1(num);
+    console.log('num',num); // num 10
+
+
+    // 练习
+    var obj = {
+      name: 'xiaoming'
+    };
+    function f2(obj2) {
+      obj2.name = 'xiaohong';
+    }
+
+    console.log(obj.name); // xiaoming
+    f2(obj);
+    console.log(obj.name); // xiaohong
+  </script>
+</body>
+</html>
