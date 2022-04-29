@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 通过自定义函数实现下面的例子
+
+
+    // 创建一个图片的对象，图片有宽、有高、有大小(4M)，图片可以展示内容
+    function Picture(width, height, size) {
+      this.width = width;
+      this.height = height;
+      this.size = size;
+      this.showContent = function () {
+        console.log('我是一张图片，下面是我的内容：' + 'width：' + width + ' height：' + height + ' size：' + size + 'M');
+      }
+    }
+    var pictureObj = new Picture(100, 200, 4);
+    console.log(pictureObj);
+    pictureObj.showContent();
+
+
+    // 创建一个小猫的对象，猫有颜色、体重、年龄，小猫可以抓耗子，可以打架
+    function Cat(color, weight, age) {
+      this.color = color; 
+      this.weight = weight;
+      this.age = age;
+      this.catchMouse = function() {
+        console.log('我可以抓耗子');
+      };
+      this.fighting = function() {
+        console.log('watch out, I will hurt you!')
+      };
+    }
+    var showCat = new Cat('gray', 20, 3);
+    console.log(showCat);
+    showCat.catchMouse();
+    showCat.fighting();
+  </script>
+</body>
+
+</html>

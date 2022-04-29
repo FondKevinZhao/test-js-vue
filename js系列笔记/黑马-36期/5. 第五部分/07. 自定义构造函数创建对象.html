@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 自定义构造函数创建对象：我要自己定义一个构造函数。目的是为了创建对象
+    // 函数和构造函数的区别：名字的首字母是不是大写的
+    function Person(name) {
+      this.name = name;
+      this.sayHi = function () {
+        console.log('Hi, 我的名字叫：' + name);
+      }
+    }
+    var obj = new Person('xiaohong');
+    console.log(obj);
+    console.log(obj.name);
+    obj.sayHi(); // 调用方法
+
+    // 再次调用
+    var obj2 = new Person('小芳');
+    console.log(obj2);
+    console.log(obj2.name);
+    obj2.sayHi(); // 调用方法
+    
+    // 自定义构造函数：创造出来的对象能够分辨出到底是属于什么类型的
+    console.log(obj instanceof Person); // true
+    console.log(obj2 instanceof Person); // true
+  </script>
+</body>
+</html>

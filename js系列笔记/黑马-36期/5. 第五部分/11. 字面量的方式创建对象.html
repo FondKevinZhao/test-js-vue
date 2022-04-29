@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 系统构造函数创建对象
+    // var obj = new Object();
+
+
+    // 2. 自定义构造函数创建对象
+    // var obj = new 自定义构造函数();
+
+
+    // 3. 字面量的方式创建对象
+    var obj = {}; // 空对象
+    // 添加属性
+    obj.name = 'xiaobai';
+    obj.age = 10;
+    obj.sayHi = function() {
+      console.log('我是'+ this.name);
+    }
+    console.log(obj);
+    obj.sayHi();
+
+    // 优化后的写法
+    var obj2 = {
+      name:'xiaoming',
+      age: 20,
+      sayHi:function() {
+        console.log('I am ' + this.name);
+      }
+    }
+    console.log(obj2);
+    obj2.sayHi();
+  </script>
+</body>
+</html>

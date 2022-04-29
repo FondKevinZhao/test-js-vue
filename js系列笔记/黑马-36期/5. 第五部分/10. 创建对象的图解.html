@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 对象图解：对象占了两块空间：一个是栈(存储地址)，一个是堆(存储内容) -->
+  <img src="./对象图解.png" style="width:1000px">
+
+
+  <script>
+    // 1. 调用构造函数创建对象;
+    var obj = new Object();
+
+    // 2. 自定义构造函数创建对象
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.sayHi = function() {
+        console.log('您好，我叫：' + this.name);
+      };
+    }
+    // 创建对象---也叫实例化一个对象，并初始化
+    var per = new Person('xiaoming', 20);
+    console.log(per);
+    per.sayHi();
+  </script>
+</body>
+</html>
