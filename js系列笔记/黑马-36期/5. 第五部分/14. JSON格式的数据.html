@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对象：有属性和方法，特定的某个事物
+    // 对象：一组无序属性的集合，属性的值可以是任意的类型
+
+
+
+    // JSON格式的数据：一般都是成对的(键值对)
+    // JSON也是一个对象，数据都是成对的，一般JSON格式的数据无论是键还是值都是用双引号括起来的
+    var json = {
+      "name": "乔峰",
+      "age": 10
+    }
+    // 因为对象是无序的，所以遍历对象是不能通过for循环遍历的
+    // 可以通过for-in循环来遍历对象
+    for(var key in json) {
+      console.log(key); // name age
+      console.log(json[key]); // 乔峰 10
+      console.log(json.key); // undefined // 因为key是变量，需要用中括号来访问
+    }
+
+
+    // 一个一个的遍历出来
+    // 数组遍历(回顾)
+    /* var arr = [10, 20, 30];
+    for(var i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    } */
+  </script>
+</body>
+
+</html>
