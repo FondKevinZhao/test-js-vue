@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,38 @@
   <title>Document</title>
   <script src="./vue.js"></script>
 </head>
+
 <body>
   <div id="app">
+    <!-- 事件最原始的写法 -->
     <button v-on:click="test1">test1</button>
+    <!-- 事件写法可以简写 -->
+    <button v-on:click="test1">test2</button>
+
+
+    <!-- 事件回调函数如果我们想要传递自己的参数，那么默认的时间对象的参数会被覆盖 -->
+    <button @click="test3('zhaoliying')">test3</button>
+
+    <!-- 事件回调函数如果我们想要传递自己的参数，如果还想要用到事件对象，此时需要手动传递事件对象。$event的位置是在第一个位置还是在最后一个位置，由你决定。 -->
+    <button @click="test4('yangmi',$event)">test4</button>
+
+    <!-- 事件的阻止冒泡 js原生：event.stopPropagation() -->
+    <div style="width:200px; height:200px;background-color:red;" @click="outer1">
+      <div style="width:100px; height:100px;background-color:blue;" @click="inner1">原生</div>
+    </div><br><br>
+
+    <!-- 事件的阻止冒泡 vue：.stop -->
+    <div style="width:200px; height:200px;background-color:green;" @click="outer2">
+      <div style="width:100px; height:100px;background-color:yellow;" @click.stop="inner2">vue</div>
+    </div>
+
+
+    <!-- 事件是阻止默认行为 js原生： -->
   </div>
 
   <script>
+    Vue.config.productionTip = false;
+
     const vm = new Vue({
       el: '#app',
       data() {
@@ -22,10 +49,70 @@
       },
       methods: {
         test1(event) {
-          console.log(event.target);
+          console.log(event.target.innerHTML);
+        },
+        test3(name, event) {
+          console.log(name);
+          console.log(event);
+        },
+        test4(name, event) {
+          console.log(name);
+          console.log(event);
+        },
+        outer1() {
+          console.log('outer1');
+        },
+        inner1(event) {
+          event.stopPropagation();
+          console.log('inner1');
+        },
+        outer2() {
+          console.log('outer2');
+        },
+        inner2() {
+          console.log('inner2');
         }
       }
     })
+
+    /*
+      js复习：
+        事件冒泡只做两件事：1. 事件委派 2. 阻止冒泡
+
+        W3C标准事件流分为三个阶段：
+          - 第一个阶段：网景公司。是世界上第一个浏览器，首先提出来捕获，捕获是由外向内(事件捕获实际工作中是不用的)。
+          - 第二个阶段：微软公司。IE浏览器，提出来冒泡，冒泡是由内向外。
+          - 第三个阶段：最后W3C规定标准事件流：
+            - 先捕获，事件由外向内捕获
+            - 到目标元素
+            - 最后从目标元素由内向外冒泡
+
+        DOM0事件遵循的事件流都是冒泡
+        标准事件流在DOM2身上体现的
+          // DOM0事件写法
+            element.onclick = function() {
+              console.log('DOM0');
+            }
+           
+          // DOM2事件写法
+            element.addEventListener('click', function() {
+              console.log('DOM2');
+            }, false)
+        
+
+        DOM0的优缺点：
+          优点：兼容性好
+          缺点：
+            1、同一个事件类型只能绑定一个事件处理函数
+            2、事件流（冒泡）
+
+        DOM2的优缺点：
+          优点：
+            1、同一个事件类型，可以绑定多个事件处理函数
+            2、事件流（冒泡、捕获）
+          缺点：兼容性低(IE9以下不支持)
+    */
   </script>
 </body>
+
 </html>
