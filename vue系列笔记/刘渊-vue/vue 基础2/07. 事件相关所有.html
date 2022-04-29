@@ -17,24 +17,43 @@
     <button v-on:click="test1">test2</button>
 
 
+
     <!-- 事件回调函数如果我们想要传递自己的参数，那么默认的时间对象的参数会被覆盖 -->
     <button @click="test3('zhaoliying')">test3</button>
 
     <!-- 事件回调函数如果我们想要传递自己的参数，如果还想要用到事件对象，此时需要手动传递事件对象。$event的位置是在第一个位置还是在最后一个位置，由你决定。 -->
     <button @click="test4('yangmi',$event)">test4</button>
 
+
+
     <!-- 事件的阻止冒泡 js原生：event.stopPropagation() -->
     <div style="width:200px; height:200px;background-color:red;" @click="outer1">
       <div style="width:100px; height:100px;background-color:blue;" @click="inner1">原生</div>
     </div><br><br>
 
-    <!-- 事件的阻止冒泡 vue：.stop -->
+    <!-- 事件的阻止冒泡 vue事件修饰符：.stop -->
     <div style="width:200px; height:200px;background-color:green;" @click="outer2">
       <div style="width:100px; height:100px;background-color:yellow;" @click.stop="inner2">vue</div>
     </div>
 
 
-    <!-- 事件是阻止默认行为 js原生： -->
+
+    <!-- 事件的阻止默认行为 js原生：event.preventDefault() -->
+    <a href="https://www.baidu.com" target="_blank" @click="goBaidu1">js原生跳转</a>
+
+    <!-- 事件的阻止默认行为 Vue事件修饰符：.prevent -->
+    <a href="https://www.baidu.com" target="_blank" @click.prevent="goBaidu2">vue跳转</a>
+
+
+
+    <!-- 键盘事件都用在表单类元素或者document身上 -->
+    <!-- 键盘事件：js原生 -->
+    <input type="text" @keyup="keyEnter1">
+
+    <!-- 键盘事件：vue按键修饰符 .enter -->
+    <input type="text" @keyup.enter="keyEnter2">
+    <input type="text" @keyup.13="keyEnter2">
+    <!-- vue中封装的按键修饰符一共有：.enter .tab .delete .esc .space .up .down .left .right -->
   </div>
 
   <script>
@@ -71,6 +90,21 @@
         },
         inner2() {
           console.log('inner2');
+        },
+        goBaidu1(event) {
+          event.preventDefault();
+          console.log('原生js阻止了，跳不了');
+        },
+        goBaidu2() {
+          console.log('vue阻止了，跳不了');
+        },
+        keyEnter1(event) {
+          if(event.keyCode === 13) {
+            console.log('我是js回车');
+          }
+        },
+        keyEnter2() {
+          console.log('我是vue回车');
         }
       }
     })
@@ -111,6 +145,9 @@
             1、同一个事件类型，可以绑定多个事件处理函数
             2、事件流（冒泡、捕获）
           缺点：兼容性低(IE9以下不支持)
+
+      什么是表达式？
+        - 由变量或常量组成的式子叫作表达式。如：fn(), a + b;
     */
   </script>
 </body>
