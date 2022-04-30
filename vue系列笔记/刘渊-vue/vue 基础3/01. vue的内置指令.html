@@ -10,18 +10,29 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <p>{{ msg }}</p>
+    <p v-text="message"></p>
+    <p v-html="message"></p>
+    <p ref="pp"></p>
+    <button @click="test">点击获取最后一个p</button>
+  </div>
 
   <script>
+    Vue.config.productionTip = false;
     const vm = new Vue({
       el: '#app',
       data() {
         return {
-
+          msg: '我爱你赵丽颖',
+          message: '<h2>I love you</h2>'
         }
       },
       methods: {
-
+        test() {
+          // console.log(this.$refs.pp);
+          this.$refs.pp.innerText = '我爱你杨幂';
+        }
       }
     })
 
@@ -36,7 +47,8 @@
       8. v-else-if
       9. v-else
       10. v-for
-      11. v-once：只会执行一次渲染，当数据发生变化时，不会再改变(不常用)
+      11. ref：是vue当中给我们提供的一个标识，可以通过这个标识数据拿到dom元素
+      12. v-once：只会执行一次渲染，当数据发生变化时，不会再改变(不常用)
       v-once 举例：
       // <div id="app">
       //     <p v-once>{{msg}}</p>
