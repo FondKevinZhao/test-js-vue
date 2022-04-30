@@ -12,8 +12,60 @@
       // String 对象
         string ---> 字符串类型 ---> 基本类型
         String ---> 字符串类型 ---> 引用类型
+
+      字符串对象 --- String 对象
+      MDN：String 全局对象是一个用于字符串或一个字符序列的构造函数。
+
+      字符串的特性：不可变性。字符串的值是不能改变的。
+        理解：
+          - 如果你要单独写就是值类型。如：var str = '你好';
+          - 如果你要new了就是引用类型。如： var str = new String('我好');
+        解释：
+          var str = 'aaa';
+          str = 'bbb'; // 重新赋值了，但是'aaa',其实还存在于栈中，字符串的值之所以看起来是改变的，那是因为指向改变了，并不是真的值改变了
+          console.log(str); // bbb
+        使用对象的方式来解释不可变性：
+          var str = 'hello';
+          // 可以对字符串遍历并且进行访问 --- 只读
+          for(var i = 0; i < str.length; i++) {
+            console.log(str[i]);
+          }
+          // 但是不能修改 --- 不能修改
+          str[1] = "W";
+          console.log(str); // hello
     */
     
+    // var str1 = '90';
+    // var str2 = '中文/汉语';
+    // var str3 = 'español';
+    // var str4 = 'English ';
+    // var str5 = 'हिन्दी';
+    // var str6 = 'العربية';
+    // var str7 = 'বাংলা';
+    // var str8 = '日本語';
+
+    
+    // js中没有字符类型
+    // 字符类型(别的语言中)
+    /* 
+      整数类型：int num = 10;
+      浮点数(小数)类型：float num2 = 90.4
+      字符类型(必须用单引号)：char ch = 'h'; // 值：允许有一个
+      字符串类型(必须用双引号)：string str = "hello";
+    */
+    // 字符串是可以看成多个字符组合成的数组
+    // js 中如论是单引号的还是双引号的都是字符串
+
+    /* var a = 'hello';
+    var b = "hello";
+    console.log('ab', a === b); // true */
+
+
+    var str = 'hello'; // 可以看成是一个字符数组
+    // 字符串是可以遍历的
+    for (var i = 0; i < str.length; i++) {
+      console.log(i + '---' + str[i]);
+    }
   </script>
 </body>
 </html>
