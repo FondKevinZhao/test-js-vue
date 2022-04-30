@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      创建数组的方法有两种：
+        1. 构造函数的方式
+        var arr = new Array();
+
+        2. 字面量的方式
+        var arr2 = [];
+
+      Array 的静态方法：总共只有三个
+        - Array.isArray(对象)：判断这个对象是不是数组
+
+        - Array.from()：伪数组转数组。返回一个新的数组。
+          - 如：dom对象中的document.getElementsByTagName();
+          - 如：document.querySelectorAll('')
+          - 如：函数中的arguments
+
+        - Array.of()：创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。(基本不用)
+          - MDN举例：
+            Array.of(7);       // [7]
+            Array.of(1, 2, 3); // [1, 2, 3]
+
+            Array(7);          // [ , , , , , , ]
+            Array(1, 2, 3);    // [1, 2, 3]
+      
+      Array 的实例方法(有prototype)：
+        - Array.prototype.concat(value1[,valu2...])：拼接数组
+
+        - Array.prototype.every(函数)：返回值是布尔类型。函数作为参数使用，函数中有三个参数，第一个参数是元素的值，第二个参数是索引值，第三个参数是原来的数组(第三个参数一般不用); 如果这个数组中的每个元素的值都符合条件，最后才返回的是true。
+
+        - Array.prototype.filter()：
+
+    */
+
+
+    // 判断数组是不是数组类型：两种
+    /* var arr = [1, 2, 4];
+    // 第一种：instanceof
+    console.log(arr instanceof Array); // true
+
+    // 第二种：Array.isArray() 是静态方法
+    // 注意：这样写 arr.isArray() 或 arr.isArray(arr); 会报错
+    console.log(Array.isArray(arr)); // true
+
+    // 第三种(这种我加上去的)
+    var arr = Object.prototype.toString.call(arr).slice(8,-1).toLowerCase();
+    console.log(arr); // 'array' */
+
+
+
+    // Array.from() 伪数组转数组。返回一个新的数组
+    /* var arr = 'abc';
+    console.log(Array.from(arr)); // ['a', 'b', 'c'] */
+
+
+
+    // Array.prototype.concat(value1[,valu2...])
+    /* var arr1 = [1, 2, 3];
+    var arr2 = [4, 5, 6];
+    console.log(arr1.concat(arr2)); // [1, 2, 3, 4, 5, 6]
+    console.log([...arr1, ...arr2]); // [1, 2, 3, 4, 5, 6] */
+
+
+
+    // MDN: Array.prototype.every(callback(element[, index[, array]])[, thisArg]) 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。
+    /* var arr = [1000, 2000, 3000];
+    var flag = arr.every(function (item, index, array) {
+      // 数组中的每个元素的值都要大于2000的情况，最后才返回true
+      return item > 2000;
+    })
+    console.log(flag); // false */
+
+    /* var arr = ['小明明', '小dd', 'aaa', 'bbb'];
+    var flag = arr.every(function(item, index) {
+      return item.length >= 3;
+    })
+    console.log(flag); // true */
+
+
+
+    // Array.prototype.filter()
+  </script>
+</body>
+
+</html>
