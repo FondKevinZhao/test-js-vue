@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      display: inline-block;
+      width: 300px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dv"></div>
+  <button id="btn">点击我变色</button>
+
+
+  <script>
+    // 随机产生一个十六进制的颜色值
+    // 封装成一个函数来写
+    function getColor() {
+      var str = "#";
+      // 一个十六进制的值的数组
+      var arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+      for(var i = 0; i < 6; i++) {
+        // 产生的每个随机数都是一个索引，根据索引找到数组中对应的值，然后拼接到一起
+        var num = parseInt(Math.random()*16); // 0-15的随机数索引
+        str += arr[num];
+      }
+      return str;
+    }
+    console.log(getColor()); // 可以打印十六进制的颜色值
+
+    // 下面是展示到页面上的效果：
+    window.onload = function() {
+      var dv = document.getElementById('dv');
+      var btn = document.getElementById('btn')
+      btn.onclick = function() {
+        dv.style.backgroundColor = getColor();
+      }
+    }
+  </script>
+</body>
+
+</html>
