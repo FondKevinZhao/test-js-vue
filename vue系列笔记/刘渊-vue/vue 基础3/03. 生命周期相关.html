@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ isShow }}</p>
+  </div>
+
+  <script>
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+      el: '#app',
+      // 模板本身应该在这里写的，只是这里写标签不方便，不会提示也不会换行，所以放在上面写了
+      // template: '<p>{{ isShow }}</p>',
+      data() {
+        return {
+          isShow: true,
+        }
+      },
+      // 初始化阶段有两个钩子：beforeCreate()、created()
+      // 初始化之前最大的特点：数据还没有代理好，打印不到
+      beforeCreate() {
+        console.log(this); // Vue 实例化对象
+        console.log(this.isShow); // undefined
+      },
+      // 初始化之后：数据就能被访问了
+      created() {
+        console.log(this.isShow); // true
+      },
+    })
+  </script>
+</body>
+</html>
