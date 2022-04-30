@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 引入封装的日期格式函数 -->
+  <script src="./common.js"></script>
+  <script>
+    // 格式化后的指定格式的日期和时间 --- 封装成一个函数
+    /* function getDate(dt) {
+      // 获取年
+      var year = dt.getFullYear();
+      // 获取月
+      var month = dt.getMonth() + 1;
+      // 获取日
+      var day = dt.getDate();
+      // 获取小时
+      var hour = dt.getHours();
+      // 获取分钟
+      var minute = dt.getMinutes();
+      // 获取秒
+      var second = dt.getSeconds();
+
+      // 补0操作
+      month = month < 10 ? "0" + month : month;
+      day = day < 10 ? "0" + day : day;
+      hour = hour < 10 ? "0" + hour : hour;
+      minute = minute < 10 ? "0" + minute : minute;
+      second = second < 10 ? "0" + second : second;
+
+      // return "2017年08月23日 11:12:23";
+      return year + '年' + month + '月' + day + '日 ' + hour + ':' + minute + ':' + second
+    } */
+    var result = getDate(new Date());
+    console.log(result);
+  </script>
+</body>
+
+</html>

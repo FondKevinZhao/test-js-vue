@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      备注(MDN)：
+          创建一个新Date对象的唯一方法是通过new 操作符，例如：let now = new Date();
+          若将它作为常规函数调用（即不加 new 操作符），将返回一个字符串，而非 Date 对象。
+    */
+
+    // 创建实例对象
+    /* var dt = new Date();
+    // 当前的时间 --- 针对我当前电脑的时间
+    console.log(dt); // Sat Apr 30 2022 12:34:43 GMT+0800 (中国标准时间) */
+
+
+
+    // 可以自己传入时间
+    /* var dt = new Date('2017-8-12'); 
+    console.log(dt); // Sat Aug 12 2017 00:00:00 GMT+0800 (中国标准时间) */
+    
+
+
+    // 也可以直接传数字
+    // var dt = new Date(2017, 08, 12);
+    // console.log(dt); // Tue Sep 12 2017 00:00:00 GMT+0800 (中国标准时间)
+
+
+
+    // 也可以直接传斜杠
+    // var dt = new Date(2017/08/12);
+    // console.log(dt); // Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)
+
+
+
+    // 得到毫秒数
+    // 方法一：
+    /* var hms1 = Date.now();
+    console.log(hms1); // 1651294420235
+
+    // 方法二：new Date()得到
+    var hms2 = + new Date();
+    console.log(hms2); // 1651294420235
+
+    // 方法三：new Date()得到
+    var hms3 = new Date().getTime();
+    console.log(hms3); // 1651294420235
+
+    // 方法四：new Date()得到。.valueOf()是非标准的(MDN)
+    var hms4 = new Date().valueOf();
+    console.log(hms4); // 1651294420235 */
+
+
+
+    // 获取年、月、日
+    /* 
+      var dt = new Date();
+      // 获取年份
+      console.log(dt.getFullYear()); // 2022
+      // 获取月份(从 0 开始，所以真实的月份需要 + 1)
+      console.log(dt.getMonth() + 1); // 4
+      // 获取日
+      console.log(dt.getDate()); // 30
+      // 获取小时
+      console.log(dt.getHours()); // 13
+      // 获取分钟
+      console.log(dt.getMinutes()); // 9
+      // 获取秒
+      console.log(dt.getSeconds()); // 19
+      // 获取星期(星期是从0开始的，0指的星期日，所以对我们没有什么困扰)
+      console.log(dt.getDay()); // 6 
+    */
+
+
+    
+    // dt.toSting()
+    /* 
+      var dt = new Date();
+      // dt在打印的时候，默认调用了.toString()的方法，所以两个打印的结果是一样的
+      console.log(dt); // Sat Apr 30 2022 13:13:33 GMT+0800 (中国标准时间)
+      console.log(dt.toString()); // Sat Apr 30 2022 13:13:33 GMT+0800 (中国标准时间) 
+    */
+
+
+
+    // dt.toDateString() 和 dt.toLocaleDateString()
+    var dt = new Date();
+    console.log(dt.toDateString()); // Sat Apr 30 2022
+    console.log(dt.toLocaleDateString()); // 2022/4/30
+
+
+
+    // dt.toTimeString() 和 dt.toLocaleTimeString()
+    var dt = new Date();
+    // 输出的是：时分秒
+    console.log(dt.toTimeString()); // 13:20:13 GMT+0800 (中国标准时间)
+    // 输出的是：时分秒
+    console.log(dt.toLocaleTimeString()); // 13:20:13
+  </script>
+</body>
+</html>
