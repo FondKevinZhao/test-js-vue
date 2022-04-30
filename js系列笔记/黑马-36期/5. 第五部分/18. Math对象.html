@@ -25,6 +25,7 @@
         - Math.abs(值) --- 绝对值
         - Math.ceil(值)  --- 向上取整
         - Math.floor(值) --- 向下取整
+        - Math.round(值) 函数返回一个数字四舍五入后最接近的整数。
         - Math.max(一组数) --- 求最大值
         - Math.min(一组数) --- 求最小值
         - Math.pow(base, exponent) --- 返回基数（base）的指数（exponent）次幂，即 base^exponent
@@ -71,6 +72,21 @@
 
 
 
+    // Math.round(值) 四舍五入
+    console.log(Math.round(12.3)); // 12
+    console.log(Math.round(12.9)); // 13
+    console.log(Math.round(12.09)); // 12
+    console.log(Math.round(12.03)); // 12
+    console.log(Math.round(12.92)); // 13
+    console.log(Math.round(12.00000001)); // 12
+    console.log(Math.round(-12.92)); // -13
+    console.log(Math.round(1.5)); // -2
+    console.log(Math.round(-1.5)); // -1
+    console.log(Math.round(-2.5)); // -2
+    console.log(Math.round(-2.6)); // -3
+
+
+
     // Math.max(一组数) --- 求最大值
     // console.log(Math.max(10, 1, 100, 200, 45, 78)); // 200
 
@@ -92,19 +108,19 @@
 
 
     // Math.sqrt(值) --- 平方根
-    console.log(Math.sqrt(9)); // 3
-    console.log(Math.sqrt(81)); // 9
+    // console.log(Math.sqrt(9)); // 3
+    // console.log(Math.sqrt(81)); // 9
 
 
 
     // Math.random() 随机浮点数
-    console.log(Math.random()); // 得到一个[0, 1]的随机浮点数
-    // 0-5之间的随机数
-    console.log(parseInt(Math.random() * 6));
-    // 1-5之间的随机数
-    console.log(parseInt(Math.random()  * 5 + 1));
-    // 1-100之间的随机数
-    console.log(parseInt(Math.random()  * 100 + 1));
+    // console.log(Math.random()); // 得到一个[0, 1]的随机浮点数
+    // // 0-5之间的随机数
+    // console.log(parseInt(Math.random() * 6));
+    // // 1-5之间的随机数
+    // console.log(parseInt(Math.random()  * 5 + 1));
+    // // 1-100之间的随机数
+    // console.log(parseInt(Math.random()  * 100 + 1));
   </script>
 </body>
 </html>
