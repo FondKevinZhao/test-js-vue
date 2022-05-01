@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 将一个字符串数组输出为|分割的形式，比如"刘备|关羽|张飞"。使用两种方式实现
+    // 方法一：join()
+    // var arr = ['刘备', '关羽', '张飞'];
+    // console.log(arr.join('|')); // 刘备|关羽|张飞
+
+    // 方法二：forEach()
+    /* var arr = ['刘备', '关羽', '张飞'];
+    var str = ''
+    arr.forEach(function (item, index) {
+      if(index != arr.length - 1) {
+        str += item + '|';
+      } 
+      if (index === arr.length -1) {
+        str = str + item;
+      }
+    })
+    console.log(str); */
+
+
+
+
+    // 将一个字符串数组的元素的顺序进行翻转。['a', 'b', 'c', 'd']; --> ['d', 'c', 'b', 'a']。使用两种方式实现。提示：第i个和length-i-1个进行交换
+    // 方法一：
+    /* var arr = ['a', 'b', 'c', 'd'];
+    console.log(arr.reverse()); // ['d', 'c', 'b', 'a'] */
+
+    // 方法二：
+    /* var arr = ['a', 'b', 'c', 'd'];
+    for (var i = 0; i < arr.length / 2; i++) {
+      // 先把第一个元素的值方在第三方变量中
+      var temp = arr[i];
+      // 把后面的元素一次给到前面
+      arr[i] = arr[arr.length - 1 - i];
+      // 把第三方变量的值依次给到后面
+      arr[arr.length - 1 - i] = temp;
+    }
+    console.log(arr); // ['d', 'c', 'b', 'a'] */
+
+
+
+    // 工资的数组[1500, 1200, 2000, 2100, 1800, 2300],把工资超过2000的删除
+    // 方法一：
+    /* var arr = [1500, 1200, 2000, 2100, 1800, 2300];
+    var newArr = arr.filter(function(item, index) {
+      return item > 2000;
+    });
+    console.log(newArr); // [2100, 2300] */
+
+    // 方法二：map不适合做筛查，可以做每项加减乘除之类的
+    /* var arr = [1500, 1200, 2000, 2100, 1800, 2300];
+    var newArr = arr.map(function(item, index) {
+      return item + 10;
+    })
+    console.log(newArr); // [1510, 1210, 2010, 2110, 1810, 2310] */
+
+    // 方法三：
+    /* var arr = [1500, 1200, 2000, 2100, 1800, 2300];
+    var newArr = [];
+    arr.forEach(function(item, index) {
+      if(item > 2000 ) {
+        newArr[newArr.length] = item;
+      }
+    })
+    console.log(newArr); // [2100, 2300] */
+
+    // 方法四：
+    /* var arr = [1500, 1200, 2000, 2100, 1800, 2300];
+    var newArr = [];
+    for(var i = 0; i < arr.length; i++) {
+      if(arr[i] > 2000) {
+        newArr.push(arr[i]);
+      }
+    }
+    console.log(newArr); // [2100, 2300] */
+
+
+
+    // ['c', 'a', 'z', 'a', 'x', 'a']找到数组中每一个a出现的位置
+    // 方法一：
+    /* var arr = ['c', 'a', 'z', 'a', 'x', 'a'];
+    var newArr = [];
+    for(var i = 0; i < arr.length; i++) {
+      if(arr[i] == 'a') {
+        newArr[newArr.length] = i;
+      }
+    }
+    console.log(newArr); // [1, 3, 5] */
+
+    // 方法二：
+    /* var arr = ['c', 'a', 'z', 'a', 'x', 'a'];
+    var newArr = [];
+    arr.forEach(function(item, index) {
+      if(item === 'a') {
+        newArr.push(index);
+      }
+    });
+    console.log(newArr); // [1, 3, 5] */
+
+
+
+    // 编写一个方法去掉一个数组的重复元素
+    
+  </script>
+</body>
+
+</html>
