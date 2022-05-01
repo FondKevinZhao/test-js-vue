@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,12 @@
   <title>Document</title>
   <script src="./vue.js"></script>
 </head>
+
 <body>
   <div id="app">
-    <p>{{ isShow }}</p>
+    <p ref="pp">我爱你 {{ isShow? '赵丽颖': '杨幂' }}</p>
+
+    <button @click="destroy">点击销毁实例</button>
   </div>
 
   <script>
@@ -23,6 +27,14 @@
           isShow: true,
         }
       },
+      methods: {
+        destroy() {
+          this.$destroy(); // 必须在某个特定的场合下自己手动调用this.$destroy，才能进入销毁的阶段
+        }
+      },
+
+
+
       // 初始化阶段有两个钩子：beforeCreate()、created()
       // 初始化之前最大的特点：数据还没有代理好，打印不到
       beforeCreate() {
@@ -33,7 +45,56 @@
       created() {
         console.log(this.isShow); // true
       },
+
+
+
+      // 挂载阶段：挂载前和挂载后
+      // 挂载前：真实dom没有挂载
+      beforeMount() {
+        console.log('beforeMount', this.$refs.pp); // beforeMount undefined
+      },
+      // 挂载后：真实dom挂载完毕
+      mounted() {
+        // 这个钩子用的是最多的
+        // 一般用于发送Ajax请求获取数据
+        // 还用于开启定时器
+        // 还用于添加一些事件
+        console.log('mounted', this.$refs.pp); // mounted <p>true</p>
+
+        this.timer = setInterval(() => {
+          this.isShow = !this.isShow;
+        }, 2000)
+      },
+
+      // 前两个阶段(初始化阶段和挂载阶段)完成：代表初始化页面展示就完成了
+
+
+
+      // 更新阶段：更新前和更新后
+      // 更新前：vm数据更新了，页面数据未更新
+      beforeUpdate() {
+        // 你看后面的结果赵丽颖应该是true，但是在beforeUpdate中对应的是false
+        console.log('beforeUpdate', this.$refs.pp.innerHTML, this.isShow);
+      },
+      // 更新后：vm数据更新了，页面也更新了
+      updated() {
+        console.log('updated', this.$refs.pp.innerHTML, this.isShow);
+      },
+
+
+
+      // 销毁阶段(必须要调用一个方法)：销毁前和销毁后
+      // 销毁前：取消定时器，解绑事件，解绑事件监听和子组件
+      beforeDestroy() {
+        clearInterval(this.timer); // 定时器管理模块会把这个定时器停止，但是并没有把这个编号从timer当中销毁
+        this.timer = null;
+      },
+      // 销毁后(基本用不到)
+      destroyed() {
+        console.log('vm销毁了');
+      }
     })
   </script>
 </body>
+
 </html>
