@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="点我修改value属性" id="btn" />
+  <script>
+    // 点击按钮修改按钮的value属性
+    // 获取元素
+    var btn = document.getElementById('btn');
+
+    // 给元素注册点击事件，并添加事件回调
+    btn.onclick = function() {
+      // 在某个元素的事件中，那么自己的事件中的this就是这个元素对象
+      this.value = '我被修改了';
+      this.type = 'text';
+      this.id = 'btn2';
+    }
+  </script>
+</body>
+
+</html>
