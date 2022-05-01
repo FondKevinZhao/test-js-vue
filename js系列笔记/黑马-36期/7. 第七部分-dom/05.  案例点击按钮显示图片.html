@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="显示图片" id="btn">
+  <img alt="" id="im">
+
+  <script>
+    // 点击按钮显示图片：点击按钮的时候设置img标签的src属性，有一个图片的路径
+    // 根据id获取按钮
+    var btn = document.getElementById('btn');
+    var im = document.getElementById('im');
+
+    // 为按钮注册点击事件，添加事件处理函数
+    btn.onclick = function() {
+      // 给图片设置src属性值
+      im.src = './dom树.png';
+      // 给图片设置宽度
+      im.width = '500'; // 不能加px
+    }
+
+    // 根据id获取图片的标签，设置图片的src属性值
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击设置p标签的内容" id="btn" />
+  <p id="pp1">快来修改我1</p>
+  <p id="pp2">快来修改我2</p>
+  <p id="pp3">快来修改我3</p>
+
+  <script>
+    // 案例：点击按钮，修改p标签的显示内容
+    // 获取元素
+    var btn = document.getElementById('btn');
+    var pObj1 = document.getElementById('pp1');
+    var pObj2 = document.getElementById('pp2');
+    var pObj3 = document.getElementById('pp3');
+    
+      
+    // 给元素绑定点击事件
+    btn.onclick = function() {
+      // 经验：凡是成对的标签，中间的文本内容，设置的时候，都使用innerText这个属性
+      pObj1.innerText = '</h1>你很嚣张哦！</h1>'
+      pObj2.innerHTML = '<h1>看我大不大</h1>'
+      pObj3.textContent = '<h1>你很嚣张哦！</h1>'
+    }
+  </script>
+</body>
+</html>

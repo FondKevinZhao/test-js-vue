@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="ipt" type="button" value="弹框1">
+  <input id="ipt1" type="button" value="弹框2">
+  <script>
+    // DOM: 文档对象模型，操作页面元素的
+    var ipt = document.getElementById('ipt');
+    var ipt1 = document.getElementById('ipt1');
+    // DOM0 绑定事件
+    ipt.onclick = function() {
+      alert('我弹出来了');
+    }
+
+    // DOM2 绑定事件(标准) IE9及以上的浏览器
+    ipt1.addEventListener('click', function() {
+      alert('我又弹出来了');
+    })
+  </script>
+</body>
+</html>
