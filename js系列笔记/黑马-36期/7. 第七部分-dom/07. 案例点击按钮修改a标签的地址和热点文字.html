@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击修改a标签" id="btn">
+  <a href="#" id="setA">我可以被修改吗？</a>
+  <script>
+    /* 
+      热点文字：a 标签中间的文字叫热点文字。如:<a href='#'>百度</a>，这个 "百度" 就是热点文字。
+    */
+   
+    // 点击按钮修改a标签的地址和热点文字
+    // 获取元素
+    var btn = document.getElementById('btn');
+    var setA = document.getElementById('setA');
+
+    // 给元素注册点击事件，并且添加回调函数
+    btn.onclick = function() {
+      setA.href = 'https://www.baidu.com';
+      setA.target = '_blank';
+      setA.innerText = '你已经被修改了，试试吧';
+    };
+
+
+  </script>
+</body>
+</html>
