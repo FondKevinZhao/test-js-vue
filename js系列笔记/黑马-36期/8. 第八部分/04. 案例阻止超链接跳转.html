@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <a href="https://www.baidu.com" target="_blank" id="aObj">我被阻止跳转了</a> -->
+  <a href="https://www.baidu.com" target="_blank" id="aObj" return false>被阻止跳转了</a>
+
+  <script>
+    // 阻止超链接跳转
+    var aObj = document.getElementById('aObj');
+
+    // 方法一：(不推荐)
+    /* aObj.onclick = function() {
+      return false;
+      //只有一行代码也可以写在元素里面，如：<a href="https://www.baidu.com" return false>
+    } */
+
+    // 方法二：(推荐)
+    // 要用到event事件对象
+    aObj.onclick = function(e) {
+      e.preventDefault();
+    }
+  </script>
+</body>
+
+</html>
