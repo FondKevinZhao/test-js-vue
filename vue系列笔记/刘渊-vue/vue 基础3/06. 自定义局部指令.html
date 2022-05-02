@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p v-text="msg"></p>
+    <p v-upper="msg"></p>
+    <p v-lower="msg"></p>
+  </div>
+
+  <script>
+    /* 
+      自定义指令：定义全局指令和局部指令
+      // 功能   参数    返回值
+      功能：定义全局指令
+      参数：1. 指令名称(1. 不包含v-。2. 只能是全小写)。2. 回调函数(参数1(代表使用这个指令的那个节点，我们这个案例是p节点)，参数2(这指令使用的表达式的值以及表达式的集合))
+      Vue.directive('upper', function(node, bindings) {
+        console.log(node, bindings);
+      })
+    */
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'i love you zhoa li ying'
+        }
+      },
+      directives: { // 可写多个指令
+        // upper 为指令名
+        upper(node, bindings) {
+          node.textContent = bindings.value.toUpperCase();
+        },
+        // lower 为指令名
+        lower(node, bindings) {
+          node.textContent = bindings.value = '我是lower';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
