@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cls {
+      background-color: black;
+    }
+  </style>
+</head>
+<body id="bd">
+  <input type="button" value="关灯" id="btn">
+
+  <!-- 引入获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 网页开关灯
+    my$('btn').onclick = function() {
+      // 获取body可以这样：my$('bd')
+      // 获取body也可以这样：document.body，body后面没有括号
+      // document.body.className = 'cls';
+      if(document.body.className != 'cls') {
+        document.body.className = 'cls';
+        btn.value = '开灯';
+      } else {
+        document.body.className = '';
+        btn.value = '关灯';
+      }
+    }
+  </script>
+</body>
+</html>
