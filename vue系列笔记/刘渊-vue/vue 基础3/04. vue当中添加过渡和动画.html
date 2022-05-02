@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,70 @@
   <title>Document</title>
   <script src="./vue.js"></script>
   <style>
-    *{
+    * {
       margin: 0;
       padding: 0;
     }
-    
-    .box{
+
+    .box {
       width: 300px;
       height: 500px;
       background-color: hotpink;
     }
+
+    /* 进入阶段的三个类名 */
+    .slide-enter {
+      height: 0;
+      opacity: 0;
+      background-color: black;
+    }
+
+    .slide-enter-to {
+      height: 500px;
+      opacity: 1;
+      background-color: hotpink;
+    }
+
+    .slide-enter-active {
+      transition: all 5s;
+    }
+
+    /* 离开阶段的类名 */
+    .slide-leave {
+      height: 500px;
+      opacity: 1;
+      background-color: red;
+    }
+
+    .slide-leave-active {
+      transition: all 10s;
+    }
+
+    .slide-leave-to {
+      height: 0;
+      opacity: 0;
+      background-color: blue;
+    }
   </style>
 </head>
+
 <body>
   <div id="app">
-    <div class="box" v-show="isShow"></div>
+    <transition name="slide">
+      <div class="box" v-show="isShow"></div>
+    </transition>
     <button @click="isShow = !isShow">点击切换</button>
   </div>
-
+  <!-- 
+    过渡的步骤：
+      1. 找模板中变化的那个元素
+      2. 在变化的元素的外部添加<transition></transition>包裹，这个transition标签是vue给的。
+      3. 给transition添加name属性，这个name属性值是v-enter,v-enter-active, v-enter-to的v是name属性值
+      4. 进入阶段：在style中写样式：slide-enter, slide-enter-active, slide-enter-to
+      5. 离开阶段：在style中写样式：slide-leave-to,slide-leava-active, slide-leave
+      
+    动画和过渡写法一样，平时也不用就不演示了
+   -->
   <script>
     Vue.config.productionTip = false;
 
@@ -38,4 +85,5 @@
     })
   </script>
 </body>
+
 </html>
