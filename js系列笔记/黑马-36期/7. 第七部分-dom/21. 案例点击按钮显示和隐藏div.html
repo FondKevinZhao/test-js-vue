@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    div{
+    div {
       width: 200px;
       height: 200px;
       background-color: red;
     }
   </style>
 </head>
+
 <body>
-  <input type="button" value="点我隐藏div" id="btn">
-  <input type="button" value="点我显示div" id="btn2"><br><br>
+  <input type="button" value="点我显示" id="btn"><br><br>
   <div id="dv"></div>
 
   <!-- 引入获取元素 -->
   <script src="./common.js"></script>
   <script>
-    // 点我隐藏div
-    my$('btn').onclick = function() {
-      my$('dv').style.display = 'none';
-    }
-
-    // 点我显示div
-    my$('btn2').onclick = function() {
-      my$('dv').style.display = 'block';
+    // 点我显示和隐藏div
+    my$('btn').onclick = function () {
+      // 判断当前点击的按钮的value属性值
+      if(this.value == '点我隐藏') {
+        my$('dv').style.display = 'none';
+        this.value = '点我显示'
+      } else if(this.value == '点我显示') {
+        my$('dv').style.display = 'block';
+        this.value = '点我隐藏'
+      }
     }
   </script>
 </body>
+
 </html>

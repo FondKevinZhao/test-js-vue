@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cls{
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="设置样式" id="btn"><br><br>
+  <div id="dv" ></div>
+
+  <!-- 引入获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 点击按钮改变div的样式
+    my$('btn').onclick = function() {
+      // 方法一：
+      /* my$('dv').style.width = '300px';
+      my$('dv').style.height = '300px';
+      my$('dv').style.backgroundColor = 'yellow';
+      my$('dv').style.border = '10px solid red'; */
+
+      // 方法二：
+      /* var setStyle = my$('dv').style
+      setStyle.width = '300px';
+      setStyle.height = '300px';
+      setStyle.backgroundColor = 'yellow';
+      setStyle.border = '10px solid red'; */
+
+      // 方法三：加class类选择器(样式比较多的时候用，更方便)
+      // 注意：在js代码中DOM操作的时候，设置元素的类样式，不用class关键字，应该是用className
+      my$('dv').className = 'cls'
+    }
+  </script>
+</body>
+</html>

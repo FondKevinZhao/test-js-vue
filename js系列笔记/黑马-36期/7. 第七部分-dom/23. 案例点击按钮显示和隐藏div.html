@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      border: 1px solid red;
+    }
+
+    .cls {
+      display: none;
+    }
+
+    .block {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="设置样式" id="btn"><br><br>
+  <div id="dv"></div>
+
+  <!-- 引入获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 点击按钮通过类样式的方式设置div的显示和隐藏
+    my$('btn').onclick = function() {
+      // console.log(my$('dv').className); // 没有值的时候显示，有值的时候是隐藏
+      // 判断的是div是否引用了类样式
+      if(my$('dv').className != 'cls') {
+        // 现在是显示的，应该隐藏
+        my$('dv').className = 'cls';
+        this.value = '显示';
+      } else {
+        // 现在是隐藏，立刻显示
+        my$('dv').className = '';
+        this.value = '隐藏';
+      }
+    }
+  </script>
+</body>
+</html>
