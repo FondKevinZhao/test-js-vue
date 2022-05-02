@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入vue -->
+  <script src="./vue.js"></script>
+  <!-- 引入moment.js -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.3/moment.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ timeNow }}</p>
+    <p>{{ timeNow | timeFormat }}</p>
+  </div>
+
+  <script>
+    /* 
+      vue当中的过滤器可以理解成是为了让数据进一步的计算，得到最终的结果
+
+      定义全局过滤器和局部过滤器
+      Vue.filter('过滤器的名字', 回调函数(谁用到了这个过滤器，谁就会把数据传给这个回调函数));
+      Vue.filter('timeFormat', function(value) {
+        // 这个value就是timeNow的数据
+      })
+    */
+    // 定义全局过滤器
+    Vue.filter('timeFormat', function(value) {
+      return moment(value).format('YYYY-MM-DD hh:mm:ss');
+    }),
+
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          timeNow: Date.now(), // 当前毫秒数(时间戳)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
