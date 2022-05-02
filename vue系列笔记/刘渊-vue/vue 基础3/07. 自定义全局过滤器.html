@@ -14,8 +14,12 @@
 
 <body>
   <div id="app">
+    <!-- 毫秒数 -->
     <p>{{ timeNow }}</p>
+    <!-- 过滤器未传参，用默认传参 -->
     <p>{{ timeNow | timeFormat }}</p>
+    <!-- 过滤器传参 -->
+    <p>{{ timeNow | timeFormat('YYYY-MM-DD') }}</p>
   </div>
 
   <script>
@@ -29,11 +33,12 @@
       })
     */
     // 定义全局过滤器
-    Vue.filter('timeFormat', function(value) {
-      return moment(value).format('YYYY-MM-DD hh:mm:ss');
+    Vue.filter('timeFormat', function (value, format = "YYYY-MM-DD hh:mm:ss") {
+      // format(format),这个通过参数传进来的format，是一个是一个时间格式，如果你没有传，就用默认的，如果你传了格式进来，那就用你穿进来的格式,请参考上面的第二个和第三个p标签。
+      return moment(value).format(format);
     }),
 
-    Vue.config.productionTip = false;
+      Vue.config.productionTip = false;
     const vm = new Vue({
       el: '#app',
       data() {
