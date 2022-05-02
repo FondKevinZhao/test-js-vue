@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 性别 -->
+  <input type="button" value="修改性别" id="btn1">
+  <input type="radio" value="1" name="sex" checked> 男
+  <input type="radio" value="2" name="sex" id="rad1"> 女
+  <input type="radio" value="3" name="sex"> 保密 <br><br><br>
+
+  <!-- 兴趣 -->
+  <input type="button" value="修改兴趣" id="btn2">
+  <input type="checkbox" value="1" name="xingqu" checked>吃饭
+  <input type="checkbox" value="2" name="xingqu" checked>睡觉
+  <input type="checkbox" value="3" name="xingqu" id="ck1">打豆豆
+  <input type="checkbox" value="4" name="xingqu">打篮球
+  <input type="checkbox" value="5" name="xingqu">打足球
+  <input type="checkbox" value="6" name="xingqu" id="ck2">打铅球
+
+  <script>
+    // 点击按钮修改性别和兴趣
+    // 规律(也是经验)：在表单标签中，如果属性和值只有一个，并且值是这个属性本身，那么在写js代码DOM操作的时候，这个属性的值是布尔类型就可以了
+    // 封装获取元素
+    function my$(id) {
+      // 函数一定要return，不然返回值是undefined，再使用，会报错
+      return document.getElementById(id);
+    }
+
+    // 修改性别
+    my$('btn1').onclick = function() {
+      my$('rad1').checked = true;
+    }
+
+    // 修改兴趣
+    my$('btn2').onclick = function() {
+      my$('ck1').checked = true;
+      my$('ck2').checked = true;
+    }
+
+  </script>
+</body>
+
+</html>

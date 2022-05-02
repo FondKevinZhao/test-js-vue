@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="设置样式" id="btn"><br><br>
+  <!-- div.style.width：style是div的属性，width是style的属性 -->
+  <!-- <div id="dv" style="width:200px"></div> -->
+  <div id="dv"></div>
+  
+  <script src="./common.js"></script>
+  <script>
+    // 点击按钮，修改div的宽、高、背景颜色
+    my$('btn').onclick = function() {
+      my$('dv').style.width = '200px';
+      my$('dv').style.height = '200px';
+      // 凡是css中真个属性时多个单词的写法，在js代码中的DOM操作的时候，把-干掉，后面的单词的首字母大写即可
+      my$('dv').style.backgroundColor = '#ccc';
+    };
+  </script>
+</body>
+</html>

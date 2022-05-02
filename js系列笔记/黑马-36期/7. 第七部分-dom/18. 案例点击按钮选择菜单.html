@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <input type="button" value="点菜" id="btn">
+  <select name="" id="ss">
+    <option value="1">油炸榴莲</option>
+    <option value="2">爆炒臭豆腐</option>
+    <option value="3">清蒸助教</option>
+    <option value="4" id="selected1">凉拌班主任</option>
+    <option value="5">红烧小苏</option>
+  </select><br><br><br>
+
+
+  <!-- textarea 文本域，属于表单标签，所有的表单标签以后要提交，都要放在form标签里面。这里只是演示，所以没有放在form标签里面 -->
+  <textarea name="" id="tt" cols="30" rows="10">
+    用户注册协议：
+
+    某人问智者，
+    大师，您觉得怎么做才是最快乐的？
+    大师：不要和愚者辩论
+    这个人说：我不这么认为。
+    大师：你说得对。
+  </textarea><br>
+  <input type="button" value="注册" id="btn2">
+
+  <!-- 引入获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 点击按钮选择菜单
+    // 注册点击事件
+    my$('btn').onclick = function() {
+      // 点击按钮选择菜
+      my$('selected1').selected = true;
+    }
+
+
+
+    // 文本域的内容设置。文本域是表单标签，所以设置内容要用value，但是因为textarea又是双标签，所以也可以使用innerText来设置。
+    // textarea使用value或者innerText是有区别的，具体可以看f12里面textarea标签的变化
+    my$('btn2').onclick = function() {
+      // my$('tt').value = 'haha'; // 推荐用value的方式
+      my$('tt').innerText = 'haha';
+    }
+  </script>
+</body>
+</html>
