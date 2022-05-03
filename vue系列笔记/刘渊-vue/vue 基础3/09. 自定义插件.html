@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./vue.js"></script>
+
+
 </head>
+
 <body>
   <div id="app">
-
+    <p v-upper="msg"></p>
   </div>
 
+  <!-- 引入vue -->
+  <script src="./vue.js"></script>
+  <!-- 引入自己的插件 -->
+  <script src="./myPlugin.js"></script>
+
+  <!-- 做一个插件能打印：i love you 赵丽颖 -->
   <script>
-    // 做一个插件能打印：i love you 赵丽颖
+    // MyPlugin 的首字母是大写，因为我们插件中暴露出来的是大写
+    Vue.use(MyPlugin); // 这句话贼重要，声明使用插件，本质是在自动调用插件当中的install方法。以后的Vuex和VueRouter都是插件，也要使用Vue.use();
+
+    // 调用插件中的静态方法
+    Vue.myGlobalMethod();
+
+    Vue.config.productionTip = false;
     const vm = new Vue({
       el: '#app',
+      data() {
+        return {
+          msg: 'i love you'
+        }
+      },
+      // 调用插件中自己写的vm实例方法
+      mounted() {
+        this.$myMethod();
+      },
     })
   </script>
 </body>
+
 </html>
