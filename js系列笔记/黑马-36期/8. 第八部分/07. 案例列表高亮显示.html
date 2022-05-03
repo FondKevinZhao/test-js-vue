@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="uu">
+    <li>金士百</li>
+    <li>雪花</li>
+    <li>百威</li>
+    <li>燕京</li>
+    <li>青岛</li>
+    <li>崂山</li>
+    <li>珠江</li>
+    <li>华丹</li>
+    </li>
+  </ul>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 列表高亮显示
+    // 鼠标进入和鼠标离开
+    var list = document.getElementsByTagName('li');
+    for (var i = 0; i < list.length; i++) {
+      // 为li注册鼠标进入事件
+      list[i].onmouseover = function() {
+        // 添加颜色
+        this.style.backgroundColor = 'yellow';
+      }
+
+      // 为li注册鼠标离开事件
+      list[i].onmouseout = function() {
+        // 恢复到这个标签默认的颜色
+        this.style.backgroundColor = '';
+      }
+    }
+  </script>
+</body>
+
+</html>
