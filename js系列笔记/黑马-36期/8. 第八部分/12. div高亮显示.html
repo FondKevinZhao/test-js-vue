@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 150px;
+      background-color: green;
+      float: left;
+      margin-left: 10px;
+      /* div大小变化防抖解决一： */
+      /* box-sizing: border-box; */
+
+      /* div大小变化防抖解决二： */
+      /* border: 2px solid transparent; */
+
+      /* div大小变化防抖解决三： 跟背景颜色一个色*/
+      border: 2px solid green;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <script src="./common.js"></script>
+  <script>
+    // div 高亮显示
+    // 获取所有的div
+    var dvObjs = document.getElementsByTagName('div');
+    for (var i = 0; i < dvObjs.length; i++) {
+      // 为每个div添加鼠标进入的事件
+      dvObjs[i].onmouseover =  function() {
+        this.style.border = '2px solid red';
+      }
+      // 为每个div添加鼠标离开的事件
+      dvObjs[i].onmouseout = function() {
+        this.style.border = '';
+      }
+
+    }
+  </script>
+</body>
+
+</html>
