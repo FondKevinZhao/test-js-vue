@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 300px;
+      height: 200px;
+      border: 2px dotted red;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="显示效果" id="btn">
+  <input type="button" value="显示效果获取" id="btn2">
+  <div id="dv">
+    这是div
+    <p>这是一个p</p>
+  </div>
+
+  <!-- 
+    总结：
+      - 如果使用innerText主要是设置文本的，设置标签内容，是没有标签效果的。
+      - innerHTML 是可以设置文本内容的(可以解析标签)，innerHTML兼容性也很好。
+      - 设置标签内容：innerHTML。设置文本内容：innerText/textContent/innerHTML, 推荐使用 innerHTML。
+   -->
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 设置
+    my$('btn').onclick = function() {
+      // my$('dv').innerText = 'haha'; // 设置文本
+      // my$('dv').innerText = '<h2>haha</h2>'; 
+      // my$('dv').innerHTML = '<h2>haha</h2>'; // 设置HTML标签
+    };
+
+    // 获取
+    /* 
+      获取的时候：
+        innerText 可以获取标签中间的内容，但是标签中如果还有标签，那么最李曼的标签的文本内容也能获取到。--- 获取不到标签的，文本可以获取
+        innerHTML 才是真正的获取标签中间的所有内容的。--- 可以获取标签，也可以获取文本
+
+      结论：
+        - 如果想要(获取)标签及内容，使用innerHTML
+        - 如果想要设置标签，使用innerHTML
+        - 想要设置文本，用innerText/innerHTML/textContent
+    */
+    my$('btn2').onclick = function() {
+      // 可以获取标签中的文本内容
+      // console.log(my$('dv').innerText);
+      console.log(my$('dv').innerHTML);
+    }
+  </script>
+</body>
+</html>
