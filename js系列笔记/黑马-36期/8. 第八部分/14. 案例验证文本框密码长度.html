@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" value="" id="txt">
+  <p style="display:inline-block">密码验证</p>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 验证文本框密码的长度--密码长度在6-10为之间为绿色，否则为红色
+    // 获取文本框
+    my$('txt').onblur = function() {
+      // 获取p标签
+      var pObj = document.querySelector('p');
+      // 判断密码的长度
+      if(this.value.length >= 6 && this.value.length <=10 ) {
+        pObj.innerText = '密码正确'
+        pObj.style.color = 'green';
+      } else {
+        pObj.innerText = '密码错误'
+        pObj.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
