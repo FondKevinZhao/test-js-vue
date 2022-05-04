@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
 </head>
+
 <body>
+  <ul id="uu">
+    <li score="10">助教的数学成绩</li>
+    <li score="20">班主任的成绩</li>
+    <li score="30">小苏的成绩</li>
+    <li score="40">小杰老师成绩</li>
+    <li score="50">乔峰成绩</li>
+  </ul>
+
+  <!-- 
+    // html标签中有没有什么自带的属性可以存储成绩的？ --- 没有
+    // 本身html标签没有这个属性，自己(程序员)添加的，这个属性就是自定义属性，为了存储一些数据。
+
+    在html标签当中的自定义属性时不能够通过标签之间点(.)出来的。
+    需要通过使用this.getAttribute('自定义属性的名字');来获得自定义属性的值。
+   -->
 
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
     // 自定义属性引入
+
+    // 获取所有的li标签
+    var list = document.getElementsByTagName('li');
+    for(var i = 0; i < list.length; i++) {
+      list[i].onclick = function() {
+       // alert(this.score); // 这个方式获取的是undefined
+       alert(this.getAttribute('score')); // 可以获取到score属性的值
+      }
+    }
   </script>
 </body>
+
 </html>
