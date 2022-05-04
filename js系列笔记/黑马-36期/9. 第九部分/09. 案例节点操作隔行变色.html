@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="点击变色" id="btn">
+  <ul id="uu">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+    <li>007</li>
+    <li>008</li>
+    <li>009</li>
+    <li>010</li>
+  </ul>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 节点操作隔行变色
+    my$('btn').onclick = function () {
+      var count = 0; // 记录有多少个li
+      // 获取ul中所有的子节点
+      var nodes = my$('uu').childNodes;
+      for (var i = 0; i < nodes.length; i++) {
+        // 判断这个节点是不是li标签
+        if (nodes[i].nodeType == 1 && nodes[i].nodeName == 'LI') {
+          // console.log(nodes[i] + '---' + i); 
+          // nodes[i].style.backgroundColor = i % 2 != 0 ? 'red' : 'yellow'; //直接这么找是找不到的，要使用一个count变量
+          nodes[i].style.backgroundColor = count % 2 != 0 ? 'red' : 'yewllow';
+          count++;
+        }
+      }
+    }
+
+
+
+    // 元素操作隔行变色
+    /* my$('btn').onclick = function () {
+      // 获取ul的所有子元素
+      var liObjs = my$('uu').children;
+      // 遍历所有的子元素
+      for (var i = 0; i < liObjs.length; i++) {
+        // console.log(liObjs[i] + '---' + i);
+        // 判断筛选子元素，形成隔行变色
+        if (i % 2 == 0) {
+          liObjs[i].style.backgroundColor = 'red';
+        }
+      }
+    } */
+  </script>
+</body>
+
+</html>
