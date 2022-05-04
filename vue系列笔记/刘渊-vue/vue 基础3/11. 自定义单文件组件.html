@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    这个文件的内容和components下的MyButton + App.vue是一起使用的
+
+    但是一打开页面会报错：因为使用到了import，所以等会用脚手架的方式就可以了
+   -->
+  <div id="app"></div>
+
+  <!-- 引入vue -->
+  <script src="./vue.js"></script>
+  <script>
+    import App from './App.vue';
+    const vm = new Vue({
+      el: '#app',
+      components: {
+        App, // 定义带注册App
+      },
+      template: '<App/>',
+      data() {
+        return {
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
