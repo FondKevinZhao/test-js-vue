@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="显示效果" id="btn">
+  <div id="dv"></div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+      有则删除，无责创建
+    */
+    // 无论点击多少次，只要一个按钮
+
+    // 方法一：先判断有没有，有就删除，然后再创建(这个方法会创建多次按钮)
+    /* my$('btn').onclick = function() {
+      // 判断div中有没有这个按钮，有就删除
+      // 判断这个按钮的子元素是否存在
+      if(my$('btn2')) { // 如果为true就有，就要删除
+        my$('dv').removeChild(my$('btn2'));
+      } 
+
+      var obj = document.createElement('input');
+      obj.type = 'button';
+      obj.value = '按钮';
+      obj.id = 'btn2'; // 这个是点睛之笔
+      my$('dv').appendChild(obj);
+    } */
+
+
+
+    // 方法二：先判断有没有这个按钮(这个方法好，只会创建一次)
+    my$('btn').onclick = function () {
+      // 判断div中有没有这个按钮，有就删除
+      // 取反
+      if (!my$('btn2')) {
+        var obj = document.createElement('input');
+        obj.type = 'button';
+        obj.value = '按钮';
+        obj.id = 'btn2'; // 这个是点睛之笔
+        my$('dv').appendChild(obj);
+      }
+    }
+  </script>
+</body>
+
+</html>
