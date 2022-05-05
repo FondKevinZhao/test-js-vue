@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<input type="button" value="创建一个p" id="btn">
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 第一种元素创建的方式：document.write('标签代码及内容');
+    my$('btn').onclick = function() {
+      document.write('<p>p标签</p>');
+    }
+  </script>
+</body>
+
+</html>

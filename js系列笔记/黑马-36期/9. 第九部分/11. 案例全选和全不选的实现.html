@@ -8,53 +8,102 @@
   <title>Document</title>
   <style>
     table {
-      width:"500";
-      height:"300";
-      border:"1";
+      width: "500";
+      height: "300";
+      border: "1";
     }
 
-    tr>th,
-    td {
-      border: 1px solid red;
+    tr td,
+    th {
+      border: 1px solid #999;
+    }
+
+    th {
+      background-color: #008dd0;
+      color: #fff;
     }
   </style>
 </head>
 
 <body>
-  <table    cellpadding="20" cellspacing="0" align="center">
-    <tr>
-      <th> <input type="checkbox"></th>
-    <th>菜名</th>
-    <th>饭店</th>
-    </tr>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>红烧肉</td>
-      <td>田老师</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>西红柿鸡蛋</td>
-      <td>田老师</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>油炸榴莲</td>
-      <td>田老师</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>清蒸助教</td>
-      <td>田老师</td>
-    </tr>
+  <table cellpadding="20" cellspacing="0">
+    <!-- thead -->
+    <thead>
+      <tr>
+        <th><input type="checkbox" id="j_cbAll"></th>
+        <th>菜名</th>
+        <th>饭店</th>
+      </tr>
+    </thead>
 
+    <!-- tbody -->
+    <tbody id="j_tb">
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>红烧肉</td>
+        <td>田老师</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>西红柿鸡蛋</td>
+        <td>田老师</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>油炸榴莲</td>
+        <td>田老师</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>清蒸助教</td>
+        <td>田老师</td>
+      </tr>
+    </tbody>
   </table>
 
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
     // 全选和全不选的实现
+    // 获取全选的这个复选框
+    var ckAll = my$('j_cbAll');
+    // 获取tbody中所有的小复选框
+    var cks = my$('j_tb').getElementsByTagName('input');
+    // 点击全选的这个复选框，获取他当前的状态，然后设置tbody中所有复选框的状态
+    ckAll.onclick = function () {
+      // 全选方法一：
+      /* if(ckAll.checked) {
+        for(var i = 0; i< cks.length; i++) {
+          cks[i].checked = true;
+        }
+      } else {
+        for(var i = 0; i< cks.length; i++) {
+          cks[i].checked = false;
+        }
+      } */
 
+      // 全选方法二：把全选的状态给到tbody的每一个input
+      for (var i = 0; i < cks.length; i++) {
+        cks[i].checked = ckAll.checked;
+      }
+
+      // 获取tbody中所有的复选框，分别注册点击事件
+      for(var i = 0; i < cks.length; i++) {
+        cks[i].onclick = function() {
+          var flag = true; // 默认都被选中了
+          // 判断是否所有的复选框都选中
+          for(var j = 0; j < cks.length; j++) {
+            if(!cks[j].checked) {
+              // 没选中就进来了
+              flag = false;
+              break;
+            };
+          }
+          // 都选中了，全选的这个复选框的状态就是flag这个变量的值
+          ckAll.checked = flag;
+        }
+      }
+    }
   </script>
 </body>
 
