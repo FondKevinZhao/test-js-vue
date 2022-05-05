@@ -30,14 +30,30 @@
 
 
     // 方法二：
-    var names = ['111', '222', '333', '444', '555', '666', '777'];
+    var names = ['111', '222', '333', '444', '555', '666', '777', '888'];
     my$('btn').onclick = function () {
-      var str = "<ul>";
+      var str = "<ul style='list-style-type:none; cursor:pointer'>";
+      // 根据循环创建对应对数的li
       for (var i = 0; i < names.length; i++) {
         str += "<li>" + names[i] + "</li>";
       }
       str += "</ul>";
       my$('dv').innerHTML = str;
+
+      // 代码执行到这里。li已经有了
+      // 获取所有的li，遍历，添加鼠标进入事件，鼠标离开事件
+      var list = my$('dv').getElementsByTagName('li');
+      for (var i = 0; i < list.length; i++) {
+        // 鼠标进入
+        list[i].onmouseover = function () {
+          this.style.backgroundColor = 'red';
+        };
+
+        // 鼠标离开
+        list[i].onmouseout = function () {
+          this.style.backgroundColor = '';
+        }
+      }
     }
   </script>
 </body>
