@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>我爱你赵丽颖</h2>
-    <button>爱了{{ count }}次</button>
+    <button @click="count++">爱了{{ count }}次</button>
   </div>
 </template>
 
@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style>
+h2 {
+  color: hotpink;
+}
 </style>
