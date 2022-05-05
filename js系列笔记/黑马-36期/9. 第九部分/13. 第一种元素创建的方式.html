@@ -9,13 +9,21 @@
 </head>
 
 <body>
-<input type="button" value="创建一个p" id="btn">
+  <input type="button" value="创建一个p" id="btn">
+  小苏是一个快乐的小男孩，人家今年才38岁，好帅哦！
+
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
     // 第一种元素创建的方式：document.write('标签代码及内容');
-    my$('btn').onclick = function() {
-      document.write('<p>p标签</p>');
+    /* 
+      document.write(); 这种方式创建元素：在页面加载的时候创建时可以的。
+      document.write(); 这种方式创建元素，缺陷：如果是在页面加载完毕后，此时通过document.write();这种方式创建元素，那么页面上存在的所有的内容都被干掉了。
+    */
+    document.write("<p>页面加载时候的p标签</p>");
+    
+    my$('btn').onclick = function () {
+      document.write('<p>点击按钮后的p标签</p>');
     }
   </script>
 </body>
