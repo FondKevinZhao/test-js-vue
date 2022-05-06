@@ -12,6 +12,17 @@
 
   <!-- 获取元素 -->
   <script src="./common.js"></script>
-  <script></script>
+  <script>
+    my$('btn').onclick = function() {
+      console.log('小苏好帅啊');
+    }
+    my$('btn').onclick = function() {
+      console.log('助教好帅啊');
+    }
+    // 为按钮注册多个点击事件，最后一个生效
+    my$('btn').onclick = function() {
+      console.log('小杨好帅啊'); 
+    }
+  </script>
 </body>
 </html>

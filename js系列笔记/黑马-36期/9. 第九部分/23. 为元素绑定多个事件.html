@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="按钮" id="btn">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /*
+      为元素绑定事件(DOM)：一种，但是不兼容个，所以说有有两种：
+      对象.addEventListener() --- 谷歌和火狐支持，IE8不支持
+        - 参数一：事件的类型(就是事件的名字)，没有on
+        - 参数二：事件处理函数
+        - 参数三：布尔类型，目前就写false
+      
+      对象.attachEvent()  --- 谷歌和火狐不支持，IE8支持
+        - 参数一：事件类型(就是事件的名字)，有on
+        - 参数二：事件处理函数
+    */
+    // 为按钮绑定点击事件，并且每个事件都执行
+    // 为同一个元素绑定多个相同的事件
+    /* my$('btn').addEventListener('click', function(){
+      console.log('小苏好猥琐啊');
+    }); 
+    my$('btn').addEventListener('click', function(){
+      console.log('小苏好龌龊啊');
+    }); 
+    my$('btn').addEventListener('click', function(){
+      console.log('小苏好邪恶啊');
+    }); 
+    my$('btn').addEventListener('click', function(){
+      console.log('小苏好下流啊');
+    });  */
+
+
+    // 为按钮绑定点击事件，并且每个事件都执行
+    my$('btn').attachEvent('onclick', function () {
+      console.log('小苏好帅哦');
+    })
+  </script>
+</body>
+
+</html>

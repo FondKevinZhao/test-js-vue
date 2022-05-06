@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="按钮" id="btn">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 为任意元素绑定任意的事件：任意的元素，事件的类型，事件处理函数
+    function addEventListener(element, type, fn) {
+      // 判断浏览器是否支持这个方法
+      if (element.addEventListener) {
+        element.addEventListener(type, fn, false);
+      } else if (element.attachEvent) {
+        element.attachEvent('on' + type, fn);
+      } else {
+        element['on' + type] = fn;
+      }
+    }
+    addEventListener(my$('btn'),'click', function() {
+      console.log('哦1');
+    })
+    addEventListener(my$('btn'),'click', function() {
+      console.log('哦2');
+    })
+    addEventListener(my$('btn'),'click', function() {
+      console.log('哦3');
+    })
+
+    // 系统的addEventListener是方法，我们写的是函数
+    // 方法通过对象.addEventListener()调用，函数通过addEventListener()调用
+  </script>
+</body>
+
+</html>
