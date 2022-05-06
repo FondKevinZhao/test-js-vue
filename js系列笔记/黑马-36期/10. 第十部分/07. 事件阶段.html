@@ -39,22 +39,36 @@
   <script src="./common.js"></script>
   <script>
     /*
-      事件有三个阶段：事件捕获阶段，事件目标阶段，事件冒泡阶段
+      事件有三个阶段(e.eventPhase)：事件捕获阶段，事件目标阶段，事件冒泡阶段
         - 如果得到的属性的值是1，那么就是事件捕获阶段：事件捕获从外向里
-        - 如果得到的属性的值是2，那么就是事件目标阶段
+        - 如果得到的属性的值是2，那么就是事件目标阶段：你当前点击的元素就是你的目标阶段
         - 如果得到的属性的值是3，那么就是事件冒泡阶段：事件冒泡是从里向外
 
-      
+      注意：元素.addEventListener('事件名', 回调函数, false); 这第三个参数是控制是冒泡阶段还是捕获阶段，如果是false，那么就是以事件冒泡的方式呈现(比如有三个盒子，你点击第三个盒子，会从第三个盒子开始依次从里向外冒泡)。如果是true，那么就是以事件捕获的方式呈现(比如有三个盒子，你点击第三个盒子，会从第以个盒子开始依次从外向内冒泡)。
     */
 
 
-    // 同时注册点击事件
-    var objs = [my$('dv1'), my$('dv2'), my$('dv3')];
+    // 同时注册点击事件 --- 事件捕获阶段
+    /* var objs = [my$('dv1'), my$('dv2'), my$('dv3')];
     // 遍历注册事件
     objs.forEach(function (item, index) {
       // 为每个元素绑定点击事件
-      item.addEventListener('click', function () {
-        console.log(this.id);
+      item.addEventListener('click', function (e) {
+        // e.eventPhase 查看事件的三个阶段：1 是捕获阶段，2是目标阶段，3是冒泡阶段
+        console.log(this.id + '===' + e.eventPhase);
+      }, false);
+    }) */
+
+
+
+    // 同时注册点击事件 --- 事件捕获阶段
+    var objs = [my$('dv1'), my$('dv2'), my$('dv3')];
+    // 遍历注册事件 --- 事件冒泡阶段
+    objs.forEach(function (item, index) {
+      // 为每个元素绑定点击事件
+      item.addEventListener('click', function (e) {
+        // e.eventPhase 查看事件的三个阶段：1 是捕获阶段，2是目标阶段，3是冒泡阶段
+        console.log(this.id + '===' + e.eventPhase);
       }, true);
     })
   </script>
