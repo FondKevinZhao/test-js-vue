@@ -29,3 +29,13 @@ function removeEventListener(element, type, fnName) {
     element['on' + type] = null;
   }
 }
+
+
+// 设置元素的文本内容 -- element: 任意元素，text: 任意文本
+function setInnerText(element, text) {
+  if (typeof (element.textContent) == 'undefined') {
+    element.innerText = text;
+  } else {
+    element.textContent = text;
+  }
+}
