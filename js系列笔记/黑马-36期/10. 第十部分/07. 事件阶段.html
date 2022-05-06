@@ -34,29 +34,29 @@
     </div>
   </div>
 
+
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
     /*
-      事件冒泡：多个元素嵌套，有层次关系，这些元素都注册了相同的事件(如：都注册了点击事件)，如果里面的元素的事件触发了，外面的元素的该事件自动的触发了，这个就叫作事件冒泡。
+      事件有三个阶段：事件捕获阶段，事件目标阶段，事件冒泡阶段
+        - 如果得到的属性的值是1，那么就是事件捕获阶段：事件捕获从外向里
+        - 如果得到的属性的值是2，那么就是事件目标阶段
+        - 如果得到的属性的值是3，那么就是事件冒泡阶段：事件冒泡是从里向外
+
+      
     */
 
-    // 事件冒泡
-    /* my$('dv1').onclick = function() {
-      console.log(this.id);
-    };
-    my$('dv2').onclick = function() {
-      console.log(this.id);
-    };
-    my$('dv3').onclick = function() {
-      console.log(this.id);
-    };
 
-
-
-    document.body.onclick = function() {
-      console.log('颤抖把，你们这些愚蠢的标签');
-    } */
+    // 同时注册点击事件
+    var objs = [my$('dv1'), my$('dv2'), my$('dv3')];
+    // 遍历注册事件
+    objs.forEach(function (item, index) {
+      // 为每个元素绑定点击事件
+      item.addEventListener('click', function () {
+        console.log(this.id);
+      }, true);
+    })
   </script>
 </body>
 

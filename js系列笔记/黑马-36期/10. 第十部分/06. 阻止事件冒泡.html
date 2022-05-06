@@ -39,24 +39,30 @@
   <script>
     /*
       事件冒泡：多个元素嵌套，有层次关系，这些元素都注册了相同的事件(如：都注册了点击事件)，如果里面的元素的事件触发了，外面的元素的该事件自动的触发了，这个就叫作事件冒泡。
+
+      阻止事件冒泡：
+        1. window.event.cancelBubble = true; // 谷歌，IE8支持，火狐不支持
+        2. e.stopPropagation(); // 谷歌，火狐支持，IE8不支持
     */
 
-    // 事件冒泡
-    /* my$('dv1').onclick = function() {
+    
+    my$('dv1').onclick = function() {
       console.log(this.id);
     };
+    // 阻止事件冒泡
+    // 方法一：window.event.cancelBubble = true;
     my$('dv2').onclick = function() {
       console.log(this.id);
+      window.event.cancelBubble = true;
     };
-    my$('dv3').onclick = function() {
+
+    
+    // 方法一：事件处理参数对象
+    // e是事件处理参数对象，在绑定事件的时候就会有的一个参数，如果没有用到，可以不传
+    my$('dv3').onclick = function(e) {
       console.log(this.id);
+      e.stopPropagation();
     };
-
-
-
-    document.body.onclick = function() {
-      console.log('颤抖把，你们这些愚蠢的标签');
-    } */
   </script>
 </body>
 
