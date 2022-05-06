@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="小苏" id="btn">
+  <input type="button" value="干掉第一个按钮的事件" id="btn2">
+
+  <!-- 
+    解绑事件：
+      注意：用什么方式绑定事件，就应该用对应的方式解绑事件
+      方法一：谷歌，火狐，IE8支持
+        - 对象.on事件名字 = 事件处理函数 --- 绑定事件
+        - 对象.on事件名字 = null
+
+      方法二：谷歌，火狐支持，IE8不支持
+        - 对象.addEventListener('没有on的事件名字', 命名函数, false); --- 绑定事件
+        - 对象.removeEventListener('没有on的事件名字', 命名函数名字, false); --- 解绑事件
+      
+      方法三：谷歌，火狐不支持，IE8支持
+        - 对象.attachEvent('on+事件名字', 命名函数); --- 绑定事件
+        - 对象.detachEvent('on+事件名字', 命名函数名字); --- 解绑事件
+   -->
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 为元素解绑事件
+    /* // 方法一：对象.on事件名 = 事件处理函数 --- 绑定事件
+    my$('btn').onclick = function () {
+      console.log('我猥琐');
+    }
+
+    my$('btn2').onclick = function () {
+      // 解绑事件的方式一
+      my$('btn').onclick = null;
+    }
+    */
+
+
+    // 方法二：
+    /* my$('btn').addEventListener('click', f1, false);
+    function f1() {
+      console.log('第一个');
+    }
+    my$('btn').addEventListener('click', f2, false);
+    function f2() {
+      console.log('第二个');
+    }
+    // 点击第二个按钮把第一个按钮的第一个点击事件解绑
+    my$('btn2').onclick = function () {
+      // 解绑事件的时候，需要在绑定事件的时候使用命名函数
+      my$('btn').removeEventListener('click', f1, false);
+    } */
+
+
+
+    // 方法三：谷歌和火狐不支持，IE8支持，这里没办法测试
+    my$('btn').attachEvent('onclick', f1);
+    function f1() {
+      console.log('第一个');
+    }
+    my$('btn').attachEvent('onclick', f2);
+    function f2() {
+      console.log('第二个');
+    }
+    // 点击第二个按钮把第一个按钮的第一个点击事件解绑
+    my$('btn2').onclick = function () {
+      // 解绑事件的时候，需要在绑定事件的时候使用命名函数
+      my$('btn').detachEvent('onclick', f1);
+    }
+  </script>
+</body>
+
+</html>

@@ -11,10 +11,39 @@
 <body>
   <input type="button" value="按钮" id="btn">
 
+  <!-- 
+    绑定事件的区别：
+      - addEventListener();
+      - attachEvent();
+
+      相同点：都可以为元素绑定事件
+      不同点：
+        1. 方法名不一样
+        2. 参数个数不一样
+        3. 支持情况不一样
+           - addEventListener() 谷歌，火狐，IE11支持，IE8不支持
+           - attachEvent() 谷歌，火狐，IE11不支持，IE8支持
+        4. this不一样：
+           - addEventListener() 中的this是当前绑定事件的对象
+           - attachEvent() 中的this是window
+        5. 事件名是否加on不一样：
+           - addEventListener() 中的事件名不加on
+           - attachEvent() 中的事件名加on
+
+   -->
+   <!-- 
+     DOM 的顶级对象是document
+     浏览器 的顶级对象是window
+    -->
+
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
   // 为按钮绑定多个点击事件
+  my$('btn').addEventListener('click', function() {
+    console.log('aaa');
+    console.log(this); // 当前绑定事件的对象 --- 事件源
+  },false)
   </script>
 </body>
 
