@@ -45,7 +45,7 @@
 
 
     // 方法二：
-    /* my$('btn').addEventListener('click', f1, false);
+    my$('btn').addEventListener('click', f1, false);
     function f1() {
       console.log('第一个');
     }
@@ -57,12 +57,12 @@
     my$('btn2').onclick = function () {
       // 解绑事件的时候，需要在绑定事件的时候使用命名函数
       my$('btn').removeEventListener('click', f1, false);
-    } */
+    }
 
 
 
     // 方法三：谷歌和火狐不支持，IE8支持，这里没办法测试
-    my$('btn').attachEvent('onclick', f1);
+    /* my$('btn').attachEvent('onclick', f1);
     function f1() {
       console.log('第一个');
     }
@@ -74,7 +74,7 @@
     my$('btn2').onclick = function () {
       // 解绑事件的时候，需要在绑定事件的时候使用命名函数
       my$('btn').detachEvent('onclick', f1);
-    }
+    } */
   </script>
 </body>
 
