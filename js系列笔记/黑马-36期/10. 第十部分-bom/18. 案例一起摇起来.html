@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,14 @@
     img {
       width: 200px;
     }
+
+    /* 让元素动起来要用absolute */
+    div {
+      position: absolute;
+    }
   </style>
 </head>
+
 <body>
   <input type="button" value="摇起来" id="btn">
   <input type="button" value="停止" id="btn2">
@@ -19,19 +26,29 @@
     <img src="./images/beauty2.png" alt="">
   </div>
 
+  <script src="./common.js"></script>
   <script>
-    // 一起摇起来
+    // 摇起来
     var timeId = null;
-    document.getElementById('btn').onclick = function() {
-      var imgObj = document.getElementById('dv').children;
-      timeId = setInterval(function(){
-        console.log('aaa');
-      },300)
+    my$('btn').onclick = function () {
+      timeId = setInterval(function () {
+        // 随机数(40-150之间)
+        // left 值
+        var x = parseInt(Math.random() * 150 + 40);
+        // top 值
+        var y = parseInt(Math.random() * 150 + 40);
+        my$('dv').style.left = x + 'px';
+        my$('dv').style.top = y + 'px';
+      }, 200)
     }
 
-    document.getElementById('btn2').onclick = function() {
-      window.clearInterval(timeId);
+    // 停止
+    my$('btn2').onclick = function () {
+      clearInterval(timeId);
+      my$('dv').style.left = '10px';
+      my$('dv').style.top = '40px';
     }
   </script>
 </body>
+
 </html>
