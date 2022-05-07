@@ -4,8 +4,8 @@
     <Header></Header>
 
     <div class="container">
-      <Add></Add>
-      <List></List>
+      <Add :addComment="addComment"></Add>
+      <List :comments="comments"></List>
     </div>
   </div>
 </template>
@@ -23,6 +23,22 @@ export default {
     Add,
     List
   },
+  data() {
+    return {
+      comments: [
+        {id: 1, content:'vue牛逼', username:'赵丽颖'},
+        {id: 2, content:'vue可以', username:'杨幂'},
+        {id: 3, content:'vue不错', username:'戚薇'},
+      ]
+    }
+  },
+  methods: {
+    // 数据在哪个组件，操作数据的方法就应该在哪个组件
+    
+    addComment(comment) {
+      this.comments.unshift(comment);
+    }
+  }
 };
 </script>
 
