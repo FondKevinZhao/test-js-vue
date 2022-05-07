@@ -19,6 +19,10 @@
 
     // 通过platform可以判断浏览器所在的系统平台类型
     console.log(window.navigator.platform);
+
+    // 可以得到当前浏览器的类型，但是你想根据这个属性知道当前的浏览器到底是什么浏览器，是很不方便的，因为它包含了Windows类型、苹果类型和谷歌类型
+    // 并且不同的浏览器显示的内容还不一样，所以window.navigator.userAgent可以说没啥用
+    console.log(window.navigator.userAgent);
   </script>
 </body>
 

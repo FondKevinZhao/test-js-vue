@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="停止" id="btn">
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+    BOM中的顶级对象是window，在写代码的时候window可以省略。
+    在BOM中有两个定时器：window.setInterval(); window.setTimeout();
+      
+    window.setInterval();
+      - 参数1：函数
+      - 参数2：时间 --- 毫秒 --- 1000毫秒 = 1秒
+      - 返回值：这个定时器的ID值
+      - 执行过程：页面加载完毕后，过了1秒，执行一次函数的代码，又过了1秒，再执行一次函数。。。
+      setInterval(function(){
+        console.log('aaa');
+      }, 1000)
+
+    定时器清除：
+      window.clearInterval(要清理的定时器的id的值)
+    */
+
+    // 设置定时器
+    var timeId = setInterval(function () {
+      console.log('aaa');
+    }, 1000);
+
+
+    // 点击按钮，停止定时器
+    document.getElementById('btn').onclick = function () {
+      // console.log(timeId);
+      window.clearInterval(timeId);
+    }
+  </script>
+</body>
+
+</html>
