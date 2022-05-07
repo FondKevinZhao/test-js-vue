@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="跳过去" id="btn1">
+  <input type="button" value="前进" id="btn2">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 14 和 15是同一个案例
+    // 跳转的
+    my$('btn1').onclick = function() {
+      window.location.href = '15. test.html';
+    };
+
+    // 前进
+    my$('btn2').onclick = function() {
+      window.history.forward();
+    };
+  </script>
+</body>
+</html>
