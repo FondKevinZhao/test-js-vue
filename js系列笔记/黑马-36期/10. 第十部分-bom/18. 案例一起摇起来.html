@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="摇起来" id="btn">
+  <input type="button" value="停止" id="btn2">
+  <div id="dv">
+    <img src="./images/beauty1.png" alt="">
+    <img src="./images/beauty2.png" alt="">
+  </div>
+
+  <script>
+    // 一起摇起来
+    var timeId = null;
+    document.getElementById('btn').onclick = function() {
+      var imgObj = document.getElementById('dv').children;
+      timeId = setInterval(function(){
+        console.log('aaa');
+      },300)
+    }
+
+    document.getElementById('btn2').onclick = function() {
+      window.clearInterval(timeId);
+    }
+  </script>
+</body>
+</html>
