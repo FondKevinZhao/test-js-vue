@@ -13,7 +13,24 @@
         1. ECMAScript标准 --- 基本语法
         2. DOM --- Document Object Model 文档对象模型，操作页面元素的
         3. BOM --- Browser OBject Model 浏览器对象模型，操作浏览器的
+
+      浏览器中有个顶级对象：window
+      页面中的顶级对象：document
+      浏览器大于页面，页面中所有的内容都是属于浏览器的，页面中的内容也都是window的。
+      如：
+        - var num = 100; console.log(window.num); // 100
+        - function f1() {console.log('小苏我也从了');} window.f1(); // 小苏我也从了
+      因为页面中的所有内容都是window的，window是可以省略的。
+
+      window下的一个特殊的属性: window.name 和 top(就等于window对象)
     */
+   console.log(window.name); // 不要用name这个变量，因为它属于window的一个属性
+   console.log(top.name);
+
+   console.log(top);
+   console.log(window);
+   console.log(top === window); // true
+
   </script>
 </body>
 </html>
