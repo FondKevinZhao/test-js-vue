@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      border: 2px solid yellow;
+      background-color: black;
+    }
+
+    span {
+      position: absolute;
+      /* 重要 */
+      font-size: 30px;
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="亮起来" id="btn">
+  <!-- 切记：如果要移动元素，就要给元素安排position: absolute; 这次移动的是div里面的span -->
+  <div id="dv"></div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    my$('btn').onclick = function () {
+      // 设置定时器
+      setInterval(function () {
+        // 创建span标签，并把星星放入span标签里
+        my$('dv').innerHTML = '<span>★</span></span>';
+        // 设置随机数
+        var x = parseInt(Math.random() * 400 + 1);
+        var y = parseInt(Math.random() * 400 + 1);
+        // 设置星星位置
+        my$('dv').firstElementChild.style.left = x + 'px';
+        my$('dv').firstElementChild.style.top = y + 'px';
+      }, 100)
+    };
+  </script>
+</body>
+
+</html>
