@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    #pic {
+      margin: 0 auto;
+      position: relative;
+      width: 1130px;
+      height: 286px;
+      /* border:1px solid green; */
+      overflow: hidden;
+    }
+
+    #pic ul {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
+
+      /*  border:1px solid red; */
+      width: 5650px;
+      height: 286px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #pic ul li {
+      float: left;
+      width: 1130px;
+      height: 100%;
+    }
+
+    #pic ul li a {
+      display: block;
+      height: 100%;
+    }
+
+    #pic ul li img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /*设置小箭头*/
+    .arrow-p,
+    .arrow-n {
+      position: absolute;
+      width: 42px;
+      height: 70px;
+      /* border:1px solid green; */
+      top: 50%;
+      margin-top: -35px;
+      background-image: url('./imgs/icon-slides.png');
+    }
+
+    .arrow-p {
+      left: 0px;
+      background-position: -84px 0px;
+    }
+
+    .arrow-n {
+      right: 0px;
+      background-position: -124px 0px;
+    }
+
+    #pic:hover .arrow-p {
+      background-position: 0px 0px;
+    }
+
+    #pic:hover .arrow-n {
+      background-position: -42px 0px;
+    }
+
+    #pic-button {
+      width: 100px;
+      height: 10px;
+
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-left: -50px;
+    }
+
+    #pic-button div {
+      float: left;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: rgba(0, 0, 0, .3);
+    }
+
+    #pic-button div.active {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <div id="pic" class="inner">
+      <ul>
+        <li>
+          <a href="#">
+            <img src="./imgs/0149115f23ab31a80120a8212535f0.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/0121365f23ed70a80120a82197289b.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/015e9c5f23ab15a801215aa0795d4e.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/012f595f23ab03a80120a8218c8e64.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/0148a25f23aaf6a801215aa038b8a3.png" />
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <img src="./imgs/0149115f23ab31a80120a8212535f0.png" />
+          </a>
+        </li>
+
+      </ul>
+      <span class="arrow-p"></span>
+      <span class="arrow-n"></span>
+      <div id="pic-button">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="active"></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
