@@ -65,6 +65,8 @@ export default {
       } else {
         alert("请输入合法的用户名和内容");
       }
+      this.username = "";
+      this.content = "";
     },
   },
 };
