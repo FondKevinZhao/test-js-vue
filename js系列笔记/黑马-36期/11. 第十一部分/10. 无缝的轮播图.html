@@ -144,6 +144,42 @@
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
+    /* // 获取最外面的div
+    var box = my$('box');
+    // 获取相框
+    var inner = box.children[0];
+    // 获取相框的宽度
+    var imgWidth = inner.offsetWidth;
+    // 获取ul
+    var ulObj = inner.children[0];
+    // 获取所有的span标签
+    var spanObjs = my$('pic-button').children;
+
+    // 功能操作：
+    // 循环遍历所有的span标签，注册鼠标进入的事件
+    for (var i = 0; i < spanObjs.length; i++) {
+      // 循环的时候把索引值保存在每个span的自定义属性中(为了在移动ul的时候用)
+      spanObjs[i].setAttribute('index', i);
+      // 注册鼠标进入事件
+      spanObjs[i].onmouseover = function () {
+        // 先干掉所有的span的背景颜色
+        for (var j = 0; j < spanObjs.length; j++) {
+          // 移除了每个span的类样式
+          spanObjs[j].removeAttribute('class');
+        }
+        // 设置当前的span的背景颜色
+        this.className = 'active';
+
+        // 移动ul(每个图片的宽 * 鼠标放在这个按钮的索引值)，可以使用自定义属性保存索引值
+        // 获取当前鼠标进入的span的索引
+        var index = this.getAttribute('index');
+        // 自己封装的动画
+        animate(ulObj, -index * imgWidth);
+      }
+    } */
+
+
+
     // 左右焦点轮播图
     // 获取最外面的div
     var box = my$('box');
@@ -166,11 +202,12 @@
     }
     // 获取左箭头 arrowLeft，并添加事件
     my$('arrowLeft').onclick = function () {
-      if(index > 0) {
+      if (index > 0) {
         index--;
         animate(ulObj, -index * imgWidth);
       }
     }
+
   </script>
 </body>
 
