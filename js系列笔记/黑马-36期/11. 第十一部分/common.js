@@ -39,3 +39,29 @@ function setInnerText(element, text) {
     element.textContent = text;
   }
 }
+
+
+
+// animate动画函数
+function animate(element, target) {
+  // 先清理定时器
+  clearInterval(element.timeId);
+  element.timeId = setInterval(function () {
+    // 获取div的当前的位置
+    var current = element.offsetLeft; // 数字类型，没有px
+    // div每次移动多少像素 --- 步数
+    var step = 10;
+    // 每次移动后的距离
+    step = current < target ? step : -step
+    current += step;
+    // 判断当前移动后的位置是否达到目标位置
+    if (Math.abs(target - current) > Math.abs(step)) {
+      // 设置div的目标位置
+      element.style.left = current + 'px';
+    } else {
+      // 到达目标，清理定时器
+      clearInterval(element.timeId);
+      element.style.left = target + 'px';
+    }
+  }, 10);
+}
