@@ -17,14 +17,18 @@
       position: absolute;
       top: 0px;
       left: 0px;
-
-
       /*  border:1px solid red; */
       width: 5650px;
       height: 286px;
       list-style-type: none;
       margin: 0;
       padding: 0;
+    }
+
+    #pic ol {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
     }
 
     #pic ul li {
@@ -84,7 +88,7 @@
       margin-left: -50px;
     }
 
-    #pic-button span {
+    #pic-button li {
       float: left;
       width: 10px;
       height: 10px;
@@ -93,7 +97,7 @@
       cursor: pointer;
     }
 
-    #pic-button span.active {
+    #pic-button li.active {
       background-color: #fff;
     }
   </style>
@@ -101,7 +105,7 @@
 
 <body>
   <div class="box" id="box">
-    <div id="pic" class="inner">
+    <div id="pic" class="inner screen">
       <ul>
         <li>
           <a href="#">
@@ -131,55 +135,73 @@
       </ul>
       <span class="arrow-p" id="arrowLeft"></span>
       <span class="arrow-n" id="arrowRight"></span>
-      <div id="pic-button">
-        <span class="active"></span>
+      <ol id="pic-button">
+        <!-- <span class="active"></span>
         <span></span>
         <span></span>
         <span></span>
-        <span></span>
-      </div>
+        <span></span> -->
+      </ol>
     </div>
   </div>
 
+  <!-- 
+    完整轮播图功能：
+      1. 移动到下面的小圆点上，显示对应的图片
+      2. 点击左右两边的按钮能够切换上一张和下一张
+      3. 自动轮播
+      4. 鼠标移入：停止轮播。鼠标移出：继续轮播。
+   -->
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
-    /* 
-      无缝轮播图重点：
-        - 第一张和最后一张图是同一张图
-        - 判断里面的 current = 0; --- 灵魂之笔
-    */
+    /* 第一步：获取元素 */
+    // 获取最外面的div
+    var box = my$('box');
+    // 获取相框：<div id="pic" class="inner"></div>
+    var screen = box.children[0];
+    // 获取相框的宽度
+    var imgWidth = screen.offsetWidth;
+    // 获取ul
+    var ulObj = screen.children[0];
+    // 获取ul中所有的li
+    var list = ulObj.children;
+    // 获取ol
+    var olObj = screen.children[3];
 
-    function f1() {
-      current -= 6;
-      // 获取ul
-      ulObj = my$('pic').children[0];
-      if (current < -4520) { // 如果是5张图，那么这个负数就是五张图的的宽度减去一张图的宽度(换句话说，如果是5张图，只要写4张图的宽度即可)
-        ulObj.style.left = 0 + 'px';
-        // 执行到这里面来的时候，else里面的代码是不执行的，那么current = 0; 过了10毫秒计时器重新开启
-        current = 0;
-      } else {
-        ulObj.style.left = current + 'px';
+
+
+    /* 第二步：实现功能 */
+    // 创建小按钮 --- 根据ul中的li的个数
+    for (var i = 0; i < list.length; i++) {
+      // 创建li标签，加入到ol中
+      var liObj = document.createElement('li');
+      olObj.appendChild(liObj);
+
+      // 在每个ol中的里标签上添加一个自定义属性，存储索引值
+      liObj.setAttribute('index', i);
+
+      // 排他功能 --- 鼠标进入干掉所有的背景颜色，给当前的li一个active背景颜色
+      // 注册鼠标移入事件
+      liObj.onmouseover = function() {
+        // 先干掉所有的ol中的li背景颜色
+        // 注意liObj是指一个，olObj是所有的liObj的父亲，所以找到olObj的所有孩子的长度
+        for (var j = 0; j < olObj.children.length; j++) {
+          olObj.children[j].removeAttribute('class');
+        }
+        // 设置当前鼠标进来的背景颜色
+        this.className = 'active';
+        // 获取鼠标进入的li的当前的索引值
+        var index = this.getAttribute('index');
+        // 移动ul(使用自己封装的动画函数来展示移动效果)
+        animate(ulObj, -index * imgWidth);
       }
     }
-    var current = 0; // 目前的位置
-    var timeId = setInterval(f1, 10);
-
+    // 设置ol中的第一个li有背景颜色
+    olObj.children[0].className = 'active';
     
 
-    // 鼠标进入停止轮播
-    // 获取ul
-    ulObj = my$('pic').children[0]
-    ulObj.onmouseover = function () {
-      // 清除计时器
-      clearInterval(timeId);
-    }
 
-    // 鼠标离开继续轮播
-    ulObj.onmouseout = function () {
-      clearInterval(timeId);
-      timeId = setInterval(f1, 10);
-    }
   </script>
 </body>
 
