@@ -4,7 +4,11 @@
     <Header></Header>
 
     <div class="container">
-      <Add :addComment="addComment"></Add>
+      <!-- <Add></Add>组件：props写法 -->
+      <!-- <Add :addComment="addComment"></Add> -->
+
+      <!-- <Add></Add>组件：自定义事件写发 -->
+      <Add ref="aa"></Add>
       <List :comments="comments" :deleteComment="deleteComment"></List>
     </div>
   </div>
@@ -32,12 +36,17 @@ export default {
       ],
     };
   },
+  mounted() {
+    // 为Add组件对象绑定自定义事件
+    this.$refs.aa.$on("addComment", this.addComment);
+  },
   methods: {
     // 数据在哪个组件，操作数据的方法就应该在哪个组件
     // 添加评论
     addComment(comment) {
       this.comments.unshift(comment);
     },
+
     // 删除评论
     /* 
       删除评论有两种做法：

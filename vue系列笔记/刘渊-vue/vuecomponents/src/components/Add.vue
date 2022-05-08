@@ -44,7 +44,7 @@ export default {
     };
   },
   // props接收到的数据，最终也会混入到vm身上
-  props: ["addComment"],
+  // props: ["addComment"],
   methods: {
     addC() {
       // 拿到用户输入的数据
@@ -58,10 +58,11 @@ export default {
           username,
           content,
         };
-        // 把数据给添加到comments数组当中
-        // 数据在哪里，操作数据的方法就要在哪里，哪里需要操作数据，我们就把操作数据的方法传过来，让其调用
-        // 这里的addC方法需要调用来添加一个对象放到App.vue中的comments数组中，那么就从App.vue中把方法传过来，让addC来调用
-        this.addComment(obj);
+        // props写法：
+        // this.addComment(obj);
+
+        // 自定义事件写法：
+        this.$emit('addComment', obj);
       } else {
         alert("请输入合法的用户名和内容");
       }
