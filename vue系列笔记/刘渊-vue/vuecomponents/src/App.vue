@@ -7,8 +7,12 @@
       <!-- <Add></Add>组件：props写法 -->
       <!-- <Add :addComment="addComment"></Add> -->
 
-      <!-- <Add></Add>组件：自定义事件写发 -->
-      <Add ref="aa"></Add>
+      <!-- <Add></Add>组件：自定义事件写法一： 看mounted中的内容 -->
+      <!-- <Add ref="aa"></Add> -->
+
+      <!-- <Add></Add>组件：自定义事件写法二： 看mounted中的内容 -->
+      <!-- 注意：自定义事件这种写法要用@符开头 -->
+      <Add @addComment="addComment"></Add>
       <List :comments="comments" :deleteComment="deleteComment"></List>
     </div>
   </div>
@@ -37,8 +41,11 @@ export default {
     };
   },
   mounted() {
-    // 为Add组件对象绑定自定义事件
-    this.$refs.aa.$on("addComment", this.addComment);
+    // 为Add组件对象绑定自定义事件：方法一组件的写法：
+    // this.$refs.aa.$on("addComment", this.addComment);
+
+    // 为Add组件对象绑定自定义事件：方法二组件的写法：
+    this.$on("addComment", this.addComment);
   },
   methods: {
     // 数据在哪个组件，操作数据的方法就应该在哪个组件
