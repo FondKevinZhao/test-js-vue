@@ -7,31 +7,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
     div {
       width: 300px;
       height: 200px;
       background-color: hotpink;
+      border-radius: 100px;
     }
   </style>
 </head>
 
 <body>
-  <div id="dv"></div>
-  <input type="button" value="渐变" id="btn">
+  <div id="dv"></div><br><br>
+  <input type="button" value="点击变宽" id="btn">
 
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
     my$('btn').onclick = function () {
-      var opacities = 100;
+      // 设置变量存宽度
+      var width = 300;
       var timeId = setInterval(function () {
-        // 判断，如果等于0就清除定时器
-        if (opacities == 0) {
+        // 判断，停止定时器
+        if(width >= 500) {
           clearInterval(timeId);
         }
-        // 渐变效果
-        my$('dv').style.opacity = opacities-- + '%';
-      }, 30);
+        my$('dv').style.width =  width++ + 'px';
+      }, 20);
     }
   </script>
 </body>
