@@ -12,7 +12,12 @@
 
       <!-- <Add></Add>组件：自定义事件写法二： 看mounted中的内容 -->
       <!-- 注意：自定义事件这种写法要用@符开头 -->
+      <!-- <Add @addComment="addComment"></Add> -->
+
+      <!-- <Add></Add>组件：自定义事件写法三： 不用看mounted中的内容(和mounted无关)，App.vue中直接这行代码 + methods中的函数就OK -->
       <Add @addComment="addComment"></Add>
+
+
       <List :comments="comments" :deleteComment="deleteComment"></List>
     </div>
   </div>
@@ -40,13 +45,13 @@ export default {
       ],
     };
   },
-  mounted() {
+  /* mounted() {
     // 为Add组件对象绑定自定义事件：方法一组件的写法：
     // this.$refs.aa.$on("addComment", this.addComment);
 
     // 为Add组件对象绑定自定义事件：方法二组件的写法：
     this.$on("addComment", this.addComment);
-  },
+  }, */
   methods: {
     // 数据在哪个组件，操作数据的方法就应该在哪个组件
     // 添加评论
