@@ -50,7 +50,7 @@ function animate(element, target) {
     // 获取div的当前的位置
     var current = element.offsetLeft; // 数字类型，没有px
     // div每次移动多少像素 --- 步数
-    var step = 16;
+    var step = 10;
     // 每次移动后的距离
     step = current < target ? step : -step
     current += step;
@@ -63,5 +63,5 @@ function animate(element, target) {
       clearInterval(element.timeId);
       element.style.left = target + 'px';
     }
-  }, 10);
+  }, 14);
 }

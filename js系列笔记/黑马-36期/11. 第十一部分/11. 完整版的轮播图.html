@@ -129,9 +129,14 @@
         </li>
         <li>
           <a href="#">
-            <img src="./imgs/0149115f23ab31a80120a8212535f0.png" />
+            <img src="./imgs/015e9c5f23ab15a801215aa0795d4e.png" />
           </a>
         </li>
+        <!-- <li>
+          <a href="#">
+            <img src="./imgs/0149115f23ab31a80120a8212535f0.png" />
+          </a>
+        </li> -->
       </ul>
       <span class="arrow-p" id="arrowLeft"></span>
       <span class="arrow-n" id="arrowRight"></span>
@@ -214,7 +219,8 @@
 
     /* 第三步：点左右按钮切换图片 */
     // 右边按钮
-    my$('arrowRight').onclick = function () {
+    my$('arrowRight').onclick = clickRightHandle;
+    function clickRightHandle() {
       // console.log(index); // 获得索引(这个索引在最开始的时候就设定了的)
       if (index == list.length - 2) {
         index = 0;
@@ -245,11 +251,19 @@
       index--;
       animate(ulObj, -index * imgWidth);
       // 设置小按钮的颜色
-      for(var i = 0; i<olObj.children.length; i++) {
+      for (var i = 0; i < olObj.children.length; i++) {
         olObj.children[i].removeAttribute('class');
       }
       olObj.children[index].className = 'active';
     }
+
+
+
+    /* 
+      第四步：无缝播放
+        核心点：把右边按钮的点击事件回调函数改为命名函数
+    */
+    setInterval(clickRightHandle, 3000);
   </script>
 </body>
 
