@@ -151,6 +151,12 @@
       2. 点击左右两边的按钮能够切换上一张和下一张
       3. 自动轮播
       4. 鼠标移入：停止轮播。鼠标移出：继续轮播。
+
+
+    cloneNode(): 谁调这个方法了，就把谁克隆了。如：ulObj.children[0].cloneNode()，这是ul的第一个儿子调用了这个方法，那么ul的第一个儿子就被克隆了。
+        - cloneNode(true): 表示克隆这个标签里的所有东西，标签有啥我都要。如：<li><a><img></a></li>都要
+        - cloneNode(false): 表示只克隆标签，里面的内容不要。如: <li></li>只克隆标签
+        - 返回值：返回来的还是这个标签节点
    -->
   <!-- 获取元素 -->
   <script src="./common.js"></script>
@@ -171,7 +177,8 @@
 
 
 
-    /* 第二步：实现功能 */
+    /* 第二步：实现hover换图片功能 */
+    var index = 0; // 图片的索引，这是一个全局变量，因为在hover的时候要用到，在点击左右按钮的时候也要用到
     // 创建小按钮 --- 根据ul中的li的个数
     for (var i = 0; i < list.length; i++) {
       // 创建li标签，加入到ol中
@@ -183,7 +190,7 @@
 
       // 排他功能 --- 鼠标进入干掉所有的背景颜色，给当前的li一个active背景颜色
       // 注册鼠标移入事件
-      liObj.onmouseover = function() {
+      liObj.onmouseover = function () {
         // 先干掉所有的ol中的li背景颜色
         // 注意liObj是指一个，olObj是所有的liObj的父亲，所以找到olObj的所有孩子的长度
         for (var j = 0; j < olObj.children.length; j++) {
@@ -192,16 +199,57 @@
         // 设置当前鼠标进来的背景颜色
         this.className = 'active';
         // 获取鼠标进入的li的当前的索引值
-        var index = this.getAttribute('index');
+        index = this.getAttribute('index');
         // 移动ul(使用自己封装的动画函数来展示移动效果)
         animate(ulObj, -index * imgWidth);
       }
     }
     // 设置ol中的第一个li有背景颜色
     olObj.children[0].className = 'active';
-    
+    // 克隆一个ul中第一个li，然后加入到ul中的最后(目的：第一张和最后一张是一样的图片)
+    ulObj.appendChild(ulObj.children[0].cloneNode(true));
+    // console.log(ulObj.children); // 可以通过查看ul的子元素来判断是否克隆成功
 
 
+
+    /* 第三步：点左右按钮切换图片 */
+    // 右边按钮
+    my$('arrowRight').onclick = function () {
+      // console.log(index); // 获得索引(这个索引在最开始的时候就设定了的)
+      if (index == list.length - 2) {
+        index = 0;
+        ulObj.style.left = 0 + 'px';
+      }
+      index++;
+      // 上面的index++，那么图片也相应的移动(调用自己封装的动画函数)
+      animate(ulObj, -index * imgWidth);
+      // 如果pic==5说明，此时显示第6个(内容是第一张图片)，第一个小按钮有颜色
+      if (index == list.length - 1) {
+        olObj.children[olObj.children.length - 1].className = '';
+        olObj.children[0].className = 'active';
+      } else {
+        for (var i = 0; i < olObj.children.length; i++) {
+          olObj.children[i].className = '';
+        }
+        olObj.children[index].className = 'active';
+      }
+    }
+
+
+    // 左边按钮
+    my$('arrowLeft').onclick = function () {
+      if (index == 0) {
+        index = 4;
+        ulObj.style.left = -index * imgWidth + 'px';
+      }
+      index--;
+      animate(ulObj, -index * imgWidth);
+      // 设置小按钮的颜色
+      for(var i = 0; i<olObj.children.length; i++) {
+        olObj.children[i].removeAttribute('class');
+      }
+      olObj.children[index].className = 'active';
+    }
   </script>
 </body>
 
