@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="./imgs/beauty2.png" width="200" alt="" id="im">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 鼠标在页面中移动，图片跟着图片移动
+    // 为document注册鼠标移动事件
+    document.onmousemove = function(e) {
+      // 鼠标移动的横纵坐标
+      // 可视区域的横坐标
+      my$('im').style.left = e.clientX + 'px';
+      // 可视区域的纵坐标
+      my$('im').style.top = e.clientY + 'px';
+      my$('im').style.position = 'absolute';
+      console.log(e);
+    }
+  </script>
+</body>
+</html>
