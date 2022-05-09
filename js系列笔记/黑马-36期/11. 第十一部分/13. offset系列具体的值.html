@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    input {
+      position: absolute;
+      top: 250px;
+    }
+
+    /* 父级元素 */
+    #dv1 {
+      width: 200px;
+      height: 150px;
+      background-color: red;
+      margin-left: 100px;
+    }
+
+    /* 子级元素 */
+    #dv2 {
+      position: absolute;
+      left: 10px;
+      margin-left: 100px;
+      width: 100px;
+      height: 50px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dv1">
+    <div id="dv2"></div>
+  </div>
+  <input type="button" value="显示效果" id="btn">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+        注意：offsetLeft 和 offsetTop所包含的东西一样的，所以只拿offsetLeft做演示
+
+        offsetLeft 包含(没有脱离文档流的情况)：
+          - 父级元素的margin会影响到子元素的offsetLeft值和offsetTop值
+          - 父级元素的padding会影响到子元素的offsetLeft值和offsetTop值
+          - 父级元素的border会影响到子元素的offsetLeft值和offsetTop值
+          - 子级元素自身的margin会影响到子元素的offsetLeft值和offsetTop值
+        offsetLeft总结(没有脱离文档流)：
+          父级元素的margin + 父级元素的padding + 父级元素的border + 子级元素的margin
+
+
+        
+        offsetLeft 包含(脱离文档流的情况)：
+          - 只要子级元素脱离文档流了(position: absolute;)，就跟父级元素没有关系了(即使父级元素position: relative;也子级元素没有关系)
+        offsetLeft总结(脱离文档流)：
+          - 只跟子级元素自身的margin和left值有关系(跟子级元素自身的padding和border无关)
+
+    */
+
+    // 红色div的宽和高
+    my$('btn').onclick = function () {
+      // 没有脱离文档流的情况
+      console.log(my$('dv2').offsetLeft);
+      console.log(my$('dv2').offsetTop);
+    }
+  </script>
+</body>
+
+</html>

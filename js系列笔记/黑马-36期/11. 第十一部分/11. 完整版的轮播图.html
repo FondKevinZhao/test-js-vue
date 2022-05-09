@@ -98,7 +98,7 @@
     }
 
     #pic-button li.active {
-      background-color: #fff;
+      background-color: red;
     }
   </style>
 </head>
@@ -263,7 +263,17 @@
       第四步：无缝播放
         核心点：把右边按钮的点击事件回调函数改为命名函数
     */
-    setInterval(clickRightHandle, 3000);
+    var timeId = setInterval(clickRightHandle, 2600);
+
+
+    /* 第五步：鼠标进入自动停止，鼠标离开自动播放 */
+    box.onmouseover = function() {
+      clearInterval(timeId);
+    }
+
+    box.onmouseout = function() {
+      timeId = setInterval(clickRightHandle, 2600)
+    }
   </script>
 </body>
 

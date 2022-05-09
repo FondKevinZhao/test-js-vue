@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    input{
+      position: absolute;
+      top: 250px;
+    }
+    #dv1 {
+      position: absolute;
+      left: 100px;
+      top: 30px;
+      width: 200px;
+      height: 150px;
+      background-color: red;
+    }
+    #dv2 {
+      width: 100px;
+      height: 50px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="dv1">
+    <div id="dv2"></div>
+  </div>
+  <input type="button" value="显示效果" id="btn">
+  <script src="./common.js"></script>
+  <script>
+    /* 
+      三个大的系列：
+        三组属性：
+          1. offset这个系列中的属性
+            - offsetWidth：获取元素的宽
+            - offsetHeight：获取元素的高
+            - offsetLeft：获取元素距离左边的位置
+            - offsetRight：获取元素距离上边的位置
+    */
+
+    // 红色div的宽和高
+    my$('btn').onclick = function() {
+      // 在style标签中设置的样式属性(非行内样式)，获取不到当前div的宽度和高度
+      // 在style的属性中(行内样式)，是可以获取到当前的div的宽度和高度
+      // console.log(my$('dv1').style.width);
+      // console.log(my$('dv1').style.height);
+
+      // 用下面这种方式获取：以后获取元素的宽高使用offset系列来获取
+      console.log(my$('dv1').offsetWidth);
+      console.log(my$('dv1').offsetHeight);
+      console.log(my$('dv1').offsetLeft);
+      console.log(my$('dv1').offsetTop);
+    }
+  </script>
+</body>
+</html>
