@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .top {
+      width: 100%;
+      height: 200px;
+      background-color: red;
+      font-size: 40px;
+      line-height: 200px;
+      text-align: center;
+    }
+    .nav {
+      width: 100%;
+      height: 100px;
+      background-color: green;
+      font-size: 40px;
+      line-height: 100px;
+      text-align: center;
+    }
+    .main {
+      width: 100%;
+      height: 2000px;
+      background-color: yellow;
+      font-size: 40px;
+      line-height: 200px;
+      text-align: center;
+    }
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="top" id="topPart">我是top</div>
+  <div class="nav" id="navBar">我是nav</div>
+  <div class="main" id="mainPart">我是main</div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 浏览器的滚动事件：onscroll
+    window.onscroll = function() {
+      // 先判断，向上卷曲出去的距离和最上面的div对比
+      if(getScroll().top >= my$('topPart').offsetHeight) {
+        // fixed类样式很关键
+        my$('navBar').className = 'nav fixed'; 
+        my$('navBar').top = 0;
+        // 为了防止执行my$('navBar').className = 'nav fixed'; 后，后面的main会直接往上冲导致有咯噔一下的现象，就要执行下面这行代码
+        my$('mainPart').style.marginTop = my$('navBar').offsetHeight + 'px';
+      } else {
+        my$('navBar').className = 'nav'; 
+        my$('mainPart').style.marginTop = 0 + 'px';
+      }
+    }
+  </script>
+</body>
+</html>

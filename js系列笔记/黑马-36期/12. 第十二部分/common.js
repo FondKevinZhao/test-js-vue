@@ -65,3 +65,20 @@ function animate(element, target) {
     }
   }, 14);
 }
+
+
+
+
+
+
+// 封装的getScroll函数
+function getScroll() {
+  // 返回对象
+  return {
+    // 向上卷曲出去的距离
+    top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+
+    // 向左卷曲出去的距离
+    left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+  }
+}
