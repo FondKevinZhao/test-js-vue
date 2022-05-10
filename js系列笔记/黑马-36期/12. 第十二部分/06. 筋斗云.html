@@ -24,7 +24,10 @@
     }
 
     li {
+      width: 86px;
       height: 60px;
+      border: 1px dashed blue;
+      text-align: center;
       line-height: 60px;
       float: left;
       margin: 0 11px;
@@ -33,10 +36,11 @@
 
     span {
       position: absolute;
-      top: 15px;
+      /* top: 15px; */
+      /* left: 12px; */
       width: 86px;
-      height: 30px;
-      background-color: rgba(255, 255,255, .5);
+      height: 60px;
+      background-color: rgba(255, 255, 255, .5);
       border-radius: 15px;
     }
   </style>
@@ -52,8 +56,8 @@
       <li>深圳校区</li>
       <li>武汉校区</li>
       <li>关于我们</li>
-      <li>联系我们</li>
-      <li>招贤纳士</li>
+      <!-- <li>联系我们</li>
+      <li>招贤纳士</li> -->
     </ul>
   </div>
 
@@ -61,7 +65,36 @@
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
-    
+    // 获取所有的li标签
+    var list = my$('navBar').children;
+    // 获取云彩
+    var cloud = my$('cloud');
+
+    // 循环遍历，分别注册鼠标进入，鼠标离开，和鼠标点击事件
+    for (var i = 0; i < list.length; i++) {
+      // 鼠标进入事件
+      list[i].onmouseover = mouseoverHandle;
+      // 鼠标点击事件
+      list[i].onclick = clickHandle;
+      // 鼠标离开事件
+      list[i].onmouseout = mouseoutHandle;
+    }
+
+    function mouseoverHandle() { // 鼠标进入事件
+      // span 标签移动
+      animateChange(cloud, this.offsetLeft + 10);
+    }
+
+    // 点击的时候记录上次的位置
+    var lastPosition = 0;
+    function clickHandle() { // 鼠标点击事件
+      lastPosition = this.offsetLeft;
+      console.log(lastPosition)
+    }
+
+    function mouseoutHandle() { // 鼠标离开事件
+      animateChange(cloud, lastPosition);
+    }
   </script>
 </body>
 
