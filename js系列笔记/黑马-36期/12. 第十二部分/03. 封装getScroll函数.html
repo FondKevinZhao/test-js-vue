@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      height: 2200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dv"></div>
+
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 获取浏览器向上卷曲出去的距离的值，向左卷曲出去的距离的值
+    /* 
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop 有兼容问题，确保每款浏览器都能有效，所以写三个，其实谷歌这三种写法都支持。
+
+      || 0 的意思是如果有浏览器前面三款都不支持，那么防止报错，给一个0
+    */
+    // 封装getScroll函数
+    // 方法一：
+    /* function getScroll() {
+      // 创建空对象，方便一起返回出去
+      var obj = {}
+
+      // 向上卷曲出去的距离
+      var top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+      // 向左卷曲出去的距离
+      var left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+      obj.top = top;
+      obj.left = left;
+      // 返回对象
+      return obj;
+    } */
+
+
+    // 方法二：可以少定义两个变量
+    /* function getScroll() {
+      // 创建空对象，方便一起返回出去
+      var obj = {}
+
+      // 向上卷曲出去的距离
+      obj.top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+      // 向左卷曲出去的距离
+      obj.left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+
+      // 返回对象
+      return obj;
+    } */
+
+
+
+    // 方法三：直接写在对象里
+    /* function getScroll() {
+      var obj = {
+        // 向上卷曲出去的距离
+        top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+
+        // 向左卷曲出去的距离
+        left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+      }
+
+      // 返回对象
+      return obj;
+    } */
+
+
+
+
+    // 方法四：直接返回对象
+    function getScroll() {
+      // 返回对象
+      return {
+        // 向上卷曲出去的距离
+        top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+
+        // 向左卷曲出去的距离
+        left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+      }
+    }
+
+    // 测试
+    // 浏览器的滚动事件
+    window.onscroll = function() {
+      console.log(getScroll().top);
+      console.log(pageYOffset);
+    }
+  </script>
+</body>
+
+</html>

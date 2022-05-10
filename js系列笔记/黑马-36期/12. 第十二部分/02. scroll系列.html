@@ -14,6 +14,7 @@
       width: 300px;
       height: 200px;
       border: 2px solid red;
+      overflow: auto; /* 超出盒子会出现滚动条 */
     }
     input{
       position: absolute;
@@ -29,26 +30,37 @@
   <script src="./common.js"></script>
   <script>
     /* 
-      offset系列：
+      offset系列：和内容无关
         - offsetLeft: 距离左边位置的值
         - offsetTop: 距离上面距离的值
         - offsetWidth: 元素的宽度(包含边框)
         - offsetHeight: 元素的高度(包含边框)
 
+
       scroll 系列：
-        - scrollLeft: 距离左边位置的值
-        - scrollTop: 距离上面距离的值
-        - scrollWidth: 元素的宽度(不包含边框)
-        - scrollHeight: 元素的高度(不包含边框)
+        - scrollLeft: 向左卷曲的距离
+        - scrollTop: 向上卷曲的距离
+        - scrollWidth: 元素中内容的实际的宽度，如果没有内容就是元素的宽(不包含边框)
+        - scrollHeight: 元素中内容的实际的高度，如果没有内容就是元素的宽(不包含边框)
+
+        scroll 可以做固定导航栏的案例
     */
 
     my$('btn').onclick = function() {
       // console.log(my$('dv').offsetWidth); // 元素的宽，有边框
-      console.log(my$('dv').offsetHeight); // 元素的高，有边框
+      // console.log(my$('dv').offsetHeight); // 元素的高，有边框
 
       // console.log(my$('dv').scrollWidth);
       console.log(my$('dv').scrollHeight);
     }
+
+
+    // 时时的获取向上卷曲的距离
+    // div的滚动事件
+    my$('dv').onscroll = function() {
+      console.log(my$('dv').scrollTop);
+    }
+
   </script>
 </body>
 </html>
