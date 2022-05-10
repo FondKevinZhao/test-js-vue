@@ -1,84 +1,79 @@
 <template>
-  <div>
-    <!-- 头部 -->
-    <Header></Header>
-
-    <div class="container">
-      <!-- <Add></Add>组件：props写法 -->
-      <!-- <Add :addComment="addComment"></Add> -->
-
-      <!-- <Add></Add>组件：自定义事件写法一： 看mounted中的内容 -->
-      <!-- <Add ref="aa"></Add> -->
-
-      <!-- <Add></Add>组件：自定义事件写法二： 看mounted中的内容 -->
-      <!-- 注意：自定义事件这种写法要用@符开头 -->
-      <!-- <Add @addComment="addComment"></Add> -->
-
-      <!-- <Add></Add>组件：自定义事件写法三： 不用看mounted中的内容(和mounted无关)，App.vue中直接这行代码 + methods中的函数就OK -->
-      <!-- <Add @addComment="addComment"></Add> -->
-
-      <!-- $once 版本：看mounted中的内容 -->
-      <Add ref="aa"></Add>
-
-
-      <List :comments="comments" :deleteComment="deleteComment"></List>
+  <div class="todo-container">
+    <div class="todo-wrap">
+      <Header></Header>
+      <List :todos='todos'></List>
+      <Footer></Footer>
     </div>
   </div>
 </template>
 
 <script>
-// 这个@符，是初始化项目的时候，就自动配置好了的，可以直接使用
 import Header from "@/components/Header";
-import Add from "@/components/Add";
 import List from "@/components/List";
+import Footer from "@/components/Footer";
 
 export default {
   name: "",
   components: {
     Header,
-    Add,
     List,
+    Footer,
   },
   data() {
     return {
-      comments: [
-        { id: 1, content: "vue牛逼", username: "赵丽颖" },
-        { id: 2, content: "vue可以", username: "杨幂" },
-        { id: 3, content: "vue不错", username: "戚薇" },
-      ],
-    };
-  },
-  mounted() {
-    // 为Add组件对象绑定自定义事件：方法一组件的写法：
-    // this.$refs.aa.$on("addComment", this.addComment);
-
-    // 为Add组件对象绑定自定义事件：方法二组件的写法：
-    // this.$on("addComment", this.addComment);
-
-    // $once 版本：
-    this.$refs.aa.$once("addComment", this.addComment);
-  },
-  methods: {
-    // 数据在哪个组件，操作数据的方法就应该在哪个组件
-    // 添加评论
-    addComment(comment) {
-      this.comments.unshift(comment);
-    },
-
-    // 删除评论
-    /* 
-      删除评论有两种做法：
-        1. 下标法，直接传过来下标，这边根据下标来删除。如：this.comments.splice(index, 1);
-        2. id法：
-          - 根据id找到要删除的是哪个元素
-          - 再用数组的方法删除这个元素
-    */
-    deleteComment(index) {
-      this.comments.splice(index, 1);
-    },
+      todos: [
+        {id:1, content: '抽烟', isOver: false},
+        {id:2, content: '喝酒', isOver: true},
+        {id:3, content: '烫头', isOver: true}
+      ]
+    }
   },
 };
 </script>
 
 <style>
+/*base*/
+body {
+  background: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #da4f49;
+  border: 1px solid #bd362f;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #bd362f;
+}
+
+.btn:focus {
+  outline: none;
+}
+/*app*/
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
+}
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 </style>
