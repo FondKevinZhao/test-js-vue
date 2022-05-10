@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #dv {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute; /* 元素移动关键点 */
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="移动到200" id="btn1">
+  <input type="button" value="移动到400" id="btn2">
+  <div id="dv"></div>
+
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+      变速动画(或称缓动动画)效果的实现公式：(目标 - 当前) / 10
+    */
+    function animateChange(element, target) {
+      // 清理定时器
+      clearInterval(element.timeId);
+      element.timeId = setInterval(function () {
+        // 获取元素的当前位置
+        var current = element.offsetLeft;
+        // 移动的步数
+        var step = (target - current) / 10;
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        current += step;
+        element.style.left = current + 'px';
+      }, 20);
+    }
+
+
+    // 测试
+    my$('btn1').onclick = function() {
+      animateChange(my$('dv'), 200);
+    }
+
+    my$('btn2').onclick = function() {
+      animateChange(my$('dv'), 400);
+    }
+  </script>
+</body>
+
+</html>
