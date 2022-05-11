@@ -1,7 +1,13 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header></Header>
+      <!-- 方法一：props 看methods的addTodo -->
+      <Header :addTodo="addTodo"></Header>
+
+      <!-- 方法二：自定义事件 看methods的addTodo -->
+      <!-- <Header></Header> -->
+
+
       <List :todos='todos'></List>
       <Footer></Footer>
     </div>
@@ -29,6 +35,11 @@ export default {
       ]
     }
   },
+  methods: {
+    addTodo(todo) {
+      this.todos.unshift(todo);
+    }
+  }
 };
 </script>
 
