@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+      border: 20px solid red;
+      border-left-width: 50px;
+      border-top-width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dv"></div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /*
+      三大系列：
+        offset 系列：获取元素的宽、高
+          - offsetLeft: 距离左边位置的值
+          - offsetTop: 距离上面距离的值
+          - offsetWidth: 元素的宽度(包含边框)
+          - offsetHeight: 元素的高度(包含边框)
+          - offsetParent: offsetParent 就是距离该子元素最近的进行过定位的父元素（position：absolute relative fixed），如果其父元素中不存在定位则offsetParent为：body元素
+
+
+        scroll 系列：
+          - scrollLeft: 向左卷曲的距离
+          - scrollTop: 向上卷曲的距离
+          - scrollWidth: 元素中内容的实际的宽度，如果没有内容就是元素的宽(不包含边框)
+          - scrollHeight: 元素中内容的实际的高度，如果没有内容就是元素的宽(不包含边框)
+
+
+        client 系列：可视区域
+          - clientWidth: 可视区域的宽(不包含边框，得到的是边框内部的宽度)
+          - clientHeight：可视区域的高(不包含边框，得到的是边框内部的高度)
+          - clientLeft: 左边边框的宽度
+          - clientTop: 上边边框的宽度
+    */
+
+    console.log(my$('dv').clientWidth);
+    console.log(my$('dv').clientHeight);
+    console.log(my$('dv').clientLeft);
+    console.log(my$('dv').clientTop);
+  </script>
+</body>
+
+</html>
