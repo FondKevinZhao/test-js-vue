@@ -27,7 +27,11 @@ export default {
           content, 
           isOver
         }
+      // props 写法： 这个需要props先接收数据
+      // this.addTodo(obj);
 
+      // 自定义事件写法：这个组件只需要写这一行就行
+      this.$emit('addTodo', obj);
       } else {
         alert('请输入合法数据');
       }

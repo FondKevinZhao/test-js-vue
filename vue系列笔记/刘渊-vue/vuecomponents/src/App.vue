@@ -2,10 +2,10 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <!-- 方法一：props 看methods的addTodo -->
-      <Header :addTodo="addTodo"></Header>
+      <!-- <Header :addTodo="addTodo"></Header> -->
 
       <!-- 方法二：自定义事件 看methods的addTodo -->
-      <!-- <Header></Header> -->
+      <Header @addTodo="addTodo"></Header>
 
 
       <List :todos='todos'></List>
