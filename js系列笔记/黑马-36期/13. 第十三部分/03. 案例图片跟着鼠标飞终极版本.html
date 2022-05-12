@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 2000px;
+    }
+
+    #im {
+      width: 50px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./beauty2.png" alt="" id="im">
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 图片跟着鼠标飞，可以在任何的浏览器中实现
+    // window.event和事件参数对象e的兼容
+    // clientX 和 clientY 单独的使用的兼容代码
+    // scrollLeft 和 scrollTop 的兼容代码
+    // pageX(相当于clientX + scrollLeft), pageY(相当于clientY + scrollTop) : clientX + scrollLeft  和 clientY + scrollTop
+    
+
+    // 把代码封装在一个函数中
+
+    // 把代码放在一个对象中
+    var evt = {
+      // window.event和事件参数对象e的兼容代码
+      getEvent: function(e) {
+        return window.event || e;
+      }
+    }
+  </script>
+</body>
+
+</html>
