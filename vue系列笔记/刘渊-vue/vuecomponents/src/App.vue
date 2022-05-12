@@ -8,7 +8,7 @@
       <Header @addTodo="addTodo"></Header>
 
 
-      <List :todos='todos'></List>
+      <List :todos='todos' :updateOne="updateOne" :deleteOne="deleteOne"></List>
       <Footer></Footer>
     </div>
   </div>
@@ -38,6 +38,15 @@ export default {
   methods: {
     addTodo(todo) {
       this.todos.unshift(todo);
+    },
+    // 取消单选框或者选中单选框
+    updateOne(index) {
+      // 这里修改的不是数组当中的数据，而是数组对象中的属性
+      this.todos[index].isOver = !this.todos[index].isOver;
+    },
+    // 删除一个
+    deleteOne(index) {
+      this.todos.splice(index, 1);
     }
   }
 };

@@ -9,7 +9,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: '',
+  data() {
+    return {
+      
+    }
+  },
+};
 </script>
 
 <style scoped>

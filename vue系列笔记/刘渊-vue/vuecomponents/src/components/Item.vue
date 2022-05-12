@@ -1,9 +1,14 @@
 <template>
-  <li>
+  <!-- 鼠标移入、移出 -->
+  <li
+    :class="{ 'my-class': isShow }"
+    @mouseenter="isShow = true"
+    @mouseleave="isShow = false"
+  >
     <label>
       <!-- :checked 前面一定要加冒号: -->
       <!-- checked的第一种写法： -->
-      <input type="checkbox" :checked="todo.isOver"/>
+      <input type="checkbox" :checked="todo.isOver" @click="upDateO" />
 
       <!-- checked的第二种写法： 在computed中写 -->
       <!-- <input type="checkbox" v-model="isChecked"/> -->
@@ -14,7 +19,7 @@
        -->
       <span>{{ todo.content }}</span>
     </label>
-    <button class="btn btn-danger" style="display: none">删除</button>
+    <button class="btn btn-danger" v-show="isShow" @click="deleteO">删除</button>
   </li>
 </template>
 
@@ -24,13 +29,32 @@ export default {
   // props: ["todo"],
   // props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
   props: {
+    // props多种写法混合用
     required: true,
     todo: Object,
+    index: {
+      type: Number,
+      default: 0,
+    },
+    updateOne: Function,
+    deleteOne: Function,
   },
   data() {
     return {
       // 不要在data中写props传过来的东西，很可能页面展示的时候，数据还没有拿到，data当中不能出现this
       // isCheck: this.todo.isOver
+
+      isShow: false,
+    };
+  },
+  methods: {
+    // 给单选框打勾或取消打勾
+    upDateO() {
+      this.updateOne(this.index);
+    },
+    // 删除一个todo
+    deleteO() {
+      this.deleteOne(this.index);
     }
   },
   computed: {
@@ -43,11 +67,15 @@ export default {
 
       }
     } */
-  }
+  },
 };
 </script>
 
 <style scoped>
+.my-class {
+  background-color: hotpink;
+}
+
 /*item*/
 li {
   list-style: none;
@@ -71,7 +99,7 @@ li label li input {
 
 li button {
   float: right;
-  display: none;
+  /* display: none; */
   margin-top: 3px;
 }
 
