@@ -22,20 +22,45 @@ export default {
       return this.todos.length;
     },
     overNum() {
-      let num = 0;
+      // 方法一：forEach()
+      /* let num = 0;
       this.todos.forEach((item) => {
         if(item.isOver) {
           num++
         }
       })
-      return num;
+      return num; */
+
+      // 方法二：reduce()
+      /* 
+        reduce()：
+          - 功能：统计数组当中的符合条件的结果(数字或其他类型)
+          - 参数：回调函数 和 统计的初始值
+              1. 回调函数
+                1. prev：上一次统计的结果
+                2. item: 当前项
+                3. index: 索引
+                4. arr: 当前操作的数组
+              2. 统计的初始值(可选，可以不写)，如果不写初始值，回调函数中的第一个参数就代表初始值
+          - 返回值：返回最终统计后的结果
+      */
+      return this.todos.reduce((prev, item) => {
+        // 这个方法也是暗含遍历，会拿数组的每一项执行回调函数
+        // 第一次执行回调的时候，prev的值就是你给的初始值
+        // 第一次执行完回调函数后，会返回prev值，返回给了第二次执行时候的初始值
+        // 最后一次执行返回的prev值，因为没有下一次了，这个值直接作为整个reduce的结果
+        if(item.isOver) {
+          prev += 1;
+        }
+        return prev;
+      },0);
     },
     isCheckAll: {
       get() {
 
       },
       set() {
-        
+
       }
     }
   }
