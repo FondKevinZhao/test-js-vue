@@ -9,7 +9,9 @@
 
 
       <List :todos='todos' :updateOne="updateOne" :deleteOne="deleteOne"></List>
-      <Footer></Footer>
+
+      
+      <Footer :todos='todos'></Footer>
     </div>
   </div>
 </template>
