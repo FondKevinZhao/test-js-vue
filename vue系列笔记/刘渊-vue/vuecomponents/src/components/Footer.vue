@@ -31,7 +31,14 @@ export default {
       })
       return num; */
 
-      // 方法二：reduce()
+      // 方法二：filter()
+      /* var newArr = this.todos.filter((item) => {
+        return item.isOver == true;
+      })
+      return newArr.length; */
+      
+
+      // 方法三：reduce()
       /* 
         reduce()：
           - 功能：统计数组当中的符合条件的结果(数字或其他类型)
@@ -57,7 +64,9 @@ export default {
     },
     isCheckAll: {
       get() {
-
+        // 关键看 已完成 和 全部 是否相等
+        // this.allNum > 0 表示你必须要有内容才会考虑打不打勾，没有内容是不打勾的
+        return this.overNum === this.allNum && this.allNum > 0;
       },
       set() {
 
