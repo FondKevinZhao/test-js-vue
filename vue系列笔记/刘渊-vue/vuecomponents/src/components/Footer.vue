@@ -1,10 +1,10 @@
 <template>
   <div class="todo-footer">
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" v-model="isCheckAll"/>
     </label>
     <span> <span>已完成{{ overNum }}</span> / 全部{{ allNum }}</span>
-    <button class="btn btn-danger">清除已完成任务</button>
+    <button class="btn btn-danger" @click="deleteA">清除已完成任务</button>
   </div>
 </template>
 
@@ -15,6 +15,12 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    // 清除已完成任务
+    deleteA() {
+      this.$emit('deleteAll');
     }
   },
   computed: {
@@ -68,8 +74,9 @@ export default {
         // this.allNum > 0 表示你必须要有内容才会考虑打不打勾，没有内容是不打勾的
         return this.overNum === this.allNum && this.allNum > 0;
       },
-      set() {
-
+      set(val) {
+        // 我用自定义事件做的，也可以使用props做(从App.vue中通过组件标签传过来，然后这边用props接收那个函数，然后在这个地方调用，如：this.updateAll(val))
+        this.$emit('updateAll', val);
       }
     }
   }

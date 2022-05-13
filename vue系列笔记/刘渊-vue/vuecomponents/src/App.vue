@@ -7,11 +7,13 @@
       <!-- 方法二：自定义事件 看methods的addTodo -->
       <Header @addTodo="addTodo"></Header>
 
+      <List :todos="todos" :updateOne="updateOne" :deleteOne="deleteOne"></List>
 
-      <List :todos='todos' :updateOne="updateOne" :deleteOne="deleteOne"></List>
-
-      
-      <Footer :todos='todos'></Footer>
+      <Footer
+        :todos="todos"
+        @updateAll="updateAll"
+        @deleteAll="deleteAll"
+      ></Footer>
     </div>
   </div>
 </template>
@@ -31,11 +33,11 @@ export default {
   data() {
     return {
       todos: [
-        {id:1, content: '抽烟', isOver: false},
-        {id:2, content: '喝酒', isOver: true},
-        {id:3, content: '烫头', isOver: true}
-      ]
-    }
+        { id: 1, content: "抽烟", isOver: false },
+        { id: 2, content: "喝酒", isOver: true },
+        { id: 3, content: "烫头", isOver: true },
+      ],
+    };
   },
   methods: {
     addTodo(todo) {
@@ -49,8 +51,23 @@ export default {
     // 删除一个
     deleteOne(index) {
       this.todos.splice(index, 1);
-    }
-  }
+    },
+    updateAll(val) {
+      this.todos.forEach((item) => {
+        item.isOver = val;
+      });
+    },
+    deleteAll() {
+      // 把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
+      this.todos = this.todos.filter(item => {
+        // 写法一：
+        // return item.isOver === false;
+
+        // 写法二：
+        return !item.isOver;
+      })
+    },
+  },
 };
 </script>
 
