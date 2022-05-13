@@ -32,12 +32,29 @@ export default {
   },
   data() {
     return {
-      todos: [
-        { id: 1, content: "抽烟", isOver: false },
-        { id: 2, content: "喝酒", isOver: true },
-        { id: 3, content: "烫头", isOver: true },
-      ],
+      // localStorage 什么时候存储数据？当数据改变的时候存。
+      // 如何知道数据什么时候改变？通过监视Watch
+      // 加上|| []的原因：如果数组里面没有数据会报错，加上|| []就不会报错了。
+      todos: JSON.parse(localStorage.getItem('TODOS_KEY')) || [],
     };
+  },
+  // 监视数据的改变
+  watch: {
+    todos: {
+      deep: true, // 代表深度监视
+      handler(newVal, oldVal) {
+        // 只要todos数据发生变化就把变化后的数据存储到localStorage当中
+        // localStorage 是前端本地存储的方案，是一个小型的数据库，存储到localStorage当中的东西，都会自动转化为字符串
+        // localStorage当中有四个API
+        // localStorage.setItem('键', 值); // 给localStorage存储数据
+        // localStorage.getItem('键'); // 获取localStorage当中的某个键数据。能获取到就获取到，获取不到返回null，不会影响其他的
+        // localStorage.removeItem('键'); // 删除localStorage当中某个数据
+        // localStorage.clear(); // 清空localStorage所有的数据
+        // 不能直接存对象数据类型，因为对象数据会全部私自的转基本，那么值是对象的话，值就会变成：[object Object],[object Object]
+        // localStorage.setItem("TODOS_KEY", newVal);
+        localStorage.setItem('TODOS_KEY', JSON.stringify(newVal));
+      },
+    },
   },
   methods: {
     addTodo(todo) {
@@ -59,13 +76,13 @@ export default {
     },
     deleteAll() {
       // 把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
-      this.todos = this.todos.filter(item => {
+      this.todos = this.todos.filter((item) => {
         // 写法一：
         // return item.isOver === false;
 
         // 写法二：
         return !item.isOver;
-      })
+      });
     },
   },
 };

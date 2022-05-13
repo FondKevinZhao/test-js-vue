@@ -86,6 +86,7 @@ li {
 }
 
 li label {
+  width: 90%;
   float: left;
   cursor: pointer;
 }
