@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com" id="aa">百度</a>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    my$('aa').onclick = function(e) {
+      // 方法一：
+      // e.preventDefault();
+
+      // 方法二：
+      // window.event.preventDefault();
+
+      // 方法三：
+      return false;
+    }
+  </script>
+</body>
+</html>
