@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #xx {
+      display: block;
+      font-size: 20px;
+      color: green;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    #close {
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-  <div id="xx">X</div>
-  <img src="" alt="">
-  <div id="close"></div>
+  <div id="wrapper">
+    <a href="http://www.baidu.com" id="xx">X</a>
+    <img src="./广告3D木门定制.png" width="200" alt="" id="im">
+    <div id="close">close</div>
+  </div>
 
 
   <!-- 获取元素 -->
   <script src="./common.js"></script>
   <script>
-
+    document.getElementById('close').onclick = function () {
+      document.getElementById('wrapper').style.display = 'none';
+    }
   </script>
 </body>
+
 </html>

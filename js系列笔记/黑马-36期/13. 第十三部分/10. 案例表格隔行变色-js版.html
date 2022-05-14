@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    thead {
+      background-color: #008dd0;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    tbody {
+      background-color: #fcc9c9;
+      border: 1px solid #eee;
+    }
+
+    tr {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <table border="1" cellspacing="0" cellpadding="30">
+    <thead>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>课程</th>
+      <th>成绩</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>杨幂1</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>杨幂2</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>杨幂3</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>杨幂4</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>杨幂5</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>杨幂6</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>杨幂7</td>
+        <td>语文</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+      隔行变色：
+        先拿到所有tr,然后循环tr
+    */
+    var trObjs = document.getElementsByTagName('tr');
+    for (var i = 1; i < trObjs.length; i++) {
+      // 方法一：
+      // 如果tr里面的第一个孩子的内容 % 2 ！= 0，那么就执行if里面的内容
+      /* if(trObjs[i].children[0].textContent % 2 != 0) {
+        trObjs[i].style.backgroundColor = "red";
+      } */
+
+      // 方法二：用索引来做
+      for (var i = 1; i < trObjs.length; i++) {
+        if (i % 2 != 0) {
+          trObjs[i].style.backgroundColor = 'red';
+        } else {
+          trObjs[i].style.backgroundColor = 'skyblue';
+        }
+
+        // 鼠标进入
+        trObjs[i].onmouseover = mounseoverHandle;
+
+        // 鼠标离开
+        trObjs[i].onmouseout = mounseoutHandle;
+      }
+    }
+
+    // 鼠标进入
+    // 当鼠标进入的时候，先把设置后的颜色保存起来，等到鼠标离开再恢复即可
+    var lastColor = ''; // 重点
+    function mounseoverHandle() {
+      lastColor = this.style.backgroundColor
+      this.style.backgroundColor = 'green';
+    }
+
+    // 鼠标离开
+    function mounseoutHandle() {
+      this.style.backgroundColor = lastColor;
+    }
+
+
+
+  </script>
+</body>
+
+</html>
