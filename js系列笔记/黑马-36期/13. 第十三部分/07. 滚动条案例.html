@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 1000px;
+    }
+
+    .box {
+      margin: 30px 0 0 30px;
+      position: relative;
+      width: 210px;
+      height: 400px;
+      padding-right: 16px;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+
+    .scroll {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 16px;
+      height: 400px;
+      background-color: #ddd;
+    }
+
+    .scroll .bar {
+      position: absolute;
+      right: 0;
+      /* top: 10px; */
+      width: 16px;
+      /* height: 100px; */
+      background-color: red;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    系统滚动条是不好设置样式的，我们自己来写一个
+
+
+   -->
+  <div class="box" id="box">
+    <!-- 文字内容 -->
+    <div class="content" id="content">
+      床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。床前明月光，疑似地上霜，举头望明月，低头思故乡。END
+    </div>
+    <!-- 装滚动条的层 -->
+    <div class="scroll" id="scroll">
+      <!-- 滚动条 -->
+      <div class="bar" id="bar"></div>
+    </div>
+  </div>
+
+
+  <!-- 滚动条的计算图 -->
+  <img src="./滚动条计算图.png" width="500" alt="">
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 获取需要的元素
+    // 最外面的div
+    var box = my$('box');
+    // 文字的div
+    var content = my$('content');
+    // 装滚动条的div容器
+    var scroll = my$('scroll');
+    // 滚动条
+    var bar = my$('bar');
+
+    // 设置滚动条的高度 --- 滚动条的高(bar) / 装滚动条的高(scroll) = box的高(最外面的div) / 文字div的高(content)
+    // 滚动条的高 = 装滚动条的div的高 * box的高 / 文字div的高
+    var height = scroll.offsetHeight * box.offsetHeight / content.offsetHeight;
+    bar.style.height = parseInt(height) + 'px'; // 记得加px
+
+    // 给纵坐标就可以了 --- 让滚动条上下移动，因为不可能滚动条同时往上下左右移动的
+    bar.onmousedown = function (e) {
+      var spaceY = e.clientY - bar.offsetTop;
+      // document.onmousemove 我按住滚动条不放，离开滚动条(只要不放，在外面)照样能够生效
+      document.onmousemove = function (e) {
+        var y = e.clientY - spaceY;
+        // 让滚动条一种在scroll中 --- 判断y的值
+        y = y < 0 ? 0 : y; // 判断最小值
+        y = y > scroll.offsetHeight - bar.offsetHeight ? scroll.offsetHeight - bar.offsetHeight : y; // 判断最大值
+        bar.style.top = y + 'px';
+
+        // 滚动条动，文字也动 --- 按比例动
+        /* 
+          滚动条的移动距离 / 文字div的移动距离 = 滚动条最大的移动距离 /  文 字div的最大移动距离
+          求文字div的移动距离 = 滚动条的移动距离 * 滚动条最大的移动距离 / 文字div的最大移动距离 
+        */
+        var moveY = y * (content.offsetHeight - box.offsetHeight) / (scroll.offsetHeight - bar.offsetHeight);
+        // 设置文字div的移动距离
+        content.style.marginTop = -moveY + 'px';
+
+        // 设置移动滚动条的时候，content中的文字不被选中
+         window.getSelection().removeAllRanges()
+      }
+    }
+
+    // 鼠标抬起事件
+    document.onmouseup = function () {
+      // 鼠标抬起的时候，把移动事件干掉
+      document.onmousemove = null;
+    }
+  </script>
+</body>
+
+</html>
