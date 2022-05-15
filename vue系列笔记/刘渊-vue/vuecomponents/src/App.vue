@@ -1,41 +1,46 @@
 <template>
   <div>
-    <Child>
-      <!-- 通过插槽传东西给儿子，要加template -->
-      <!-- 
-        注意：
-        1. 一个组件中可以传多个插槽，但是默认插槽只能有一个，剩下的可以传具名插槽。
-        2. 无论是默认插槽还是具名插槽，里面都可以写东西，也可以不写东西，如果写了东西，就看你用的时候有没有给slot传递新的东西，如果传递了，slot当中的东西就被覆盖了，如果你没有给slot传递新的东西，那么默认显示的就是slot当中的东西。
-      -->
-      <template>
-        <button>点我</button>
-      </template>
+    <!-- 
+      作用域插槽：
+        1. 数据是由父组件传给子组件去展示的
+        2. 子组件展示数据的过程当中，数据的结构是由父组件说了算。为什么？因为以后要用到的很多组件，不是我们自己封装的，比如说elementUI，在用别人的组件的时候，我们只需要拿到别人的数据过来展示就行，结构由elementUI说了算。
+     -->
 
-
-      <template slot="xxx">
-        <a href="http://www.baidu.com">点我去百度</a>
+    <!-- 需求：如果是isOver为true的，前面有对勾，并且颜色是hotpink，如果没有为true的，原样显示 -->
+    <ScopedChild :todos="todos">
+      <!-- 写法一： 直接写接收到的对象 -->
+      <template slot-scope="scopeProps">
+        <span v-if="scopeProps.todo.isOver" style="color: hotpink"
+          >√ {{ scopeProps.todo.content }}</span
+        >
       </template>
-    </Child>
-
-    <Child>
-      <!-- 通过插槽传东西给儿子，要加template -->
-      <template>
-        <p>pp</p>
-      </template>
-
-      <template slot="xxx">
-        <span>我爱你</span>
-      </template>
-    </Child>
+      <!-- 写法二： 解构对象里面的属性 -->
+      <!-- <template slot-scope="{ todo }">
+        <span v-if="todo.isOver" style="color: hotpink"
+          >√ {{ todo.content }}</span
+        >
+      </template> -->
+    </ScopedChild>
   </div>
 </template>
 
 <script>
-import Child from '@/components/Child.vue'
+import Child from "@/components/Child.vue";
+import ScopedChild from "@/components/ScopedChild.vue";
 export default {
   name: "",
   components: {
-    Child
+    Child,
+    ScopedChild,
+  },
+  data() {
+    return {
+      todos: [
+        { id: 1, content: "抽烟", isOver: false },
+        { id: 2, content: "喝酒", isOver: true },
+        { id: 3, content: "烫头", isOver: false },
+      ],
+    };
   },
 };
 </script>
