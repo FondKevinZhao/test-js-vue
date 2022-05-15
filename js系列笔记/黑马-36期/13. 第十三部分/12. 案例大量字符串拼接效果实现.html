@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="显示效果" id="btn"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    var ipts = document.getElementsByTagName('input');
+    console.log(ipts[ipts.length - 1]);
+    // 方法一：
+    /* my$('btn').onclick = function () {
+      var res = ''
+      for (var i = 0; i < ipts.length; i++) {
+        if(ipts[i].type == "text" && ipts[i].value) {
+          res += ipts[i].value + '|';
+        }
+      }
+      // 删除字符串的最后一个
+      res = res.substr(0, res.length -1)
+      console.log(res)
+    } */
+
+
+    // 方法二：
+    /* my$('btn').onclick = function () {
+      var res = ''
+      // 最后一个不参加循环
+      for (var i = 0; i < ipts.length - 1; i++) {
+        if (ipts[i].type == "text" && ipts[i].value) {
+          res += ipts[i].value + '|';
+        }
+      }
+      // 输出的时候加上最后一个input的value
+      console.log(res + ipts[ipts.length - 1].value)
+    } */
+
+
+    // 方法三：推荐使用数组的方式拼接大量的字符串
+    my$('btn').onclick = function () {
+      var str = []
+      // 每个input的value属性值
+      for (var i = 0; i < ipts.length; i++) {
+        if (ipts[i].type != 'button' && ipts[i].value) {
+          str.push(ipts[i].value);
+        }
+      }
+      console.log(str.join('|'));
+    }
+  </script>
+</body>
+
+</html>
