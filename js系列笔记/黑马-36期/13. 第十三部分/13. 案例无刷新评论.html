@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table id="tb" border="1">
+    <tbody id="tbd">
+      <tr>
+        <td>猪猪：</td>
+        <td>我喜欢吃肉</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    昵称：<input type="text" value="" id="userName"><br>
+    <textarea name="" id="tt" cols="30" rows="10"></textarea><br>
+    <input type="button" value="评论一下" id="btn">
+  </div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    // 获取昵称
+    var userName = my$('userName');
+    // 获取内容
+    var tt = my$('tt');
+    // 获取table
+    var tb = my$('tb');
+    // 获取tbody
+    var tbd = my$('tbd');
+    my$('btn').onclick = function () {
+      if(userName.value && tt.value) {
+        // 创建行
+        var tr = document.createElement('tr');
+        // 行加到tbody中
+        tbd.appendChild(tr);
+        // 创建列,加入到tr中，然后把userName的value给到td1
+        var td1 = document.createElement('td');
+        tr.appendChild(td1);
+        td1.innerHTML = userName.value
+        // 创建列
+        var td2 = document.createElement('td');
+        tr.appendChild(td2);
+        td2.innerHTML = tt.value;
+      } else {
+        alert('请输入昵称和内容');
+      }
+      // 清空
+      userName.value = '',
+      tt.value = ''
+    }
+  </script>
+</body>
+</html>
