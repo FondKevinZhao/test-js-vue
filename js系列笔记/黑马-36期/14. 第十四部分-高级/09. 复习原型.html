@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      1. 实例对象中有一个属性：__proto__，这个属性也是对象，也是原型，这个__proto__不是标准的属性(IE8中没有__proto__这个属性，所以说不是标准的属性)，是浏览器使用的，有时候我们也可以使用
+      2. 构造函数中有一个属性：prototype，也是对象，也是原型，是标准属性，程序员用的
+
+      原型：就是__proto__ 或者是 prototype，这两个属性都是原型对象
+
+      原型的作用是什么？共享数据，节省内存空间。
+    */
+
+    // 构造函数
+    function Person(sex, age) {
+      this.sex = sex;
+      this.age = age;
+    }
+
+    // 通过原型添加方法
+    Person.prototype.sayHi = function() {
+      console.log('您好');
+    }
+    var per = new Person('nan', 20);
+    console.dir(per); // 实例对象
+    console.dir(Person); // 构造函数的名字，也是一个对象
+
+    // 实例对象中有两个属性(这两个属性是通过构造函数获取的)，__proto__ 这个属性
+    // 构造函数中并没有name, age这两个属性
+    console.log(per.__proto__ == Person.prototype); // true
+    console.log(per.__proto__.constructor == Person.prototype.constructor);
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #dv {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="点击变色" id="btn">
+  <div id="dv"></div>
+
+  <!-- 获取元素 -->
+  <script src="./common.js"></script>
+  <script>
+    /* 
+      需求：有一个div，有一个按钮，点击按钮，让div的背景颜色改变
+      我们以前用的面向过程的思想来做，就是：
+        1. 先获取按钮，给按钮注册点击事件和事件回调
+        2. 在回调中获取div，然后获取到div的背景颜色并赋值
+
+      面向对象思想 --- 初级的
+        按钮是一个对象，div是一个对象，颜色是一个属性
+        function ChangeStyle(btnId, dvId, color) {
+          this.btnObj = document.getElementById(btnId); // 按钮对象
+          this.dvObj = document.getElementById(dvId); // div对象
+          this.color = color; // 颜色
+        }
+
+        // 数据共享来改变背景颜色
+        ChangeStyle.prototype.init = function() {
+          // console.log(this); // this 是实例对象 --- 就是当前对象
+          var that = this;
+          // 点击按钮，改变div的背景颜色
+          this.btnObj.onclick = function () {
+            that.dvObj.style.backgroundColor = that.color;
+          }
+        }
+
+        实例化对象
+        var cs = new ChangeStyle('btn', 'dv', 'yellow');
+        cs.init();
+    */
+
+    // 方法一：很low的写法，为了推原理
+    /* // 按钮是一个对象，div是一个对象，颜色是一个属性
+    function ChangeStyle(btnId, dvId, color) {
+      this.btnObj = document.getElementById(btnId); // 按钮对象
+      this.dvObj = document.getElementById(dvId); // div对象
+      this.color = color; // 颜色
+    }
+
+    // 数据共享来改变背景颜色
+    ChangeStyle.prototype.init = function () {
+      // console.log(this); // this 是实例对象 --- 就是当前对象
+      var that = this;
+      // 点击按钮，改变div的背景颜色
+      this.btnObj.onclick = function () {
+        that.dvObj.style.backgroundColor = that.color;
+      }
+    }
+
+    // 实例化对象
+    var cs = new ChangeStyle('btn', 'dv', 'yellow');
+    cs.init(); */
+
+
+
+    // 方法二：高大上的写法
+    function ChangeStyle(btnObj, dvObj, color) {
+      this.btnObj = btnObj;
+      this.dvObj = dvObj;
+      this.json = json;
+    }
+
+    ChangeStyle.prototype.init = function() {
+      // 点击按钮，改变div多个样式属性值
+      var that = this;
+      this.btnObj.onclick = function() { // 按钮
+        for(var key in that.json) {
+          that.dvObj.style[key] = that.json[key];
+        }
+      }
+    }
+
+    // 实例化对象
+    // 以后要做修改，只要改变这里的内容就行了，上面的代码不需要再写
+    var json = {
+      "width": "500px",
+      "height": "800px",
+      "backgroundColor": "blue",
+      "opacity": "0.2"
+    };
+    var cs = new ChangeStyle(my$('btn'), my$('dv'), json);
+    cs.init(); // 调用方法
+
+
+  </script>
+</body>
+
+</html>
