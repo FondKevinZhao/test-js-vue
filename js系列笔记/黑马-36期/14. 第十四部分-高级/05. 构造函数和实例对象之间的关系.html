@@ -12,7 +12,14 @@
     实例对象是通过构造函数来创建的
     实例对象会指向自己的构造函数(暂时理解，是错误的)
 
-    
+    总结：
+      实例对象和构造函数之间的关系：
+        1. 实例对象是通过构造函数来创建的，创建的过程叫作实例化。
+        2. 如何判断对象是不是这个数据类型？
+          1. 通过构造器的方式：实例对象.构造器 == 构造函数名字
+            如：console.log(dog.constructor == Animal); // true
+          2. 对象 instance 构造函数名字：推荐使用
+            如：console.log(dog instanceof Animal); // true
    -->
   <script>
     // 自定义构造函数 ---》实例化对象
@@ -31,6 +38,39 @@
     // dir可以把这个对象的结构显示出来
     console.dir(per);
     console.dir(Person);
+
+    // 实例对象的构造器 --- 是创造它(new它)的构造函数
+    console.log(per.constructor);
+
+    // 实例对象的构造器是指向Person的，结果是true，所以，这个实例对象per就是通过Person来创建的
+    console.log(per.constructor === Person); // true
+    console.log(per.__proto__ === Person.prototype); // true
+
+
+
+    // 构造函数
+    function Animal(name) {
+      this.name = name;
+    }
+    // 实例对象
+    var dog = new Animal('大黄');
+    console.dir(dog); // 实例对象
+    console.dir(Animal); // 构造函数的名字
+
+    // 说明dog的对象不是通过Person的构造函数创建的
+    console.log(dog.__proto__.constructor == Person); // false
+    // 说明dog的对象是通过Animal的构造函数创建的
+    console.log(dog.__proto__.constructor == Animal); // true
+
+    // 判断这个对象是不是这种数据类型：这两种方式都可以
+    console.log(dog.constructor == Person); // false
+    console.log(dog.constructor == Animal); // true
+
+    console.log(dog instanceof Person); // false
+    console.log(dog instanceof Animal); // true
+
+
+
   </script>
 </body>
 </html>
