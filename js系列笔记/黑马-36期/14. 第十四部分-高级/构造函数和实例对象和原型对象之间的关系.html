@@ -7,10 +7,19 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-    var arr = [10, 20, 30];
+  <!-- 初级原型图 -->
+  <img src="./初级原型图.png" width="800" alt="">
 
-    arr.join('|');
+  <script>
+    /* 
+      构造函数和实例对象和原型对象三者之间的关系：
+        1. 构造函数创建了实例对象。
+        2. 构造函数里面有一个属性叫prototype，这个prototype就是原型对象。
+        3. 原型对象prototype里面有一个构造器constructor，这个构造器就指向自己的构造函数。
+        4. 原型对象prototype里面的方法可以被实例对象所共享。
+        5. 实例对象当中虽然说没有这个属性或者方法，但是因为实例对象的__proto__的原型当中存在，这个实例对象仍然可以使用这个方法。
+        6. 实例对象调用原型的方法：per.__proto__eat(); 由于__proto__不是标准的属性，所以可以直接per.eat();调用。
+    */
   </script>
   <script>
 
