@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数
+    function Student(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+
+    /* // 原型对象上添加属性和方法
+    Student.prototype.height = '188';
+    Student.prototype.weight = '55kg';
+    Student.prototype.study = function() {
+      console.log('学习，每天写500行代码');
+    }
+    Student.protoype.eat = function () {
+      console.log('每天吃一个10斤的西瓜');
+    }
+    var stu = new Student('晨光', 57, "女"); */
+
+
+    // 简单的原型写法：
+    Student.prototype = {
+      height: '188',
+      weight: '55kg',
+      study: function() {
+        console.log('学习好开心啊');
+      },
+      eat: function() {
+        console.log('我要吃好吃的');
+      }
+    };
+
+    
+
+  </script>
+</body>
+</html>
