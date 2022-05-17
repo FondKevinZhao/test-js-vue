@@ -1,20 +1,39 @@
 <template>
   <div>
-    <el-button round>圆角按钮</el-button>
-    <el-button type="primary" round>主要按钮</el-button>
-    <el-button type="success" round>成功按钮</el-button>
-    <el-button type="info" round>信息按钮</el-button>
-    <el-button type="warning" round>警告按钮</el-button>
-    <el-button type="danger" round>危险按钮</el-button>
+    <el-button type="primary" @click="increment">点击加1</el-button>
+    <el-button type="success" @click="decrement">点击减1</el-button>
+    <el-button type="danger" @click="inrementIfOdd">点击如果是奇数加1</el-button>
+    <el-button type="info" @click="inrementAsync">点击异步加1</el-button>
+    <p>{{ count }}</p>
   </div>
-  <!-- 
-    element-ui 当中的组件分为两种：按使用方式去分：组件标签形式的组件 和 js代码形式的组件
-   -->
 </template>
 
 <script>
 export default {
   name: "",
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    increment() {
+      this.count++;
+    },
+    decrement() {
+      this.count--;
+    },
+    inrementIfOdd() {
+      if (this.count % 2 != 0) {
+        this.count++;
+      }
+    },
+    inrementAsync() {
+      setTimeout(() => {
+        this.count++;
+      }, 1000);
+    },
+  },
 };
 </script>
 
