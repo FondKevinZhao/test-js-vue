@@ -29,19 +29,14 @@ export default {
   },
   methods: {
     async getSearchAjax() {
-      // 修改页面显示的状态数据，为了让页面显示正在搜索
-      this.isFirst = false;
-      this.isLoading = true;
-      // console.log('keyword',keyword);
       try {
         const response = await axios({
-          // 自己写的服务器地址，会形成跨域，要在vue.config.js的devServer中去解决
-          url: "http://localhost:4000/users/info",
+          // 自己写的服务器地址，会形成跨域，要在vue.config.js的devServer中的proxy中去解决
+          url: "http://localhost:8080/api/users/info",
           method: "get"
         });
         // 能打印代表成功
         console.log(response.data);
-        this.isLoading = false;
       } catch (error) {
         console.log(error.message);
       }
