@@ -14,13 +14,16 @@
     (function(window) {
       // 产生随机数的构造函数
       function Random() {
-
+        //
       }
-      Random.prototype.getRandom = function() {
-        
+      // 在原型对象中添加方法
+      Random.prototype.getRandom = function(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
       }
+      window.random = new Random();
     })(window);
-
+    var rm = random;
+    console.log(rm.getRandom(10, 50));
     // 全局变量
   </script>
 </body>
