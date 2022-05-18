@@ -12,10 +12,10 @@ const state = {
 // mutations也是一个对象，是一个包含了多个方法的对象，其实就是用这个里面的方法去直接操作数据的
 // 这个里面的方法不能包含 if判断、for循环、异步，这个方法是直接操作的
 const mutations = {
-  increment(state) {
+  INCREMENT(state) {
     state.count++;
   },
-  decrement(state) {
+  DECREMENT(state) {
     state.count--;
   }
 }
@@ -25,10 +25,21 @@ const mutations = {
 const actions = {
   // context 上下文对象，本质其实就是你暴露的store对象，也可以写成{commit}
   increment(context) {
-    context.commit('increment'); // 这个 increment 是mutations当中的increment
+    context.commit('INCREMENT'); // 这个 increment 是mutations当中的increment
   },
   decrement({commit}) {
-    commit('decrement');
+    commit('DECREMENT');
+  },
+  inrementIfOdd(context) {
+    // 这里的数据可以是context.state.count，或者 state.count(上面正好有这个数据) 或者 {commit, state}
+    if(context.state.count % 2 != 0) {
+      context.commit('INCREMENT');
+    }
+  },
+  inrementAsync({commit}) {
+    setTimeout(() => {
+      commit('INCREMENT');
+    }, 1000);
   }
 }
 
