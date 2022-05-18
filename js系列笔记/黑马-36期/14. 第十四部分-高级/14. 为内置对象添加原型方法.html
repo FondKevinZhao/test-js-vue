@@ -8,7 +8,11 @@
 </head>
 <body>
   <script>
-    
+    // 为内置对象添加原型方法
+    var arr = [10, 20, 30, 40];
+    arr.join("|");
+    console.dir(arr);
+    // 实例中的方法如果没有，去创建该实例对象的构造函数的原型对象中找
   </script>
 </body>
 </html>

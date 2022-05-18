@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      原型链：
+        - 实例对象使用的属性或方法，首先会在自身的实例对象上面找，如果找到了就直接使用，不会再找。
+        - 如果实例对象身上没有会通过实例对象的隐式原型__proto__往实例对象所在的构造函数的prototype原型对象上去找。找到了则使用，找不到则报错。
+    */
+    function Person(age, sex) {
+      this.age = age; 
+      this.sex = sex;
+      this.eat = function(){
+        console.log("构造函数中的吃");
+      }
+    }
+
+    Person.prototype.sex = "女";
+
+    var per = new Person(20, '男');
+    console.log(per.sex); // 男
+    per.eat();
+  </script>
+</body>
+</html>
