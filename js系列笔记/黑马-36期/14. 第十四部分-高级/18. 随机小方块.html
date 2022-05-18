@@ -35,12 +35,12 @@
     console.log(Random.getRandom(0, 5));
 
     // 产生小方块对象
-    (function () {
+    (function (window) {
       var map = document.querySelector('.map');
       // 食物的构造函数
       function Food(width, height, color) {
         this.width = width || 20; // 默认20
-        this.heigth = height || 20; // 默认20
+        this.height = height || 20; // 默认20
         // 横坐标，纵坐标
         this.x = 0; // 横坐标是随机产生的
         this.y = 0; // 纵坐标是随机产生的
@@ -57,14 +57,26 @@
         div.style.backgroundColor = this.color;
         // 把小方块加到map地图中
         map.appendChild(div);
-        this.render();
+        this.render(map);
       };
       // 产生随机位置
-      Food.prototype.render = function() {
+      Food.prototype.render = function(map) {
         // 随机产生横纵坐标
-        var x = Random.getRandom(0, );
+        // map.offsetWidth / this.width 整个地图的宽度除以小方块的宽度，得40份
+        // * this.width 得每一份的宽度 20
+        var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
+        var y = Random.getRandom(0, map.offsetHeight / this.width) * this.width;
+        this.x = x;
+        this.y = y;
+        console.log(x);
+        console.log(y);
+        var div = this.element;
+        div.style.left = this.x + 'px';
+        div.style.top = this.y + 'px';
       }
-    })();
+      var fd = new Food(20, 20, 'blue');
+      fd.init(map);
+    })(window);
   </script>
 </body>
 
