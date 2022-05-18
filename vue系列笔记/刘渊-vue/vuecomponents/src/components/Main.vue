@@ -13,51 +13,55 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
+import { mapState } from 'vuex'
 export default {
   name: "",
   data() {
     return {
-      isFirst: true,
-      isLoading: false,
-      errMsg: "",
-      users: [], // 请求成功后 card 里面的数据
+      // isFirst: true,
+      // isLoading: false,
+      // errMsg: "",
+      // users: [], // 请求成功后 card 里面的数据
     };
   },
-  mounted() {
-    this.$bus.$on("searchAjax", this.getSearchAjax);
+  computed: {
+    ...mapState(['isFirst', 'isLoading', 'errMsg']),
   },
+  // mounted() {
+  //   this.$bus.$on("searchAjax", this.getSearchAjax);
+  // },
   methods: {
-    async getSearchAjax(keyword) {
-      // 修改页面显示的状态数据，为了让页面显示正在搜索
-      this.isFirst = false;
-      this.isLoading = true;
-      // console.log('keyword',keyword);
-      try {
-        const response = await axios({
-          url: "https://api.github.com/search/users",
-          method: "get",
-          // query 参数的写法
-          params: {
-            q: keyword,
-          },
-        });
+    // async getSearchAjax(keyword) {
+    //   // 修改页面显示的状态数据，为了让页面显示正在搜索
+    //   this.isFirst = false;
+    //   this.isLoading = true;
+    //   // console.log('keyword',keyword);
+    //   try {
+    //     const response = await axios({
+    //       url: "https://api.github.com/search/users",
+    //       method: "get",
+    //       // query 参数的写法
+    //       params: {
+    //         q: keyword,
+    //       },
+    //     });
 
-        this.isLoading = false;
-        // console.log(response.data);
-        this.users = response.data.items.map((item) => ({
-          // map函数会返回一个经过处理的新对象
-          // 箭头函数中：对象外面再加一个对象，代表返回的是一个对象
-          username: item.login,
-          userurl: item.html_url,
-          userimg: item.avatar_url,
-        }));
-      } catch (error) {
-        this.isLoading = false;
-        this.errMsg = error.message;
-        console.log(error.message);
-      }
-    },
+    //     this.isLoading = false;
+    //     // console.log(response.data);
+    //     this.users = response.data.items.map((item) => ({
+    //       // map函数会返回一个经过处理的新对象
+    //       // 箭头函数中：对象外面再加一个对象，代表返回的是一个对象
+    //       username: item.login,
+    //       userurl: item.html_url,
+    //       userimg: item.avatar_url,
+    //     }));
+    //   } catch (error) {
+    //     this.isLoading = false;
+    //     this.errMsg = error.message;
+    //     console.log(error.message);
+    //   }
+    // },
   },
 };
 </script>

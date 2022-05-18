@@ -24,8 +24,9 @@ export default {
     search() {
       let keyword = this.keyword;
       if(keyword.trim()) {
-        // 如果keyword是OK的，我们就不要把这个keyword传给Main.vue，在Main.vue中发请求
-        this.$bus.$emit('searchAjax', keyword);
+        // this.$bus.$emit('searchAjax', keyword);
+        // dispatch 在触发的时候本质就是在调用actions当中的方法，可以传递参数，但是只能传递一个，如果要传递多个，请把多个参数封装成对象再传
+        this.$store.dispatch('searchAjax', keyword);
       } else {
         alert('关键字必须合法')
       }
