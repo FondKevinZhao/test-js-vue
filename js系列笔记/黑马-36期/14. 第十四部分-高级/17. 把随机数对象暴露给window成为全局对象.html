@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    通过自调用函数产生一个随机数对象，在自调用函数外面，通过调用该随机数对象方法产生随机数
+   -->
+  <script>
+    (function(window) {
+      // 产生随机数的构造函数
+      function Random() {
+
+      }
+      Random.prototype.getRandom = function() {
+        
+      }
+    })(window);
+
+    // 全局变量
+  </script>
+</body>
+</html>
