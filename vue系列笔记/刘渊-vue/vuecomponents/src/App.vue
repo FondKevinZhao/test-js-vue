@@ -22,7 +22,7 @@
         <div class="panel">
           <div class="panel-body">
             <!-- 指定组件的呈现位置 -->
-            <router-view></router-view>
+            <router-view />1
           </div>
         </div>
       </div>
