@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    关于构造函数的this指向：
+      - 构造函数当中的this就是实例对象
+      - 原型对象方法中的this就是这个实例对象
+      
+
+    原型的指向是否可以改变？
+      - 原型指向可以改变。
+      - 实例对象的原型__proto__指向的是该对象所在的构造函数的原型对象
+      - 实例对象的原型__proto__指向的是
+   -->
+  <script>
+    // 关于构造函数的this指向
+    /* function Person(age){
+      this.age = age;
+      // 构造函数当中的this就是实例对象
+      console.log(this); 
+    };
+    Person.prototype.eat = function () {
+      // 原型对象方法中的this就是这个实例对象
+      console.log(this);
+      console.log('您吃了吗');
+    };
+    var per = new Person(10);
+    console.log(per); 
+    per.eat(); */
+  </script>
+  
+  <script>
+    // 人的构造函数
+    function Person(age){
+      this.age = age;
+    };
+    // 人的原型对象方法
+    Person.prototype.eat = function (){
+      console.log('人的吃');
+    };
+
+    // 学生的构造函数
+    function Student() {
+
+    }
+    // 学生的原型方法
+    Student.prototype.sayHi = function (){
+      console.log('hi，小苏你好帅哦');
+    };
+    // 学生的原型，指向了一个人的实例对象
+    Student.prototype = new Person(10);
+
+    var stu = new Student();
+    stu.eat();
+    console.log(stu.age);
+    // stu.sayHi(); // 报错
+  </script>
+</body>
+</html>
