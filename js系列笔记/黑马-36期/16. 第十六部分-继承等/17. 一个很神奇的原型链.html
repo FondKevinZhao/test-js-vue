@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="dv"></div>
+  <script>
+    var divObj = document.getElementById('dv');
+    console.dir(divObj);
+
+    // divObj.__proto__ 指向 HTMLDivElement.prototype
+    // HTMLDivElement.prototype.__proto__ 指向 HTMLElement.prototype
+    // HTMLElement.prototype.__proto__ 指向 Element.prototype
+    // Element.prototype.__proto__ 指向 Node.prototype
+    // Node.prototype.__proto__ 指向 EventTraget.prototype
+    // EventTraget.prototype.__proto__ 指向 Object.prototype
+    // Object.prototype 当中没有__proto__，所以Object.prototype中的__proto__是null
+  </script>
+</body>
+</html>
