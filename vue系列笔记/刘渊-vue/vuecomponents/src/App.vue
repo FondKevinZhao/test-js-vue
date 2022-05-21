@@ -16,7 +16,6 @@
           <!-- to="/About" 路径里面不用加. -->
           <router-link to="/about" active-class="active" class="list-group-item">About</router-link>
           <router-link to="/home" active-class="active" class="list-group-item">Home</router-link>
-          <router-view></router-view>
         </div>
       </div>
       <div class="col-xs-6">
