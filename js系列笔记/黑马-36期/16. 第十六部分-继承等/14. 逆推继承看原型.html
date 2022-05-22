@@ -7,8 +7,23 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- 图解过程 -->
+  <img src="./逆推继承看原型.png" alt="">
+
   <script>
-    
+    function F1(age){
+      this.age = age;
+    };
+    function F2(age){
+      this.age = age;
+    };
+    F2.prototype = new F1(10);
+    function F3(age){
+      this.age = age;
+    };
+    F3.prototype = new F2(20);
+    var f3 = new F3(30);
+    console.log(f3.age);
   </script>
 </body>
 </html>
