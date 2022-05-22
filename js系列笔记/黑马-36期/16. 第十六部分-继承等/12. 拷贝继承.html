@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    把一个对象中的属性或者方法直接复制到另一个对象中
+   -->
+  <script>
+    /* var obj1 = {
+      name: 'aaa',
+      age: 20,
+      sleep: function (){
+      console.log('睡觉了');
+      }
+    }
+
+    // 改变了地址的指向
+    var obj2 = obj1;
+    console.log(obj2.name, obj2.age);
+    obj2.sleep(); */
+  </script>
+
+  <script>
+    var obj1 = {
+      name: 'aaa',
+      age: 20,
+      sleep: function (){
+      console.log('睡觉了');
+      }
+    }
+
+    var obj2 = {};
+    for(var key in obj1) {
+      obj2[key] = obj1[key];
+    }
+    console.log(obj2.name, obj2.age);
+    obj2.sleep();
+  </script>
+</body>
+</html>

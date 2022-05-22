@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    原型继承：继承属性和方法，属性值会重复
+    借用构造函数继承：继承属性，解决属性值重复的问题，但是父类的方法不会被继承
+
+    组合继承：原型继承 + 借用构造函数继承
+  -->
+  <script>
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    };
+    Person.prototype.sayHi = function () {
+      console.log('啊捏哈赛有');
+    };
+    function Student(name, age, sex, score) {
+      // 借用构造函数
+      Person.call(this, name, age, sex);
+      this.score = score;
+    };
+    // 改变原型指向 --- 实现继承
+    Student.prototype = new Person(); // 不传值
+    Student.prototype.eat = function () {
+      console.log('吃东西');
+    };
+
+    var stu = new Student('小黑', 20, '男', 100);
+    console.log(stu.name, stu.age, stu.sex, stu.score);
+    stu.sayHi();
+    stu.eat();
+
+    var stu2 = new Student('小黑2', 20, '女', 1010);
+    console.log(stu2.name, stu2.age, stu2.sex, stu2.score);
+    stu.sayHi();
+    stu.eat();
+
+    // 这样就做到了属性和方法都被继承了
+  </script>
+</body>
+
+</html>
