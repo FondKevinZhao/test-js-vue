@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数是对象，对象不一定是函数
+    // 对象中有__proto__原型，是对象
+    // 函数中有prototype原型，是对象
+
+    function F1(){
+    
+    };
+    console.dir(F1); // F1中有__proto__原型，也有prototype原型
+
+
+
+    // 对象不一定是函数
+    console.dir(Math); // Math中只有__proto__原型，没有prototype原型
+
+    // 对象中有__proto__，函数中应该有prototype
+    // 如果一个东西里面有prototype，又有__proto__，说明是函数，也是对象
+
+
+
+    function F2(name) {
+      this.name = name;
+    }
+    console.dir(F1);
+    // 所有的函数实际上都是大写的Function的构造函数创建出来的实例对象
+    var f1 = new Function('num1', 'num2', 'return num1 + num2');
+    console.log(f1(10, 20));
+    // 上面的代码就等同于下面的的代码：下面的代码效率高于大写的Function，因为大写的Function操作的是字符串
+    var f1 = function(num1, num2) {
+      return num1 + num2;
+    }
+    
+
+
+
+    console.dir(Function); // 大写的Function是对象也是函数。最终指向的是Object.prototype
+  </script>
+</body>
+</html>
