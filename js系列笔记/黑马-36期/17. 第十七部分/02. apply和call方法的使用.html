@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // apply 和 call的使用
+    // 作用：可以改变this的指向
+    /* function f1(x, y){
+      console.log('结果是：' + (x + y) + this); // this是window
+      return  '10000';
+    };
+    f1(10, 20); // 函数的调用 */
+
+
+
+    console.log('==========');
+    // 此时的f1实际上是当成对象来使用的，对象可以调用方法
+    // apply和call方法也是函数的调用的方式
+    /* f1.apply();
+    f1.call(); */
+
+    console.log('===========');
+    // f1.apply(null);
+    // f1.call(null);
+
+    // apply 和 call 方法中，如果没有传入参数，或者是传入的null，那么调用该方法的函数对象中的this就是默认的window
+    /* f1.apply(null, [100, 200]);
+    f1.call(null, 100, 200); */
+
+    // apply 和 call都可以让函数或者方法来调用，传入参数和函数自己调用的写法不一样，但是效果是一样的
+    /* var result1 = f1.apply(null,[10, 20]);
+    var result2 = f1.call(null,[10, 20]);
+    console.log(result1);
+    console.log(result2); */
+  </script>
+
+  <script>
+    function f1(x, y) {
+      console.log('这个函数是window对象的一个方法' + (x + y) + this.sex); // this是window
+    };
+    window.f1(10, 20); // 这个函数是window对象的一个方法30undefined
+
+    // obj是一个对象
+    var obj = {
+      age: 10,
+      sex: '男'
+    }
+
+    // f1函数本身是属于window身上的方法，当执行f1.apply(obj, [10, 20]);这个代码后，f1函数不再是window身上的方法了，f1函数就属于obj身上的方法了，只会生效一次
+    f1.apply(obj, [10, 20]); // 这个函数是window对象的一个方法30男
+    window.f1.call(obj, 10, 20); // 这个函数是window对象的一个方法30男
+    console.dir(obj); // obj的原型上是找不到f1这个方法的，因为只会生效一次
+
+    // apply和call可以改变this的指向
+  </script>
+
+  <script>
+    console.log('33333333333333333333');
+    function Person(age, sex) {
+      this.age = age;
+      this.sex = sex;
+    };
+    // 通过原型添加方法
+    Person.prototype.sayHi = function (x, y) {
+      console.log('您好啊: ' + this.sex);
+      return 1000;
+    };
+    var per = new Person(10, '男');
+    per.sayHi(); // 您好啊: 男
+
+    console.log('33333333333333333333');
+
+    function Student(name, sex){
+      this.name = name;
+      this.sex = sex;
+    };
+    var stu = new Student('小明', '人妖');
+    // 要想得到sayHi的返回值，直接在前面接收即可
+    var r1 = per.sayHi.apply(stu, [10, 20]);
+    var r2 = per.sayHi.call(stu, 10, 20);
+    console.log('r1', r1);
+    console.log('r2', r2);
+  </script>
+</body>
+
+</html>

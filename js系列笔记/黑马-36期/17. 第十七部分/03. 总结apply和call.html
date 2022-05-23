@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    apply 和 call的使用方法：
+      1. apply的使用语法
+        - 函数名.apply(对象, [参数1, 参数2, ...]);
+        - 方法名字.apply(对象, [参数1, 参数2, ...]);
+      2. call的使用语法
+        - 函数名.call(对象, 参数1, 参数2, ...);
+        - 方法名字.call(对象, 参数1, 参数2, ...);
+
+      作用：改变this的指向
+      不同的地方：参数传递的方法是不一样的
+      什么时候使用：只要是想使用别的对象的方法，并且希望这个方法是当前对象的，那么就可以使用apply或者是call
+   -->
+  <script>
+    // apply 和 call 都可以改变this的指向
+    // 1. 函数的调用，没有改变this的指向
+    function f1(x, y) {
+      console.log((x + y) + ":===>" + this);
+      return '这是函数的返回值';
+    };
+    // apply 和 call 调用
+    var r1 = f1.apply(null, [1, 2]);
+    console.log(r1); // 此时f1中的this是window
+    var r2 = f1.call(null, 1, 2);
+    console.log(r2); // 此时f1中的this是window
+
+
+
+    console.log('==========')
+    // 2. 函数的调用，对象改变this的指向
+    var obj = {
+      sex: '男'
+    }
+    // apply 和 call 调用
+    // 本来这个f1函数是window对象的，但是传入obj之后，f1函数此时就是obj对象的
+    var r1 = f1.apply(obj, [1, 2]); // 此时f1中的this是obj
+    console.log(r1);
+    var r2 = f1.call(obj, 1, 2); // 此时f1中的this是obj
+    console.log(r2);
+
+
+
+    console.log('==========')
+    // 3. 函数的调用，方法改变this的指向
+    function Person(age) {
+      this.age = age;
+    };
+    Person.prototype.sayHi = function (x, y) {
+      console.log((x + y) + ':====>' + this.age);
+      return this.age
+    };
+
+    function Student(age) {
+      this.age = age;
+    };  
+    var per = new Person(10);
+    var stu = new Student(100);
+    // sayHi 方法是per实例对象的
+    per.sayHi.apply(stu, [10, 20]);
+    per.sayHi.call(stu, 10, 20);
+  </script>
+</body>
+
+</html>
