@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    什么时候用for循环，什么时候用while循环更方便呢？
+      刘渊老师经验之谈：
+        - for循环：一般有明显的循环次数，用for循环更合适。如：1. 要循环100次。2. 要取值，取一个范围(从多少到多少)。
+        - while循环一般没有明显的循环次数，用它最合适。如：400以内的数，每次加4，第一次打印0，第二次打印0+4...
+        var i = 0;
+        while(i < 400) {
+          console.log(i);
+          i+=4;
+        }
+
+        // for循环也能写，但是这样写的for循环会比较怪
+        for(var i = 0; i < 500; i+= 4) {}
+   -->
+  <script>
+    // for 循环
+    /* for (var i = 1; i <= 100; i++) {
+      console.log(i);
+    } */
+
+
+
+    // for 循环改写
+    /* var i = 1;
+    for (; i <= 100;) {
+      console.log(i);
+      i++
+    } */
+
+
+
+    // while 循环
+    // while 循环由for 循环转变而来，只要是for 循环能干的，while 循环都能干
+    /* var i = 0;
+    while (i <= 100) {
+      console.log(i);
+      i++;
+    } */
+
+
+
+    // do-while 循环
+    // do-while 循环由 while 循环演变而来的
+    // do-while会先执行一次循环体中的代码，然后再判断while后面的条件表达式的条件是否为真，如果条件为真就会继续执行循环体的内容，否则退出do-while循环
+    /* var i = 1;
+    do {
+      console.log(i);
+      i++
+    } while (i <= 100); */
+
+  </script>
+</body>
+
+</html>

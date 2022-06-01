@@ -729,7 +729,39 @@ switch(n) { // 这个n和case后面的值要完全相等才能生效，也就是
 
 **五、while和do-while循环**
 
-while和do-while之间的区别
+while循环：
+
+```js
+var i = 1;
+while(i < 100) {
+    console.log(i);
+    i++;
+}
+```
+
+do-while循环：
+
+> do-while会先执行一次循环体中的代码，然后再判断while后面的条件表达式的条件是否为真，如果条件为真就会继续执行循环体的内容，否则退出do-while循环
+
+```js
+var i = 1;
+do {
+    console.log(i);
+    i++
+} while(i < 100);
+```
+
+### 八、数组
+
+数组的概念、作用、定义
+
+数组的length，index
+
+数组(数组的不同个位置：增、删、改、查)
+
+二维数组(了解)
+
+
 
 
 
