@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+  如果数字和数字型的字符串比较，数字型字符串会隐式转换为数字，进行比较
+    1. == 判断的是转换后的数值是否一致(双等判断的是值)
+    2. === 在判断数字和数字型字符串的时候，会先判断类型(三等判断的是类型和值)
+ -->
+
+<body>
+  <script>
+    var a = 5;
+    var b = 10;
+    var c = '5';
+    var d = 5;
+    a > 6; // 整体是一个表达式：a是变量 6是常量 >是一个运算符
+    // 同类型
+    console.log(a > 6); // 得到的是一个布尔值
+    console.log(a < b);
+    console.log(a == b);
+
+
+    console.log(a == d);
+    console.log(a === d);
+
+    console.log(a == c); // 如果数字和数字型的字符串比较，数字型字符串会隐式转换为数字，进行比较
+    // == 判断的是转换后的数值是否一致
+    // === 在判断数字和数字型字符串的时候，会先判断类型
+    console.log(a === c);
+
+  </script>
+</body>
+
+</html>

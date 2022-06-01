@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #dv {
+      margin: 150px;
+    }
+
+    .strengthLv {
+      width: 126px;
+      height: 12px;
+      border: 1px solid #ccc;
+      padding: 2px;
+    }
+
+    .strengthLv1 {
+      background-color: red;
+      height: 6px;
+      width: 40px;
+      border: 1px solid #ccc;
+      padding: 2px;
+    }
+
+    .strengthLv2 {
+      background-color: orange;
+      height: 6px;
+      width: 80px;
+      border: 1px solid #ccc;
+      padding: 2px;
+    }
+
+    .strengthLv3 {
+      background-color: green;
+      height: 6px;
+      width: 126px;
+      border: 1px solid #ccc;
+      padding: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dv">
+    <label for="pwd">密码</label>
+    <input type="text" id="pwd" maxlength="16">
+
+    <div>
+      <em>密码强度：</em>
+      <em id="strength"></em>
+      <div id="strengthLevel" class="strengthLv"></div>
+    </div>
+  </div>
+  <script>
+    /* 
+      密码：数字，字母，特殊符号
+      
+      密码：
+        - 只有数字 | 只有字母 | 只有特殊符号 --- 1级 --- 弱
+        - 两两组合(数字和字母，数字和特殊符号，字母和特殊符号) --- 2级 --- 中
+        - 三者都有 --- 3级 --- 强
+    */
+
+    // 方法一：
+    // 获取文本框，注册键盘抬起事件
+    /* function my$(id) {
+      return document.getElementById(id);
+    };
+
+    my$('pwd').onkeyup = function () {
+      // 每次键盘抬起都要获取文本框中的内容，然后验证文本框中有什么东西，得到一个级别，然后下面的div显示对应的颜色就可以了
+      // 如果密码的长度是小于6的，没有必要判断
+      if (this.value.length >= 6) {
+        var lvl = getLvl(this.value);
+        if (lvl === 1) {
+          // 弱
+          my$('strengthLevel').className = 'strengthLv1';
+        } else if (lvl === 2) {
+          // 中
+          my$('strengthLevel').className = 'strengthLv2';
+        } else if (lvl === 3) {
+          // 强
+          my$('strengthLevel').className = 'strengthLv3';
+        } else {
+          my$('strengthLevel').className = 'strengthLv';
+        }
+      } else {
+        my$('strengthLevel').className = 'strengthLv';
+      }
+
+    };
+
+    // 给我密码，我返回对应的级别
+    function getLvl(pwd) {
+      var lvl = 0; // 默认是0级
+      // 密码中是否有数字，或者是字母，或者是特殊符号
+      if (/\d/.test(pwd)) {
+        lvl++;
+      }
+      // 判断密码中有没有字母
+      if (/[a-zA-Z]/.test(pwd)) {
+        lvl++;
+      }
+      // 判断密码中有没有特殊符号
+      if (/[^0-9a-zA-Z_]/.test(pwd)) {
+        lvl++;
+      }
+      return lvl; // lvl的返回值最小是0 最大是3。但是0不可能出现，因为只要你键盘抬起来就一定是输入东西了，不管你是空格字母数字下划线或者啥也不输入
+    }; */
+  </script>
+
+  <script>
+    // 方法二：更好的版本
+    /* function my$(id) {
+      return document.getElementById(id);
+    };
+
+    my$('pwd').onkeyup = function () {
+      // 每次键盘抬起都要获取文本框中的内容，然后验证文本框中有什么东西，得到一个级别，然后下面的div显示对应的颜色就可以了
+      // 如果密码的长度是小于6的，没有必要判断
+      if(this.value.length >= 6){
+        var lvl = getLvl(this.value);
+        my$('strengthLevel').className = "strengthLv" + lvl;
+      } else {
+        my$('strengthLevel').className = "strengthLv"
+      }
+    };
+
+    // 给我密码，我返回对应的级别
+    function getLvl(pwd) {
+      var lvl = 0; // 默认是0级
+      // 密码中是否有数字，或者是字母，或者是特殊符号
+      if (/\d/.test(pwd)) {
+        lvl++;
+      }
+      // 判断密码中有没有字母
+      if (/[a-zA-Z]/.test(pwd)) {
+        lvl++;
+      }
+      // 判断密码中有没有特殊符号
+      if (/[^0-9a-zA-Z_]/.test(pwd)) {
+        lvl++;
+      }
+      return lvl; // lvl的返回值最小是0 最大是3。但是0不可能出现，因为只要你键盘抬起来就一定是输入东西了，不管你是空格字母数字下划线或者啥也不输入
+    };  */
+  </script>
+
+<script>
+  // 方法三：最好的版本
+  function my$(id) {
+    return document.getElementById(id);
+  };
+
+  my$('pwd').onkeyup = function () {
+    // 每次键盘抬起都要获取文本框中的内容，然后验证文本框中有什么东西，得到一个级别，然后下面的div显示对应的颜色就可以了
+    // 如果密码的长度是小于6的，没有必要判断
+    /* if(this.value.length >= 6){
+      var lvl = getLvl(this.value);
+      my$('strengthLevel').className = "strengthLv" + lvl;
+    } else {
+      my$('strengthLevel').className = "strengthLv"
+    } */
+    my$('strengthLevel').className = "strengthLv" + (this.value.length >= 6? getLvl(this.value) : 0);
+  };
+
+  // 给我密码，我返回对应的级别
+  function getLvl(pwd) {
+    var lvl = 0; // 默认是0级
+    // 密码中是否有数字，或者是字母，或者是特殊符号
+    if (/\d/.test(pwd)) {
+      lvl++;
+    }
+    // 判断密码中有没有字母
+    if (/[a-zA-Z]/.test(pwd)) {
+      lvl++;
+    }
+    // 判断密码中有没有特殊符号
+    if (/[^0-9a-zA-Z_]/.test(pwd)) {
+      lvl++;
+    }
+    return lvl; // lvl的返回值最小是0 最大是3。但是0不可能出现，因为只要你键盘抬起来就一定是输入东西了，不管你是空格字母数字下划线或者啥也不输入
+  }; 
+</script>
+</body>
+
+</html>

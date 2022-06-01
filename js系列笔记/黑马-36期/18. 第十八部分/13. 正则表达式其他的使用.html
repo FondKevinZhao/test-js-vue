@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    正则表达式中：g，表示的是全局模式
+    正则表达式中：i，表示忽略大小写
+   -->
+  <script>
+    // 案例1：
+    var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+    // 把里面的数字全部显示出来
+    // str.match(放入一个正则表达式); 返回一个数组
+    var array = str.match(/\d{5}/);
+    console.log('没加g', array);
+
+    var array = str.match(/\d{5}/g); // 这里如果不加g，只表示第一个匹配成功的，如果加了g就表示全部匹配成功的内容放到一个数组中
+    console.log('加了g', array);
+
+    // 使用exec方法来完成 --- 这方法比较复杂，可以使用match来做更方便
+    // str.exec(放入字符串); 返回一个数组,这个数组需要一个一个遍历才能看到
+    var str = "中国移动：10086，中国联通：10010，中国电信：10000";
+    var reg = /\d{5}/g;
+    // var array = reg.exec(str);
+    // console.log('exec', array);
+    // console.log('exec', reg.exec(str));
+    // console.log('exec', reg.exec(str));
+    // console.log('exec', reg.exec(str)); // 如果没有会返回null
+
+    // 循环遍历
+    var result = reg.exec(str);
+    while (result != null) {
+      console.log(result[0])
+      result = reg.exec(str)
+    }
+
+
+
+    // 案例2：
+    /* var str = '123123@xx.com,fangfang@valuedopinions.con 286669312@qq.com 2emailenglish@emailenglish.englishtown.com 286669312@qq.com...';
+    var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
+    console.log(array); */
+
+
+
+    // 案例3：
+    // 提取这里的日
+    /* var str = '2017-11-12';
+    // 如何分辨有几组：正则表达式中加小括号了，就有组了。查看正则表达式`/内容/`内有几个左括号就可以快速分辨有几组
+    // 正则表达式内共三组表达式，我要提取里面的日的话，就选择第三组就行
+    var array = str.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+    console.log(array);
+    // 正则表达式对象.$数字 表示提取第几组
+    console.log(RegExp.$3); // 表示这个正则表达式中的第三组 */
+
+
+
+    // 案例4：
+    /* var email = 'shuaiyangtaishuaile@126.com.cn';
+    email.match(/([0-9a-zA-Z_.-]+)[@]([0-9a-zA-Z_-]+)(([.][a-zA-Z]+){1,2})/);
+    console.log(RegExp.$1); // 用户名
+    console.log(RegExp.$2); // 126
+    console.log(RegExp.$3); // 域名 */
+
+
+
+    // 案例5：
+    /* var str = '小苏好帅哦，真的是太帅了，帅，就是真帅';
+    // str.replace(正则表达式 | 字符串);
+    str = str.replace(/帅/, '猥琐'); // 只替换了一个
+    console.log(str);
+
+    str = str.replace(/帅/g, '猥琐'); // 替换所有
+    console.log(str); */
+
+
+
+    // 案例6：
+    /* var str = '       偶买噶的         ，太幸福了   ';
+    str = str.trim();
+    console.log("===" + str + "==="); // 中间空格没去掉
+
+    // 去掉所有空格
+    str = str.replace(/\s+/g,''); // \s 空白符
+    console.log("===" + str + "==="); // 所有空格都去掉 */
+
+
+
+    // 案例7：
+    // 所有的h/H都替换成S
+    /* var str = 'HhppH';
+    // str = str.toLocaleLowerCase().replace(/[h]/g, 'S');
+    str = str.replace(/[h]|[H]/g, 'S'); // 放在中括号里面更好一点
+    str = str.replace(/[h]/ig, 'S'); // i表示忽略大小写
+    console.log(str); */
+  </script>
+</body>
+
+</html>

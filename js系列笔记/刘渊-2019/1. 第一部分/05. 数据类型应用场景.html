@@ -1,0 +1,119 @@
+<!--
+ * @Author: FondKevinZhao 443403633@qq.com
+ * @Date: 2022-05-28 12:07:37
+ * @LastEditors: FondKevinZhao 443403633@qq.com
+ * @LastEditTime: 2022-05-28 13:00:00
+ * @FilePath: \test-js-vue\js系列笔记\刘渊-2019\1. 第一部分\05. 数据类型应用场景.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数字类型
+    /* var num = 1;
+    console.log(num);
+    var num = 1.23;
+    console.log(num);
+    var num = -10;
+    console.log(num);
+    var num = -1.5;
+    console.log(num);
+
+    var num = 1e3; // 科学计数法，几乎不用
+    console.log(num);
+
+    var num = 0b11100; // 二进制
+    console.log(num);
+
+    var num = 010; // 八进制
+    console.log(num);
+
+    var num = 0o10; // 八进制
+    console.log(num);
+
+    var num = 0x11; // 十六进制
+    console.log(num); */
+
+
+
+    // 字符串类型
+    /* var name = 'zhaoliying';
+    console.log(name);
+
+    var noContent = '';
+    console.log(noContent);
+
+    var englishString = "It's a dog"; // 外双内单
+    console.log(englishString);
+
+    var chineseName = '我爱"赵丽颖"'; // 内单外双
+    console.log(chineseName); */
+
+
+
+    // 布尔类型
+    /* var isMove = true;
+    isMove = false;
+    console.log(Boolean(1));
+    console.log(Boolean(0)); */
+
+
+
+    // undefined 未定义的类型 只有一个值 就叫undefined
+    /* // 什么时候出现undefined？变量定位为赋值
+    var age;
+    console.log(age); // undefined 虽然字面意思是未定义的意思，但是它代表的是定义了变量，没有赋值，此时，变量里面存的就是undefined */
+
+
+
+    // null 空类型  定义的变量赋值为null
+    /* var obj = null; 
+    console.log(obj);  */
+
+
+
+    // 数据类型的判断 typeof
+    /* var num = 10;
+    var str = 'aaa';
+    var bool = false;
+    var unde = undefined;
+    var nul = null;
+    console.log(typeof num);
+    console.log(typeof str);
+    console.log(typeof bool);
+    console.log(typeof unde);
+    console.log(typeof nul); // object
+
+    console.log(typeof (num));
+    console.log(typeof (str));
+    console.log(typeof (bool));
+    console.log(typeof (unde));
+    console.log(typeof (nul)); // object */
+
+
+    // 小面试题
+    console.log(typeof typeof num); // 先算typeof num  
+    console.log(typeof typeof typeof typeof num);// 仍然先算typeof num 
+
+
+
+    // 变量初始化的约定俗成
+    var sum = 0; // 初始化，初始给变量的值，但是此时并不知道后面要存储的值，代表以后要存储的是数字
+    var carName = ''; // 代表以后要存储的是一个字符串
+    var isClose = true; // 代表以后要存储的是一个boolean
+    var a = undefined; // 一般不会这样写，因为初始化就是对一个变量初始赋值，undefined本来就是定义变量没有赋值，所以，不能叫作初始化
+    var dog = null; // 代表着这个dog变量以后要存储的是一个狗的对象
+
+  </script>
+</body>
+
+</html>

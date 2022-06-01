@@ -1,0 +1,1463 @@
+### 一、JavaScript简介
+  1. JavaScript 简介(是什么)
+
+     谁？在哪里？什么时候？用多长时间开发的？是一门什么样的语言？
+
+     布兰登·艾奇，在美国，1995年，用了10天开发出来的。
+     JavaScript是一门动态的、弱类型的、解释型的脚本语言。
+
+     - 动态：只有在执行的时候，才能确定数据类型。
+     - 弱类型：变量数据的类型不是确定的，可以随意的进行改变。
+     - 编译性：其他语言。意思是程序在执行的时候，要先把代码编译成计算机认识的语言，然后才能执行。
+     - 解释型：相对编译性来说，编译型计算机在执行之前需要把程序进行编译，完事之后才执行，而解释型，不需要编译，执行的时候，一行一行去解释执行。
+     - 脚本语言：一般只要是脚本语言，都代表可以嵌在其他的语言当中进行执行。(js在Java、PHP、Python等语言中都可以使用)。
+
+      html、css、js的分工：
+       - html：负责结构
+       - css：负责样式
+       - js：负责行为(动态效果)
+
+     起初叫什么？后来叫什么？
+
+     - 起初叫：LiveScript
+     - 后来叫：JavaScript。因为在95年Sun公司的Java很火。为了能够让更多人知道Livescript，就改名为了JavaScript，借助Java的名字活了一把。其实这两种语言没有啥关系。就像老婆和老婆饼，周杰和周杰伦。
+
+
+
+  2. 为什么要有JavaScript。
+
+     开始能干啥？
+
+     - 负责表单验证(仅仅是负责表单验证)
+     - 如果没有js，那么我们网页的表单验证需要通过网络传输数据去服务器进行验证，占用带宽资源验证，并且用户体验效果不好。
+
+     现在能干啥？
+       - 表单验证
+       - 用户交互
+       - 游戏(主要是小游戏，大型游戏不好写。)
+       - 后端开发
+
+  3. JavaScript的组成部分
+
+     ECMAScript：负责js的语法部分
+
+     - ECMA：欧洲计算机制造者协会
+
+     DOM：Document Object Model 文档对象模型(操作元素)
+
+     - W3C组织推荐的处理可扩展置标语言的标准编程接口。
+
+     BOM：Browser Object Model 浏览器对象模型
+
+  4. js的体验，第一个js程序，js的语句特点
+
+     - alert函数：以弹出框的形式输出内容。
+
+     - console.log函数：以日志的形式在控制台输出内容。
+
+     - document.write函数：把内容作为网页的内容进行展示。
+
+     - console.dir函数：暂时不讲。
+
+  5. js的三种书写位置及优缺点
+
+       1. 行内式/内联式：`<div id="box" onclick="alert('弹出来了呀')">点我弹出对话框</div>`。不推荐使用。
+
+       2. 内嵌式：在html文件中内嵌script标签，在script内写js代码。讲课时使用。
+
+       3. 外链式(里面不能写其他代码，写了也不会执行)：在html中使用script标签引入外部的js文件。写项目时使用。
+
+          
+
+​		
+
+### 二、变量及作用
+
+1. 什么是变量，什么是常量
+
+   - 变量：可以变化的量。**变量的本质是一个容器。**
+   - 常量：不可以变化的量。
+
+2. 为什么要有变量？
+
+3. 什么是程序，什么是进程？
+
+   程序：代码的集合，一般指的是文件，程序是静态的。
+
+   进程：运行的程序，就被称作进程，进程是动态的。
+
+   程序其实就是一个输入 ---》运算 ---》输出的过程
+
+   那么我们要对一个数据进行运算，然后进行输出，这个数据就需要有一个东西去保存，这个东西就是我们所说的变量，本质上是一个容器，这个容器就是内存空间。
+
+4. 变量怎么去玩？
+
+   1. 定义变量，先定义后使用，变量的初始化(var和不写的区别)，变量的本质是一个容器。
+
+   2. 变量的命名规范(组成、大驼峰、小驼峰、下划线)。
+
+      **变量的名字组成：**
+
+      - 数字、字母、下划线以及`$`组成。
+      - 不能以数字开头。
+      - 不能使用关键字或者保留字。
+      - 变量名要见名知义。
+
+      大驼峰：变量名所有的单词首字母大写。如：`MyAge`
+
+      小驼峰：变量名第一个单词首字母小写，其它的大小。如：`myAge`
+
+      下划线：单词和单词之间用下划线连接。如：`my_age`
+
+   3. 关键字和保留字：
+
+      JavaScript的关键字：
+
+      > break、case、catch、continue、default、delete、do、else、finally、for、function、if、in、instanceof、new、return、switch、this、throw、try、typeof、var、void、while、with
+
+      
+
+      JavaScript的保留字：
+
+      > boolean、byte、char、class、const、debugger、double、enum、export、extends、fimal、float、goto、implements、import、int、interface、long、mative、package、private、protected、public、short、static、super、synchronized、throws、transient、volatile
+
+      
+
+### 三、数据类型
+
+1. 数据类型(存储的数据的类型)：
+
+   基本(简单)数据类型和对象(复杂、引用)数据类型
+
+   - 基本数据类型(值类型)
+   - 对象数据类型(对象类型)
+
+2. 基本使用场景：
+
+   - 数值类型：整数，小数，科学计数法，2进制(0b)，8进制(0/0o)，16进制(0x)，NaN。
+   - 字符串：单引号或双引号，包含空字符串 和 空白字符串。
+   - 布尔：true 或者 false。
+   - undefined：定义的变量没有赋值。
+   - null：定义的变量赋值为null(一般是对对象进行初始化使用或者是删除一个对象的时候用到)。
+
+3. 数据类型的判断：
+
+   - typeof 判断：typeof后面只要是有值的东西都可以判断
+
+     - 可以对变量判断：`var a = 10; console.log(typeof a);`
+     - 可以对值判断：`console.log(typeof 10);`
+
+   - typeof的结果是什么类型？
+
+     返回的是一个小写的字符串类型
+
+   - typeof的判断基本数据类型的特殊情况
+
+     null
+
+### 四、运算符和表达式
+
+什么是运算符/操作符？什么是表达式？表达式是有值的(重要程度：★★★★★)。
+
+运算符：参与运算的符号。
+
+表达式：由变量、常量和运算符组成的式子。
+
+1. 算术：`+ - * / % ++ --`
+
+   **取余的作用：**
+
+   - 可以拿到余数。
+   - 可以拿到一个范围。比如：任何一个数跟18取余，最后的余数肯定落到0-17之间。
+
+   **++ -- 作用及注意事项：**
+
+   - 自增自减运算符只能和变量组成表达式。
+   - ++在前，先++后赋值。
+   - ++在后，先赋值后++。
+
+2. 赋值：`= += -= *= /= %=`
+
+   把等号(=)右边的值赋值给等号(=)左边的变量。等号(=)左边一定是变量。
+
+   ```js
+   var a = 1;
+   
+   var b = 2;
+   
+   a = a + b; // a+b组成了表达式，表达式是有值的
+   ```
+
+   复合赋值运算符：`+= -= *= /= %=`
+
+   ```js
+   var a = 5;
+   a += 6; // a = a + 6;
+   ```
+
+   
+
+3. 比较：`> < >= <= == != === !==`
+
+   `==`：判断的是值是否一致。
+
+   `===`：判断的是类型和值是否都一致，都一致才会为true。
+
+4. 逻辑：`&& || !`
+
+   逻辑运算符通常用在多个条件表达式的连接。
+
+   1. &&：一假则假
+   2. ||：一真则真
+   3. !：真就是假，假就是真。这个`非!`无论放在什么样的东西之前，最终的结果都是布尔值。
+
+   短路运算：
+
+   **&&：**如果用在两个值之间，本质上其实是这个过程：
+
+   - 先判断与(&&)之前是否为真，如果为真，那么就取后面的值，赋值给表达式
+
+   - 如果前面的值为假，那么就直接取前面的值，赋值给表达式
+
+   
+
+     **||：**如果用在两个值之间，本质上其实是这个过程：
+
+   - 先判断或(||)之前是否为真，如果为真，那么就取前面的值，赋值给表达式
+   - 如果前面的值为假，那么就直接取后面的值，赋值给表达式
+
+   通常情况下，`&&`，`||`，`!` 都是和条件运算表达式在一起使用
+
+5. 三目运算符(三元运算符)：`? :`
+
+   `a ? b : c` a为真执行b，并把执行结果给到整个表达式。a 为假执行c，并把执行结果给到整个表达式。
+
+### 五、数据类型转换
+
+1. 数据类型强制转换(显示类型转换)
+   - Number()：强制将一个其他类型数据转化为数字类型，转不了就是NaN(Not a Number)。
+
+     **字符串转Number()**通常情况下是用来转字符串的：
+
+     - 如果字符串整体来看是一个数字，那么就转化为整个数字。
+     - 如果字符串整体来看不是一个数字，那么就转化为NaN。
+     - 如果字符串是一个特殊的空字符串，或者空白字符串，那么转化为0。
+
+     **布尔 转 Number() ：**
+
+     - true会转换为1。
+     - false会转换为0。
+
+     **undefined 转 Number()：**undefined会转换为NaN。
+
+     **null 转 Number()：**null会转换为0。
+
+     **对象 转 Number()：**对象会转换为NaN。
+
+     
+
+   - String()：强制将一个其他类型数据转化为字符串类型。
+
+     转化字符串没有什么特殊，只要给我东西，那么就会把这个东西原样变为字符串输出，除了object类型。
+
+     **数字类型 转 String()字符串类型 ：**原样变为字符串
+
+     **布尔类型 转 String()字符串类型 ：**原样变为字符串的true或false
+
+     **undefined类型 转 String()字符串类型 ：**原样变为字符串的undefined
+
+     **null类型 转 String()字符串类型 ：**原样变为字符串的null
+
+     **object类型 转 String()字符串类型 ：**[object Object]
+
+   - Boolean()：强制将一个其他类型数据转化为boolean类型
+
+     **数字类型 转 Boolean() 类型：**除了0是false，其他数字都为true
+
+     **字符串 转 Boolean() 类型：**除了空字符串是false，其他的都是true
+
+     **undefined 转 Boolean() 类型：**undefined 转 布尔 是false
+
+     **null 转 Boolean() 类型：**null 转 布尔 是false
+
+     **object类型 转 Boolean() 类型：**对象 转 布尔 是 true
+
+     
+
+   怎么快速将一个字符串`‘23’`转化为数字23？
+
+   ```js
+   // 从静哥的笔记中搬过来的
+   // 题目：快速将字符串转换为数值
+   var str = '99';
+   // 想办法转换成数值型。
+   // 方法一：
+   console.log(Number(str)); // 99
+   
+   // 方法二：
+   console.log(parseInt(str)); // 99
+   
+   // 方法三：
+   console.log(parseFloat(str)); // 99
+   
+   // 方法四：
+   console.log(str - 0); // 99 // str 会调用Number()转换为99。
+   
+   // 方法五：
+   console.log(+str); // 99
+   ```
+
+   
+
+2. 数据类型隐式转换：计算机自动转换的
+
+   各种类型在适当的场合会发生隐式转换
+
+   主要是运算和条件判断过程中会发生隐式转换
+
+   `console.log(5 + false);`
+
+3. 数据类型手动转换(其实就是在字符串当中提取数字)
+
+   `parseInt()`：从字符串中提取整数，这个字符串必须以数字开头，否则NaN。
+
+   `parseFloat()`：从字符串中提取小数，这个字符串必须以数字开头，否则NaN。
+
+### 六、基本数据运算(表达式的值)
+
+#### 同种数据类型运算和比较
+
+   **数字和数字：**数字之间进行运算的时候该怎么算就怎么算
+
+   - 小数运算的时候不准
+
+     ```js
+     console.log(0.1 + 0.2); // 0.30000000000000004
+     ```
+
+     解决方案：`console.log((0.1 * 10 + 0.2 * 10) / 10); // 0.3`
+
+   - 数字的最大值和最小值
+
+     ```js
+     console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+     console.log(Number.MIN_VALUE); // 5e-324
+     ```
+
+     
+
+   - 1/0，0/1，0/0 分别是多少？
+
+     ```js
+     console.log('1 / 0', 1 / 0); // Infinity
+     console.log('0 / 1', 0 / 1); // 0
+     console.log('0 / 0', 0 / 0); // NaN
+     ```
+
+   - 比较
+
+   **字符串和字符串：**字符串有数字型的字符串和不是数字型的字符串，还有空字符串。只有加号+有意义，其他都是NaN，比较时是false。
+
+   ​	`var a = 'i love you';`	`var b = 'zhao li ying';`
+
+   - `+：` `console.log(a + b);`
+   - `-：` `console.log(a - b);`
+   - `*：` `console.log(a * b);`
+   - `/：` `console.log(a / b);`
+   - `%：` `console.log(a % b);`
+   - `比较：` `console.log(a > b); // false // 按照字母的大小来进行比较`
+   - 空字符串(空字符串转数字为0)：`var a = '';`	`var b = '';`
+     - `+：` `console.log(a + b); // 空 `
+     - `-：` `console.log(a - b); // 0 `
+     - `*：` `console.log(a * b); // 0`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+
+   **boolean和boolean：**
+
+   ​	`var a = true; var b = true`
+
+   - `+：` `console.log(a + b); // 2`
+   - `-：` `console.log(a - b); // 0`
+   - `*：` `console.log(a * b); // 1`
+   - `/：` `console.log(a / b); // 1`
+   - `%：` `console.log(a % b); // 0`
+   - `比较(转数字)：` `console.log(a > b); // false`
+
+   **undefined和undefined：**
+
+   - `+：` `console.log(a + b); // NaN`
+   - `-：` `console.log(a - b); // NaN`
+   - `*：` `console.log(a * b); // NaN`
+   - `/：` `console.log(a / b); // NaN `
+   - `%：` `console.log(a % b); // NaN`
+   - `比较(转数字)：` `console.log(a > b); // false`
+
+   **null和null：**
+
+   - `+：` `console.log(a + b); // 0`
+   - `-：` `console.log(a - b); // 0`
+   - `*：` `console.log(a * b); // 0`
+   - `/` `console.log(a / b); // NaN`
+   - `%：` `console.log(a % b); // NaN`
+   - `比较(转数字)：` `console.log(a > b); // false`
+
+#### 不同类型转换
+
+**数字和其他类型：**
+
+- 数字和字符串：`var a = 10; var b = '2';`
+     - `+：` `console.log(a + b); // '102'`
+     - `-：` `console.log(a - b); // 8`
+     - `*：` `console.log(a * b); // 20`
+     - `/：` `console.log(a / b); // 5`
+     - `%：` `console.log(a % b); // 0`
+     - `比较(转数字)：` `console.log(a > b); // true`
+- 数字和boolean：`var a = 10; var b = true;`
+     - `+：` `console.log(a + b); // 11`
+     - `-：` `console.log(a - b); // 9`
+     - `*：` `console.log(a * b); // 10`
+     - `/：` `console.log(a / b); // 10`
+     - `%：` `console.log(a % b); // 0`
+     - `比较(转数字)：` `console.log(a > b); // true`
+- 数字和undefined：`var a = 10; var b = undefined;`
+     - `+：` `console.log(a + b); // NaN`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+- 数字和null：`var a = 10; var b = null;`
+     - `+：` `console.log(a + b); // 10`
+     - `-：` `console.log(a - b); // 10`
+     - `*：` `console.log(a * b); // 0`
+     - `/：` `console.log(a / b); // Infinity`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // true`
+
+**字符串和其他类型：**
+
+- 字符串和boolean：`var a = 'abc'; var b = true;`
+     - `+：` `console.log(a + b); // 'abctrue' // 有字符串那么true就不会再转换为数字`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+     
+     `var a = '123'; var b = true; // 字符串是个数字`
+     
+     - `+：` `console.log(a + b); // '123true'`
+     - `-：` `console.log(a - b); // 122`
+     - `*：` `console.log(a * b); // 123`
+     - `/：` `console.log(a / b); // 123`
+     - `%：` `console.log(a % b); // 0`
+     - `比较(转数字)：` `console.log(a > b); // true`
+     
+- 字符串和undefined：`var a = 'abc'; var b = undefined;`
+     - `+：` `console.log(a + b); // 'abcundefined'`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+     
+- 字符串和null：`var a = 'abc'; var b = null;`
+     - `+：` `console.log(a + b); // 'abcnull'`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+     
+     `var a = '123'; var b = null; // 字符串是个数字`
+     
+     - `+：` `console.log(a + b); // '123null'`
+     - `-：` `console.log(a - b); // 123`
+     - `*：` `console.log(a * b); // 0`
+     - `/：` `console.log(a / b); // Infinity`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // true`
+
+**布尔和其他类型：**
+
+- 布尔和undefined：`var a = true; var b = undefined;`
+     - `+：` `console.log(a + b); // NaN`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+- 布尔和null：`var a = true; var b = null;`
+     - `+：` `console.log(a + b); // 1`
+     - `-：` `console.log(a - b); // 1`
+     - `*：` `console.log(a * b); // 0`
+     - `/：` `console.log(a / b); // Infinity`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // true`
+
+**undefined和null：**
+
+- `var a = undefined; var b = null;`
+     - `+：` `console.log(a + b); // NaN`
+     - `-：` `console.log(a - b); // NaN`
+     - `*：` `console.log(a * b); // NaN`
+     - `/：` `console.log(a / b); // NaN`
+     - `%：` `console.log(a % b); // NaN`
+     - `比较(转数字)：` `console.log(a > b); // false`
+
+#### 特殊情况(主要是null)
+
+1. 空字符串和null不等
+
+   ```js
+   var a = '';
+   var b = null;
+   console.log(a == b); // false 
+   console.log(Number(a) == Number(b)); // true
+   ```
+
+   
+
+2. false 和 null 不等
+
+   ```js
+   var a = false;
+   var b = null;
+   console.log(a == b); // false 
+   console.log(Number(a) == Number(b)); // true
+   ```
+
+   
+
+3. 0 和 null 不等
+
+   ```js
+   var a = 0;
+   var b = null;
+   console.log(a == b); // false 
+   console.log(Number(a) == Number(b)); // true
+   ```
+
+   
+
+4. false 和空字符串相等
+
+   ```js
+   var a = false;
+   var b = '';
+   console.log(a == b); // true 
+   console.log(Number(a) == Number(b)); // true
+   ```
+
+   
+
+5. undefined 和 null 相等
+
+   ```js
+   var a = undefined;
+   var b = null;
+   console.log(a == b); // true 
+   console.log(Number(a) == Number(b)); // false
+   ```
+
+   
+
+#### 在其余的情况下
+
+只要是不同的基本数据类型进行运算和比较：
+
+第一步：先看是不是`加+`。如果是`加+`，看没有字符串，如果有字符串，那就是拼接字符串。
+
+第二步：再看是不是比较，如果是比较看是不是两边都是字符串，如果是，比较的是字符串的Unicode码。
+
+最后：全部转数字。
+
+
+
+### 七、流程控制语句
+
+#### 语句的结构分类
+
+1. 顺序结构：平常所写的，代码从上到下一行一行执行。
+2. 分支结构：if判断语句等
+3. 循环结构：for循环，while循环
+
+**一、if判断**
+
+1. 单分支
+
+   ```js
+   if(一般都是一个表达式，但是最终只要有值就行，并且这个值最终会转化为布尔值){
+       // 代码块
+   }
+   ```
+
+   
+
+2. 双分支：三元表达式、if-else
+
+   ```js
+   if(一般都是一个表达式，但是最终只要有值就行，并且这个值最终会转化为布尔值){
+       // 代码块
+   } else {
+       // 代码块
+   }
+   ```
+
+   
+
+3. 多分支
+
+   多分支语句是把一件事分成多种情况去考虑，每一种情况都要去处理。
+
+   ```js
+   if(){
+       // 代码块
+   } else if () {
+       // 代码块
+   } else if() {
+       // 代码块
+   } else {
+       // 代码块
+   }
+   ```
+
+   
+
+4. 分支嵌套：if里面再套if
+
+   ```js
+   if(){
+       if(){}else {}
+   } else if(){
+       if(){}else {}
+   } else {}
+   ```
+
+   
+
+**二、switch-case分支语句**
+
+其实就是if多分支语句的变种，为了代码可读性更好一些。
+
+switch 语句执行过程：先求出小括号当中的值，接着会拿着这个值从上到下和所有的标号后面的值进行对比，如果对比成功，就执行。
+
+case 只是一个标号，它不是我们的代码语句，只是用来做对比用的。
+
+真正的代码是switch当中的值 和 case 标号后面的值相等，那么就会执行响应的代码块。
+
+break 跳出switch 循环语句。
+
+```js
+switch(n) { // 这个n和case后面的值要完全相等才能生效，也就是全等
+    case 1:
+        console.log('111');
+        break;
+    case 2:
+        console.log('222');
+        break;
+    default:
+        console.log('333');
+        break; // default后的break可以省略
+}
+```
+
+
+
+**三、for循环**
+
+1. 循环的意义(为什么要循环)
+
+   ```js
+   for(初始化表达式; 条件表达式; 自增自减表达式) {
+       循环体(代码块)
+   }
+   ```
+
+   **for循环执行过程：**
+
+   第一次循环
+
+   - 首先执行初始化表达式
+   - 接着执行条件表达式
+   - 然后执行循环体
+   - 最后执行自增自减表达式
+
+   非第一次循环
+
+   - 执行条件表达式
+   - 执行循环体
+   - 执行自增自减表达式
+
+   **一定注意：**
+
+   - for循环初始化表达式只是在第一次循环的时候执行，后边的循环全部都不执行了。
+   - for循环当中的循环变量 i/j 有两个作用：1. 控制着循环的次数。2. 变量同时也是有值的。
+
+2. 循环的语法
+
+3. 案例练习
+
+   - 打印1-100之间的的数
+   - 打印1-100之间的偶数
+   - 计算1-100之间的和
+   - 计算1-100之间所有偶数的和
+
+4. 死循环
+
+   ```js
+   // for循环的死循环
+   for(;true;) {
+     console.log('a');
+   }
+   ```
+
+   
+
+**四、嵌套循环(循环里面最难的)**
+
+1. 嵌套循环的定义：在一个循环当中又会出现另外一个循环。
+2. 口诀：
+   - 外层循环控制行，内层循环控制列
+   - 外层循环走一次，内层循环全部走完
+3. 案例
+   - 打印矩形
+   - 打印三角形
+   - 打印乘法口诀表
+
+**五、while和do-while循环**
+
+while和do-while之间的区别
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

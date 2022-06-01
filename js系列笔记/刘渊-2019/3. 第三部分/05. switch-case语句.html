@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 案例一：
+    /* var num = parseInt(prompt('请输入1-7之间的数字'));
+    // 注意很重要的一点，switch语句要全等才行。我刚才没有加parseInt()，直接就不生效
+    switch (num) {
+      case 1:
+        alert('周一');
+        break;
+      case 2:
+        alert('周二');
+        break;
+      case 3:
+        alert('周三');
+        break;
+      case 4:
+        alert('周四');
+        break;
+      case 5:
+        alert('周五');
+        break;
+      case 6:
+        alert('周六');
+        break;
+      default:
+        alert('周日');
+        break;
+    } */
+
+
+
+    // 案例二：
+    // if-else 写法
+    /* var score = parseInt(prompt('请输入0-100之间的分数'));
+    if (score >= 90 && score <= 100) {
+      alert('A');
+    } else if (score >= 80 && score <= 90) {
+      alert('B');
+    } else if (score >= 70 && score <= 80) {
+      alert('C');
+    } else if (score >= 60 && score <= 70) {
+      alert('D');
+    } else {
+      alert('E');
+    } */
+
+    // switch-case写法(很高级，要会这种写法)
+    var score = parseInt(prompt('请输入0-100之间的分数'));
+    switch (true) {
+      // score >= 90 && score <= 100 最终会转换成true或false
+      // 如果是true，正好和switch后面的true对应，那就会执行对应的语句
+      case score >= 90 && score <= 100:
+        alert('A');
+        break;
+      case score >= 80 && score <= 90:
+        alert('B');
+        break;
+      case score >= 70 && score <= 80:
+        alert('C');
+        break;
+      case score >= 60 && score <= 70:
+        alert('D');
+        break;
+      default:
+        alert('E');
+      // break;
+    }
+  </script>
+</body>
+
+</html>

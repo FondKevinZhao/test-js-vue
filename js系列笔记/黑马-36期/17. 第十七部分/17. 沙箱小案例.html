@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = '小白喜欢小黑';
+
+    // 沙箱 --- 独立小环境
+    (function (){
+      var str = '小明喜欢小红';
+      str = str.substr(2);
+      console.log(str); // 喜欢小红
+    }());
+
+    str = str.substr(2);
+    console.log(str); // 喜欢小黑
+
+
+  </script>
+</body>
+</html>

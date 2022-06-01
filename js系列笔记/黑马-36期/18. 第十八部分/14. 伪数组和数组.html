@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    伪数组和数组的区别：
+      真数组可以使用数组中的方法，伪数组不可以使用数组中的方法。
+   -->
+  <script>
+    // 数组
+    var arr = [10, 20, 30];
+    // 对象
+    var obj = {
+      0: 10,
+      1: 20,
+      2: 30
+    }
+
+    // 遍历数组
+    for (var i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+
+    // for循环遍历对象没有效果，因为对象没有length属性
+    for (var i = 0; i < obj.length; i++) {
+      console.log(obj[i]);
+    };
+  </script>
+</body>
+
+</html>

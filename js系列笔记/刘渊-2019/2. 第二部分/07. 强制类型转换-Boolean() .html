@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 其他类型转 Boolean() 类型
+    // 数字类型 转 Boolean() 类型：除了0是false，其他数字都为true
+    /* var c = 100;
+    c = Boolean(c);
+    console.log(c);
+
+    var c = 6;
+    c = Boolean(c);
+    console.log(c);
+
+    var c = 0.2;
+    c = Boolean(c);
+    console.log(c);
+
+    var c = 0;
+    c = Boolean(c);
+    console.log(c); */
+
+
+
+    // 字符串 转 Boolean() 类型：除了空字符串是false，其他的都是true
+    /* c = '123';
+    c = Boolean(c);
+    console.log(c);
+
+    c = 'abc';
+    c = Boolean(c);
+    console.log(c);
+
+    c = '0';
+    c = Boolean(c);
+    console.log(c); // true
+
+    c = '            '; // 空白串
+    c = Boolean(c);
+    console.log(c);
+
+    c = ''; // 空字符串
+    c = Boolean(c);
+    console.log(c); */
+
+
+
+    // undefined 转 Boolean() 类型：undefined 转 布尔 是false
+    /* c = undefined;
+    c = Boolean(c);
+    console.log(c); */
+
+
+
+    // null 转 Boolean() 类型：null 转 布尔 是false
+    /* c = undefined;
+    c = Boolean(c);
+    console.log(c); */
+
+
+
+    // 对象 转 Boolean() 类型：对象 转 布尔 是 true
+    /* c = {};
+    c = Boolean(c);
+    console.log(c);
+
+    c = [];
+    c = Boolean(c);
+    console.log(c); */
+    
+    // 注意下面两个输出
+     
+    console.log(5 + 'false');
+  </script>
+</body>
+
+</html>

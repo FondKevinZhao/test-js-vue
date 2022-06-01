@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    &&：一假则假
+    ||：一真则真
+    !：真就是假，假就是真
+
+    &&：如果用在两个值之间，本质上其实是这个过程：
+      - 先判断与(&&)之前是否为真，如果为真，那么就取后面的值，赋值给表达式
+      - 如果前面的值为假，那么就直接取前面的值，赋值给表达式
+
+    ||：如果用在两个值之间，本质上其实是这个过程：
+      - 先判断或(||)之前是否为真，如果为真，那么就取前面的值，赋值给表达式
+      - 如果前面的值为假，那么就直接取后面的值，赋值给表达式
+   -->
+  <script>
+    var a = 10;
+    console.log(a > 10 && a < 100); // 多个表达式形成一个整体被称为复合表达式
+    console.log(a > 8 && a < 9);
+    console.log(a < 0 || a > 8);
+    console.log(a > 100 || a < 0);
+    console.log(a > 10 / 2 && a < 10 % 8);
+
+    console.log('!!!!!!!!!!!!!!!!!');
+    console.log(!(a > 0));
+    console.log(!a); // false
+    console.log(!!a); // true
+    console.log(!(a > 10 / 2 + 3 && a < 10 % 8 * 6));
+    console.log(!(a > 10 / 2 + 3) && a < 10 % 8 * 6);
+
+    console.log('&&&&&&&&&&&&&&&')
+    a = 5 && 8;
+    console.log(a);
+    a = (a = 10) && 8; // 这个题有意思
+    console.log(a);
+    a = a < 10 && 8;
+    console.log(a);
+    var b = a > 8 && a < 9;
+    console.log(b);
+
+    console.log('|||||||||||||||||')
+    b = 10;
+    b = 6 || 9;
+    console.log(b);
+
+    var c = 0 || 100;
+    console.log(c);
+
+    c = 0 || 2 || 3;
+    console.log(c);
+
+    c = 0 || 0 || 3;
+    console.log(c);
+
+    a = 10;
+    var d = a > 8 || a < 9;
+    console.log(d);
+  </script>
+</body>
+
+</html>

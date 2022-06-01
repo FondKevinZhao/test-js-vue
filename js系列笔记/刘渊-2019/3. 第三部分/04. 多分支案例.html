@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 案例一：
+    // 一个数大于0小于10，让这个数+1
+    // 如果大于等于10，小于100，让这个数-1
+    // 如果大于等于100，小于200，让这个数*2
+    // 如果大于等于200， 小于500， 让这个数/2
+    // 其余的数字，对3取余
+    /* var num = parseInt(prompt('请输入一个数字'));
+    if (num > 0 && num < 10) {
+      console.log('大于0小于10');
+      console.log(num++);
+    } else if (num >= 10 && num < 100) {
+      console.log('大于等于10，小于100');
+      console.log(num--);
+    } else if (num >= 100 && num < 200) {
+      console.log('大于等于100，小于200');
+      console.log(num * 2);
+    } else if (num >= 200 && num < 500) {
+      console.log('大于等于200， 小于500');
+      console.log(num / 2);
+    } else {
+      console.log('其他情况');
+      console.log(num % 3);
+    } */
+
+
+
+    // 案例二：
+    // 如果70-90斤，输出：骨感美
+    // 如果90-120斤，输出：性感美
+    // 如果120-140斤，输出：丰满美
+    // 如果140-160斤，输出：肉感美
+    // 如果160-200斤，输出：该减肥了
+    // 其他的，输出：请输入合法体重
+    var weight = parseFloat(prompt('请输入体重'));
+    if(weight >= 70 && weight < 90){
+      console.log('骨感美');
+    } else if(weight >= 90 && weight < 120) {
+      console.log('性感美');
+    } else if(weight >= 120 && weight < 140) {
+      console.log('丰满美');
+    } else if(weight >= 140 && weight < 160) {
+      console.log('肉感美');
+    } else if(weight >= 160 && weight < 200) {
+      console.log('该减肥了');
+    } else {
+      console.log('请输入合法体重');
+    }
+  </script>
+</body>
+
+</html>

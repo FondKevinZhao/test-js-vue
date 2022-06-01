@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    口诀：外层循环控制行，内层循环控制列
+   -->
+  <script>
+    // 打印5行5列的星星
+    /* for (var i = 1; i <= 5; i++) {
+      for (var j = 1; j <= 5; j++) {
+        document.write('★');
+      }
+      // 不能直接写'<br>'，而要把<br>放在document.write('<br>')里面
+      document.write('<br>'); 
+    } */
+
+
+
+    // 打印一个三角形
+    /* for (var i = 1; i <= 5; i++) {
+      for (var j = 1; j <= i; j++) {
+        document.write('★');
+      }
+      // 不能直接写'<br>'，而要把<br>放在document.write('<br>')里面
+      document.write('<br>');
+    } */
+
+
+
+    // 打印一个倒三角
+    /* for (var i = 5; i >= 1; i--) {
+      for (var j = 1; j <= i; j++) {
+        document.write('★');
+      }
+      // 不能直接写'<br>'，而要把<br>放在document.write('<br>')里面
+      document.write('<br>');
+    } */
+
+
+
+    // 打印乘法口诀表
+    for (var i = 1; i <= 9; i++) {
+      for (var j = 1; j <= i; j++) {
+        document.write(j + '*' + i + '=' + i * j + '&nbsp;&nbsp;&nbsp;&nbsp;');
+      }
+      document.write('<br>');
+    }
+  </script>
+</body>
+
+</html>

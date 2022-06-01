@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    什么时候，我们的三元表达式可以替代双分支语句？
+      当双分支if语句每个分支里面只有一行代码的时候，我们就要考虑改为三元表达式去写。如果每个分支里面是多行代码，那就无能为力了。
+   -->
+  <script>
+    // 三元表达式写法
+    var a = 10;
+    var b = a > 0 ? 5 : a;
+    console.log('b', b);
+    
+    // if-else写法
+    var a = 10;
+    var b;
+    if(a > 0) {
+      b = 5;
+    } else {
+      b = a;
+    }
+    console.log(b);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    parseInt(): 从字符串中提取整数，这个字符串必须以数字开头，否则NaN。
+    parseFloat(): 从字符串中提取小数，这个字符串必须以数字开头，否则NaN。
+   -->
+  <script>
+    var a = '123abc';
+    a = parseInt(a);
+    console.log(a);
+
+    var b = '123.23434aaa334.5';
+    console.log('parseInt(b)', parseInt(b));
+    console.log('parseFloat(b)', parseFloat(b));
+
+
+    var c = 'eeedd33.5';
+    console.log('parseInt(c)', parseInt(c));
+    console.log('parseFloat(c)', parseFloat(c));
+
+
+    var d = '123.1234.56dfdfjid';
+    console.log('parseInt(d)', parseInt(d));
+    console.log('parseFloat(d)', parseFloat(d));
+
+
+    var e = '123..1234.56dfdfjid';
+    console.log('parseInt(e)', parseInt(e));
+    console.log('parseFloat(e)', parseFloat(e));
+
+    var f = '';
+    console.log('parseInt(f)', parseInt(f));
+    console.log('parseFloat(f)', parseFloat(f));
+
+    console.log(0 && 100); // 忽然想到
+  </script>
+</body>
+
+</html>

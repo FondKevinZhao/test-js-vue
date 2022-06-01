@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    92汽油和95汽油
+      - 92号汽油单价5元/L，如果加的超过30L就4元/L
+      - 95号汽油单价6元/L，如果加超过40L就5元/L
+      - 最后花了多少钱? 汽油加多少键盘输入，汽油号也在键盘上输入
+   -->
+  <script>
+    // 写法一：
+    /* var money = 0;
+    var oilNumber = parseInt(prompt('请输入您要加的油号'));
+    var oilL = parseInt(prompt('请输入您要加的油量'));
+    if (oilNumber == 92) {
+      if (oilL > 30) {
+        money = oilL * 4
+      } else {
+        money = oilL * 5
+      }
+    } else if (oilNumber == 95) {
+      if (oilL > 40) {
+        money = oilL * 5
+      } else {
+        money = oilL * 6
+      }
+    } else {
+      console.log('请输入正确的油号');
+    }
+    console.log("共消费：" + money + ' 元'); */
+
+
+
+    // 写法二：
+    var money = 0;
+    var oilNumber = parseInt(prompt('请输入您要加的油号'));
+    var oilL = parseInt(prompt('请输入您要加的油量'));
+    if (oilNumber == 92) {
+      money = oilL > 30 ? oilL * 4 : oilL * 5;
+    } else if (oilNumber == 95) {
+      money = oilL > 40 ? oilL * 5 : oilL * 6;
+    } else {
+      console.log('请输入正确的油号');
+    }
+    console.log("共消费：" + money + ' 元');
+  </script>
+</body>
+
+</html>

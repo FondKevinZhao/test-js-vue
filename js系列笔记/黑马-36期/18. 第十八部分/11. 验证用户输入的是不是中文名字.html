@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  请输入您的名字：<input type="text" value="" id="userName">*<br>
+  <script>
+    // 是中文名字，则是绿色，否则红色
+    document.getElementById('userName').onblur = function () {
+      // [\u4e00-\u9fa5] [一 - 龥yu]匹配中文的正则表达式，不用记
+      // 通过unescape('\u9fa5')方式可以得到汉字
+      // 通过escape('汉字')方式可以得到乱序编码，可以使用unescape('编码')再把编码变成汉字
+      var reg = /^[\u4e00-\u9fa5]{2,6}$/;
+      if (reg.test(this.value)) {
+        this.style.backgroundColor = 'green';
+      } else {
+        this.style.backgroundColor = 'pink';
+      }
+    };
+  </script>
+</body>
+
+</html>
