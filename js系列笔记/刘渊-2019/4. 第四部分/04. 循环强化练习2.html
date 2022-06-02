@@ -64,7 +64,7 @@
 
     // 完成一个等腰三角形
     // 外层for循环打印行
-    for (var i = 1; i <= 6; i++) {
+    /* for (var i = 1; i <= 6; i++) {
       // 这个for循环为了打印空格
       for (var j = 1; j <= 6 - i; j++) {
         document.write('&nbsp;');
@@ -76,16 +76,65 @@
         document.write('*');
       }
       // k循环方法二：
-      /* for(var k = 1; k <= i; k++) {
-        if (k == 1) {
-          document.write('*')
-        } else {
-          document.write('**')
-        }
-      } */
+      // for(var k = 1; k <= i; k++) {
+      //   if (k == 1) {
+      //     document.write('*')
+      //   } else {
+      //     document.write('**')
+      //   }
+      // }
+      document.write('<br>');
+    } */
+
+
+
+
+    // 打印圣诞树
+    for (var i = 1; i <= 6; i++) {
+      // 这个for循环为了打印空格
+      for (var j = 1; j <= 6 - i; j++) {
+        document.write('&nbsp;');
+      }
+
+      // 这个for循环为了打印星星
+      // k循环方法一：
+      for (var k = 1; k < 2 * i; k++) {
+        document.write('*');
+      }
+      document.write('<br>');
+    }
+    for (var i = 1; i <= 6; i++) {
+      // 这个for循环为了打印空格
+      for (var j = 1; j <= 6 - i; j++) {
+        document.write('&nbsp;');
+      }
+
+      // 这个for循环为了打印星星
+      // k循环方法一：
+      for (var k = 1; k < 2 * i; k++) {
+        document.write('*');
+      }
       document.write('<br>');
     }
 
+    // 树桩
+    // 树桩方法一：
+    /* for (var i = 1; i <= 8; i++) {
+      document.write('&nbsp;&nbsp;&nbsp;&nbsp;');
+        document.write('*****');
+      document.write('<br>');
+    } */
+
+    // 树桩方法二：
+    /* for (var i = 1; i <= 8; i++) {
+      for (var j = 1; j < 5; j++) {
+        document.write('&nbsp;');
+      }
+      for (var k = 1; k < 6; k++) {
+      document.write('*');
+      }
+      document.write('<br>');
+    } */
   </script>
 </body>
 
