@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     var arr = [1, 2, 3, 4, 5];
@@ -18,12 +20,24 @@
 
 
     // 从数组的头部加一个数
-    // 方法一：
+    // 方法一：仅对新手操作的一种方法
+    // 先把所有的数通通往后移一个位置，然后再在第一个位置去改成你要加的值
+    for (var i = arr.length - 1; i >= 0; i--) {
+      console.log(arr[i]);
+      arr[i + 1] = arr[i];
+    }
+    [ 1, 1, 2, 3, 4, 5];
+    // arr[0] = 10;
+    console.log(arr);
+
+    // 方法二：
     arr.unshift(11);
     console.log(arr);
-    // 方法二：
-    arr.splice(0,1, 12);
+
+    // 方法三：
+    arr.splice(0, 0, 12); // 从索引0 开始，删除0个，添加一个12
     console.log(arr);
   </script>
 </body>
+
 </html>
