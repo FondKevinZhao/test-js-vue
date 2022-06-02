@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [1, 2, 3, 4, 5];
+    // 从数组的末尾加一个数
+    /* arr[arr.length] = 6;
+    console.log(arr);
+    arr[arr.length] = 7;
+    console.log(arr); */
+
+
+
+    // 从数组的头部加一个数
+    // 方法一：
+    arr.unshift(11);
+    console.log(arr);
+    // 方法二：
+    arr.splice(0,1, 12);
+    console.log(arr);
+  </script>
+</body>
+</html>
