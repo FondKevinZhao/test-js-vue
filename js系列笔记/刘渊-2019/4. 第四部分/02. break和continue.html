@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    break: 在循环当中，只能跳出离它最近的那一层循环。如果是多层循环，要注意这个问题。
+   -->
+  <script>
+    // 求100以内能够被三整除的数
+    // 方法一：
+    /* for (var i = 1; i <= 100; i++) {
+      if(i % 3 == 0) {
+        console.log(i);
+      }
+    } */
+
+    // 方法二：continue 做法
+    // continue 以下的代码不会执行了，从下一次开始继续
+    for (var i = 1; i <= 100; i++) {
+      if(i % 3 != 0) {
+        continue; // 结束当前循环
+      }
+      console.log(i);
+    };
+  </script>
+</body>
+
+</html>

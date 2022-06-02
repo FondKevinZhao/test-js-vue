@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 打印100-200之间所有能被3或者7整除的数
+    /* for (var i = 100; i <= 200; i++) {
+      if (i % 3 == 0 || i % 7 == 0) {
+        console.log(i);
+      }
+    } */
+
+
+
+    // 打印三位数位上有3或者7的数字(这个三位数个位上是3或者7)
+    /* for (var i = 100; i <= 999; i++) {
+      if (i % 10 == 3 || i % 10 == 7) {
+        console.log(i);
+      }
+    } */
+
+
+
+    // 打印三位数位上有3的数字
+    /* for (var i = 100; i<= 900; i++) {
+      // 先求每个位上的数字
+      var bai = parseInt(i / 100);
+      var shi = parseInt(i / 10 % 10);
+      var ge = i % 10;
+
+      // 再进行判断
+      if (bai == 3 || shi == 3 || ge == 3) {
+        console.log(i);
+      }
+    } */
+
+
+
+    // 计算100的阶乘，如：1*2*3....*100
+    /* var product = 1; // 如果是累加，初始为0。如果是累乘，初始为1。
+    for (var i = 1; i <= 100; i++) {
+      // product 是 '乘积' 的意思
+      product *= i;
+    }
+    console.log(product); */
+
+
+
+    // 求100-999之间的水仙花数。abc = a ^ 3 + b ^ 3 + c ^ 3
+    // 方法一：
+    /* for (var i = 100; i <= 999; i++) {
+      // 先求每个位上的数字
+      var bai = parseInt(i / 100);
+      var shi = parseInt(i / 10 % 10);
+      var ge = i % 10;
+
+      // i == bai * bai * bai 可以写成 bai ** 3 或者 Math.pow(bai, 3);
+      if (i == bai * bai * bai + shi * shi * shi + ge * ge * ge) {
+        console.log(i);
+      }
+    } */
+
+    // 方法二：
+    for (var i = 100; i <= 999; i++) {
+      // 先求每个位上的数字
+      var bai = parseInt(i / 100);
+      var shi = parseInt(i / 10 % 10);
+      var ge = i % 10;
+
+      // i == bai * bai * bai 可以写成 Math.pow(bai, 3); 或者 bai ** 3 
+      if (i == Math.pow(bai, 3) + Math.pow(shi, 3) + ge ** 3) {
+        console.log(i);
+      }
+    }
+  </script>
+</body>
+
+</html>
