@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 删除 
+    var arr = [1, 2, 3, 4, 5];
+    // 数组末尾删除一个
+    // 方法一：
+    /* arr.length--;
+    console.log(arr); */
+
+    // 方法二：
+    /* arr.length = arr.length - 1;
+    console.log(arr); */
+
+    // 方法三：
+    /* for (var i = 0; i < arr.length; i++) {
+      if (i === arr.length - 1) {
+        arr.length = arr.length -1;
+      }
+    }
+    console.log(arr); */
+
+    // 方法四：
+    /* arr.pop();
+    console.log(arr); */
+
+    // 方法五：
+    /* arr.splice(arr.length -1, 1);
+    console.log(arr); */
+
+    // 方法六：
+    /* var arr = arr.slice(0, arr.length - 1);
+    console.log(arr); */
+
+
+
+    // 数组头部删除一个
+    // 方法一：
+    /* for (var i = 1; i < arr.length; i++) {
+      arr[i - 1] = arr[i];
+    }
+    arr.length--;
+    console.log(arr); */
+
+    // 方法二：
+    /* arr.shift();
+    console.log(arr); */
+
+    // 方法三：
+    /* arr.splice(0, 1);
+    console.log(arr); */
+
+    // 方法四：
+    /* arr = arr.slice(1); // 从索引为1开始截取，一直到最后
+    console.log(arr); */
+
+
+
+
+    // 数组中间删除一个
+    for (var i = 3; i < arr.length; i++) {
+      arr[i - 1] = arr[i];
+    }
+    arr.length--;
+    console.log(arr);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 数组的改：改不需要去移位了，只要知道了下标，直接改相应的下标的值
+    var arr = [1, 2, 3, 4, 5, 4, 3, 2];
+    // 把数组当中的4改成6
+    /* for(var i = 0; i < arr.length; i++) {
+      if(arr[i] == 4) {
+        arr[i] = 6;
+      }
+    }
+    console.log(arr); */
+
+
+
+    // 查其实就是遍历或者输出某一个值
+    // 输出数组当中的4
+    for(var i = 0; i < arr.length; i++) {
+      if(arr[i] == 4) {
+        console.log(arr[i] + '---' + i);
+      }
+    }
+  </script>
+</body>
+</html>

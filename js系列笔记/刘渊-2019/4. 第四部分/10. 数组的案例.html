@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数组元素的和
+    /*var arr = [1, 2, 3, 4, 5];
+    var sum = 0;
+    // 方法一：
+     for(var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    console.log(sum); */
+
+    // 方法二：
+    /* arr.forEach(item => {
+      sum += item;
+    })
+    console.log(sum); */
+
+
+
+    // 求数组最大值，最小值，平均值
+    // var arr = [1, 2, 3, 4, 5];
+    // 求最大值
+    /* var max = arr[0];
+    for(var i = 0; i < arr.length; i++) {
+      if(max < arr[i]) {
+          max = arr[i];
+      }
+    }
+    console.log(max); */
+
+    // 求最小值
+    /* var min = arr[0];
+    for (var i = 0; i < arr.length; i++) {
+      if(min > arr[i]) {
+        min = arr[i];
+      }
+    }
+    console.log(min); */
+
+    // 求平均值
+    /* var sum = 0;
+    var average = arr[0];
+    for(var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    average = sum / arr.length;
+    console.log(average); */
+
+
+
+    // 输入每个人的分数，求平均值
+    /* var arr = [];
+    var sum = 0;
+    for (var i = 0; i < 5; i++) {
+      arr[i] = parseInt(prompt('请输入第' + (i + 1) + '位的分数'));
+      sum += arr[i];
+    }
+    console.log(sum/arr.length); */
+
+
+
+    // 反转数组
+    // 方法一：
+    /* var arr = [1, 2, 3, 4, 5];
+    var newArr = [];
+    for(var i = arr.length -1; i >= 0; i--) {
+      newArr[newArr.length] = arr[i];
+    }
+    console.log(newArr); */
+
+    // 方法二：
+    /* var arr = [1, 2, 3, 4, 5];
+    var newArr = [];
+    for (var i = arr.length - 1; i >= 0; i--) {
+      newArr.push(arr[i]);
+    }
+    console.log(newArr); */
+
+    // 方法三：
+    /* var arr = [1, 2, 3, 4, 5];
+    for(var i = 0; i < arr.length/2; i++){
+      var temp = arr[i];
+      arr[i] = arr[arr.length - 1 - i];
+      arr[arr.length - 1 - i] = temp;
+    }
+    console.log(arr); */
+  </script>
+</body>
+
+</html>

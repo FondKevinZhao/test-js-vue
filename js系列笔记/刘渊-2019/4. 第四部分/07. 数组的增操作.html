@@ -10,6 +10,7 @@
 
 <body>
   <script>
+    // 添加
     var arr = [1, 2, 3, 4, 5];
     // 从数组的末尾加一个数
     /* arr[arr.length] = 6;
@@ -22,7 +23,7 @@
     // 从数组的头部加一个数
     // 方法一：仅对新手操作的一种方法
     // 先把所有的数通通往后移一个位置，然后再在第一个位置去改成你要加的值
-    for (var i = arr.length - 1; i >= 0; i--) {
+    /* for (var i = arr.length - 1; i >= 0; i--) {
       console.log(arr[i]);
       arr[i + 1] = arr[i];
     }
@@ -36,7 +37,17 @@
 
     // 方法三：
     arr.splice(0, 0, 12); // 从索引0 开始，删除0个，添加一个12
-    console.log(arr);
+    console.log(arr); */
+
+
+
+    // 从数组的中间插入一个数
+    /* for (var i = arr.length - 1; i >= 2; i--) {
+      arr[i + 1] = arr[i];
+    }
+    arr[2] = 6;
+    console.log(arr); */
+
   </script>
 </body>
 
