@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 三种方式打印1-100之间偶数加一，奇数减一
+    // for 循环
+    /* var num = 100;
+    for (var i = 1; i <= 100; i++) {
+      if(num % 2 == 0) { // 注意：这里要用num，不能用i，否则会造成死循环(因为一直会进入else里面造成死循环)
+        console.log(num++);
+      } else {
+        console.log(num--);
+      }
+    } */
+
+    // while循环
+    /* var num = 100;
+    var i = 1;
+    while(i <= 100) {
+      if(num % 2 == 0) {
+        console.log(num++);
+      } else {
+        console.log(num--);
+      }
+      i++;
+    } */
+
+    // do-while循环
+    /* var num = 100;
+    var i = 1;
+    do{
+      if(num % 2 == 0) {
+        console.log('num++', num++);
+      } else {
+        console.log('num--', num--);
+      }
+      i++;
+    } while(i <= 100); */
+
+
+
+    // 根据钱数决定吃什么 --- switch-case的方式
+    /* var money = parseInt(prompt('请输入你有多少钱'));
+    switch (true) {
+      case money > 0 && money <= 100:
+        console.log('吃盖饭');
+        break;
+      case money > 100 && money <= 500:
+        console.log('撸串')
+        break;
+      case money > 500 && money <= 1000:
+        console.log('吃火锅');
+        break;
+      case money > 1000 && money <= 10000:
+        console.log('吃遍深圳');
+        break;
+      case money <= 0:
+        console.log('钱钱不够，赶紧赚钱');
+        break;
+      default:
+        console.log('有钱人，随便吃');
+    } */
+
+
+
+    // 找出数组中的所有偶数打印，奇数生成新数组
+    /* var arr = [1, 2, 3, 44, 5, 6, , 16, 6, 78, 44, 5, 7];
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        console.log(arr[i]);
+      } else {
+        newArr[newArr.length] = arr[i];
+      }
+    }
+    console.log(newArr); */
+
+
+
+    // 有一个从小到大排好序的数组，现输入一个数，要求按原来的规律将它插入到数组中(有难度)
+    /* var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 33, 43, 45];
+    var num = parseInt(prompt('请输入一个数字'));
+    var index = 0;
+
+    if (num < arr[0]) {
+      index = 0;
+      // 这个for循环是移位置
+      for (var i = arr.length - 1; i >= index; i--) {
+        arr[i + 1] = arr[i];
+      };
+      arr[index] = num;
+    } else if (num > arr[arr.length - 1]) {
+      index = arr.length;
+      arr[index] = num;
+    } else {
+      // 这个for循环只是在找位置
+      for (var i = 0; i < arr.length; i++) {
+        if (num >= arr[i] && num <= arr[i + 1]) {
+          index = i + 1;
+        }
+      };
+      // 这个for循环是移位置
+      for (var i = arr.length - 1; i >= index; i--) {
+        arr[i + 1] = arr[i];
+      };
+      arr[index] = num;
+    }
+
+    console.log(arr); */
+  </script>
+</body>
+
+</html>
