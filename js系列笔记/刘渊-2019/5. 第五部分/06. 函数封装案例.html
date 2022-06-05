@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    函数是否需要返回值，请做一下下面的例子，自己体会
+   -->
+  <script>
+    // 求和函数
+    /* function getSum(a, b) {
+      return a + b;
+    }
+    var res = getSum(3, 4);
+    console.log(res); */
+
+
+
+    // 编写一个函数求数组的最大值、最小值函数
+    /* function maxAndMin(arr) {
+      var max = arr[0];
+      var min = arr[0];
+      for (var i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+        }
+        if (min > arr[i]) {
+          min = arr[i];
+        }
+      }
+
+      // 注意这里的return要写在for循环的外面
+      // return 最终只能return一个值，不能是多个，如果有多个值要return，需要放入数组或对象中
+      return [max, min];
+    }
+    var arr = [1, 2, 3];
+    var res = maxAndMin(arr);
+    console.log(res); */
+
+
+
+    // 编写函数打印个人简介
+    /* function printResume(name, age, address, salary) {
+      console.log('我的名字叫：' + name + ' 我的年龄是：' + age + ' 我来自：' + address + ' 我的希望薪资是：' + salary);
+    }
+    printResume('Kevin', 18, '湖南', '50k'); */
+
+
+
+    // 封装函数加工数组，每一项加10输出
+    /* function changeArr(arr){
+      for(var i = 0; i < arr.length; i++) {
+        console.log(arr[i] + 10);
+        arr[i] = arr[i] + 10
+      }
+    };
+    var arr = [1, 2, 3, 4, 5];
+    changeArr(arr);
+    console.log(arr); */
+
+
+
+    // 根据用户输入的数值，求1到该值的累加和
+    /* function accumulatedSum(num){
+      var sum = 0;
+      for(var i = 1; i <= num; i++) {
+        sum += i;
+      }
+      return sum;
+    };
+    var res = accumulatedSum(3);
+    console.log(res); */
+
+
+
+    // 提示用户输入账号和密码，实现登录成功效果，如果失败再次提示
+    var username = 'zhaoliying';
+    var password = '123456';
+    function promptUser() {
+      var user = prompt('请输入您的用户名');
+      var pass = prompt('请输入您的密码');
+
+      if(user == username && pass == password) {
+        alert('登录成功');
+      } else {
+        // 函数自己调用自己
+        promptUser();
+      }
+    };
+    promptUser();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [2, 4, 3, 1, 5];
+    // 外层循环控制轮数：你有几个数字，轮数就比它少一个，6个数字，就是5轮
+    for (var i = 0; i < arr.length - 1; i++) {
+      // 内层循环控制比的次数：第一轮比的次数，永远是你的总轮数，剩下的次数依次-1
+      for (var j = 0; j < arr.length - 1 - i; j++) {
+        // 中括号里面是索引，如：一上来j是0，那么arr[j]就是2，arr[j + 1]就是4
+        if (arr[j] > arr[j + 1]) {
+          var temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+    console.log(arr);
+  </script>
+</body>
+
+</html>

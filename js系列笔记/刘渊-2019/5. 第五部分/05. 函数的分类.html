@@ -17,7 +17,7 @@
 
       3. 无参有返回值
 
-      4. 有参有返回值
+      4. 有参有返回值(重点，以后碰到的都是这个)
    -->
   <script>
     // 无参无返回值
@@ -44,7 +44,21 @@
       return 100;
     }
 
-    // 有参有返回值
+    // 有参有返回值(重点，以后碰到的都是这个)
+    function printLove(a) {
+      for (var i = 0; i < a; i++) {
+        console.log('i love you');
+      }
+      return 100;
+    }
+
+    // 案例：有参有返回值
+    // 求两个数的和
+    function getSum(a, b) {
+      return a + b;
+    }
+    var res = getSum(1, 2);
+    console.log(res);
   </script>
 </body>
 
