@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    函数的分类：工作中定义的函数基本上是有参数的，无参数的非常的少。
+      1. 无参无返回值
+
+      2. 有参无返回值
+
+      3. 无参有返回值
+
+      4. 有参有返回值
+   -->
+  <script>
+    // 无参无返回值
+    function printLove() {
+      for (var i = 0; i < 100; i++) {
+        console.log('i love you');
+      }
+    }
+
+    // 有参无返回值
+    function printLove(a) {
+      // 形参写出来就相当于在函数内部var了一个变量
+      for (var i = 0; i < a; i++) {
+        console.log('i love you');
+      }
+    }
+    printLove(50);
+
+    // 无参有返回值
+    function printLove() {
+      for (var i = 0; i < 100; i++) {
+        console.log('i love you');
+      }
+      return 100;
+    }
+
+    // 有参有返回值
+  </script>
+</body>
+
+</html>
