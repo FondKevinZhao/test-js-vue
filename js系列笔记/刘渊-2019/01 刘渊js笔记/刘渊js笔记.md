@@ -957,7 +957,7 @@ IIFE: Immediately Invoked Function Expression 立即调用函数表达式(匿名
 1. 定义的时候就直接调用了，不会发生预解析。但是匿名函数内部还是会有预解析。
 2. 匿名函数只会执行一次。
 
-匿名函数自调用的作用：通常用来做一些项目的初始化。
+匿名函数自调用的作用：通常用来做一些项目的初始化(移动端适配。jQuery，Vue等框架中)。
 
 匿名函数自调用通常可以做这些事：
 
@@ -985,6 +985,10 @@ IIFE: Immediately Invoked Function Expression 立即调用函数表达式(匿名
 4. 生命周期回调函数
 
 Arguments 函数实参伪数组
+
+arguments中包含了所有传过来的实参。如果形参是3个，实参是2个，那么arguments.length 是2个。
+
+arguments的作用：通常用来做判断，通过a`rguments.length`来实现。如：如果你传进来三个参数，这个函数就是求和。如果你传进来两个参数，这个函数就是求差。
 
 
 
