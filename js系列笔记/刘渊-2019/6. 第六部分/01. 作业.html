@@ -36,12 +36,28 @@
     console.log(newArr);
 
 
+
     /* var arr1 = []; // 小测试：空数组循环没有效果
     for(var i = 0; i < arr1.length; i++) {
       console.log(i);
       console.log(arr1[i]);
       console.log(arr1.length);
     } */
+
+
+
+    // 拼接数组：原生
+    function concatArr(arr1, arr2) {
+      // 遍历arr2，把arr2的每一个数添加到arr1中
+      for (var i = 0; i < arr2.length; i++) {
+        arr1[arr1.length] = arr2[i];
+      }
+      return arr1;
+    };
+    var arr1 = [1, 2, 3];
+    var arr2 = [4, 5, 6];
+    var res = concatArr(arr1, arr2);
+    console.log('res', res);
   </script>
 </body>
 
