@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // {} 被称为Object实例对象，相当于new Object
+    var obj = {};
+    var cry = 'call';
+    // 增：
+    obj.name = '小黄';
+    obj.age = 1;
+    console.log(obj);
+    obj['color'] = 'yellow'; // obj['color'] 和 obj.color 完全等价
+    obj['category'] = '阿拉斯加';
+    console.log(obj);
+    obj[cry] = function() { // obj[cry] 相当于 obj['call']
+      console.log('汪');
+    }
+    console.log(obj);
+    obj.call();
+    obj[cry](); // 这种写法有点东西
+
+
+
+    // 改：无则增加，有则修改
+    /* var a = 'category';
+    obj.color = 'black'; 
+    console.log(obj);
+    obj['name'] = '小黑';
+    obj[a] = '金毛'; // 先把a解析为变量，看看a的值是什么，用a的值把a替换掉
+    console.log(obj); */
+
+
+
+    // 查：
+    /* var a = 'category';
+    console.log(obj.name); // 读取obj对象当中name键的值
+    console.log(obj['color']); // obj['color'] 完全等价于 obj.color
+    console.log(obj[a]);
+    console.log(obj.haha); // 对象当中如果没有这个属性，访问值是undefined */
+
+
+
+    // 删：
+    /* delete obj.name;
+    console.log('obj.name', obj.name);
+    delete obj[a];
+    console.log('obj.a', obj[a]);
+    console.log(obj); */
+
+
+    
+  </script>
+</body>
+
+</html>
