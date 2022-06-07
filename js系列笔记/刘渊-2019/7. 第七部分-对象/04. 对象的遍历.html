@@ -8,7 +8,33 @@
 </head>
 <body>
   <script>
-    
+    // 对象的遍历：也算是查，查对象当中所有的属性
+    var obj = {
+      name: 'car',
+      category: '劳斯莱斯',
+      color: 'hotpink',
+      money: 10000000,
+      run:function() {
+        console.log('跑得很快');
+      }
+    }
+
+    // 遍历数组用for，遍历对象用for-in
+    for(var key in obj) {
+      console.log('key', key);
+      console.log('obj[key]', obj[key]);
+      // 如果在遍历对象的时候取值，只能使用中括号[]的形式，因为key是一个变量
+      // 如果写成obj.key拿到的是undefined，key被认为是对象里面的属性
+      // obj[key] key被解析为变量，使用变量的值进行替换
+    }
+
+
+    // for-of没法遍历对象
+    /* for(var key of obj) {
+      console.log('key', key);
+
+      console.log('obj[key]', obj[key]);
+    } */
   </script>
 </body>
 </html>
