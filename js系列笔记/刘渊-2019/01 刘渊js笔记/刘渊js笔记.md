@@ -967,7 +967,17 @@ IIFE: Immediately Invoked Function Expression 立即调用函数表达式(匿名
 
    
 
-#### 函数作为参数 & arguments
+#### arguments
+
+Arguments 函数实参伪数组
+
+arguments中包含了所有传过来的实参。如果形参是3个，实参是2个，那么arguments.length 是2个。
+
+arguments的作用：通常用来做判断，通过`arguments.length`来实现。如：如果你传进来三个参数，这个函数就是求和。如果你传进来两个参数，这个函数就是求差。
+
+
+
+#### 回调函数
 
 函数是可以作为参数传递的(一般都是回调函数)
 
@@ -983,12 +993,6 @@ IIFE: Immediately Invoked Function Expression 立即调用函数表达式(匿名
 2. 定时器
 3. Ajax请求
 4. 生命周期回调函数
-
-Arguments 函数实参伪数组
-
-arguments中包含了所有传过来的实参。如果形参是3个，实参是2个，那么arguments.length 是2个。
-
-arguments的作用：通常用来做判断，通过a`rguments.length`来实现。如：如果你传进来三个参数，这个函数就是求和。如果你传进来两个参数，这个函数就是求差。
 
 
 
