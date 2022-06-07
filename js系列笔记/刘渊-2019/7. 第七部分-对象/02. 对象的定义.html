@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    一般我们说的对象都是Object的实例对象
+
+      实例对象可以说是：万能的，通用的，普通的
+   -->
+  <script>
+    // 定义对象1：字面量定义
+    // var obj = {}; // 空对象
+    var obj = {
+      name: '赵丽颖',
+      age: 32,
+      gender: 'female',
+      sing: function () {
+        console.log('我会唱');
+      }
+    }
+    console.log(obj);
+
+
+
+    // 定义对象2：构造函数定义
+    var obj2 = new Object({
+      name: '杨幂',
+      age: 33
+    });
+    console.log(obj2);
+
+
+
+    // 定义对象3：工厂函数 本质上还是使用构造函数，这种方式工作中几乎不用
+    function createObject(name, age) {
+      var obj = new Object();
+      obj.name = name;
+      obj.age = age;
+      return obj;
+    }
+    var res = createObject('热巴', 26);
+    console.log(res);
+  </script>
+</body>
+
+</html>
