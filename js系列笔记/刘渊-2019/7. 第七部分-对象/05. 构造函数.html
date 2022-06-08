@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <!-- 
     this关键字
@@ -17,26 +19,54 @@
       - 在构造函数当中，代表的是实例化出来的对象
    -->
   <script>
-    function Person(name, age, gender){
+    // 1
+    function Person(name, age, gender) {
       this.name = name;
       this.age = age;
       this.gender = gender;
-      this.eat = function (){
-        console.log('吃饭');
+      this.eat = function () {
+        console.log('吃饭'); 
       }
+      console.log('this', this);
     }
 
+    // 构造函数当做普通函数去执行，函数内部的this代表window，可以查看到name/age/gender/eat属性和方法都加在了window对象上面了
+    // 而且这个函数没有返回值，你直接去接收，会得到undefined
+    /* var per1 = Person('zs', 23, 'male');
+    console.log(per1); */
 
-    function add(a, b) {
+    // 构造函数通常是用来实例化对象的，所以不会被当做普通函数去执行
+    // 构造函数当做构造函数去执行，函数内部的this代表当前对象
+    var per = new Person('zs', 23, 'male');
+
+
+
+    // 2
+    /* function add(a, b) {
       console.log(this); // window
       return a + b;
     }
-    window.add(10, 20);
+    window.add(10, 20); */
 
-    
 
-    var a = 10;
-    console.log(window.a);
+
+    // 3
+    /* var a = 10;
+    console.log(window.a); */
+
+
+
+    // 4
+    /* function add(a, b) {
+      console.log(this); // window
+      function add2() {
+        console.log(this); // window
+      }
+      add2()
+      return a + b;
+    }
+    window.add(10, 20); */
   </script>
 </body>
+
 </html>
