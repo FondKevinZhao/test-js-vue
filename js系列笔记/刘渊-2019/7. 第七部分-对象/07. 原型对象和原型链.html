@@ -47,7 +47,7 @@
 
 
     // 创建两个猫咪
-    /* function BlueCat(name, age, gender) {
+    function BlueCat(name, age, gender) {
       this.name = name;
       this.age = age;
       this.gender = gender;
@@ -58,10 +58,14 @@
       console.log(this.name + ' 跑得很快');
     }
 
-    var cat1 = new BlueCat('Tom', 2, 'male');
+    Object.prototype.aaa = 10;
+
+
+    /* var cat1 = new BlueCat('Tom', 2, 'male');
     console.log(cat1);
     console.log('cat1.name', cat1.name);
     cat1.run();
+    console.log(cat1.aaaa);
 
     var cat2 = new BlueCat('Jerry', 3, 'female');
     console.log(cat2);
@@ -72,11 +76,11 @@
 
 
 
-    var arr = [1, 2, 3, 4, 5];
+    /* var arr = [1, 2, 3, 4, 5];
     console.log(arr);
     arr.push(6); // push方法 在原型身上
     console.log(arr);
-    // arr.pushhhhh(); // 没有这个方法就会报错
+    // arr.pushhhhh(); // 没有这个方法就会报错 */
   </script>
 </body>
 
