@@ -1,4 +1,4 @@
-### 初始Fiddler，深入理解HTTP
+### 一、初始Fiddler，深入理解HTTP
 
 #### Fiddler简介
 
@@ -100,9 +100,37 @@ fiddler直接代理的端口号`8888`
 
 ![image-20220607202542988](fiddler柠檬班笔记.assets/image-20220607202542988.png)
 
+#### HTTP请求报文
+
+http请求报文主要由**请求首行**、**请求头**、**请求空行**、**请求正文**(也叫请求体)4部分组成，请求体在get请求中是没有的。
+
+![image-20220608222010997](fiddler柠檬班笔记.assets/image-20220608222010997.png)
+
+##### HTTP请求方法
+
+![image-20220608224515489](fiddler柠檬班笔记.assets/image-20220608224515489.png)
+
+##### URL
+
+![image-20220608224858812](fiddler柠檬班笔记.assets/image-20220608224858812.png)
+
+##### 请求头
+
+![image-20220608225702488](fiddler柠檬班笔记.assets/image-20220608225702488.png)
 
 
-### Fiddler工具详解及应用实战
+
+
+
+
+
+
+
+
+
+
+
+### 二、Fiddler工具详解及应用实战
 
 #### 请求分析
 
@@ -124,13 +152,25 @@ fiddler直接代理的端口号`8888`
 
 1. shift + delete：删除其他的请求(在内容中会请求到很多的结果，当你只想保留当前的结果的时候)
 
-2. 把某一条信息导入到一个文本文件中：右击--》save--》Selected Sessions –> as Text…
+2. 到处请求内容：把某一条信息导入到一个文本文件中：右击--》save--》Selected Sessions –> as Text…
 
    ![image-20220607203737257](fiddler柠檬班笔记.assets/image-20220607203737257.png)
 
+   请求和响应
+
+   ![image-20220608223731218](fiddler柠檬班笔记.assets/image-20220608223731218.png)
+
+3. 双击某一条就能得到请求和响应，在右边展示：
+
+   ![image-20220608222530371](fiddler柠檬班笔记.assets/image-20220608222530371.png)
+
+4. 双击某一条，右边都选raw，表示以原生文本的形式来查看：
+
+   ![image-20220608222726545](fiddler柠檬班笔记.assets/image-20220608222726545.png)
+
 3. 
 
-### HTTPS及手机APP抓包
+### 三、HTTPS及手机APP抓包
 
 #### HTTPS抓包
 
