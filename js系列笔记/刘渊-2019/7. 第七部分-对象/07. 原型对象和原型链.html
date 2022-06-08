@@ -10,23 +10,29 @@
 
 <body>
   <!-- 
-      通过原型来添加方法：解决数据共享，节省内存空间 --- 小杨
+      通过原型来添加方法：解决数据共享，节省内存空间 --- 小杨 + 渊哥
 
       任何的函数对象在定义的时候，都会伴随着一个原型对象出现，原型对象默认是Object的实例对象  --- 渊哥
+
+      原型链：
+        - 对象在调用属性或者方法的时候，首先会从自身对象空间查找，如果找到就直接用了。
+        - 如果没有找到，然后去自己的原型对象空间去找(自己的构造函数的原型对象)，如果找到就用。
+        - 如果没有找到，然后去自己的原型对象的原型对象空间当中去找(自己的构造函数的原型对象的构造函数的原型对象当中去找)，如果找到就用，如果找不到继续向上查找，直到找到Object的原型对象位置，找到就用，找不到的话，如果是属性就返回undefined，如果是方法就返回报错(xxx is not a function)。
    -->
 
-   <!-- 初级原型图 -->
-   <img src="./初级原型图.png" width="800" alt="">
+  <!-- 初级原型图 -->
+  <img src="./初级原型图.png" width="800" alt="">
 
   <script>
     // 实例化(也叫创建)两个歌手
-    function Singer(name, gender, age) {
+    /* function Singer(name, gender, age) {
       this.name = name;
       this.gender = gender;
       this.age = age;
-      this.sing = function () {
-        console.log('实力派唱将: ' + this.name);
-      }
+    }
+
+    Singer.prototype.sing = function () {
+      console.log('实力派唱将: ' + this.name);
     }
 
     var singer1 = new Singer('邓紫棋', 'female', 28);
@@ -36,18 +42,20 @@
 
     var singer2 = new Singer('腾格尔', 'male', 50);
     console.log(singer2);
-    singer2.sing();
+    singer2.sing(); */
 
 
 
-    /* // 创建两个猫咪
-    function BlueCat(name, age, gender) {
+    // 创建两个猫咪
+    /* function BlueCat(name, age, gender) {
       this.name = name;
       this.age = age;
       this.gender = gender;
-      this.run = function () {
-        console.log('跑得很快');
-      }
+    }
+
+    // BlueCat.prototype.run = function () {
+    Object.prototype.run = function () {
+      console.log(this.name + ' 跑得很快');
     }
 
     var cat1 = new BlueCat('Tom', 2, 'male');
@@ -58,7 +66,17 @@
     var cat2 = new BlueCat('Jerry', 3, 'female');
     console.log(cat2);
     console.log('cat2["age"]', cat2['age']);
-    cat2.run(); */
+    cat2.run();
+    console.log('cat2.s', cat2.s);
+    console.log('cat2.s', cat2.a()); */
+
+
+
+    var arr = [1, 2, 3, 4, 5];
+    console.log(arr);
+    arr.push(6); // push方法 在原型身上
+    console.log(arr);
+    // arr.pushhhhh(); // 没有这个方法就会报错
   </script>
 </body>
 
