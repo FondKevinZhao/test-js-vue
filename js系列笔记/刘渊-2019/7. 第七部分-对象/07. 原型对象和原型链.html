@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+      通过原型来添加方法：解决数据共享，节省内存空间 --- 小杨
+
+      任何的函数对象在定义的时候，都会伴随着一个原型对象出现，原型对象默认是Object的实例对象  --- 渊哥
+   -->
+
+   <!-- 初级原型图 -->
+   <img src="./初级原型图.png" width="800" alt="">
+
+  <script>
+    // 实例化(也叫创建)两个歌手
+    function Singer(name, gender, age) {
+      this.name = name;
+      this.gender = gender;
+      this.age = age;
+      this.sing = function () {
+        console.log('实力派唱将: ' + this.name);
+      }
+    }
+
+    var singer1 = new Singer('邓紫棋', 'female', 28);
+    console.log(singer1);
+    console.dir(singer1);
+    singer1.sing();
+
+    var singer2 = new Singer('腾格尔', 'male', 50);
+    console.log(singer2);
+    singer2.sing();
+
+
+
+    /* // 创建两个猫咪
+    function BlueCat(name, age, gender) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.run = function () {
+        console.log('跑得很快');
+      }
+    }
+
+    var cat1 = new BlueCat('Tom', 2, 'male');
+    console.log(cat1);
+    console.log('cat1.name', cat1.name);
+    cat1.run();
+
+    var cat2 = new BlueCat('Jerry', 3, 'female');
+    console.log(cat2);
+    console.log('cat2["age"]', cat2['age']);
+    cat2.run(); */
+  </script>
+</body>
+
+</html>
