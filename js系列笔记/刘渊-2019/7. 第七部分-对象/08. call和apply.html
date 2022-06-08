@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    call和apply方法：
+      call和apply可以改变一个函数的执行对象(执行者)，也就是改变this指向。
+      apply的用法：
+        - 两个参数，第一个参数代表的改变的执行者(对象)
+        - 第二个参数，是函数所需要的参数，这个参数必须是数组形成
+   -->
+  <script>
+    function BlueCat(name, age, gender) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+    }
+
+    // BlueCat.prototype.run = function () {
+    Object.prototype.run = function () {
+      console.log(this.name + ' 跑得很快');
+    }
+
+    var cat1 = new BlueCat('Tom', 2, 'male');
+    var cat2 = new BlueCat('Jerry', 3, 'female');
+
+
+
+    function add(a, b) {
+      return a + b;
+    }
+    // window.add(10, 20);
+
+    // 需求让猫去调用add方法   使用call和apply
+    // cat1对象调用，后面的两个参数写的是add这个方法需要的两个参数
+    // 把add的执行者window改为了cat1， 让cat1可以有求和的方法
+    var res1 = add.apply(cat1, [10, 20]);
+    console.log(res1);
+
+    // var res2 = add.call(cat2, [10, 20]); // 注意这个结果
+    var res2 = add.call(cat2, 10, 20);
+    console.log(res2);
+  </script>
+</body>
+</html>
