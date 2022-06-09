@@ -22,6 +22,7 @@ fiddler字面意思：1. 拉小提琴的人。2. 骗子。
 使用场景：
 
 - 接口调试、接口测试、线上环境调试、web性能分析
+- 判断前后端bug、开发环境hosts配置、mock、弱网断网测试
 
 #### 抓包原理
 
@@ -118,19 +119,33 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
 ![image-20220608225702488](fiddler柠檬班笔记.assets/image-20220608225702488.png)
 
+#### HTTP响应报文
+
+![image-20220609200753826](fiddler柠檬班笔记.assets/image-20220609200753826.png)
+
+
+
+##### 状态码
+
+![image-20220609201107481](fiddler柠檬班笔记.assets/image-20220609201107481.png)
 
 
 
 
 
+##### 响应头
 
-
+![image-20220609203150102](fiddler柠檬班笔记.assets/image-20220609203150102.png)
 
 
 
 
 
 ### 二、Fiddler工具详解及应用实战
+
+#### 界面介绍
+
+![image-20220609210024865](fiddler柠檬班笔记.assets/image-20220609210024865.png)
 
 #### 请求分析
 
@@ -148,7 +163,17 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
 #### mock测试
 
-#### fiddler快捷键
+### 三、HTTPS及手机APP抓包
+
+#### HTTPS抓包
+
+#### APP抓包
+
+
+
+
+
+### 四、fiddler快捷键
 
 1. shift + delete：删除其他的请求(在内容中会请求到很多的结果，当你只想保留当前的结果的时候)
 
@@ -168,23 +193,31 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
    ![image-20220608222726545](fiddler柠檬班笔记.assets/image-20220608222726545.png)
 
+5. 阻塞css请求：点击filter --》Block CSS files
+
+   ![image-20220609201510250](fiddler柠檬班笔记.assets/image-20220609201510250.png)
+
+   设置后的样子：css的样式都是404
+
+   ![image-20220609202323239](fiddler柠檬班笔记.assets/image-20220609202323239.png)
+
+   可以看这个网址：直接没有css样式了
+
+   ![image-20220609202350063](fiddler柠檬班笔记.assets/image-20220609202350063.png)
+
+6. 设置请求头：filter --》Set request header
+
+   设置后，会出现在请求头中
+
+   ![image-20220609201555864](fiddler柠檬班笔记.assets/image-20220609201555864.png)
+
+   设置后的样子：
+
+   ![image-20220609201722634](fiddler柠檬班笔记.assets/image-20220609201722634.png)
+
 3. 
 
-### 三、HTTPS及手机APP抓包
 
-#### HTTPS抓包
-
-#### APP抓包
-
-
-
-
-
- "openInExternalApp.openMapper": [
-
-  
-
- ]
 
 
 
