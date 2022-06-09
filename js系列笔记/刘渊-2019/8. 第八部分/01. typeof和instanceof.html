@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    typeof 在判断基本数据类型当中的数字、字符串、布尔、undefined以及函数的时候可以派上用场，但是当我们使用typeof去判断数组和对象以及null的时候，区分不出来。此时，我们需要知道这个数据是什么对象就无法解决了。
+
+    instanceof 可以区分判断是一个数组对象还是一个其他构造函数的实例对象
+    通过判断这个对象是哪个构造函数的实例对象，可以区分出来是数组还是其他的对象
+
+    判断null可以用 ===
+   -->
+  <script>
+    // 判断基本数据类型
+    var a = 10;
+    console.log('a', typeof a);
+    a = 'zhaoliying';
+    console.log('zhaoliying:', typeof a);
+    a = true;
+    console.log('true:', typeof a);
+    a = undefined;
+    console.log('undefined:', typeof a);
+    a = null;
+    console.log('null-typeof:', typeof a);
+    console.log('null-instanceof:', a instanceof Object);
+    console.log('null-instanceof:', a instanceof Function);
+    console.log('null-instanceof:', a instanceof Array);
+
+
+    console.log('----------------------------------')
+    // 判断对象
+
+
+    a = function () {
+      console.log(111);
+    }
+    console.log('function typeof:', typeof a);
+    console.log('function instanceof:', a instanceof Function);
+
+    a = {};
+    console.log('{}:', typeof a);
+    console.log('{} instanceof:', a instanceof Object);
+
+    a = [];
+    console.log('[]:', typeof a);
+    console.log('[] instanceof:', a instanceof Array);
+
+
+
+    console.log('----------------------------------')
+    // 判断构造函数
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    var per = new Person('zhaoliyign:', 32);
+    console.log('typeof per:', typeof per);
+    console.log('per-instanceof-Array:', per instanceof Array);
+    // 判断per是否是Person构造函数的实例
+    console.log('per-instanceof-Person:', per instanceof Person);
+    console.log('per-instanceof-Object:', per instanceof Object);
+    console.log('per-instanceof-Function:', per instanceof Function);
+
+
+
+    console.log('----------------------------------')
+    // 判断null
+    console.log('null == undefined:', null == undefined);
+    console.log('null === undefined:', null === undefined);
+    console.log('null === null:', null === null);
+
+
+
+    console.log('----------------------------------')
+    // 判断数组的另一个方法：Array.isArray()
+    var a = [];
+    console.log('Array.isArray()', Array.isArray(a));
+  </script>
+</body>
+
+</html>
