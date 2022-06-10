@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对象
+    var dataTest = {
+      name: '赵丽颖',
+      age: 32
+    }
+
+    console.log('dataTest', dataTest);
+    // 把对象json化，也就是字符串化
+    // 把前端的对象转化成字符串发送给后端
+    var dataStr = JSON.stringify(dataTest);
+    console.log('JSON.stringify(dataTest) :>> ', dataStr);
+
+    // 把后端传过来的数据转成对象
+    var parse = JSON.parse(dataStr);
+    console.log('JSON.parse(stringify)', parse);
+
+
+
+    console.log('-------------------------------')
+    // 对象的数组
+    var dataTestArr = [
+      { name: '赵丽颖', age: 32 },
+      { name: '杨幂', age: 33 },
+      { name: '热巴', age: 28 }
+    ]
+    console.log('dataTestArr', dataTestArr);
+    // 把对象的数组json化，也就是字符串化
+    // 把前端的对象转化成字符串发送给后端
+    var dataStr = JSON.stringify(dataTestArr);
+    console.log('JSON.stringify(dataStr) :>> ', dataStr);
+
+    // 把后端传过来的数据转成对象
+    var parse = JSON.parse(dataStr);
+    console.log('JSON.parse(dataStr) :>> ', parse);
+  </script>
+</body>
+
+</html>

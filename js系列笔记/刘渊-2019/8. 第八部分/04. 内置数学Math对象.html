@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    Math.floor()/Math.ceil()/Math.round() 主要是用于处理小数的，把小数最终处理成整数
+   -->
+  <script>
+    // Math.floor() 向下取整
+    /* console.log('1.23：', Math.floor(1.23));
+    console.log('-1.23：', Math.floor(-1.23));
+    console.log('0：', Math.floor(0));
+    console.log('0.5：', Math.floor(0.5));
+    console.log('-0.5：', Math.floor(-0.5));
+    console.log('"123.3："', Math.floor('123.3'));
+    console.log('"123.3a："', Math.floor('123.3a'));
+    console.log('true：', Math.floor(true));
+    console.log('undefined：', Math.floor(undefined));
+    console.log('null：', Math.floor(null)); */
+
+
+
+    // Math.ceil() 向上取整
+    /* console.log('1.23：', Math.ceil(1.23));
+    console.log('-1.23：', Math.ceil(-1.23));
+    console.log('0：', Math.ceil(0));
+    console.log('0.5：', Math.ceil(0.5));
+    console.log('-0.5：', Math.ceil(-0.5)); // 注意这个
+    console.log('"123.3："', Math.ceil('123.3'));
+    console.log('"123.3a："', Math.ceil('123.3a'));
+    console.log('true：', Math.ceil(true));
+    console.log('undefined：', Math.ceil(undefined));
+    console.log('null：', Math.ceil(null)); */
+
+
+
+    // Math.round() 四舍五入
+    /* console.log('1.23：', Math.round(1.23));
+    console.log('-1.23：', Math.round(-1.23));
+    console.log('0：', Math.round(0));
+    console.log('0.5：', Math.round(0.5));
+    console.log('-0.5：', Math.round(-0.5)); // 注意这个
+    console.log('"123.3："', Math.round('123.3'));
+    console.log('"123.3a："', Math.round('123.3a'));
+    console.log('true：', Math.round(true));
+    console.log('undefined：', Math.round(undefined));
+    console.log('null：', Math.round(null)); */
+
+
+
+    // Math.random() 随机数
+    // console.log(Math.random()); // 返回一个0-1之间的小数(包含0，不包含1);
+
+
+
+
+    // Math.max() 求最大值
+    /* var max = Math.max(10, 5);
+    console.log(max);
+
+    var arr = [1, 2, 3, 4, 5];
+    console.log(Math.max(...arr)); */
+
+
+
+    // Math.min() 求最小值
+    /* var max = Math.min(10, 5);
+    console.log(max);
+
+    var arr = [1, 2, 3, 4, 5];
+    console.log(Math.min(...arr)); */
+
+
+
+    // Math.PI π是一个属性，不是一个方法，后面没有小括号
+    // console.log(Math.PI); 
+
+
+
+    // Math.pow() 函数返回基数（base）的指数（exponent）次幂
+    /* console.log(Math.pow(2, 3)); // 2 的 3 次幂，2 * 2 * 2
+    console.log(Math.pow(4, 2)); // 4 的 2 次幂，4 * 4 */
+
+
+
+    // 注意：%取余，只能针对整数。Math可以针对小数
+    // 随机数点名(79个人)  点名的英语：call the roll
+    // 1-79
+    /* var callTheRoll = parseInt(Math.random() * 79 + 1);
+    console.log(callTheRoll); */
+
+
+
+    // 观察这两个的结果：
+    /* var randomNum = Math.floor(Math.random());
+    console.log('random', randomNum);
+    var randomNum = Math.ceil(Math.random());
+    console.log('random', randomNum); */
+
+
+
+
+    // 求25-103之间的随机数
+    /* var randomNum = parseInt(Math.random() * 79 + 25);
+    console.log(randomNum); */
+
+
+    // 封装函数 --- 任意两个数之间的随机数
+    // min, max：起始值和结束值
+    /* function getRandom(min, max) {
+      var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+      return randomNum;
+    }
+    var res = getRandom(10, 20);
+    console.log(res); */
+
+
+
+    // 随机生成八位的验证码(字符串)
+    // 准备随机数字
+    /* var str = '1234567890abcdefghijklmnobqrstuvwxyzABCDEFGHIJKLMNOBQRSTUVWXYZ';
+
+    var targetStr = ''; // 灵魂点
+    for (var i = 0; i < 8; i++) {
+      // var num = parseInt(Math.random() * (str.length - 1) + 1);
+      // 也可以这样写
+      var num = parseInt(Math.random() * str.length);
+      targetStr += str[num];
+    }
+    console.log(targetStr); */
+
+
+
+    // 封装函数：随机生成n位的验证码
+    /* function getRandomCode(num) {
+      var str = '1234567890abcdefghijklmnobqrstuvwxyzABCDEFGHIJKLMNOBQRSTUVWXYZ';
+
+      var targetStr = ''; // 灵魂点
+      for (var i = 0; i < num; i++) {
+        // var num = parseInt(Math.random() * (str.length - 1) + 1);
+        // 也可以这样写
+        var res = parseInt(Math.random() * str.length);
+        targetStr += str[res];
+      }
+      return targetStr;
+    }
+    // var res = getRandomCode(10);
+    var res = getRandomCode(6);
+    console.log(res); */
+  </script>
+</body>
+
+</html>
