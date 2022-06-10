@@ -1176,7 +1176,50 @@ call 和 apply 可以让一个对象使用另外一个对象的方法。
 
    核心思想 : 找到没用的变量, 释放它们的内存
 
-5. 函数传参如果传的是基本数据类型和传引用(对象)有什么区别？
+
+
+### 十四、内置对象 JSON
+
+1. 什么是JSON，JSON作用，JSON通常情况下说的是字符串也叫JSON串。
+
+   - JSON：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。JSON是js当中的一个内置对象，里面封装了对json格式数据的操作方法。
+   - JSON的作用：前后台交互的最主要的手段，主要用于传送数据。
+
+   - 在前端json串的格式：`对象和对象的数组(数组里面存对象)`，只不过要把这些数据转化成字符串形式(也就是加双引号)。
+
+2. JSON对象的方法：`JSON.parse()`、`JSON.stringify()`
+
+3. JSON大写：js当中的一个内置对象。json小写：是一种数据格式，是前后端目前数据交互的主要格式。以前传数据使用：xml。
+
+4. JSON出现的时间：JSON是Douglas Crockford在2001年开始推广使用的数据格式，在2005年-2006年正式成为主流的数据格式，雅虎和谷歌就在那时候开始广泛地使用*JSON格式*。
+
+[博客链接1](https://blog.csdn.net/qq_46454139/article/details/115435416?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480159616781685352863%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165480159616781685352863&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-115435416-null-null.142^v12^rank_v32,157^v13^control&utm_term=js+json%E5%AF%B9%E8%B1%A1&spm=1018.2226.3001.4187)
+
+[博客链接2](https://blog.csdn.net/bao19901210/article/details/78253895?ops_request_misc=&request_id=&biz_id=102&utm_term=js%20json%E5%AF%B9%E8%B1%A1&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-6-78253895.142^v12^rank_v32,157^v13^control&spm=1018.2226.3001.4187)
+
+[博客链接3](https://blog.csdn.net/weixin_43903378/article/details/100083124?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480202416781683933769%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165480202416781683933769&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-4-100083124-null-null.nonecase&utm_term=js+json%E5%AF%B9%E8%B1%A1&spm=1018.2226.3001.4450)
+
+### 十五、Math 工具对象
+
+[博客链接1](https://blog.csdn.net/qq_46112274/article/details/121513659?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480212116781683922305%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165480212116781683922305&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-8-121513659-null-null.nonecase&utm_term=js+Math%E5%AF%B9%E8%B1%A1&spm=1018.2226.3001.4450)
+
+[博客链接MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+### 十六、Date 日期对象
+
+[博客链接1](https://blog.csdn.net/weixin_42863800/article/details/107024401?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480290716780357285849%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165480290716780357285849&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-107024401-null-null.142^v12^rank_v32,157^v13^control&utm_term=js+Date+&spm=1018.2226.3001.4187)
+
+[博客链接2](https://blog.csdn.net/qq_37899792/article/details/91983831?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480290716780357285849%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165480290716780357285849&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-91983831-null-null.142^v12^rank_v32,157^v13^control&utm_term=js+Date+&spm=1018.2226.3001.4187)
+
+[博客链接3](https://blog.csdn.net/lv842586821/article/details/83271788?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480314116782390582352%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165480314116782390582352&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-7-83271788-null-null.nonecase&utm_term=js+Date+&spm=1018.2226.3001.4450)
+
+
+
+
+
+
+
+
 
 
 
