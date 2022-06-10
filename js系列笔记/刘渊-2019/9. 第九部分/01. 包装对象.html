@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    Number()
+    String()
+    Boolean()
+   -->
+  <script>
+    var a = 10;
+    // 一般只有对象才能(点.)，可是a是基本数据类型，为什么可以 .toString()?
+    // 因为在js中一切皆对象
+    // a.toString() 显然是一个对象，才会有方法调用，但是a我们定义的时候是一个基本数据类型，它是没有方法的。但是js当中基本数据类型操作的时候，会有这么一个规定：当调用数组、字符串、布尔值的方法的时候，会首先把这个值包装成对象，这个对象是临时的，然后进行调用包装对象的方法，调用完成之后，临时的包装对象被立即清除
+    console.log(a.toString());
+    console.log(a.valueOf());
+
+
+
+    // 这个b变量就是这个 Number()构造函数的实例化对象，这个实例对象的原型对象身上有很多的方法可以直接(点.)使用
+    var b = new Number(10); // 这个对象我们称为包装对象
+    console.log(b);
+
+
+    var c = 'abc';
+    /* c = new String(c).split();
+    console.log('c', c); */
+    console.log(c.split('')); // 相当于 c = new String(c).split();
+    console.log(c.concat());
+  </script>
+</body>
+
+</html>
