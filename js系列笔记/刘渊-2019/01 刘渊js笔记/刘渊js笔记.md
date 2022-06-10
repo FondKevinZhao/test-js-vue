@@ -1213,7 +1213,49 @@ call 和 apply 可以让一个对象使用另外一个对象的方法。
 
 [博客链接3](https://blog.csdn.net/lv842586821/article/details/83271788?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165480314116782390582352%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165480314116782390582352&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-7-83271788-null-null.nonecase&utm_term=js+Date+&spm=1018.2226.3001.4450)
 
+### 十七、ES5严格模式
 
+es5增加了严格模式
+
+1. 为什么要使用严格模式
+   - 消除JavaScript语法的一些不合理、不严谨的地方，减少一些怪异行为。
+   - 消除代码运行的一些不安全之处，保证代码运行的安全。
+   - 提高编译器效率，增加运行速度。
+   - 为未来新版本的JavaScript做好铺垫。
+2. 严格模式主要都做了什么？
+   - `“use strict”`针对脚本(针对所有)写的脚本的第一行，只针对函数写在函数的第一行。
+   - 变量声明必须写var，不写var报错。
+   - 禁止this指向window，如果构造函数忘记写new那么this不会影响全局。
+   - 禁止随意删除变量。
+   - 对象不能有重复的属性，函数不能有重复的参数。
+
+[博客链接，罗老师](https://segmentfault.com/a/1190000015798019)
+
+### 十八、ES6定义变量(let + const)
+
+- let使用及特点
+  1. 块级作用域声明变量，es6都是处于严格模式下的。
+  2. let定义的变量不会进行预解析。
+  3. let变量不允许重复定义。
+- const使用及特点
+  1. 声明一个变量，变量的值无法更改，也是块级作用域。
+  2. const定义的变量不可以修改，而且必须初始化。
+
+### 十九、ES5 string方法
+
+[博客链接1](https://www.jianshu.com/p/6209ffbdbae1/)
+
+[博客链接2](https://blog.csdn.net/zsm4623/article/details/105346462)
+
+[博客链接3](https://blog.csdn.net/qq_42880714/article/details/104806953)
+
+### 二十、ES5 数组方法
+
+[博客链接1](https://www.cnblogs.com/sqh17/p/8529401.html)
+
+[博客链接2](https://www.cnblogs.com/jiuxia/p/11509616.html)
+
+[博客链接3](https://blog.csdn.net/weixin_58032613/article/details/122629706)
 
 
 
