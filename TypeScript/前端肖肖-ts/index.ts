@@ -1,12 +1,12 @@
 // 字符串类型
-var userName:string = '肖肖小肖';
+var userName: string = '肖肖小肖';
 // number类型
-var userId:number = 1;
+var userId: number = 1;
 userName = '小仙女';
 userId = 2;
 
 // 布尔类型
-var isShow:boolean = false;
+var isShow: boolean = false;
 isShow = true
 
 // undefined类型
@@ -18,13 +18,13 @@ isShow = true
     4. 函数没有返回值时，默认返回 undefined。
 */
 // 在ts中使用undefined类型，那么也就只能赋值为undefined
-var unType:undefined = undefined;
+var unType: undefined = undefined;
 unType = undefined;
 // unType = 1; // 会报错
 
 // null类型
 // 在ts中使用null类型，跟undefined同理，也只能给它赋值为null
-var nullType:null = null;
+var nullType: null = null;
 nullType = null;
 // nullType = 1; // 会报错
 
@@ -35,14 +35,14 @@ nullType = null;
 
 
 // 数组类型
-var arr:[] = []; // arr:[] 表示的是一个空数组，这个时候，你不能给这个空数组赋值，否则会报错
+var arr: [] = []; // arr:[] 表示的是一个空数组，这个时候，你不能给这个空数组赋值，否则会报错
 
 var arr1: [string | number] = ['a'];
 var arr2: [string | number] = [5];
 // var arr3:[string | number] = ['a', 5]; // [string | number] 表示二选一，写两个就会报错
 
 // Ids是一个只能装number类型数据的数组
-var ids:number[] = []; 
+var ids: number[] = [];
 ids.push(1);
 ids.push(2);
 ids.push(3);
@@ -56,10 +56,10 @@ console.log('userName', userName);
 
 
 // 元组：已知元素的数组(我知道数组里面有什么玩意儿的一个数组)
-let typeArr:[string, number, boolean, string];
+let typeArr: [string, number, boolean, string];
 // typeArr = ['小肖', 20, true]; // 如果写了多少的元素，你都要写全，不然也会报错
 // typeArr = ['小肖', 20, true,'aa', 11];  // 写多了也不行
-typeArr = ['小肖', 20, true,'aa']; // 写全就不会报错了
+typeArr = ['小肖', 20, true, 'aa']; // 写全就不会报错了
 console.log('typeArr', typeArr);
 
 
@@ -95,3 +95,94 @@ typeString = true;
 typeString = null;
 typeString = [];
 typeString = {};
+
+
+
+// void 表示的是：没有值。如果给一个变量为void，那么它除了undefined，任意一个类型给它赋值都是undefined。
+// void 的最佳使用场景就是，规范一个函数没有返回值的时候
+let vTs: void;
+vTs = undefined; // 表示没有值
+/* 
+这里都报错
+vTs = 18
+vTs = '18'
+vTs = boolean */
+
+
+
+// function
+var fun: Function = () => { }
+fun = function () {
+  console.log(1);
+}
+var fun2 = function () { }
+fun = fun2; // 把一个function赋值给另一个function
+
+// fun = '肖肖小肖' // 报错
+// fun = 18 // 报错
+
+
+
+// 接口(Interface)：约束对象
+// 这个接口不是后端给的接口，而是我们自定义的接口类型
+// 使用Interface关键字来声明一个简单的接口
+interface InfoInt {
+  username: string,
+  id: number,
+  vip?: boolean, // 问号? : 标记当前属性时可选的，非必传的
+  readonly age: number, // age 是必填属性，但是只读，是不能修改的
+  [propsName:string]: any // 未知的属性，以及未知的属性值
+}
+// 使用
+// obj对象里面的属性名字和值类型要必须跟interface中InfoInt声明的一致才不会报错
+let obj: InfoInt = {
+  username: '肖肖',
+  id: 1,
+  age: 18
+}
+// obj.type = 2; // 使用了接口的对象，不能随意添加属性
+obj.id = 2; // id可改
+// obj.age = 19; // 报错，age是只读的，不能修改
+// 给obj添加属性：[propsName:string]: any
+obj.color = 'red';
+
+/* 
+  const 和 readonly 的区别:
+    - const: 规范的是变量，规定变量不可变更
+    - readonly: 规范的是属性，规定属性为只读
+*/
+
+// 函数类型
+// 想要给定一个包含函数的接口可以直接定义某个属性的值是一个Function类型，但是如果还需要限定函数的参数就需要使用特定的表达式。它就像是一个只有参数列表和返回值类型的函数定义。参数列表里的每个参数都需要名字个类型。
+interface IsayHi {
+  (str: string): string
+}
+var fun1: IsayHi = (userName: string) => `hi~~${userName}`
+
+interface IuserInfo {
+  name: string,
+  sayHi(): void
+}
+var user: IuserInfo = {
+  name: 'tina',
+  sayHi: () => console.log(123)
+}
+
+
+
+// 继承接口
+// 接口继承就是从一个接口里复制成员的嗷另一个接口里，可以更灵活地将接口分割到可重用的模块里
+interface IuserName {
+  name: string,
+}
+interface IuserId {
+  id: number,
+}
+interface IuserInfo1 extends IuserName, IuserId {
+  type: number,
+}
+var userInfo: IuserInfo1 = {
+  name: 'tina',
+  id: 1,
+  type: 1
+}

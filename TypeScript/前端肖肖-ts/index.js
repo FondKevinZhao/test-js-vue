@@ -69,3 +69,48 @@ var msgs;
 })(msgs || (msgs = {}));
 console.log(msgs);
 console.log(msgs[206]);
+// any类型：任意类型，跟写js一样
+var typeString = 'aa';
+typeString = 1;
+typeString = true;
+typeString = null;
+typeString = [];
+typeString = {};
+// void 表示的是：没有值。如果给一个变量为void，那么它除了undefined，任意一个类型给它赋值都是undefined。
+// void 的最佳使用场景就是，规范一个函数没有返回值的时候
+var vTs;
+vTs = undefined; // 表示没有值
+/*
+这里都报错
+vTs = 18
+vTs = '18'
+vTs = boolean */
+// function
+var fun = function () { };
+fun = function () {
+    console.log(1);
+};
+var fun2 = function () { };
+fun = fun2; // 把一个function赋值给另一个function
+// 使用
+// obj对象里面的属性名字和值类型要必须跟interface中InfoInt声明的一致才不会报错
+var obj = {
+    username: '肖肖',
+    id: 1,
+    age: 18
+};
+// obj.type = 2; // 使用了接口的对象，不能随意添加属性
+obj.id = 2; // id可改
+// obj.age = 19; // 报错，age是只读的，不能修改
+// 给obj添加属性：[propsName:string]: any
+obj.color = 'red';
+var fun1 = function (userName) { return "hi~~".concat(userName); };
+var user = {
+    name: 'tina',
+    sayHi: function () { return console.log(123); }
+};
+var userInfo = {
+    name: 'tina',
+    id: 1,
+    type: 1
+};
