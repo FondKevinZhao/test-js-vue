@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    注意：
+      - 字符串是不可被修改的。只要是字符串，经过操作后返回来的字符串都是新的字符串。
+      - 所有的方法一定要搞定三要素：功能、参数、返回值
+
+      重要程度：***** **** *** ** * 
+   -->
+  <script>
+    // charAt(传下标)：***** 返回在某个索引位置的字符 
+    /* var str = 'dfjl123343sl  12123 23 大度dfKLFJ32DFD';
+    console.log(str.charAt(8)); // 查看索引为8的位置时那个字符 */
+
+
+
+    // charCodeAt(传下标)：* 返回字符串中第n个字符的Unicode码 
+    /* var str = 'adfjl123343sl  12123 23 大度dfKLFJ32DFD';
+    console.log(str.charCodeAt(0)); */
+
+
+
+    // concat()：*** 返回拼接后字符串 
+    /* var str = 'adfjl1S2DDa3343DdFDFsl'
+    console.log(str.concat('haha')); */
+
+
+
+    // fromCharCode()：* 写一个Unicode码，给你返回对应的值 
+    // var str = 'adfjl1S2DDa3343DdFDFsl' // 不需要准备字符串
+    /* console.log(String.fromCharCode(97));
+    // MDN案例：
+    console.log(String.fromCharCode(189, 43, 190, 61));
+    // expected output: "½+¾=" */
+
+
+
+    // indexOf('值',[起始索引])：***** 传入值，返回对应的起始位置，如果没有返回-1，从前向后查
+    /* var str = 'adfjl1S2DDa3343DdFDFsl'
+    console.log(str.indexOf('3'));
+    console.log(str.indexOf('10'));
+    console.log(str.indexOf('fj'));
+    console.log(str.indexOf('fj', 20)); // 从索引20开始查找 */
+
+
+
+    // lastIndexOf('值',[起始索引])：***** 传入值，返回对应的起始位置，如果没有返回-1，从后向前查
+    /* var str = 'adfjl1S2DDa3343DdFDFsl'
+    console.log(str.lastIndexOf('3'));
+    console.log(str.lastIndexOf('10'));
+    console.log(str.lastIndexOf('fj'));
+    console.log(str.lastIndexOf('fj', 20)); */
+
+
+
+    // String.length：***** 这是一个属性，不是一个方法。属性直接返回字符串的长度
+    /* var str = 'adfjl1S2DDa3343DdFDFsl'
+    console.log(str.length); */
+
+
+
+    // localeCompare()：* 拿str的值跟localeCompare()括号里的值进行Unicode码比较
+    // 如果str的值大，返回正1，小就返回-1，相等返回0
+    /* var str = '1adfjl1S2DDa3343DdFDFsl'
+    console.log(str.localeCompare('012')); // 首先拿0跟str的第一个比较，没有出结果会继续往后依次比较，如果能够比出大小就会停止比较
+    console.log(str.localeCompare('212'));
+    console.log(str.localeCompare('1adfjl1S2DDa3343DdFDFsl')); */
+
+
+
+    // match() replace() search() 暂时先瞅一眼，正则的时候会讲
+    // match() : 正则匹配寻找字符串。在str中查找match()里所对应的值，找到返回的是一个伪数组，没找到返回null
+    /* var str = '1adfjl1S12DDa3343D12dFDFsl'
+    console.log(str.match(/12/));
+    console.log(str.match(/12/g));
+    console.log(str.match(12));
+    console.log(str.match(121)); */
+
+
+
+    // replace()：字符串替换
+    /* var str = '1adfjl1S12DDa3343D12dFDFsl'
+    console.log(str.replace(/12/, '**'));
+    console.log(str.replace(/12/g, '**'));
+    console.log(str.replace('12', '**')); */
+
+
+
+    // search()：正则匹配寻找子串，返回子串索引位置
+    /* var str = '1adfjl1S12DDa3343D12dFDFsl'
+    console.log(str.search(/12/));
+    console.log(str.search(/12/g));
+    console.log(str.search('12')); */
+
+
+
+    // slice(开始索引,[结束索引])：抽取子串，传递参数起始位置和结束位置，但是不包含结束位置。后面的参数允许是负数，如果是负数，直接截取到最后
+    /* var str = '1adf55jl1S12DDa3343D12dFDFsl'
+    console.log(str.slice(0, 5));
+    // 拿到55，并变成数组
+    console.log(res = str.slice(4, 6).split()); */
+
+
+
+    // split()：********* 不传参：把字符串变成一个数组。传参：按照传递的参数，将字符串一一分开
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.split());
+    console.log(str.split(''));
+    console.log(str.split(' '));
+    console.log(str.split('12')); // 以所传的参数为分割，转换成一个数组
+    console.log(str.split('bbb')); // 如果所传的参数字符串中没有，则直接转换成一个数组，不分割 */
+
+
+
+    // substr(开始索引,[长度])：抽取子串，传递参数起始位置和子串长度。后面的参数不允许是负数
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    // 取55
+    console.log(str.substr(4, 2)); */
+
+
+
+    // substring(开始索引,[结束索引]：后面的参数不允许是负数
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.substring(0));
+    // 取55
+    console.log(str.substring(4, 6)); */
+
+
+
+    // 目前三个方法取55
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.slice(4, 6)); // 后面的参数允许是负数
+    console.log(str.substr(4, 2)); // 后面的参数不允许是负数
+    console.log(str.substring(4, 6)); // 后面的参数不允许是负数
+
+    // 三者的区别：
+    console.log(str.slice(4, -1)); // 代表从索引4开始截取到最后
+    console.log(str.substr(4, -1)); // 返回空，啥也没有
+    console.log(str.substring(4, -1)); // 代表截取四个，后面的-1不生效 */
+
+
+
+
+    // toLocaleLowerCase() 和 toLowerCase()：转小写
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.toLocaleLowerCase()); // 代表本地，会转成当前国家的那种字符
+    console.log(str.toLowerCase()); */
+
+
+
+    // toLocaleUpperCase() 和 toUpperCase()：转大写
+    /* var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.toLocaleUpperCase()); // 代表本地，会转成当前国家的那种字符
+    console.log(str.toUpperCase()); */
+
+
+
+
+  </script>
+</body>
+
+</html>
