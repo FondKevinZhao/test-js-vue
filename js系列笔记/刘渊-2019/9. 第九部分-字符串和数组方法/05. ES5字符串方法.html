@@ -164,7 +164,18 @@
 
 
 
+    // toString()：字符串本身就是字符串了，还toString没有意义
+    var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.toString());
 
+
+
+    // valueOf()：方法返回String对象的原始值。字符串的valueOf之后的结果还是字符串
+    var str = '1adf55jl1 S12DDa3343D 12dFDFsl'
+    console.log(str.valueOf());
+
+    // toString() 和 valueOf()是Object原型上的方法，在字符串中使用没啥意义，字符串中根本不用
+    console.dir(Object);
   </script>
 </body>
 
