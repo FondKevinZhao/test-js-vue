@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    会改变原数组的方法：shift unshift push pop sort reverse splice
+
+
+    这里里面some和every没讲
+   -->
+  <script>
+    // concat()：拼接数组
+    // 返回一个新数组，新数组是原数组后面拼接的
+    // 参数可以是一个或者多个
+    /* var arr = [1, 2, 3];
+    console.log(arr.concat(4));
+    console.log(arr.concat(5, 6, 7));
+    console.log(arr.concat([4, 5, 6],[7, 8, 9]));
+    console.log(arr); */
+
+
+
+    // Array.length 属性：返回数组的长度
+    /* var arr = [ 1, 2, 3];
+    console.log(arr.length); */
+
+
+
+    // join()：数组转为字符串
+    // join() 和 字符串的split是一个逆运算
+    /* var arr = [1, 2, 3];
+    console.log(arr.join()); // 默认用逗号拼接字符串
+    console.log(arr.join(',')); // 默认用逗号拼接字符串
+    console.log(arr.join(''));
+    console.log(arr.join(':'));
+    console.log(arr); */
+
+    // 数组变字符串后，再转成数组
+    /* var arr = [1, 2, 3];
+    var str = arr.join();
+    console.log(str);
+    arr1 = str.split(',');
+    console.log(arr1);
+    var newArr = []
+    // 遍历得到数字型的数组
+    for (var i = 0; i < arr1.length; i++) {
+      newArr[newArr.length] = arr[i];
+    }
+    console.log(newArr); */
+
+
+
+    // reverse()：翻转数组，不用传参数。会改变原数组
+    /* var arr = [1, 2, 3];
+    console.log(arr.reverse());
+    console.log(arr.reverse(1)); // 整个方法不生效，还是没有翻转的数组
+    console.log(arr.reverse(-1)); // 跟不传参数结果一样，会翻转数组
+    console.log(arr); */
+
+
+
+    // slice(开始下标, [结束下标])：截取数组。slice的用法和字符串的slice完全一致
+    // 包含开始下标，不包含结束下标
+    // 返回一个新数组
+    /* var arr = [1, 2, 3, 4, 5];
+    console.log(arr.slice(2));
+    console.log(arr.slice(2, 4)); */
+
+
+
+    // sort()：排序。会改变原数组
+    /* var arr = [1, 2, 3, 4, 5, 11, 23, 5];
+    // 如果不传参，会按照Unicode码的方式来排序
+    console.log(arr.sort());
+    var res = arr.sort((a, b) => a - b);
+    console.log(res); */
+
+    // 根据数组中的对象的某个属性值进行排序
+    /* var arr1 = [{ id: 10 }, { id: 15 }, { id: 2 }, { id: 1 }, { id: 6 }]
+    var res = arr1.sort((a, b) => a.id - b.id)
+    console.log(res); */
+
+    // 根据数组中的对象的多个属性值排序，多条件排序
+    /* var arr2 = [{ id: 10, age: 5 }, { id: 15, age: 4 }, { id: 2, age: 10 }, { id: 1, age: 7 }, { id: 6, age: 2 }, { id: 6, age: 4 }]
+    var res = arr2.sort((a, b) => {
+      if (a.id == b.id) { // 如果id相同，按照age排序
+        return b.age - a.age 
+      } else {
+        return a.id - b.id
+      }
+    })
+    console.log(res); */
+
+
+
+    // push() pop(没有参数)
+    /* var arr = [1, 2, 3, 4, 5];
+    console.log(arr.push(10)); // 返回数组的长度
+    console.log(arr.push([6, 7]));
+    console.log(arr); // 变成二维数组了
+    console.log(arr.pop()); // 返回删除的元素 */
+
+
+
+    // unshift() shift(没有参数)
+    /* var arr = [1, 2, 3, 4, 5];
+    console.log(arr.unshift(8)); // 返回数组的长度
+    console.log(arr);
+    console.log(arr.shift()); // 返回删除的元素
+    console.log(arr.shift(5)); // 里面的参数不管用，照样删除数组的第一个
+    console.log(arr.shift(-5)); // 里面的参数不管用，照样删除数组的第一个
+    console.log(arr); */
+
+
+
+    /* 
+      splice() 数组的这个方法是一个万能的方法，可以增、可以删、可以改，都是在原数组基础进行的。
+      这个方法本意是在数组的中间位置进行操作
+      先把splice想象成删除
+      参数：
+        - 第一个参数：从索引多少开始
+        - 第二个参数：删除几个
+        - 第三个参数：添加的内容。可以一次性添加多个参数，用逗号隔开
+      返回值：返回删除后的元素组成的新数组
+      会影响原数组
+    */
+    // var arr = [1, 2, 3, 4, 5];
+    // 增：
+    /* console.log(arr.splice(0, 0, 9));
+    console.log(arr);
+    console.log(arr.splice(1, 0, 9, 10, 11));
+    console.log(arr); */
+    // 删：
+    /* console.log(arr.splice(0, 1));
+    console.log(arr); */
+    // 改
+    // 把4改成7
+    /* console.log(arr);
+    console.log(arr.splice(3, 1, 7));
+    console.log(arr); */
+
+
+
+    // toString()：把数组转化成字符串(一般不用)
+    /* var arr = [1, 2, 3, 4, 5];
+    console.log(arr.toString());
+    console.log(arr.toLocaleString());
+    console.log(arr.join()); */
+
+
+
+    // indexOf(value)：得到值在数组中的第一个下标，找不到返回-1
+    /* var arr = [1, 1, 2, 3, 4, 5, 1];
+    console.log(arr.indexOf(1));
+    console.log(arr.indexOf(100)); */
+
+
+
+    // lastIndexOf(value)：得到值在数组当中的最后一个下标，找不到返回-1
+    /* var arr = [1, 2, 3, 4, 5, 1];
+    console.log(arr.lastIndexOf(1));
+    console.log(arr.lastIndexOf(100)); */
+
+
+
+    // forEach((item, index, array) => {})：遍历数组。效率比for循环要高。
+    // forEach() 方法没有返回值
+    /* var arr = [1, 2, 3, 4, 5, 1];
+    arr.forEach((item, index) => console.log(item + '---' + index)); */
+
+
+
+    /*
+      map((item, index, array) => {})：遍历数组返回一个新的数组，返回加工后的值
+      map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值
+      map() 方法按照原始数组元素顺序依次处理元素
+      注意：map() 不会对口昂数组进行检测
+      注意：map() 不会改变原始数组
+    */
+    /* var arr = [1, 2, 3, 4, 5, 1];
+    var res = arr.map((item, index) => {
+      return item * 2 + '---' + index
+    })
+    console.log(res); */
+
+
+
+    // filter((item, index, array) => {})：遍历过滤出一个新数组，返回条件为true的值
+    /* var arr = [1, 2, 3, 4, 5, 2, 1];
+    console.log(arr.filter((item, index) => item < 3)); */ 
+
+  </script>
+</body>
+
+</html>
