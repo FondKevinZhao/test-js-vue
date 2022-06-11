@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    var obj = {
+    // 全局使用严格模式
+    // "use strict"
+    /* var obj = {
       a: 1,
       b: 2
     }
-    delete obj; // 删除不了，也不会报错
-    console.log(obj);
+    // delete obj; // 非严格模式下，删除不了，也不会报错。严格模式下，会报错
+    console.log(obj); */
+
+
+
+    // 严格模式下不用关键字声明会报错
+    // a = 10; 
+
+
+
+    // 函数内部使用严格模式
+    // 非严格模式下，普通函数内的this指向window，严格模式下指向undefined
+    /* function add(a, b){
+      "use strict"
+      console.log(this);
+      return a + b;
+    }
+    add(10, 20); */
+
+
+
+    // 函数不能有重复的参数
+    /* function abc(a, a){
+      "use strict"
+      console.log(a + a);
+      return a + a;
+    }
+    abc(1, 2); */
+
+    
   </script>
 </body>
+
 </html>
