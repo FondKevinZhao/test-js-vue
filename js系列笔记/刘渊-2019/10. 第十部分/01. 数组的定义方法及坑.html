@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [1, 2, 3];
+    console.log(arr);
+
+    var arr1 = new Array(1, 2, 3);
+    console.log(arr1);
+
+    // 省了new的构造函数，当普通函数去用
+    var arr2 = Array(1, 2, 3);
+    console.log(arr2);
+
+    var arr3 = Array.of(1, 2, 3);
+    console.log(arr3);
+    var arr3 = Array.of(3); // 只会是一个数组3
+    console.log(arr3);
+
+
+
+    // 坑
+    // 这种写法，如果里面只写一个数字，代表的是数组的长度
+    var arr1 = new Array(3); 
+    console.log(arr1);
+    console.log(arr1[0]);
+
+    var arr1 = new Array('11');
+    console.log(arr1);
+
+
+    // fill() 表示用什么内容填充
+    var arr1 = new Array(3).fill('1');
+    console.log(arr1);
+
+    
+  </script>
+</body>
+
+</html>
