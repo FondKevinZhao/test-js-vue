@@ -65,8 +65,10 @@
 
 
 
-    // 打印字符串中出现字母最多的次数和索引位置
-    str = '3403840feijfoezhaoliyingyangmi';
+    // 打印字符串中出现字母最多的次数和索引位置(比较难)
+    /* str = '3403840feijfoezhaoliyingyangmi';
+    // 方法一：
+    // 空对象用于存储索引和次数
     var obj = {};
     for (var i = 0; i < str.length; i++) {
       var charS = str[i];
@@ -77,8 +79,38 @@
       } else { // 表示值为undefined，那么直接在对象中添加这个属性，值为1
         obj[charS] = 1;
       }
+
+      // 判断对象里有没有这个数组，如果有就在数组中添加，没有数组就添加一个数组
+      if (obj[charS + 'arr']) {
+        obj[charS + 'arr'].push(i);
+      } else {
+        obj[charS + 'arr'] = [i];
+      }
+
+      // 遍历对象，寻找最多次数和索引
+      var max = 0;
+      var resultKey = '';
+      for (var key in obj) {
+        if (typeof obj[key] == 'number') {
+          if (obj[key] > max) {
+            max = obj[key];
+            resultKey = key;
+          }
+        }
+      }
     }
-    console.log(obj);
+    // obj[resultKey] 最多次数; obj[resultKey + 'arr'] 最大次数的索引
+    console.log(obj[resultKey], obj[resultKey + 'arr']); */
+
+    // 方法二：
+    /* str = '3403840feijfoezhaoliyingyangmi';
+    var obj = {};
+    for (var i = 0; i < str.length; i++) {
+      var charS = str[i];
+      obj[charS] ? obj[charS]++ : obj[charS] = 1;
+      obj[charS + 'arr'] ? obj[charS + 'arr'].push(i) : obj[charS + 'arr'] = [i];
+    }
+    console.log(obj); */
   </script>
 </body>
 
