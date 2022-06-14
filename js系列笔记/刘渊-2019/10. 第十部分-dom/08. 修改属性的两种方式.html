@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    自定义属性：
+      setAttribute 和 getAttribute 是通用的方法，无论元素是天生具有的属性还是自定义的属性，都可以操作。
+      - setAttribute：获取元素，只要给属性名即可
+      - getAttribute：设置元素，需要给属性名和要设置的值
+   -->
+  <img src="./dom树.png" width="500" aa="bb"><br><br>
+  <input type="button" id="btn" value="button">
+
+  <script>
+    var img = document.querySelector('img');
+
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      // .点操作只能操作元素天生具有的属性，不能操作自定义属性
+      // img.aa = 'cc';
+      img.setAttribute('aa', 'cc'); // 把属性aa里的值设置成cc
+      // console.log(img.aa); // 这种方式没法读取自定义属性的值
+      console.log(img.getAttribute('aa')); // 这种方法可以拿到自定义属性的值
+    }
+  </script>
+</body>
+
+</html>

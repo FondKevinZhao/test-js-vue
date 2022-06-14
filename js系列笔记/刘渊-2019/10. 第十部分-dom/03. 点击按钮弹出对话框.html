@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <header id="header">
+    <h1><a href="javascript:;"><img src="" alt=""></a></h1>
+    <nav class="nav">
+      <ul class="list">
+        <li>首页</li>
+        <li>个人中心</li>
+        <li>关于</li>
+        <li>设置</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <p>pppppppp1</p>
+    <p>pppppppp2</p>
+    <p>pppppppp3</p>
+  </div>
+
+  <div class="footer">
+    <a href="">百度</a>
+    <a href="">搜狐</a>
+    <a href="">新浪</a>
+  </div>
+
+  <input type="button" id="btn" value="按钮">
+
+  <script>
+    // 页面加载完成
+    window.onload = function () {
+      // 事件源要获取
+      var btn = document.getElementById('btn');
+      btn.onclick = function () {
+        alert('加载完成点击了~');
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    常用表单type：text、password、radio、checkbox、select、textarea、file、tel、email、phone、number、progress、range、time、date、month、week
+    三个按钮：button、submit、reset
+
+    文档：https://wenku.baidu.com/view/26dba10829f90242a8956bec0975f46527d3a7aa.html
+   -->
+
+  <input type="checkbox" id="check">
+  <input type="button" id="btn" value="button">
+
+  <script>
+    var check = document.getElementById('check');
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      check.checked = !check.checked;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #img {
+      display: block;
+      width: 400px;
+      height: 300px;
+      margin: 50px auto 0px auto;
+    }
+
+    #btn {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    详解：img.src = imgArr[num % imgArr.length];
+      - num 一上来是 0
+      - imgArr是数组的长度，现在是3张图片，所以是3
+      - 任何的数对3取余，能取到0-2。
+      - 如果num是3，那么3 % imgArr.length，就是 3 % 3 得到的是0，又回到了第一张图片的索引，就是这样子循环的
+   -->
+  <img src="./beauty1.png" alt="" id="img"><br><br>
+  <input type="button" value="button" id="btn">
+
+  <script>
+    var btn = document.getElementById('btn');
+    // 把图片路径存入数组当中，方便连续的拿下标
+    var imgArr = ['./beauty1.png', './beauty2.png', './beauty3.png'];
+    var img = document.getElementById('img');
+    var num = 0;
+    btn.onclick = function () {
+      num++;
+      img.src = imgArr[num % imgArr.length];
+    }
+  </script>
+</body>
+
+</html>

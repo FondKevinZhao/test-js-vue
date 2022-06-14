@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="http://www.baidu.com" target="_blank" id="labelA">我是百度</a><br><br>
+  <input type="button" value="点我改变路径" id="btn">
+
+  <script>
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      var labelA = document.getElementById('labelA');
+      labelA.href = 'http://www.jd.com';
+      labelA.innerText = '点我进入京东';
+    }
+  </script>
+</body>
+
+</html>
