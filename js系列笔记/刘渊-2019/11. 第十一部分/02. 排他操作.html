@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div p {
+      float: left;
+      margin: 5px;
+    }
+
+    p {
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border: 1px solid red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+     this.innerText = '爽'; // 这里为什么要用this，不能用pList[j]
+      - 因为，当你点击的时候，pList[i].onclick后面的回调函数会执行，这个时候外层for循环早就执行完了，得到的i的索引为4，索引从0开始的，共4个p，所以，根本就没有4的索引，那么这个时候就会报错。
+      - 使用this就不会有这个问题，因为函数内部的this刚好就是你点的那个对象
+   -->
+  <div>
+    <p class="pp">1</p>
+    <p class="pp">2</p>
+    <p class="pp">3</p>
+    <p class="pp">4</p>
+  </div>
+
+  <script>
+    // 点击某一个p，点击的这个p变成“爽“，其他的变成“哈哈”
+    // 排他操作很重要，思路是先让所有的变成“哈哈”，再让点击的这一个变成“爽”
+    var pList = document.querySelectorAll('p');
+    for (var i = 0; i < pList.length; i++) {
+      // pList[i].onclick 点击的时候才执行
+      pList[i].onclick = function () {
+        for (var j = 0; j < pList.length; j++) {
+          pList[j].innerText = 'haha';
+          // this.innerText = '爽'; // 这里要用this
+        };
+        this.innerText = '爽'; // 这里要用this
+      }
+    }
+  </script>
+</body>
+
+</html>

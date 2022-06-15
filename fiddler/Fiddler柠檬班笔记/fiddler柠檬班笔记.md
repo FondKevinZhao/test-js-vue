@@ -374,23 +374,96 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
 #### 会话列表介绍
 
+- #：用于排序。如果你想后面抓的请求显示在前面，你点一下#就可以了
+
+  ![image-20220615203107636](fiddler柠檬班笔记.assets/image-20220615203107636.png)
+
 - ![image-20220614205152239](fiddler柠檬班笔记.assets/image-20220614205152239.png)
+
 - ![image-20220614205346279](fiddler柠檬班笔记.assets/image-20220614205346279.png)
+
+- Result：http status 状态码
+
+  ![image-20220615200357443](fiddler柠檬班笔记.assets/image-20220615200357443.png)
+
+- Protocol：协议名
+
+  ![image-20220615200456138](fiddler柠檬班笔记.assets/image-20220615200456138.png)
+
+- Host：主机名
+
+  ![image-20220615200530781](fiddler柠檬班笔记.assets/image-20220615200530781.png)
+
+- URL：统一资源定位符的路径
+
+  ![image-20220615200641187](fiddler柠檬班笔记.assets/image-20220615200641187.png)
+
+- Body：请求内容的大小，多少字节
+
+  ![image-20220615200735959](fiddler柠檬班笔记.assets/image-20220615200735959.png)
+
+- Caching：是否做了缓存
+
+  ![image-20220615200837701](fiddler柠檬班笔记.assets/image-20220615200837701.png)
+
+- Content-Type：内容类型。请求从服务器返回的内容类型是什么
+
+  ![image-20220615200912633](fiddler柠檬班笔记.assets/image-20220615200912633.png)
+
+- Process：进程
+
+  ![image-20220615201116244](fiddler柠檬班笔记.assets/image-20220615201116244.png)
+
+- Comments：添加备注
+
+  ![image-20220615201138338](fiddler柠檬班笔记.assets/image-20220615201138338.png)
+
+- Custom：自定义列(这个用得少)
+
+  ![image-20220615201203927](fiddler柠檬班笔记.assets/image-20220615201203927.png)
+
+- 比如说自定义一列
+
+  1. 在Rules中找到CustomizeRules
+
+     ![image-20220615202056680](fiddler柠檬班笔记.assets/image-20220615202056680.png)
+
+  2. ctrl + f 搜索：static function Main()
+
+     ![image-20220615202342926](fiddler柠檬班笔记.assets/image-20220615202342926.png)
+
+  3. 添加一行代码：`FiddlerObject.UI.lvSessions.AddBoundColumn("ServerIP", 120, "X-HostIP");`，点击保存
+
+     ![image-20220615202424919](fiddler柠檬班笔记.assets/image-20220615202424919.png)
+
+  4. 添加成功。如果没有看到效果，可以退出程序，重启程序。
+
+     ![image-20220615202525365](fiddler柠檬班笔记.assets/image-20220615202525365.png)
+
+  5. 还可以自定义请求方式等，可以尝试
+
+  
+
+#### 命令行+状态栏
+
+- ![image-20220614205209449](fiddler柠檬班笔记.assets/image-20220614205209449.png)
+
+- QuickExec：一整条黑色的这个
+
+  ![image-20220615203451967](fiddler柠檬班笔记.assets/image-20220615203451967.png)
+
+  输入help + 回车，会跳转到官方的帮助文档上。里面有很多很好的命令可以使用
+
+  ![image-20220615203647811](fiddler柠檬班笔记.assets/image-20220615203647811.png)
+
 - 
+
+
 
 #### 辅助标签+工具
 
 - ![image-20220614205159514](fiddler柠檬班笔记.assets/image-20220614205159514.png)
 - 
-
-#### 命令行+状态栏
-
-- ![image-20220614205209449](fiddler柠檬班笔记.assets/image-20220614205209449.png)
-- 
-
-
-
-
 
 
 

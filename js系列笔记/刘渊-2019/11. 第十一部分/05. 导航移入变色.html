@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    ul {
+      width: 200px;
+      height: 300px;
+      box-sizing: border-box;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+
+    ul>li {
+      width: 100%;
+      height: 50px;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      border-bottom: 1px solid skyblue;
+    }
+
+    ul>li:last-child {
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <ul class="list">
+      <li>导航项目1</li>
+      <li>导航项目2</li>
+      <li>导航项目3</li>
+      <li>导航项目4</li>
+      <li>导航项目5</li>
+      <li>导航项目6</li>
+    </ul>
+  </div>
+
+  <script>
+    // 方法一：移入+移出
+    /* var liNodes = document.querySelectorAll('ul > li');
+    for (var i = 0; i < liNodes.length; i++) {
+      liNodes[i].onmouseenter = function () {
+        this.style.backgroundColor = 'greenyellow';
+      }
+
+      liNodes[i].onmouseleave = function () {
+        this.style.backgroundColor = '#fff';
+      }
+    } */
+
+    // 方法二：排他
+    /* var liNodes = document.querySelectorAll('ul > li');
+    var list = document.querySelector('.list');
+    for (var i = 0; i < liNodes.length; i++) {
+      liNodes[i].onmouseenter = function () {
+        for (var j = 0; j < liNodes.length; j++) {
+          liNodes[j].style.backgroundColor = 'white';
+        };
+        this.style.backgroundColor = 'greenyellow';
+      }
+    }
+
+    list.onmouseleave = function () {
+      for (var j = 0; j < liNodes.length; j++) {
+        liNodes[j].style.backgroundColor = 'white';
+      };
+    } */
+
+  </script>
+</body>
+
+</html>

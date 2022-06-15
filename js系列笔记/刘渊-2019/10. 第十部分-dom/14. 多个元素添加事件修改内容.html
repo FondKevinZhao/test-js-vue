@@ -8,12 +8,17 @@
   <title>Document</title>
   <style>
     p {
-      width: 50px;
+      width: 150px;
       height: 50px;
       border: 1px solid red;
       cursor: pointer;
       text-align: center;
       line-height: 50px;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
@@ -30,7 +35,9 @@
     for (var i = 0; i < classList.length; i++) {
       classList[i].onclick = function () {
         // 这里要使用this，使用pList[i]拿到的是undefined，这里要注意一下
-        this.innerHTML = 'haha';
+        this.innerHTML = '<h1>haha</h1>';
+        // this.innerText = '<h1>hehe</h1>';
+        // this.textContent = '<h1>huhu</h1>';
       }
     }
   </script>

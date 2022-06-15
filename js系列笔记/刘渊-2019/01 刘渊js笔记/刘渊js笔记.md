@@ -1284,6 +1284,7 @@ es5增加了严格模式
 获取DOM对象、操作DOM对象、事件绑定、操作元素属性
 
 1. `document.getElementById()`：这个是document下的一个方法，通过id获取到相关元素，封装为dom对象返回。如果没有id没办法获取。
+
 2. 点击事件
    - 事件三要素：1. 事件源。2. 事件。3. 事件处理回调函数。
    - 事件处理三大步：
@@ -1291,6 +1292,7 @@ es5增加了严格模式
      2. 添加事件监听。
      3. 书写处理回调。
    - 事件写好之后可以重复执行。
+   
 3. 循环绑定事件 + 操作元素内容
    - document.getElementById：只能通过ID去获取元素，并且只能获取一个元素返回。
    - document.getElementsByTagName：只能通过标签名去获取，并且获取到是多个返回一个数组，哪怕只有一个标签是这个类也是数组。
@@ -1299,8 +1301,65 @@ es5增加了严格模式
    - querySelector 和 querySelectorAll 也可以获取 dom 元素，但是它们和上面不同的是，它们是根据选择器去获取，也就是说只要是选择器能选择到，它们就可以获取到，只要选择器选的对就可以获取到。
    - querySelector 专门用来获取只有一个元素，返回的是单个元素对象。
    - querySelectorAll 专门用来获取率选择器选中多个元素，返回也是数组。
+   
 4. 鼠标事件 + style样式操作，操作元素样式
-   - 鼠标事件：onmousemove/onmouseover/onmouseout/onmouseenter/onmouseleave
+   - 鼠标事件：一般就这9种。onmousemove/onmouseover/onmouseout/onmouseenter/onmouseleave/onclick/onmousedown/onmouseup/ondbclick
+   - onmouseover/onmouseout
+   - onmouseenter/onmouseleave(移入事件建议使用这一对)
+   - 一个元素可以添加多个事件
+   
+5. innerHTML、innerText、textContent之间的区别
+
+   - innerHTML 和 innerText之间的区别：
+
+     - 设置内容的时候：
+
+       1. 如果内容当中包含标签字符串，innerHTML会有标签的特性，也就是说标签会在页面上生效。
+       2. 如果内容当中包含标签字符串，innerText会把标签原样展示在页面上，不会让标签生效。
+
+     - 读取内容的时候：
+
+       1. 如果标签内部还有其他标签，innerHTML会把标签内部带着其他的标签全部输出。
+       2. 如果标签内部还有其他标签，innerText 只会输出所有标签里面的内容或者文本，不会输出标签。
+
+       ```html
+       <div id="dv">
+           i love you!
+           <span>赵丽颖</span>
+       </div>
+       
+       <script>
+       	// 读取
+           var dv = document.getElementById('dv');
+           console.log('dv', dv.innerHTML);
+           console.log('dv', dv.innerText);
+       </script>
+       ```
+
+       
+
+   - textContent 和 innerText 的区别：
+
+     - textContent 可以获取隐藏元素的文本，包含换行和空白
+     - innerText 不可以获取，并且不包括换行和空格
+
+     
+
+6. 排他操作修改文本内容
+
+   分两步：
+
+   1. 让所有的都成为一种样式
+   2. 让当前发生事件的对象独自成为一种样式
+
+   for 循环对多个对象添加事件的时候记住，当时for循环只是添加了事件监听，而事件回调函数是不会执行的。事件回调函数当中的代码是在事件发生的一刹那执行的。但是此时，for循环早就都已经执行完毕，所以在事件函数当中只要出现了循环变量就肯定报错。
+
+7. keyup & keydown & focus & blur：针对表单类元素
+
+   1. keyup, keydown 事件
+   2. keycode
+   3. focus, blur 事件：
+
 5. 
 
 

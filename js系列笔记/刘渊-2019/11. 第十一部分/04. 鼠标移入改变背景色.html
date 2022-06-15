@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: hotpink;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <script>
+    var dv = document.querySelector('div');
+    dv.onmouseover = function () {
+      dv.style.backgroundColor = 'red';
+      dv.style.width = 200 + 'px';
+      dv.style.height = 200 + 'px';
+    }
+    dv.onmouseout = function (){
+      dv.style.backgroundColor = 'hotpink';
+      dv.style.width = 100 + 'px';
+      dv.style.height = 100 + 'px';
+    }
+  </script>
+</body>
+
+</html>

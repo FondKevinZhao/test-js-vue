@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="in">
+
+  <script>
+    var inputNode = document.querySelector('#in');
+    // 键盘事件按下每一个键都会触发，添加的方式和鼠标事件添加的方式一致
+    // 但是键盘，我们无法区分到底按下的是哪个键
+    /* inputNode.onkeydown = function (){
+      console.log('键按下');
+    } */
+
+
+    // 需求：回车键的键盘事件
+    inputNode.onkeydown = function (e){
+      // 根据事件对象当中的键码去判断是什么键
+      console.log(e.keyCode);
+      if(e.keyCode == 13) {
+        console.log('键按下');
+      }
+    }
+  </script>
+</body>
+</html>

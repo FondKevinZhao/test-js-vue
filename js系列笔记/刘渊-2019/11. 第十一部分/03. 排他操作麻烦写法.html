@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div p {
+      float: left;
+      margin: 5px;
+    }
+
+    p {
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border: 1px solid red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    1. 用一个变量把下标存起来
+    2. 使用存起来的下标
+   -->
+  <div>
+    <p class="pp">1</p>
+    <p class="pp">2</p>
+    <p class="pp">3</p>
+    <p class="pp">4</p>
+  </div>
+
+  <script>
+    // 点击某一个p，点击的这个p变成“爽“，其他的变成“哈哈”
+    var pList = document.querySelectorAll('p');
+    for (var i = 0; i < pList.length; i++) {
+      pList[i].a = i; // 关键点，存下标
+      pList[i].onclick = function () {
+        for (var j = 0; j < pList.length; j++) {
+          pList[j].innerText = 'haha';
+        };
+        pList[this.a].innerText = '爽';
+      }
+    }
+  </script>
+</body>
+
+</html>
