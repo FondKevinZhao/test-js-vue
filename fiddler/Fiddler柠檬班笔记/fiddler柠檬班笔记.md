@@ -456,6 +456,26 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
   ![image-20220615203647811](fiddler柠檬班笔记.assets/image-20220615203647811.png)
 
+- Capturing：表示处于代理功能。正在捕获会话中。。。
+
+  ![image-20220616190028220](fiddler柠檬班笔记.assets/image-20220616190028220.png)
+
+  点击一下Capturing就会消失，也就捕获不到会话了
+
+  ![image-20220616190118579](fiddler柠檬班笔记.assets/image-20220616190118579.png)
+
+- Web Browsers：表示只看浏览器的捕获
+
+  ![image-20220616190328504](fiddler柠檬班笔记.assets/image-20220616190328504.png)
+
+- 空白的地方：断点作用。
+
+  ![image-20220616190417904](fiddler柠檬班笔记.assets/image-20220616190417904.png)
+
+- 会话的个数
+
+  ![image-20220616190719350](fiddler柠檬班笔记.assets/image-20220616190719350.png)
+
 - 
 
 
@@ -463,6 +483,127 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 #### 辅助标签+工具
 
 - ![image-20220614205159514](fiddler柠檬班笔记.assets/image-20220614205159514.png)
+
+- ![image-20220616191621000](fiddler柠檬班笔记.assets/image-20220616191621000.png)
+
+- Statistics：选择某个会话，选择statistics：表示性能方面的一些统计，测试工程师不太关注，前端工程师会看这个请求的整体的性能分析
+
+  ![image-20220616191100785](fiddler柠檬班笔记.assets/image-20220616191100785.png)
+
+  Request Count：请求数量
+
+  Bytes Sent: 发送了多少字节
+
+  Bytes Received: 接收了多少字节
+
+  (headers:2,417; body:383)：headers字节，body的字节
+
+  ClientConnected：客户端连接时间
+
+  DNS Lookup：DNS解析
+
+  TCP/IP Connect:	TCP/IP的一个连接时间
+
+  HTTPS Handshake:	HTTP3次握手花了多少时间
+
+- Inspectors：检查器(很重要)。单击某条会话，然后选择检查器，就可以查看。
+
+  Inspectors 主要是检查请求用的。
+
+  ![image-20220616191823831](fiddler柠檬班笔记.assets/image-20220616191823831.png)
+
+  请求我们都知道包括两个部分：请求报文和响应报文。
+
+  fiddler中有非常多的形式来展示我们的请求报文和响应报文
+
+  ![image-20220616192123830](fiddler柠檬班笔记.assets/image-20220616192123830.png)
+
+  一般都是选择raw的形式
+
+  ![image-20220616192329427](fiddler柠檬班笔记.assets/image-20220616192329427.png)
+
+  Headers：只会显示Headers相关的内容
+
+  ![image-20220616192417185](fiddler柠檬班笔记.assets/image-20220616192417185.png)
+
+  WebFroms：以表单提交的方式查看：
+
+  ![image-20220616192716825](fiddler柠檬班笔记.assets/image-20220616192716825.png)
+
+  Cookie：如果有Cookie可以单独展示Cookie
+
+  ![image-20220616193002944](fiddler柠檬班笔记.assets/image-20220616193002944.png)
+
+  JSON：如果是JSON传输的，可以以JSON的格式查看。
+
+  SyntaxView：一般不使用。
+
+  Auth：一般不使用。
+
+  HexView：以十六进制的方式查看，一般不使用。
+
+- 自动响应器
+
+  ![image-20220616193426882](fiddler柠檬班笔记.assets/image-20220616193426882.png)
+
+  Enable rules没打钩：表示自动响应器还没有使用
+
+  ![image-20220616193704228](fiddler柠檬班笔记.assets/image-20220616193704228.png)
+
+  使用自动响应器将生产上的请求拦截下来，重定向我的本地或者指定的响应：做个例子：把柠檬班的图片换掉
+
+  ![image-20220616194031362](fiddler柠檬班笔记.assets/image-20220616194031362.png)
+
+  第一步：复制图片地址：
+
+  ![image-20220616194253283](fiddler柠檬班笔记.assets/image-20220616194253283.png)
+
+  第二步：在fiddler中添加一个规则：
+
+  ![image-20220616194349969](fiddler柠檬班笔记.assets/image-20220616194349969.png)
+
+  第三步：规则定制
+
+  ![image-20220616194600747](fiddler柠檬班笔记.assets/image-20220616194600747.png)
+
+  第四步：第二个框是内置响应
+
+  ![image-20220616194743514](fiddler柠檬班笔记.assets/image-20220616194743514.png)
+
+  第五步：点击save
+
+  ![image-20220616194932730](fiddler柠檬班笔记.assets/image-20220616194932730.png)
+
+  第六步：使用规则：勾选Enable rules
+
+  ![image-20220616194954517](fiddler柠檬班笔记.assets/image-20220616194954517.png)
+
+  第七步：打勾Unmatched requestspassthrough：放行一些没有匹配上的请求
+
+  ![image-20220616195046566](fiddler柠檬班笔记.assets/image-20220616195046566.png)
+
+  第八步：去缓存刷新(ctrl + shift + r)。可以看到图片不见了
+
+  ![image-20220616195451860](fiddler柠檬班笔记.assets/image-20220616195451860.png)
+
+  第九步：点击第二个框的下拉，找到 Find a file
+
+  ![image-20220616195701868](fiddler柠檬班笔记.assets/image-20220616195701868.png)
+
+  第十步：选择好图片，点击Save
+
+  ![image-20220616195804956](fiddler柠檬班笔记.assets/image-20220616195804956.png)
+
+  第十一步：刷新页面
+
+  ![image-20220616195928428](fiddler柠檬班笔记.assets/image-20220616195928428.png)
+
+  第十二步：
+
+  
+
+  
+
 - 
 
 

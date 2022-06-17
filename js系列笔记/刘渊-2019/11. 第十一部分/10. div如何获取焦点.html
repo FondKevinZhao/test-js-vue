@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *  {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 200px; 
+      height: 200px;
+      background-color: hotpink;
+    }
+  </style>
+</head>
+<body>
+  <div tabIndex="100">haha</div>
+
+  <script>
+    // 非表单标签没有获取焦点和失去焦点的功能
+    // tabindex 能够让div获取焦点
+    var div = document.querySelector('div');
+    div.onfocus = function (){
+      console.log(div.tabIndex++);
+    }
+  </script>
+</body>
+</html>

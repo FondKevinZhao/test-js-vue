@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" name="" value="赵丽颖">
+
+  <script>
+    var input = document.querySelector('input');
+
+    input.onfocus = function () {
+      input.value = '杨幂';
+      this.style.width = '400px';
+      this.style.height = '100px';
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+    input.onblur = function () {
+      input.value = '赵丽颖';
+      // this.style.width = '162px'; // 这样写也可以
+      this.style.width = 162 + 'px';
+      this.style.height = 22 + 'px';
+      // 以后只要是设置随机颜色，肯定用的是rgb去设置
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+  </script>
+</body>
+
+</html>

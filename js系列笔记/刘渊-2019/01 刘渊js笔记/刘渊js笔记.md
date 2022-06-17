@@ -1357,8 +1357,8 @@ es5增加了严格模式
 7. keyup & keydown & focus & blur：针对表单类元素
 
    1. keyup, keydown 事件
-   2. keycode
-   3. focus, blur 事件：
+   2. keyCode：event.keyCode 获取键盘按下的 Unicode 编码
+   3. focus, blur 事件
 
 5. 
 

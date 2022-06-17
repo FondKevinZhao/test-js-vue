@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <br><br>
+  <input type="checkbox"> 唱歌
+  <input type="checkbox"> 跳舞
+  <input type="checkbox"> rap
+  <input type="checkbox"> 抽烟
+  <input type="checkbox"> 喝酒
+  <input type="checkbox"> 烫头
+  <br><br>
+  <button>全选</button>
+  <button>全不选</button>
+  <button>反选</button>
+
+
+
+  <script>
+    var btns = document.querySelectorAll('button');
+    var inputs = document.querySelectorAll('input');
+    // 因为三个按钮的功能不同，所以不能遍历btns来添加事件，只能一个个的添加
+    // 全选
+    btns[0].onclick = function () {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+      }
+    }
+
+    // 全不选
+    btns[1].onclick = function () {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+      }
+    }
+
+    // 反选
+    btns[2].onclick = function () {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = !(inputs[i].checked);
+      }
+    }
+  </script>
+</body>
+
+</html>
