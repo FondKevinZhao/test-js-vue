@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 50px auto;
+      background-color: hotpink;
+      text-align: center;
+      line-height: 200px;
+      font-size: 50px;
+      color: greenyellow;
+      cursor: pointer;
+      transition: 1s;
+    }
+
+    #box .top,
+    #box .bottom {
+      position: absolute;
+      width: 0px;
+      height: 30px;
+      background-color: deepskyblue;
+    }
+
+    #box .top {
+      left: 0;
+      top: 0;
+    }
+
+    #box .bottom {
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    尚硅谷
+    <div class="top"></div>
+    <div class="bottom"></div>
+  </div>
+
+  <script>
+    var box = document.getElementById('box');
+    var top1 = document.querySelector('#box .top');
+    var bottom1 = document.querySelector('#box .bottom');
+    box.onmouseenter = function () {
+      top1.style.width = 300 + 'px';
+      bottom1.style.width = '300px';
+      this.style.color = 'hotpink'
+      this.style.background = 'greenyellow';
+    }
+    box.onmouseleave = function () {
+      top1.style.width = 0;
+      bottom1.style.width = 0;
+      this.style.color = 'greenyellow';
+      this.style.backgroundColor = 'hotpink';
+    }
+  </script>
+</body>
+
+</html>

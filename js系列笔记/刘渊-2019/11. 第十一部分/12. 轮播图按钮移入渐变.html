@@ -148,9 +148,12 @@
     var iconList = document.querySelectorAll('.banner .iconList li');
     for (var i = 0; i < iconList.length; i++) {
       iconList[i].onclick = function (){
-        iconList[i].style.backgroundColor = "gray";
+        for (var j = 0; j < iconList.length; j++) {
+          iconList[j].className = "";
+        };
+        this.className = 'current';
       }
-      this.className = 'red';
+      
     }
   </script>
 </body>

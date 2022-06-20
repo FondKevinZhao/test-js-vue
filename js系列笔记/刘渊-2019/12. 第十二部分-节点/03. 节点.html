@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="box">
+    <p>我是第一个段落</p>
+    <p>我是第二个段落</p>
+  </div>
+
+  <script>
+    /* var box = document.getElementById('box');
+    console.log(box.childNodes); // 子节点
+    console.log(box.children); // 子元素 */
+
+
+
+    // 遍历所有节点
+    /* for (var i = 0; i < box.childNodes.length; i++) {
+      var eleNode = box.childNodes[i];
+      console.log(eleNode.nodeName, eleNode.nodeType, eleNode.nodeValue);
+
+      // 只想打印元素节点
+      if (eleNode.nodeType == 1) {
+        console.log(eleNode);
+      }
+    } */
+
+
+
+    // html的子节点
+    /* 
+      html节点拿到的不包含第一个文本节点和最后一个文本节点。我们自己在 body当中写的子元素会带上第一个和最后一个文本节点。
+    */
+    var htmlNode = document.documentElement;
+    console.log('htmlNode', htmlNode);
+    console.log('html的子节点', htmlNode.childNodes);
+
+    /* 这一行是注释节点 */
+    var body = document.body;
+    console.log('body', body);
+  </script>
+</body>
+
+</html>

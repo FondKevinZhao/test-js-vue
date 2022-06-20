@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 50px auto;
+      transform-style: preserve-3d;
+      transition: 1s;
+    }
+
+    #box .front {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 300px;
+      background-color: hotpink;
+    }
+
+    #box .back {
+      width: 300px;
+      height: 300px;
+      transform: rotateY(180deg);
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    注意：哪一块用到了3d，就给他爹开启3d空间
+      - 如这里的.back里面如果用到了3d空间(transform: rotateY(180deg);)，就给他爹#box开启3d空间(transform-style: preserve-3d;)
+      - 近大远小效果：开启景深(焦距)。如：transform: translateZ(200px);
+   -->
+  <div id="box">
+    <div class="front"></div>
+    <div class="back">我爱赵丽颖</div>
+  </div>
+
+
+  <script>
+    var box = document.querySelector('#box');
+    box.onmouseenter = function () {
+      this.style.transform = 'rotateY(180deg)';
+    }
+
+    box.onmouseleave = function () {
+      this.style.transform = 'rotateY(360deg)';
+    }
+  </script>
+</body>
+
+</html>

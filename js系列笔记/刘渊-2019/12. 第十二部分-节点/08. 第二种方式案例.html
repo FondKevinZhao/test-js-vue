@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击添加</button>
+
+  <script>
+    // 当点击按钮的时候，把下面数组中最近比较流行的歌曲或者电影列表展示
+    var btn = document.querySelector('button');
+    btn.onclick = function () {
+      var movies = ['哪吒', '烈火英雄', '上海堡垒', '速度与激情9'];
+      var str = '<ul>'
+
+      for (var i = 0; i < movies.length; i++) {
+        str += '<li>' + movies[i] + '</li>';
+      }
+      str += '</ul>';
+
+      // = 和 += ：= 会覆盖原来的元素中的button按钮，但+=可以完美解决
+      // document.body.innerHTML = str; // 关键一步
+      document.body.innerHTML += str; // 关键一步
+    }
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </div>
+
+  <script>
+    // 拿到div所有的子节点
+    /* var box = document.getElementById('box');
+    // 子节点和子元素不一样
+    console.log(box.childNodes); // 子节点
+    console.log(box.children); // 子元素 */
+
+
+
+    // 获取父元素
+    var box = document.getElementById('box');
+    console.log()
+
+
+
+    // 兼容拿取元素的子元素
+    function getChildEle(obj){
+      var arr = [];
+      for(var i = 0; i < obj.children.length; i++) {
+        if(obj.children[i].nodeType !== 8) {
+          arr.push(obj.children[i]);
+        }
+      }
+      return arr;
+    }
+  </script>
+</body>
+</html>

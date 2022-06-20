@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navList {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      background-color: hotpink;
+    }
+
+    .navList>li {
+      width: 200px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-bottom: 1px solid purple;
+      box-sizing: border-box;
+    }
+
+    .navList>li:first-child {
+      border-top: 1px solid purple;
+    }
+
+    .navList>li .navIn {
+      position: absolute;
+      left: 200px;
+      top: 0;
+      width: 400px;
+      height: 300px;
+      background-color: skyblue;
+      display: none;
+    }
+
+    .navList>li .navIn li {
+      width: 400px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="navList">
+    <li>
+      <a href="javascript:;">服装111</a>
+      <ul class="navIn">
+        <li>上衣111</li>
+        <li>裤子111</li>
+        <li>内衣111</li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">服装222</a>
+      <ul class="navIn">
+        <li>夹克222</li>
+        <li>裤子222</li>
+        <li>内衣222</li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;">服装333</a>
+      <ul class="navIn">
+        <li>皮衣333</li>
+        <li>裤子333</li>
+        <li>内衣333</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <script>
+    var liList = document.querySelectorAll('.navList>li');
+    var liInList = document.querySelectorAll('.navList > li .navIn');
+    for (var i = 0; i < liList.length; i++) {
+      liList[i].index = i; // 这一步是关键
+      // 移入
+      liList[i].onmouseenter = function () {
+        for (var j = 0; j < liInList.length; j++) {
+          liInList[j].style.display = 'none';
+        }
+        // 外部的liList[i]和最终要显示的下标是一样的
+        liInList[this.index].style.display = 'block';
+      }
+
+      // 移出
+      liList[i].onmouseleave = function () {
+        for (var j = 0; j < liInList.length; j++) {
+          liInList[j].style.display = 'none';
+        }
+        // 外部的liList[i]和最终要显示的下标是一样的
+        // liInList[this.index].style.display = 'block';
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1306,7 +1306,7 @@ es5增加了严格模式
    - 鼠标事件：一般就这9种。onmousemove/onmouseover/onmouseout/onmouseenter/onmouseleave/onclick/onmousedown/onmouseup/ondbclick
    - onmouseover/onmouseout
    - onmouseenter/onmouseleave(移入事件建议使用这一对)
-   - 一个元素可以添加多个事件
+   - **一个元素是可以添加多个事件的**
    
 5. innerHTML、innerText、textContent之间的区别
 
@@ -1356,11 +1356,77 @@ es5增加了严格模式
 
 7. keyup & keydown & focus & blur：针对表单类元素
 
-   1. keyup, keydown 事件
-   2. keyCode：event.keyCode 获取键盘按下的 Unicode 编码
+   1. keyup, keydown 事件。一般用的都是keyup事件，它能够去报键盘事件只执行一次。
+   2. keyCode：event.keyCode 获取键盘按下的 Unicode 编码。keyCode存在于事件对象当中，也就是我们回调函数的第一个形参。这个对象不是我们创建的，当事件发生的时候，系统会创建好这个事件对象，并且传参调用，事件对象当中包含了和事件相关的一切。
    3. focus, blur 事件
 
-5. 
+##### 节点
+
+1. 节点的概念
+
+   什么是节点？文档树所有包含的东西都可以称作节点，最关注的是元素节点。
+
+   查找节点：查找节点 是相对的操作，如果你拿html的子节点，就是html当中所有的节点，但是不包含后代节点，只是子节点(head和body)。html节点拿到的不包含第一个文本节点和最后一个文本节点。我们自己在 body当中写的子元素会带上第一个和最后一个文本节点。
+
+   节点的分类12中，重点了解3种。
+
+2. 子节点和子元素(父节点和父元素)
+
+   子节点和子元素：
+
+   - childNodes：拿到的是某个元素的子节点，包括元素子节点和文本子节点，如果有注释，还有注释节点。
+
+   - children：
+
+     子节点：childNodes(儿子节点)
+
+     - 高级浏览器：元素，文本(文本、空格、换行)，注释
+
+     - 低版本浏览器：元素，文本(不包括空格和换行)，注释
+
+     子元素：children
+
+     - 高级浏览器：元素
+     - 低版本浏览器：元素、注释
+
+   父节点和父元素：
+
+   - 父节点：parentNode
+     - 其实就是父元素(标签)，所有浏览器都能使用
+   - 父元素：parentElement
+     - 父标签，所有浏览器都能用
+
+3. 兼容性封装获取其他节点的方式
+
+   获取其他节点：
+
+   1. 第一个子节点：都认识，`firstChild`
+   2. 第一个子元素节点：只有高级浏览器可以使用 `firstElementChild`
+   3. 最后一个节点：都认识，`lastChild`
+   4. 最后一个元素节点：只有高级浏览器可以使用，`lastElementChild`
+   5. 上一个兄弟节点：都认识，`previousSibling`
+   6. 上一个兄弟元素节点：只有高级浏览器可以使用，`previousElementSibling`
+   7. 下一个兄弟节点：都认识，`nextSibling`
+   8. 下一个兄弟元素节点：只有高级浏览器可以使用，`nextElementSibling`
+
+4. 创建节点的三种方式
+
+   1. Document.write()，这个方法根本就不用
+      - Document.write() 只能在页面加载的过程中使用，如果当页面加载完后，再使用会将其它的dom干掉。
+   2. Obj.innerHtml
+   3. Document.createElement()
+
+5. 节点常用方法
+
+   以下方法都是父元素调用，操作子元素：
+
+   1. 插入节点：insertBefore(新节点，参照节点);
+   2. 替换节点：replaceChild(新节点，被替换的节点);
+   3. 删除节点：removeChild(被删除的节点);
+   4. 追加节点：appendChild(被追加的节点);
+   5. 节点.remove(pc端 ie不支持);
+
+6. 
 
 
 
