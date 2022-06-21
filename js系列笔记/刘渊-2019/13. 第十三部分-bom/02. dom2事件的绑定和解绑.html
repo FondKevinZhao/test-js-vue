@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="点击绑定事件">
+  <input type="button" value="点击解绑事件">
+
+  <!-- 
+    如果是dom2事件的绑定addEventListener()，有三个参数：
+      - 事件的类型
+      - 事件的回调
+      - 布尔值：决定是冒泡还是捕获，默认是false，false代表事件冒泡，几乎都是false
+   -->
+  <script>
+    var btns = document.querySelectorAll('input');
+    // 绑定：
+    btns[0].addEventListener('click', fn, true);
+    function fn() {
+      console.log('i love you! yingbao1111~')
+    }
+    // 绑定：同一个元素可以绑定多次
+    btns[0].addEventListener('click', fn1, false);
+    function fn1() {
+      console.log('i love you! yingbao2222~')
+    }
+
+    // 解绑：
+    /* 
+      MDN：
+        target.removeEventListener(type, listener[, options]);
+        target.removeEventListener(type, listener[, useCapture]);
+        
+        当使用 addEventListener() 时，如果 options参数不同，那么你可以在相同的type 上多次添加相同的监听，唯一需要 removeEventListener() 检测的是 capture/useCapture 标志。这个标志必须与 removeEventListener() 的对应标志匹配，但是其他的值不需要。
+    */
+
+    btns[1].onclick = function () {
+      // 在绑定的时候带了false，那么在解绑的时候可以不加false。
+      // 在绑定的时候带了true，那么在解绑的时候必须加true，否则无效。
+      // btns[0].removeEventListener('click', fn);
+      btns[0].removeEventListener('click', fn, true);
+    }
+
+
+  </script>
+</body>
+
+</html>
