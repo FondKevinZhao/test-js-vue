@@ -10,6 +10,7 @@
 
 <body>
   <button>点击添加</button>
+  
 
   <script>
     // 当点击按钮的时候，把下面数组中最近比较流行的歌曲或者电影列表展示
@@ -18,8 +19,18 @@
 
     btn.onclick = function () {
       // 注意：document.createElement('ul') 这里面的ul 不能加标签。如：<ul></ul>
+      // 创建好一对ul标签：<ul></ul>
       var ulNode = document.createElement('ul');
-      console.log(ulNode);
+      // console.log(ulNode);
+      for (var i = 0; i < movies.length; i++) {
+        var liNode = document.createElement('li');
+        liNode.innerText = movies[i];
+        // 把创建好的li标签追加到ul标签中
+        ulNode.appendChild(liNode);
+      }
+
+      // 追加完ul之后，我们要把整个ul追加给body，否则文档流当中是没有ul的，页面上显示不了
+      document.body.appendChild(ulNode);
     }
   </script>
 </body>

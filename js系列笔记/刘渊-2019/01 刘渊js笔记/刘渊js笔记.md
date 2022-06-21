@@ -1413,8 +1413,12 @@ es5增加了严格模式
 
    1. Document.write()，这个方法根本就不用
       - Document.write() 只能在页面加载的过程中使用，如果当页面加载完后，再使用会将其它的dom干掉。
+      
    2. Obj.innerHtml
-   3. Document.createElement()
+
+   3. document.createElement()
+
+      元素对象.appendChild(被追加的元素对象)
 
 5. 节点常用方法
 
