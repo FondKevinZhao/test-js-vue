@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <table>
+    <caption>学生管理系统</caption>
+    <tr>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>性别</th>
+      <th>操作</th>
+    </tr>
+    <tr>
+      <td>孟婷亭</td>
+      <td>18</td>
+      <td>女</td>
+      <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+      <td>翁浩</td>
+      <td>18</td>
+      <td>男</td>
+      <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+      <td>班长</td>
+      <td>18</td>
+      <td>男</td>
+      <td><a href="javascript:;">删除</a></td>
+    </tr>
+  </table>
+  <br>
+  <input type="text" placeholder="请输入姓名"><br>
+  <input type="text" placeholder="请输入性别"><br>
+  <input type="text" placeholder="请输入年龄"><br><br>
+  <input type="button" value="添加" id="btn">
+
+  <script>
+    // 处理添加逻辑
+    var btn = document.getElementById('btn');
+    var inputNodes = document.querySelectorAll('input[type="text"]');
+    var tBodyNode = document.querySelector('table tbody');
+    btn.addEventListener('click', function () {
+      var name = inputNodes[0].value;
+      var gender = inputNodes[1].value;
+      var age = inputNodes[2].value;
+
+
+      // 判断name、gender、age是否有值
+      if (name.trim() && gender.trim() && age.trim()) {
+        if (gender !== '男' && gender !== '女') {
+          alert('请输入正确的性别');
+          return
+        }
+        if (!Number(age)) {
+          alert('年龄必须为数字');
+          inputNodes[2].value = '';
+          return
+        }
+
+        // 创建tr和td并添加内容
+        var trNode = document.createElement('tr');
+        var tdName = document.createElement('td');
+        tdName.innerHTML = name;
+        trNode.appendChild(tdName);
+        var tdAge = document.createElement('td');
+        tdAge.innerHTML = age;
+        trNode.appendChild(tdAge);
+        var tdGender = document.createElement('td');
+        tdGender.innerHTML = gender;
+        trNode.appendChild(tdGender);
+        var tdOperate = document.createElement('td');
+        tdOperate.innerHTML = '<a href="javascript:;">删除</a>';
+        trNode.appendChild(tdOperate);
+
+        // 把创建的tr和td追加到tbody中
+        tBodyNode.appendChild(trNode);
+      } else {
+        alert('请输入一个正确的人');
+      }
+
+      // 内容清空
+      inputNodes[0].value = '';
+      inputNodes[1].value = '';
+      inputNodes[2].value = '';
+    });
+
+
+
+    // 点击删除逻辑：事件委派的做法
+    // 事件委派说是父元素，其实是祖先元素，这里的案例使用table就很合适
+    /* var table = document.querySelector('table');
+    table.onclick = function () {
+      
+    } */
+
+
+
+    // 点击删除逻辑：非事件委派的做法
+    var aNodes = document.querySelectorAll('a'); // 拿到所有的a标签
+    for (var i = 0; i < aNodes.length; i++) {
+      aNodes[i].onclick = function () {
+        // trNode 当前点击删除按钮的tr
+        var trNode = this.parentElement.parentElement;
+        // 找到tr的父元素，用tr的父元素来删除整个tr
+        var tBodyNode = document.querySelector('table tbody');
+        tBodyNode.removeChild(trNode);
+      }
+    }
+  </script>
+</body>
+
+</html>
