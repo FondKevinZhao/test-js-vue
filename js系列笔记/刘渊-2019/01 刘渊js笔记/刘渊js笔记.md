@@ -1430,7 +1430,49 @@ es5增加了严格模式
    4. 追加节点：appendChild(被追加的节点);
    5. 节点.remove(pc端 ie不支持);
 
-6. 
+### 二二、BOM
+
+1. 事件绑定和解绑(要对应)：DOM0 1 2 3
+
+   DOM0 和 DOM2 有自己独立的事件绑定和解绑方式
+
+   [DOM1 和 DOM3 没有。](https://blog.csdn.net/Josiah_Yuan/article/details/123818609)
+
+   1. DOM0事件绑定和解绑
+   2. DOM2事件绑定和解绑
+      - 可以添加同一类事件多次
+      - 高级浏览器和ie绑定方式(兼容封装)
+
+2. 事件流(事件传播)
+
+   1. 捕获事件流(网景)
+   2. 冒泡事件流(ie)
+   3. 标准DOM事件流
+
+3. 事件冒泡和事件委派
+
+   1. 事件冒泡的好处及阻止事件冒泡
+   2. 事件委派用法、好处、原理
+   3. onmouseenter、onmouseleave
+   4. onmouseover、onmouseout
+
+4. window对象(这里才是BOM，上面的三点还是属于DOM的内容)
+
+   1. window对象概念，使用
+
+   2. location：window.location 可以用户获取当前页面地址以及重定向到一个新的页面。
+
+      history：对象包含浏览器的历史记录，window可以省略。这些历史记录以栈(FIFO)的形式保存，页面前几则入栈，页面返回则出栈。
+
+      navigator：是一个只读对象，它用来描述浏览器本身的信息，包括浏览器的名称、版本、语言、系统平台、用户特性字符串等信息。
+
+      screen：提供了用户显示屏幕的相关属性。比如：显示屏幕的宽度、高度，可用宽度、高度。
+
+   3. window.onload
+
+      window.onresize
+
+   4. 定时器
 
 
 

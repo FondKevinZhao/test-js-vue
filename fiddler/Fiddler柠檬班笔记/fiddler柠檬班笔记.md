@@ -598,11 +598,101 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
   ![image-20220616195928428](fiddler柠檬班笔记.assets/image-20220616195928428.png)
 
-  第十二步：
-
   
 
-  
+- 重定向(用来做Mock，开发人员做模拟请求)：当进入登录页面的时候，让重定向到我自己的js文件
+
+  1. 选择AutoResponder，给这两个地方打勾
+
+     ![image-20220621221253331](fiddler柠檬班笔记.assets/image-20220621221253331.png)
+
+  2. 选择一个会话，并且复制这里的内容
+
+     ![image-20220621221719181](fiddler柠檬班笔记.assets/image-20220621221719181.png)
+
+  3. 把复制的内容放入到桌面的js中
+
+     ![image-20220621221828009](fiddler柠檬班笔记.assets/image-20220621221828009.png)
+
+  4. 给桌面的js加入一行代码
+
+     ![image-20220621221907451](fiddler柠檬班笔记.assets/image-20220621221907451.png)
+
+  5. 按住要重定向的会话，拖入到这里面空白的地方
+
+     ![image-20220621222032159](fiddler柠檬班笔记.assets/image-20220621222032159.png)
+
+     拖入后的样子：
+
+     ![image-20220621222137751](fiddler柠檬班笔记.assets/image-20220621222137751.png)
+
+  6. 第二个框放桌面的`mylogin.js`，并点击 save 按钮。
+
+     ![image-20220621222216307](fiddler柠檬班笔记.assets/image-20220621222216307.png)
+
+  7. `ctrl + shift + r`重定向到桌面的js文件成功
+
+     ![image-20220621222316060](fiddler柠檬班笔记.assets/image-20220621222316060.png)
+
+- 做一个钓鱼网站的重定向：前面的步骤跟上面的重定向是一样的，就不重复了
+
+  1. 修改刚才的`login.js`
+
+     ![image-20220621223043481](fiddler柠檬班笔记.assets/image-20220621223043481.png)
+
+  2. 做好和重定向一样的准备
+
+     ![image-20220621223216398](fiddler柠檬班笔记.assets/image-20220621223216398.png)
+
+  3. `ctrl + shift + r`重定向到桌面的js文件成功
+
+     ![image-20220621223243838](fiddler柠檬班笔记.assets/image-20220621223243838.png)
+
+  4. 选择`确定`：
+
+     ![image-20220621223312918](fiddler柠檬班笔记.assets/image-20220621223312918.png)
+
+  5. 选择`取消`：
+
+     ![image-20220621223354944](fiddler柠檬班笔记.assets/image-20220621223354944.png)
+
+- 如果后端接口没有写好，AutoResponder 可以用来做模拟数据
+
+  1. 点击登录按钮，得到的结果是：
+
+     ![image-20220621224209328](fiddler柠檬班笔记.assets/image-20220621224209328.png)
+
+     默认的响应：
+
+     ![image-20220621224230644](fiddler柠檬班笔记.assets/image-20220621224230644.png)
+
+  2. 把要修改的会话拖过来：
+
+     ![image-20220621230020957](fiddler柠檬班笔记.assets/image-20220621230020957.png)
+
+  3. 右击==》选择 Edit File With
+
+     ![image-20220621230125222](fiddler柠檬班笔记.assets/image-20220621230125222.png)
+
+     选择vscode，点击确定：
+
+     ![image-20220621230209880](fiddler柠檬班笔记.assets/image-20220621230209880.png)
+
+  4. 修改内容：
+
+     ![image-20220621230246824](fiddler柠檬班笔记.assets/image-20220621230246824.png)
+
+     修改成：
+
+     ![image-20220621230315806](fiddler柠檬班笔记.assets/image-20220621230315806.png)
+
+     点击save：
+
+     ![image-20220621230354842](fiddler柠檬班笔记.assets/image-20220621230354842.png)
+
+  5. ctrl + shift + r，把页面刷新一次，再来看会话：
+
+     ![image-20220621230546062](fiddler柠檬班笔记.assets/image-20220621230546062.png)
 
 - 
 
