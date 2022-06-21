@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>我是div</div>
+  <ul class="list">
+    我是ul的内容
+    <li>你的酒馆为我打了烊</li>
+    <li>画</li>
+    <li>来自天堂的魔鬼</li>
+  </ul>
+
+  <script>
+    /* 在ul的最后添加一个 */
+    // 拿到父元素
+    /* var ulNode = document.querySelector('.list');
+    // 创建li
+    var liNode = document.createElement('li');
+    // 给li添加内容
+    liNode.innerText = '你是人间的四月天';
+    // 插入到ul的最后一个子元素
+    ulNode.appendChild(liNode); */
+
+
+
+    /* 在来 '自天堂的魔鬼' 的前面添加一个 */
+    /* // 拿到父元素
+    var ulNode = document.querySelector('.list');
+
+    // 创建li
+    var liNode = document.createElement('li');
+    // 给li添加内容
+    liNode.innerText = '泡沫';
+    liNode.style.color = 'red';
+    // 在来 '自天堂的魔鬼' 的前面添加一个
+    // 方法一：
+    // ulNode.insertBefore(liNode, ulNode.lastElementChild);
+
+    // 方法二：
+    var liRela = document.querySelector('.list li:last-child');
+    ulNode.insertBefore(liNode, liRela); */
+
+
+
+    /* 替换某一个节点 */
+    /* // 拿到父元素
+    var ulNode = document.querySelector('.list');
+    // 创建li
+    var liNode = document.createElement('li');
+    // 给li添加内容
+    liNode.innerText = '魔鬼中的天使';
+    liNode.style.color = 'red';
+
+    // 要替换的节点
+    var liRela = document.querySelector('.list li:last-child');
+    ulNode.replaceChild(liNode, liRela); */
+
+
+
+    /* 删除某一个节点 */
+    /* // 拿到父元素
+    var ulNode = document.querySelector('.list');
+    // 找到要删除的节点 -- 画
+    var liNode = document.querySelector('.list li:nth-child(2)');
+    // 方法一：
+    // ulNode.removeChild(liNode);
+    
+    // 方法二：元素.remove();
+    liNode.remove() */
+
+
+
+    /* 删除父元素 + 所有子元素 */
+    // 拿到父元素
+    /* var ulNode = document.querySelector('.list');
+    ulNode.remove(); */
+  </script>
+</body>
+
+</html>

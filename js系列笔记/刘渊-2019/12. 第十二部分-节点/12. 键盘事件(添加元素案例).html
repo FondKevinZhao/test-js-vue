@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" placeholder="请输入您的爱好！">
+  <ul class="list"></ul>
+
+  <script>
+    // 获取input事件
+    var input = document.querySelector('input');
+    // 获取ul
+    var ulNode = document.querySelector('ul');
+    // 给input绑定键盘回车事件
+    input.onkeyup = function (e) {
+      if (e.keyCode == 13) {
+        if (input.value.trim()) {
+          // 创建li
+          var liNode = document.createElement('li');
+          liNode.innerText = input.value;
+          ulNode.appendChild(liNode);
+
+          // 创建完成新的li，直接就添加移入移出变色
+          liNode.onmouseenter = function () {
+            this.style.backgroundColor = 'lightblue';
+          }
+          liNode.onmouseleave = function () {
+            this.style.backgroundColor = 'transparent';
+          }
+
+          // input.value = '';
+        } else {
+          alert('请输入合法的兴趣');
+          // input.value = '';
+        }
+        input.value = '';
+      }
+    }
+
+
+
+  </script>
+</body>
+
+</html>
