@@ -96,15 +96,15 @@
 
     // 点击删除逻辑：事件委派的做法
     // 事件委派说是父元素，其实是祖先元素，这里的案例使用table就很合适
-    /* var table = document.querySelector('table');
+    var table = document.querySelector('table');
     table.onclick = function () {
       
-    } */
+    }
 
 
 
-    // 点击删除逻辑：非事件委派的做法
-    var aNodes = document.querySelectorAll('a'); // 拿到所有的a标签
+    // 点击删除逻辑：非事件委派的做法(新添加的点击删除不生效)
+    /* var aNodes = document.querySelectorAll('a'); // 拿到所有的a标签
     for (var i = 0; i < aNodes.length; i++) {
       aNodes[i].onclick = function () {
         // trNode 当前点击删除按钮的tr
@@ -113,7 +113,7 @@
         var tBodyNode = document.querySelector('table tbody');
         tBodyNode.removeChild(trNode);
       }
-    }
+    } */
   </script>
 </body>
 

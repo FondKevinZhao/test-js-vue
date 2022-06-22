@@ -694,6 +694,84 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
      ![image-20220621230546062](fiddler柠檬班笔记.assets/image-20220621230546062.png)
 
+- Composer：设计者。用来设计请求的
+
+  ![image-20220622160746723](fiddler柠檬班笔记.assets/image-20220622160746723.png)
+
+  用来设计请求报文，最后执行 Execute：
+
+  ![image-20220622160943374](fiddler柠檬班笔记.assets/image-20220622160943374.png)
+
+  - 如：设计一个百度的请求，然后点击`Execute`，就会在会话里面多出来一条请求
+
+  ![image-20220622161217220](fiddler柠檬班笔记.assets/image-20220622161217220.png)
+
+  - 可以有很多方式来查看这个请求，我们也可以使用`WebView`的方式来查看：
+
+    ![image-20220622161411075](fiddler柠檬班笔记.assets/image-20220622161411075.png)
+
+    
+
+- Fiddler Orchestra Beta：这是fiddler5新出来的一个功能，目前还是一个Beta版本，这个老师暂时也不知道怎么用
+
+  ![image-20220622162306689](fiddler柠檬班笔记.assets/image-20220622162306689.png)
+
+- Fiddler Script：对fiddler界面做一些调整。如：对会话中添加一列等等。一般不使用。
+
+  ![image-20220622162428946](fiddler柠檬班笔记.assets/image-20220622162428946.png)
+
+- Log：发请求相关的一些日志。用得很少。
+
+  ![image-20220622162516378](fiddler柠檬班笔记.assets/image-20220622162516378.png)
+
+- Filters：过滤器。很简单，但是很有用
+
+  ![image-20220622162647148](fiddler柠檬班笔记.assets/image-20220622162647148.png)
+
+  - 开启filter：打勾 Use Filters
+
+    ![image-20220622162712774](fiddler柠檬班笔记.assets/image-20220622162712774.png)
+
+  - 主机的过滤、进程的过滤、请求头的过滤
+
+    ![image-20220622162856957](fiddler柠檬班笔记.assets/image-20220622162856957.png)
+
+  - 断点的过滤、响应状态码的过滤、响应类型和大小的过滤
+
+    ![image-20220622163055466](fiddler柠檬班笔记.assets/image-20220622163055466.png)
+
+  - 主机过滤：局域网还是广域网。如果选择局域网(Show only Intranet Hosts)，那么广域网的内容就抓不到了。
+
+    ![image-20220622163446064](fiddler柠檬班笔记.assets/image-20220622163446064.png)
+
+  - 需求：只显示主机为`www.baidu.com`的会话
+
+    1. 右击会话 ==》copy == 》这一列
+
+    ![image-20220622164200791](fiddler柠檬班笔记.assets/image-20220622164200791.png)
+
+    2. 选择filter ==》Show only the following Hosts
+
+    ![image-20220622164304194](fiddler柠檬班笔记.assets/image-20220622164304194.png)
+
+    3. 右击粘贴，把host粘贴进来
+
+    ![image-20220622164358774](fiddler柠檬班笔记.assets/image-20220622164358774.png)
+
+    4. 点击Actions ==》 Run Filterset Now
+
+    ![image-20220622164425158](fiddler柠檬班笔记.assets/image-20220622164425158.png)
+
+    5. 在网页的百度网上，刷新一下
+
+    ![image-20220622164553951](fiddler柠檬班笔记.assets/image-20220622164553951.png)
+
+    host都是www.baidu.com了
+
+    ![image-20220622164625310](fiddler柠檬班笔记.assets/image-20220622164625310.png)
+
+  - 
+
 - 
 
 
