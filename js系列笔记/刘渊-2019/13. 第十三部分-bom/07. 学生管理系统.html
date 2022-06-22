@@ -49,7 +49,7 @@
     var tBodyNode = document.querySelector('table tbody');
     btn.addEventListener('click', function () {
       var name = inputNodes[0].value;
-      var gender = inputNodes[1].value;
+      var gender = inputNodes[1].value.trim();
       var age = inputNodes[2].value;
 
 
@@ -57,6 +57,7 @@
       if (name.trim() && gender.trim() && age.trim()) {
         if (gender !== '男' && gender !== '女') {
           alert('请输入正确的性别');
+          inputNodes[1].value = '';
           return
         }
         if (!Number(age)) {
@@ -94,12 +95,16 @@
 
 
 
-    // 点击删除逻辑：事件委派的做法
-    // 事件委派说是父元素，其实是祖先元素，这里的案例使用table就很合适
-    var table = document.querySelector('table');
-    table.onclick = function () {
-      
-    }
+    // 点击删除逻辑：事件委派的做法(可以直接删除新添加的学生)
+    // 事件委派说是父元素，其实是祖先元素，这里的案例使用tbody就很合适
+    var tBodyNode = document.querySelector('table tbody');
+    tBodyNode.addEventListener('click', function (e) {
+      var aNode = e.target;
+      // trNode 当前点击删除按钮的tr
+      var trNode = aNode.parentElement.parentElement;
+      // 找到tr的父元素，用tr的父元素来删除整个tr
+      tBodyNode.removeChild(trNode);
+    });
 
 
 
@@ -114,6 +119,7 @@
         tBodyNode.removeChild(trNode);
       }
     } */
+
   </script>
 </body>
 

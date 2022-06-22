@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击获取Navigator信息</button>
+
+  <script>
+    // 点击获取navigator对象
+    var btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+      console.log('navigator：', window.navigator); // window 可以省略
+      console.log('navigator.userAgent：', window.navigator.userAgent);
+      console.log('navigator.platform：', window.navigator.platform);
+      console.log('navigator.language：', window.navigator.language);
+      console.log('navigator.onLine：', window.navigator.onLine);
+      console.log('navigator.appName', window.navigator.appName);
+    })
+  </script>
+</body>
+
+</html>

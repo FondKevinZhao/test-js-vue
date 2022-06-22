@@ -1478,18 +1478,20 @@ es5增加了严格模式
 
    1. window对象概念，使用
 
-   2. location：window.location 可以用户获取当前页面地址以及重定向到一个新的页面。
+      window对象是BOM的顶级对象。
 
-      history：对象包含浏览器的历史记录，window可以省略。这些历史记录以栈(FIFO)的形式保存，页面前几则入栈，页面返回则出栈。
+   2. location：`window.location` 可以让用户获取当前页面地址以及重定向到一个新的页面。
 
-      navigator：是一个只读对象，它用来描述浏览器本身的信息，包括浏览器的名称、版本、语言、系统平台、用户特性字符串等信息。
+      history：`window.history` 对象包含浏览器的历史记录，window可以省略。这些历史记录以栈(FIFO)的形式保存，页面前几则入栈，页面返回则出栈。
 
-      screen：提供了用户显示屏幕的相关属性。比如：显示屏幕的宽度、高度，可用宽度、高度。
+      navigator：`window.navigator` 是一个只读对象，它用来描述浏览器本身的信息，包括浏览器的名称、版本、语言、系统平台、用户特性字符串等信息。
+
+      screen：`window.screen` 对象提供了用户显示屏幕的相关属性。比如：显示屏幕的宽度、高度，可用宽度、高度。
 
    3. window.onload
 
       window.onresize
-
+   
    4. 定时器
 
 

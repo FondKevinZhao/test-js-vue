@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击获取网址</button>
+
+  <script>
+    // 点击获取网址
+    /* var btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+      console.log(window.location.href); // window 可以省略
+    }) */
+
+
+
+    // 点击跳转到百度
+    var btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+      location.href = 'http://www.baidu.com';
+    })
+  </script>
+</body>
+
+</html>
