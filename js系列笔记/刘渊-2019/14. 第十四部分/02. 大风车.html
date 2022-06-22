@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    button {
+      display: block;
+      width: 200px;
+      height: 50px;
+      margin: 10px auto;
+    }
+
+    #box {
+      width: 300px;
+      height: 300px;
+      /* background-color: red; */
+      margin: 100px auto;
+      animation: move 3s linear infinite;
+    }
+
+
+    @keyframes move {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #box .list {
+      overflow: hidden;
+    }
+
+    #box .list li {
+      float: left;
+      width: 150px;
+      height: 150px;
+      background-color: greenyellow;
+    }
+
+    #box .list li:nth-child(1),
+    #box .list li:nth-child(4) {
+      border-radius: 0 150px 0 150px;
+    }
+
+    #box .list li:nth-child(2),
+    #box .list li:nth-child(3) {
+      border-radius: 150px 0 150px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button>开 始 / 暂 停</button>
+  <div id="box">
+    <ul class="list">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+
+  <script>
+    // 点击按钮：开始/暂停
+    var btn = document.querySelector('button');
+    var box = document.getElementById('box');
+    var flag = true;
+    btn.onclick = function () {
+      if (flag) {
+        // 让动画暂停
+        box.style.animationPlayState = 'paused';
+      } else {
+        // 让动画开始
+        box.style.animationPlayState = 'running';
+      }
+      flag = !flag;
+    }
+  </script>
+</body>
+
+</html>
