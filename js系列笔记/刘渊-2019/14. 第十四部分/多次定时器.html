@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求：每隔一秒打印一次 i love you!
+    var timer = null;
+    var num = 0;
+    timer = setInterval(function () {
+      num++;
+      console.log('i love you!');
+
+      //清除定时器
+      if (num == 5) {
+        clearInterval(timer);
+      }
+    }, 1000)
+  </script>
+</body>
+
+</html>

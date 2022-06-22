@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击清除定时器</button>
+
+  <script>
+    var a = 4;
+    var b = 6;
+    var c = a + b;
+    var timer = null;
+    var btn = document.querySelector('button');
+
+    // setTimeout() 是延迟定时器，也叫单次定时器，是window下的一个全局方法
+    /* 
+      setTimeout() 两个参数：
+        - 第一个是回调函数，也就是到时间你想干嘛
+        - 第二个是时间，这个时间是以毫秒为单位
+    */
+    timer = setTimeout(function () {
+      console.log(c);
+    }, 2000);
+
+    // 清除延时定时器
+    btn.onclick = function () {
+      clearTimeout(timer);
+    }
+
+  </script>
+</body>
+
+</html>
