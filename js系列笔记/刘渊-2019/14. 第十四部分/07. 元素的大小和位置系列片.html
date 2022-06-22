@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      margin-left: 100px;
+      width: 500px;
+      height: 500px;
+      background-color: red;
+      border: 10px solid blue;
+    }
+
+    #box #box1 {
+      width: 300px;
+      height: 300px;
+      padding: 10px;
+      background-color: green;
+      border: 10px solid deepskyblue;
+    }
+
+    #box #box1 #box2 {
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      background-color: yellow;
+      border: 10px solid purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="box1">
+      <div id="box2"></div>
+    </div>
+  </div>
+
+  <script>
+    var box = document.getElementById('box');
+    var box1 = document.getElementById('box1');
+
+    /* // console.log(box1.style.width); // 这种方式拿到的是空，因为js操作的永远是行内
+    console.log(box1.offsetWidth); // 拿的是盒子：内容 + padding + border的大小
+    console.log(box1.clientWidth); // 拿的是盒子：内容 + padding 的大小
+    console.log(box1.scrollWidth); // 当内容比和盒子小的时候，拿的是盒子的clientWidth。当内容比盒子大的时候，拿的是内容的offsetWidth + 盒子的一侧内边距 */
+
+
+
+    // 拿到盒子的边框大小
+    console.log(box1.clientLeft);
+    console.log(box1.clientTop);
+  </script>
+</body>
+
+</html>

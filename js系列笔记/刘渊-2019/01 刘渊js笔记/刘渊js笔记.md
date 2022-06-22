@@ -1513,11 +1513,41 @@ es5增加了严格模式
 
    2. event.target || event.srcElement 作用。这个是在事件委派的时候，找到目标元素。
 
-   3. clientX & clientY：拿的是鼠标相对视口的`水平距离和垂直距离`，相对的是视口的左上角(以视口的左上角为原点)
+   3. offsetX & offsetY：拿到是鼠标相对自身元素的`水平距离和垂直距离`，相对的是自身元素的左上角(以自身元素的左上角为原点)
+
+      clientX & clientY：拿的是鼠标相对视口的`水平距离和垂直距离`，相对的是视口的左上角(以视口的左上角为原点)
 
       pageX & pageY：拿到是鼠标相对页面的`水平距离和垂直距离`，相对的是页面的左上角(以页面的左上角为原点)
+      
+      
 
-      offsetX & offsetY：拿到是鼠标相对自身元素的`水平距离和垂直距离`，相对的是自身元素的左上角(以自身元素的左上角为原点)
+6. 元素的大小和位置
+
+   Offset系列：只读
+
+   1. offsetWidth：拿的是盒子：内容 + padding + border的大小
+   2. offsetHeight：拿的是盒子：内容 + padding + border的大小
+   3. offsetLeft
+   4. offsetTop
+   5. 案例：盒子左右摇摆
+
+   Client系列：只读
+
+   1. clientWidth：拿的是盒子：内容 + padding 的大小
+   2. clientHeight：拿的是盒子：内容 + padding 的大小
+   3. clientLeft
+   4. clientTop
+   5. 案例：视口宽高求法：document.documentElement.clientWidth + document.documentElement.clientHeight
+
+   Scroll系列：
+
+   1. scrollWidth: 只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientWidth。当内容比盒子大的时候，拿的是内容的offsetWidth + 盒子的一侧内边距。
+   2. scrollHeight：只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientHeight。当内容比盒子大的时候，拿的是内容的offsetHeight + 盒子的一侧内边距。
+   3. scrollTop：可写
+   4. scrollLeft：可写
+   5. 案例：1. 系统滚动条 2. 导航跟随
+
+   **元素的大小，宽和高的获取：以后我们拿元素的宽和高，先看元素有没有边和宽，如果没有边框，那么clientWidth和offsetWidth是一样的。如果有边框，看你是否需要边框，需要的话就用offsetWidth，不需要的就用clientWidth。scrollWidth几乎不用。**
 
 6. 
 

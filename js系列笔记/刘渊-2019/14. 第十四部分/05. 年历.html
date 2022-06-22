@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <span></span>
+
+  <script>
+    var span = document.querySelector('span');
+    var timer = null;
+    timer = setInterval(function () {
+      span.innerHTML = '现在是：' + getFormatTime();
+    }, 1000)
+
+    // 封装时间格式
+    function getFormatTime() {
+      var date = new Date();
+      year = date.getFullYear();
+      month = date.getMonth() + 1;
+      getDate = date.getDate();
+      hour = date.getHours();
+      minute = date.getMinutes();
+      second = date.getSeconds();
+
+      hour = hour > 10 ? hour : '0' + hour;
+      minute = minute > 10 ? minute : '0' + minute;
+      second = second > 10 ? second : '0' + second;
+
+      var formatingDate = year + '年' + month + '月' + getDate + '日 ' + '下午 ' + hour + ':' + minute + ':' + second;
+      return formatingDate;
+    }
+    var timer =
+      console.log(timer);
+  </script>
+</body>
+
+</html>

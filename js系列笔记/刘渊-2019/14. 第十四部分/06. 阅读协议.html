@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" disabled value="阅读协议 5">
+
+  <script>
+    var input = document.querySelector('input');
+    var num = 5;
+    var timer = setInterval(function () {
+      num--;
+      input.value = '阅读协议 ' + num;
+      if (num == 0) {
+        input.disabled = false;
+        input.value = '阅读协议';
+        clearInterval(timer);
+      }
+    }, 1000)
+
+  </script>
+</body>
+
+</html>
