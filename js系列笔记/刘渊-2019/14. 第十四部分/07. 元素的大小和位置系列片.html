@@ -57,8 +57,15 @@
 
 
     // 拿到盒子的边框大小
-    console.log(box1.clientLeft);
-    console.log(box1.clientTop);
+    /* console.log(box1.clientLeft);
+    console.log(box1.clientTop); */
+
+
+
+    // 拿到盒子的水平偏移量和垂直偏移量。box1定位的情况下，其实就是拿的这个元素设置的定位left值和top值
+    // 相对的也是离它最近的定位祖先的原点(左上角)
+    console.log(box1.offsetLeft);
+    console.log(box1.offsetTop);
   </script>
 </body>
 
