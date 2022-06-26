@@ -1523,7 +1523,7 @@ es5增加了严格模式
 
 6. 元素的大小和位置
 
-   Offset系列：只读
+   **Offset系列：只读**
 
    1. offsetWidth：拿的是盒子：内容 + padding + border的大小
    2. offsetHeight：拿的是盒子：内容 + padding + border的大小
@@ -1531,15 +1531,15 @@ es5增加了严格模式
    4. offsetTop：拿的就是你定位后的Top值。
    5. 案例：盒子左右摇摆
 
-   Client系列：只读
+   **Client系列：只读**
 
    1. clientWidth：拿的是盒子：内容 + padding 的大小
    2. clientHeight：拿的是盒子：内容 + padding 的大小
-   3. clientLeft：拿的就是你定位后的Left边框值。
-   4. clientTop：拿的就是你定位后的Top边框值。
+   3. clientLeft(几乎不用)：拿的就是你定位后的Left边框值。
+   4. clientTop(几乎不用)：拿的就是你定位后的Top边框值。
    5. 案例：视口宽高求法：document.documentElement.clientWidth + document.documentElement.clientHeight
 
-   Scroll系列：
+   **Scroll系列：**
 
    1. scrollWidth: 只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientWidth。当内容比盒子大的时候，拿的是内容的offsetWidth + 盒子的一侧内边距。
    2. scrollHeight：只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientHeight。当内容比盒子大的时候，拿的是内容的offsetHeight + 盒子的一侧内边距。
@@ -1599,19 +1599,49 @@ es5增加了严格模式
 
 5. 元素碰撞问题(九宫格)
 
-   - 计算元素到视口上方和左边的距离：`getBoundingClientRect()` 只能读不能写。
+   - 计算元素到视口上方和左边的距离：`getBoundingClientRect()` 只能读不能写。[方法博客](https://blog.csdn.net/guzhao593/article/details/85285080)
    - 主要是检测什么时候盒子碰撞
    - 使用图片切换模拟盒子碰撞
 
 6. 自制滚动条(布局)
 
-   - 我们的页面架构首先要清楚
-   - 页面的最外层是document，紧接着是初始包含块、html、body，其次是我们的元素
+   - 我们的页面架构首先要清楚：页面的最外层是document，紧接着是初始包含块、html、body，其次是我们的元素
    - 我们禁止了系统的滚动条(因为各大浏览器的系统滚动条风格不一，有可能会影响我们的页面布局)
+   - 所以在body当中我们一般会有最外的一个盒子模拟body区域，在这个盒子的右侧会定位一个盒子模拟滚动条
+
+   自定义滚动条的万能比例：
+
+   **滚动条的高度 /  屏幕的高度 = 屏幕的高度 / 内容的高度 = 滚动条的移动距离 / 内容的滚动距离**
+
+7. 鼠标滚轮事件
+
+   盒子滚动滚轮改变高度案例
+
+   ie/chrome: mousewheel(dom2的标准模式)
+
+   - event.wheelDelta
+
+     上：120
+
+     下：-120
+
+   Firefox: DOMMouseScroll(dom2的标准模式)
+
+   - event.detail
+
+     上：-3
+
+     下：
+
+   ​	
 
 4. 
 
 
+
+### 二四、正则表达式
+
+1. 
 
 
 

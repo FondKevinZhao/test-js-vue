@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 禁止系统滚动条 */
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #box {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">尚硅谷</div>
+
+  <script>
+    var box = document.getElementById('box');
+    box.onmousedown = function (e) {
+      // 拿元素的初始位置
+      var eleX = box.offsetLeft;
+      var eleY = box.offsetTop;
+
+      // 拿鼠标的初始位置
+      var startX = e.clientX;
+      var startY = e.clientY;
+
+      // 鼠标按下并移动鼠标的时候触发onmousemove事件，pc端的move事件不会自动清除
+      // onmousemove 不应该加在box身上：box.onmousemove，如果速度快了，出了box，这个盒子就不会动了
+      // box.onmousemove = function (e) {
+      document.onmousemove = function (e) {
+        // 拿到鼠标的结束位置
+        var endX = e.clientX;
+        var endY = e.clientY;
+
+        // 拿到鼠标的距离差
+        var disX = endX - startX;
+        var disY = endY - startY;
+
+        // 最终获取到元素的位置
+        var lastX = eleX + disX;
+        var lastY = eleY + disY;
+
+        // 赋值
+        box.style.left = lastX + 'px';
+        box.style.top = lastY + 'px';
+      }
+
+      // onmouseup 不应该加在box身上：box.onmouseup，如果速度快了，出了box，onmouseup里面的事件并没有被解绑
+      // box.onmouseup = function (){
+      document.onmouseup = function (event) {
+        // 解绑onmousemove和onmouseup事件
+        document.onmousemove = document.onmouseup = null;
+      }
+
+      // dom0事件取消默认行为：return false
+      // 这里的默认行为是：连续点击盒子里面的“尚硅谷”三个字可以被选中，并且可以把字拖拽出去，禁用掉默认行为后，字就不能被选中了
+      // return false
+
+      // dom2事件取消默认行为：event.preventDefault()
+      event.preventDefault();
+    }
+  </script>
+</body>
+
+</html>
