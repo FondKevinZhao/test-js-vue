@@ -195,9 +195,39 @@ console.log(Ninfo); */
 let TinaInfo = new UserInfo('张三')
 TinaInfo.getName() */
 // 函数的：参数类型和返回值类型
-var num = function (num1, num2) { return num1 + num2; };
-function getNum(num1, num2) {
-    return num1 + num2;
+/* let num: Function = (num1: number, num2: number) => num1 + num2;
+
+function getNum(num1: number, num2: number) {
+  return num1 + num2;
 }
-var count = getNum(1, 2);
-console.log(count);
+
+const count = getNum(1, 2);
+console.log(count); */
+// 如果以后有第三个参数，这个参数是不确定有没有
+// 变量名后面加问号？：表示可选参数
+/* function getNum(num1: number, num2: number, num3?: number): number {
+  let count: number = num1 + num2;
+  if (num3) {
+    count += num3;
+  }
+  return count;
+}
+
+const count = getNum(1, 3);
+console.log('count', count);
+
+const count1 = getNum(1, 3, 5);
+console.log('count1', count1); */
+// 函数的剩余参数：...nums:number[]
+function getNum(num1, num2) {
+    var nums = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        nums[_i - 2] = arguments[_i];
+    }
+    // console.log(nums); // 拿到的是个数组
+    var count = num1 + num2;
+    nums.forEach(function (item) { return count += item; });
+    return count;
+}
+var count1 = getNum(1, 3, 5, 7, 9);
+console.log('count1', count1);
