@@ -21,17 +21,21 @@
     }
 
     #box #box1 {
+      position: absolute;
+      left: 50px;
+      top: 50px;
       width: 300px;
       height: 300px;
       padding: 10px;
+      overflow: auto;
       background-color: green;
       border: 10px solid deepskyblue;
     }
 
     #box #box1 #box2 {
-      width: 200px;
-      height: 200px;
-      padding: 10px;
+      width: 500px;
+      height: 500px;
+      /* padding: 10px; */
       background-color: yellow;
       border: 10px solid purple;
     }
@@ -44,6 +48,8 @@
       <div id="box2"></div>
     </div>
   </div>
+
+  <button>点击获取scroll</button>
 
   <script>
     var box = document.getElementById('box');
@@ -66,6 +72,21 @@
     // 相对的也是离它最近的定位祖先的原点(左上角)
     console.log(box1.offsetLeft);
     console.log(box1.offsetTop);
+
+
+
+    // 点击获取
+    var btn = document.querySelector('button');
+    btn.onclick = function () {
+      // 可以移动box1的滚动条之后再打印看结果
+      /* console.log(box1.scrollLeft);
+      console.log(box1.scrollTop); */
+
+      // scrollLeft 和scrollTop是可以写的
+      console.log(box1.scrollLeft = 50);
+      console.log(box1.scrollTop = 30);
+    }
+
   </script>
 </body>
 

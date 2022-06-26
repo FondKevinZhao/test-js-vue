@@ -1527,24 +1527,24 @@ es5增加了严格模式
 
    1. offsetWidth：拿的是盒子：内容 + padding + border的大小
    2. offsetHeight：拿的是盒子：内容 + padding + border的大小
-   3. offsetLeft
-   4. offsetTop
+   3. offsetLeft：拿的就是你定位后的Left值。
+   4. offsetTop：拿的就是你定位后的Top值。
    5. 案例：盒子左右摇摆
 
    Client系列：只读
 
    1. clientWidth：拿的是盒子：内容 + padding 的大小
    2. clientHeight：拿的是盒子：内容 + padding 的大小
-   3. clientLeft
-   4. clientTop
+   3. clientLeft：拿的就是你定位后的Left边框值。
+   4. clientTop：拿的就是你定位后的Top边框值。
    5. 案例：视口宽高求法：document.documentElement.clientWidth + document.documentElement.clientHeight
 
    Scroll系列：
 
    1. scrollWidth: 只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientWidth。当内容比盒子大的时候，拿的是内容的offsetWidth + 盒子的一侧内边距。
    2. scrollHeight：只读(几乎不用)：当内容比和盒子小的时候，拿的是盒子的clientHeight。当内容比盒子大的时候，拿的是内容的offsetHeight + 盒子的一侧内边距。
-   3. scrollTop：可写
-   4. scrollLeft：可写
+   3. scrollLeft：可写：内容滚动的Left距离。
+   4. scrollTop：可写：内容滚动的Top距离。
    5. 案例：1. 系统滚动条 2. 导航跟随
 
    **元素的大小，宽和高的获取：以后我们拿元素的宽和高，先看元素有没有边和宽，如果没有边框，那么clientWidth和offsetWidth是一样的。如果有边框，看你是否需要边框，需要的话就用offsetWidth，不需要的就用clientWidth。scrollWidth几乎不用。**
