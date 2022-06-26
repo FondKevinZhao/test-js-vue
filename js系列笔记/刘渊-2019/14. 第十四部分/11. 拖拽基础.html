@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+
+  <script>
+    var box = document.getElementById('box');
+    box.onmousedown = function (e) {
+      // 拿元素的初始位置
+      var eleX = box.offsetLeft;
+      var eleY = box.offsetTop;
+
+      // 拿鼠标的初始位置
+      var startX = e.clientX;
+      var startY = e.clientY;
+
+      box.onmousemove = function (e) {
+        // 拿到鼠标的结束位置
+        var endX = e.clientX;
+        var endY = e.clientY;
+
+        // 拿到鼠标的距离差
+        var disX = endX - startX;
+        var disY = endY - startY;
+
+        // 最终获取到元素的位置
+        var lastX = eleX + disX;
+        var lastY = eleY + disY;
+
+        box.style.left = lastX + 'px';
+        box.style.top = lastY + 'px';
+      }
+    }
+  </script>
+</body>
+
+</html>

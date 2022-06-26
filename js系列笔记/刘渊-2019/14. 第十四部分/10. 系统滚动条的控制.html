@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 500px;
+      height: 500px;
+      margin-left: 100px;
+      /* background-color: red; */
+      border: 2px solid black;
+      overflow: scroll;
+      /* overflow: hidden; */
+    }
+
+    body {
+      width: 300px;
+      height: 300px;
+      margin-left: 50px;
+      border: 2px solid black;
+      /* overflow: scroll; */
+      overflow: hidden;
+    }
+
+    #box {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    1. 给 html 和 body 设置：overflow: scroll; 作用在document身上
+
+    2. 如果给html 和 body 同时设置：overflow: scroll; 作用在document身上和body身上，两个都有。
+
+    3. 给html设置：overflow: hidden; 给body设置：overflow: scroll; document滚动条不在了，body的滚动条还在。
+
+    4. 给html设置：overflow: scroll; 给body设置：overflow: hidden; document滚动条还在，body的滚动条不在了。
+
+    // 禁止系统滚动条：html, body { overflow: hidden; height: 100%;}
+   -->
+  <div id="box"></div>
+
+  <script>
+
+  </script>
+</body>
+
+</html>
