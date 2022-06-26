@@ -211,17 +211,17 @@ let getCount = (function (): Icount {
 // 使用js是使用构造函数基于原型的继承来创建可复用的对象
 
 // 类的案例1：
-class Info {
+/* class Info {
   userName: string = 'aa';
   id: number = 0;
   type: string = '4';
   age: number = 18
 }
 var Ninfo = new Info()
-console.log(Ninfo);
+console.log(Ninfo); */
 
 // 类的案例2：类的属性和函数
-class UserInfo {
+/* class UserInfo {
   userName: string;
   constructor(name: string) {
     this.userName = name
@@ -232,5 +232,16 @@ class UserInfo {
 }
 
 let TinaInfo = new UserInfo('张三')
-TinaInfo.getName()
+TinaInfo.getName() */
 
+
+
+// 函数的：参数类型和返回值类型
+let num: Function = (num1: number, num2: number) => num1 + num2;
+
+function getNum(num1: number, num2: number) {
+  return num1 + num2;
+}
+
+const count = getNum(1, 2);
+console.log(count);

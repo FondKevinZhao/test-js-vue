@@ -173,26 +173,31 @@ let getCount = (function (): Icount {
 // 类式基于面向对象的方式实现常规的构造函数创建对象的另一种实现
 // 使用js是使用构造函数基于原型的继承来创建可复用的对象
 // 类的案例1：
-var Info = /** @class */ (function () {
-    function Info() {
-        this.userName = 'aa';
-        this.id = 0;
-        this.type = '4';
-        this.age = 18;
-    }
-    return Info;
-}());
-var Ninfo = new Info();
-console.log(Ninfo);
-// 类的案例2：
-var UserInfo = /** @class */ (function () {
-    function UserInfo(name) {
-        this.userName = name;
-    }
-    UserInfo.prototype.getName = function () {
-        return "\u5F53\u524D\u7528\u6237\u7684\u540D\u5B57\u662F\uFF1A".concat(this.userName);
-    };
-    return UserInfo;
-}());
-var TinaInfo = new UserInfo('张三');
-TinaInfo.getName();
+/* class Info {
+  userName: string = 'aa';
+  id: number = 0;
+  type: string = '4';
+  age: number = 18
+}
+var Ninfo = new Info()
+console.log(Ninfo); */
+// 类的案例2：类的属性和函数
+/* class UserInfo {
+  userName: string;
+  constructor(name: string) {
+    this.userName = name
+  }
+  getName() {
+    return `当前用户的名字是：${this.userName}`
+  }
+}
+
+let TinaInfo = new UserInfo('张三')
+TinaInfo.getName() */
+// 函数的：参数类型和返回值类型
+var num = function (num1, num2) { return num1 + num2; };
+function getNum(num1, num2) {
+    return num1 + num2;
+}
+var count = getNum(1, 2);
+console.log(count);
