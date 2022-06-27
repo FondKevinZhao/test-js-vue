@@ -127,6 +127,58 @@
       // dom0事件取消默认行为
       return false;
     }
+
+
+
+    // 滚轮事件 --- 一般给document加滚轮事件，不管在谁身上滚动，document都能通过冒泡感知到
+    var flag = true;
+    var step = 0; // 判断边界
+    // ie/chrome
+    document.addEventListener('mousewheel', scrollMove);
+    // 火狐
+    document.addEventListener('DOMMouseScroll', scrollMove);
+
+    // 兼容性处理滚轮事件
+    function scrollMove(event) {
+      if (event.wheelDelta) {
+        // 能进来说明你是ie或者Chrome
+        if (event.wheelDelta > 0) {
+          // 说明往上滑动的
+          flag = true;
+          step = -10;
+        } else {
+          // 说明往下滑动的
+          flag = false;
+          step = 10;
+        }
+      } else if (event.detail) {
+        // 能进来说明你是火狐
+        if (event.detail > 0) {
+          // 说明往上滑动的
+          flag = true;
+          step = -10;
+        } else {
+          // 说明往下滑动的
+          flag = false;
+          step = 10;
+        }
+      }
+
+      var scrollLastTop = scrollIn.offsetTop + step;
+
+      // 判断滚轮滚动，滑块的临界值
+      if (scrollLastTop < 0) {
+        scrollLastTop = 0;
+      } else if (scrollLastTop > document.documentElement.clientHeight - scrollIn.offsetHeight) {
+        scrollLastTop = document.documentElement.clientHeight - scrollIn.offsetHeight;
+      }
+
+      scrollIn.style.top = scrollLastTop + 'px';
+
+      // 滚轮滚动，内容滚动
+      var contentTop = -scrollLastTop / scale;
+      content.style.marginTop = contentTop + 'px';
+    }
   </script>
 </body>
 

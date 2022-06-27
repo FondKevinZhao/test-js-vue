@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    ie/chrome: mousewheel(dom2的标准模式)
+    - event.wheelDelta
+      上：120  // 我的火狐是 150
+      下：-120 // 我的火狐是 -150
+
+    Firefox: DOMMouseScroll(dom2的标准模式)
+    - event.detail
+      上：-3
+      下：3
+   -->
+  <div id="box"></div>
+
+  <script>
+    var box = document.getElementById('box');
+    var flag = true;
+    // ie/chrome
+    box.addEventListener('mousewheel', scrollMove);
+
+    // 火狐
+    box.addEventListener('DOMMouseScroll', scrollMove);
+
+    // 兼容性处理滚轮事件
+    function scrollMove(event) {
+      if (event.wheelDelta) {
+        // 能进来说明你是ie或者Chrome
+        if (event.wheelDelta > 0) {
+          // 说明往上滑动的
+          flag = true;
+        } else {
+          // 说明往下滑动的
+          flag = false;
+        }
+      } else if (event.detail) {
+        // 能进来说明你是火狐
+        if (event.detail > 0) {
+          // 说明往上滑动的
+          flag = true;
+        } else {
+          // 说明往下滑动的
+          flag = false;
+        }
+      }
+
+      // 再次判断flag，如果为true，说明是往上滑动
+      if (flag) {
+        // 往上滑动
+        box.style.height = box.offsetHeight - 10 + 'px'; // 这个10是每次滑动所减的距离
+      } else {
+        // 往下滑动
+        box.style.height = box.offsetHeight + 10 + 'px';
+      }
+    }
+  </script>
+</body>
+
+</html>

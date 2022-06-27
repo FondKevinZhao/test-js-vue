@@ -1621,9 +1621,9 @@ es5增加了严格模式
 
    - event.wheelDelta
 
-     上：120
+     上：120  // 我的火狐是 150
 
-     下：-120
+     下：-120 // 我的火狐是 -150
 
    Firefox: DOMMouseScroll(dom2的标准模式)
 
@@ -1631,7 +1631,11 @@ es5增加了严格模式
 
      上：-3
 
-     下：
+     下：3
+
+   `return false` 阻止的是 dom0 所触发的默认行为
+
+   dom2 需要通过event下面的 `event.preventDefault()`
 
    ​	
 
