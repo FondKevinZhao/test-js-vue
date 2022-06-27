@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //正则的创建方式
+    // 字面量
+    /* var str = 'dfsadjfkladsjlfkjasdfiejoijio323kjj'
+    var patt = /\d/;
+    var result = patt.test(str);
+    console.log(result); */
+
+
+
+    // 构造函数创建
+    /* var patt1 = new RegExp("\d");
+    var result = patt1.test(str);
+    console.log(result); */
+
+
+
+    // 查找abc中的任意一个
+    /* var str = '2342by394890';
+    var pat = /[abc]/
+    var result = pat.test(str);
+    console.log(result); */
+
+
+
+    // 查找不是abc的任意一个
+    /* var str = 'abcabcabc1';
+    var pat = /[^abc]/
+    var result = pat.test(str);
+    console.log(result); */
+
+
+
+    // 查找任意一个数字
+    /* var str = 'abcabcabc1';
+    var pat = /[0-9]/
+    var result = pat.test(str);
+    console.log(result); */
+
+
+
+    // 查找任意一个小写字母
+    /* var str = 'DFDFKDJFKD JFa';
+    var pat = /[a-z]/
+    var result = pat.test(str);
+    console.log(result); */
+
+
+
+    // 查找任意一个大写字母
+    /* var str = 'dfdfkdjfkd JFa';
+    var pat = /[a-z]/
+    var result = pat.test(str);
+    console.log(result); */
+
+
+
+    // . 表示任意的一个字符，除了/n
+    var str = 'dfdfkdjfkd JFa';
+    var pat = /./
+    var result = pat.test(str);
+    console.log(result);
+  </script>
+</body>
+
+</html>
