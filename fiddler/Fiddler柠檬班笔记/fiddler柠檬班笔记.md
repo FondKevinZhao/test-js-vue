@@ -169,6 +169,8 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
 #### HTTPS抓包
 
+![image-20220627191855566](fiddler柠檬班笔记.assets/image-20220627191855566.png)
+
 #### APP抓包
 
 
@@ -770,7 +772,19 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
     ![image-20220622164625310](fiddler柠檬班笔记.assets/image-20220622164625310.png)
 
-  - 
+    
+
+- 弱网测试
+
+  点击Rules 下的 Performance 下的Simulate Modem Speeds
+
+  ![image-20220627191220172](fiddler柠檬班笔记.assets/image-20220627191220172.png)
+
+  它会每300ms返回1kb，速度非常慢。可以在Rules下的Customize Rules中查看
+
+  ![image-20220627191431081](fiddler柠檬班笔记.assets/image-20220627191431081.png)
+
+  ![image-20220627191519292](fiddler柠檬班笔记.assets/image-20220627191519292.png)
 
 - 
 
