@@ -171,6 +171,8 @@ http请求报文主要由**请求首行**、**请求头**、**请求空行**、*
 
 ![image-20220627191855566](fiddler柠檬班笔记.assets/image-20220627191855566.png)
 
+[HTTPS证书设置](https://blog.csdn.net/u011304490/article/details/80058951?spm=1001.2014.3001.5506)
+
 #### APP抓包
 
 
