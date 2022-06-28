@@ -8,23 +8,45 @@
 </head>
 <body>
   <script>
-    var a = 0; 
+    /* var a = 0; 
     var b = false;
     var c = '0';
     var d = true;
 
     var e = a || b || c || d;
-    console.log(e);
+    console.log(e); */
 
 
 
     var f = '   '; // 不管字符串是什么东西，只要有东西就是true
-    console.log(Boolean(f));
+    // console.log(Boolean(f));
 
 
 
     var g = ''; // 如果是空串，那就是false
-    console.log(Boolean(g)); 
+    // console.log(Boolean(g)); 
+
+
+
+    /* var a = 10;
+    var b = 15;
+    a = b;
+    a = 20;
+    console.log(a, b); */
+
+
+
+    /* var arr = [12, 13];
+    var arr1 = arr;
+    arr[0] = 55;
+    console.log(arr); */
+
+
+
+    var arr = [12, 13];
+    var arr1 = arr;
+    arr1[1] = 55;
+    console.log(arr);
   </script>
 </body>
 </html>

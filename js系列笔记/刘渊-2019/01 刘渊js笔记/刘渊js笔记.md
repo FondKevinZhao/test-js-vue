@@ -1779,7 +1779,7 @@ es5增加了严格模式
 
 ### 二五、总结
 
-对象：
+#### 对象：
 
 1. 数组(既是数组又是对象，数组操作元素，对象操作属性)。
 2. 函数(既是函数又是对象，当函数去用，是为了执行某个功能。当对象去用是为了操作属性，当对象如：Person.prototype.eat = fun1)
@@ -1787,10 +1787,98 @@ es5增加了严格模式
 4. 内置工具对象(Math，Date，JSON)
 5. 包装对象(String，Number，Boolean)：中间系统发生了什么，我们不用关心，理解就行。
 6. 正则对象
+7. DOM对象
+8. BOM对象
 
+#### css居中：
 
+- 文本在div居中
 
+  ```css
+  text-align: center;
+  line-height: DIV高度;
+  ```
 
+  
+
+- 行内在div居中
+
+  ```css
+  text-align: center;
+  line-height: DIV高度;
+  ```
+
+  
+
+- 行内块在div居中
+
+  ```css
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  // 行内块必须设置高度
+  ```
+
+  
+
+- 块级在块级居中
+
+  ```css
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  ```
+
+  ```css
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -盒子的一半。
+  margin-top: -盒子的一半。
+  ```
+
+  ```css
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  ```
+
+  
+
+#### 单行文本溢出
+
+总结为 WTO
+
+```css
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+```
+
+#### 元素隐藏：
+
+- display
+
+- visibility
+
+- opacity
+
+- width: 0; height:0;
+
+- transform: translateX translateY rotateX rotateY rotate(效果和rotateZ是一样的) scale为0
+
+  
+
+#### 3d变换
+
+如果不开启父元素3D空间，那么子元素设置了3D变换的元素，层级会高出来。
 
 
 
