@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 判断字符串中是否包含数字
+    /* var str = 'sdfdkjfdkfj3434DDJFKDJF_#$*';
+    var pat = /\d/;
+    console.log(pat.test(str)); */
+
+
+
+    // 判断字符串中是否包含abcd
+    /* var str = 'sdfdkjfdkfj3434DDJabcdFKDJF_#$*';
+    // var pat = /[abcd]{4}/; // 可以这样写
+    var pat = /abcd/; // 也可以这样写
+    console.log(pat.test(str)); */
+
+
+
+    // 判断字符串是否是11位的数字
+    /* var str = '12345678901*erererdffd';
+    var pat = /\d{11}/; 
+    console.log(pat.test(str)); */
+
+
+
+    // 判断字符串是否是11位数字开头和结尾
+    /* var str = '12345678901';
+    var pat = /^\d{11}$/; 
+    console.log(pat.test(str)); */
+
+
+
+    // 字符串的match方法
+    /* var str = '12345678901*erererdffd';
+    // var res = str.match(/\d/); //返回第一个符合要求的字符
+    var res = str.match(/\d/g); // 返回所有符合要求的字符
+    console.log(res); */
+
+
+
+    // 字符串的replace方法
+    var str = '12345678901*erererdffd';
+    var res = str.replace(/\d/, '是'); //返回第一个替换的字符串
+    // var res = str.replace(/\d/g, '是'); // 返回所有符合替换的字符串
+    console.log(res);
+  </script>
+</body>
+
+</html>
