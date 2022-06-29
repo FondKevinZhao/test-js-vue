@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    原型链：Son.prototype -> Father.prototype -> Object.prorotype -> null
+
+    ES6中的extends关键字实现继承，底层仍然用的是原型
+   -->
+  <script>
+    // 方法继承 -- 就是原型继承
+    function Father() {
+      Father.prototype.say = function () {
+        console.log('say方法');
+      }
+    }
+
+    // 继承
+    function Son() { }
+    Son.prototype = new Father();
+    Son.prototype.eat = function () {
+      console.log('吃饭');
+    }
+
+    // 如果继承下来父类的方法，那么要把父类实例对象赋值给子类的原型对象，指回构造函数本身
+    Son.prototype.constructor = Son;
+
+    console.log(Son.prototype);
+    console.log(Father.prototype);
+
+    var obj = new Son();
+    obj.say();
+    obj.eat();
+
+  </script>
+</body>
+
+</html>

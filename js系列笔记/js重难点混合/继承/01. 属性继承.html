@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    属性继承：在子类调用父类函数，用call改变this指向
+   -->
+  <script>
+    function Father(uname, age){
+      this.uname = uname;
+      this.age = age;
+      console.log('Father-this',this);
+    }
+
+    // var o = new Father('张三丰', 22); // 这里的this是Father
+    // console.log('o', o);
+
+    // 继承
+    function Son(uname, age, score){
+      // Father(uname, age);这样写的this指向不同，此时Father里面的this指向的是window
+      // Father(uname, age);
+      // 如果调用Father函数，并且能够把Father里面的this指向儿子的实例对象，此时Father中的this指向的是Son
+      Father.call(this, uname, age);
+      this.score = score;
+    }
+
+    var obj = new Son('erzi', 19, 66);
+    console.log('obj', obj);
+  </script>
+</body>
+</html>
