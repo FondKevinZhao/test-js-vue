@@ -1,3 +1,4 @@
+"use strict";
 // 字符串类型
 /* var userName: string = '肖肖小肖';
 // number类型
@@ -219,15 +220,12 @@ console.log('count', count);
 const count1 = getNum(1, 3, 5);
 console.log('count1', count1); */
 // 函数的剩余参数：...nums:number[]
-function getNum(num1, num2) {
-    var nums = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-        nums[_i - 2] = arguments[_i];
-    }
-    // console.log(nums); // 拿到的是个数组
-    var count = num1 + num2;
-    nums.forEach(function (item) { return count += item; });
-    return count;
+/* function getNum(num1: number, num2: number, ...nums: number[]): number {
+  // console.log(nums); // 拿到的是个数组
+  let count: number = num1 + num2;
+  nums.forEach(item => count += item)
+  return count;
 }
-var count1 = getNum(1, 3, 5, 7, 9);
-console.log('count1', count1);
+
+const count1 = getNum(1, 3, 5, 7, 9);
+console.log('count1', count1); */
