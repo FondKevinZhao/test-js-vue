@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div class="dv">444</div>
   <!-- 
     函数中的this的指向：
       - 普通函数中的this是谁？ window
+      - 严格模式下，普通函数中的this是谁？ undefined
       - 对象.方法中的this是谁？当前的实例对象
       - 定时器方法中的this是谁？window
       - 构造函数中的this是谁？实例对象
@@ -18,7 +21,7 @@
       - 事件中的this是谁？事件源
    -->
   <script>
-    document.querySelector('.dv').onclick = function() {
+    document.querySelector('.dv').onclick = function () {
       console.log(this);
     }
 
@@ -27,4 +30,5 @@
     // 严格模式地址: https://segmentfault.com/a/1190000015798019
   </script>
 </body>
+
 </html>
