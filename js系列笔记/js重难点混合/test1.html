@@ -10,25 +10,17 @@
 
 <body>
   <script>
-    /* var arr = [36.5, 37.1, 35.8, 39.8, 36.3];
-    var arr1 = arr.some((item) => item > 37.5);
-    console.log(arr1); */
-
-    /* var arr1 = arr.find(item => item > 36);
-    console.log(arr1); */
-
-    /* var arr = [36.5, 37.1, 35.8, 39.8, 36.3];
-    var res = arr.every(item => item > 35.5);
-    console.log('res', res); */
-
-    /* var arr = [36.5, 37.1, 35.8, 39.8, 36.3];
-    var res = arr.map(item => item -1);
-    console.log(res); */
-
-
-    function init() {
-      console.log('[aa');
+    const data = {
+      name: 'bobo',
+      fn: function () {
+        console.log(this);
+        const fn2 = () => {
+          console.log(this.name);
+        }
+        fn2();
+      }
     }
+    data.fn();
   </script>
 </body>
 
