@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    call()/apply() 的第一个参数如果传入的是null或者undefined或者this，那么函数中的this指向的是原来的this，一般情况下指向的是window，这个要根据上下文来决定。如：
+      - abc.call(null, 3, 4);
+      - abc.call(undefined, 3, 4);
+      - abc.call(this, 4, 5);
+   -->
+  <script>
+    /* var arr = [1, 2, 3, 4, 5, 6];
+    var min = Math.min.apply(null, arr);
+    console.log(min); */
+
+
+
+    /* function abc(a, b) {
+      console.log(a + b);
+    }
+    // 执行函数传参，call传参时，3，5分别传入。apply传参时数组传参
+    abc.call(null, 3, 4);
+    abc.apply(null, [3, 4]); */
+
+
+
+    /* var arr = [1, 2, 3, 4, 5, 6];
+    function abc(a, b) {
+      console.log(a + b);
+      console.log(this);
+    }
+    // 执行函数传参，call传参时，3，5分别传入。apply传参时数组传参
+    // abc.call(null, 3, 4);
+    // abc.apply(null, [3, 4]);
+    abc.call(arr, 4, 5); */
+
+
+
+    /* var arr = [1, 2, 3, 4, 5, 6];
+    function abc(a, b) {
+      console.log(a + b);
+      // this.push(a, b);
+      console.log(this);
+    }
+    // abc.call(null, 3, 4);
+    // abc.call(undefined, 3, 4);
+    abc.call(this, 4, 5); */
+
+
+
+    // bind()
+    /* var arr = [1, 2, 3, 4, 5, 6];
+    function abc(a, b) {
+      console.log(a + b);
+      console.log(this);
+    }
+    abc.bind(arr)(5, 6); // abc.bind(arr): 函数绑定。(5, 6)：传参并执行 */
+  </script>
+</body>
+
+</html>
