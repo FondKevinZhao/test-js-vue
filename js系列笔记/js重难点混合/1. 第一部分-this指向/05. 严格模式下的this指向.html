@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 独立调用的函数内部的this指向undefined
+    /* function fn() {
+      console.log(this);
+    }
+    fn();
+
+    function fn1() {
+      "use strict";
+      console.log(this);
+    }
+    fn1(); */
+
+
+
+    // 2. 函数apply()和call()，严格模式下apply()和call()内部的this始终是它们的第一个参数
+    /* var color = 'red';
+    function showColor() {
+      console.log(this.color);
+    }
+    showColor.call(null);
+    showColor.call(undefined);
+
+    var color = 'red';
+    function showColor1() {
+      "use strict";
+      console.log(this.color); // 这里的this不会被改变
+    }
+    showColor1.call(null);
+    showColor1.call(undefined); */
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    call(), apply(), bind() 把对象绑定到this上，叫作显示绑定
+   -->
+  <script>
+    /* var a = 0;
+    function foo() {
+      console.log(this.a);
+    }
+    var obj = {
+      a: 2
+    }
+    foo();
+    foo.call(obj);
+    foo.apply(obj);
+    var fn = foo.bind(obj);
+    fn(); */
+
+
+
+    // this的硬绑定
+    /* var a = 0;
+    function foo() {
+      console.log(this.a);
+    }
+    var obj = {
+      a: 2
+    }
+    var bar = function () {
+      foo.call(obj);
+    }
+    bar();
+    setTimeout(bar, 2000);
+    bar.call(window); */
+
+
+
+    // 数组的forEach(fn, 对象), map()等有回调函数的时候，会有第二个参数，第二个参数能够改变当前回调函数中内部的this指向
+    var id = 'window';
+    function fn(el) {
+      console.log(el, this.id);
+    };
+    var obj = {
+      id: 'fn',
+    };
+    [1, 2, 3].forEach(fn);
+    [1, 2, 3].forEach(fn, obj);
+  </script>
+</body>
+
+</html>

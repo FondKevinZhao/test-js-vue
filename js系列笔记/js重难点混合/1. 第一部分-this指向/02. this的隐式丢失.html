@@ -48,15 +48,56 @@
 
 
 
-    // 3. 
-    var a = 0;
+    // 3. 隐式丢失 - 参数传递 等同于第二种
+    /* var a = 0;
     function bar(fn) {
       fn();
     }
     bar(function foo() {
       // 内部的this指向了window
       console.log(this.a);
-    })
+    }) */
+
+
+
+    // 4. 隐式丢失 - 内置函数
+    /* setTimeout(function () {
+      console.log(this);
+    }, 1000); */
+
+
+
+    // 5. 隐式丢失 - 间接调用
+    function foo() {
+      console.log(this.a);
+    }
+    var a = 2;
+    var obj = {
+      a: 3,
+      foo: foo
+    }
+    var p = { a: 4 };
+    obj.foo(); // 3 相当于隐式绑定，函数当做对象中的方法来使用，内部的this指向了该对象
+    (p.foo = obj.foo)(); // 如果是立即调用，内部的this会指向window
+    p.foo = obj.foo;
+    // 将obj.foo赋值给p.foo函数，之后p.foo()函数再执行，其实是属于p对象的方法的执行，this指向了当前的p对象
+    p.foo(); // 这里的this指向的是p
+
+
+
+    // 6. 其他情况 指向了window的特殊情况
+    var a = 0;
+    var obj = {
+      a: 1,
+      foo: foo
+    }
+    function foo() {
+      console.log(this.a);
+    }
+    (obj.foo = obj.foo)();
+    (false || obj.foo)();
+    (1, obj.foo)();
+
   </script>
 </body>
 
