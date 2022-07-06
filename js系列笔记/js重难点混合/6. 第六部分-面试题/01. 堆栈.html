@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    堆(Heap)栈(Stack)内存
+    ECStack(Execution Context Stack) 和 EC(Execution Context)
+    GO(Global Object)
+    VO(Variable Object)
+    AO(Activation Object)
+
+
+    JS之所以能够在浏览器中运行，是因为浏览器给JS提供了执行的环境，这个环境叫作栈内存。
+    注意：堆内存空间不执行代码，只是用来存储代码的。
+   -->
+  <script>
+    // 1. 
+    var a = 12;
+    var b = a;
+    b = 13;
+    console.log(a);
+
+
+
+    // 2. 
+    var a = { n: 12 };
+    var b = a;
+    b['n'] = 13;
+    console.log(a.n);
+
+
+
+    // 3. 
+    var a = { n: 12 };
+    var b = a;
+    b = { n: 13 };
+    console.log(a.n);
+
+
+
+    // 4. 
+    var a = {}, b = '0', c = 0;
+    a[b] = '珠峰';
+    a[c] = '培训';
+    console.log(a[b]);
+
+
+
+    // 5. 
+    var a = {}, b = Symbol('1'), c = Symbol('1');
+    a[b] = '珠峰';
+    a[c] = '培训';
+    console.log(a[b]);
+  </script>
+</body>
+
+</html>
