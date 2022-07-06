@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    静态成员和实例成员(成员：既能代表方法，又能代表属性)
+      - 凡是挂载到实例对象身上的成员，就是实例成员
+      - 凡是直接挂载在构造函数身上的成员，就是静态成员
+
+    原型：
+      - 原型的作用：开辟一块公共的空间，存放对象的公共方法或属性，达到节省内存的目的
+      - 原型的概念：构造函数.prototype 就是原型，任何的函数都会有一个属性叫prototype
+      - 对象的 __proto__ 属性 也指向原型对象(对象的 __proto__ 属性：是访问原型对象的另外一种方式)
+      - constructor属性：任何一个对象都有一个constructor属性来指向当前的构造函数。查看：console.log(Person.prototype); 或 console.log(Person.prototype.constructor)
+    
+    原型链：
+      - 任何对象都有原型
+      - 原型本身也是个对象，原型也有它的原型。如：console.log(Person.prototype.__proto__);
+   -->
+  <script>
+    // 自定义构造函数
+    /* function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+
+    var p1 = new Person('小明', 18);
+    var p2 = new Person('小红', 17);
+    var p3 = p1;
+    console.log(p1 === p2);
+    console.log(p1 === p3);
+
+    var p = new Person('小张', 18); 
+    p.hobby = '打篮球'; // hobby是挂载在实例对象身上的，所以是实例成员
+
+    Person.height = 180; // 这个height是静态成员 */
+
+
+
+    // 原型
+    /* function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.say = function () {
+        console.log('hello');
+      }
+    }
+    Person.prototype.hehe = function () {
+      console.log('hehe');
+    }
+    Person.prototype.xxx = '非常牛X';
+
+
+
+    var p1 = new Person('小明', 18);
+    var p2 = new Person('小红', 17);
+    p1.say();
+    p2.say();
+    console.log(Person.prototype);
+    p1.hehe();
+    p2.hehe();
+    console.log(p1.xxx);
+    console.log(p2.xxx); */
+
+
+
+    // 对象的 __proto__ 属性：是访问原型对象的另外一种方式
+    /* function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.say = function () {
+        console.log('hello');
+      }
+    }
+    Person.prototype.hehe = function () {
+      console.log('hehe');
+    }
+    Person.prototype.xxx = '非常牛X';
+
+    var p1 = new Person('小明', 18);
+    var p2 = new Person('小红', 18);
+    console.log(p1.__proto__ === Person.prototype);
+    console.log(p2.__proto__ === Person.prototype);
+
+    var obj = {
+      name: 'aaa'
+    }
+    console.log(obj.__proto__ === Object.prototype); */
+
+
+
+    // constructor 属性一：任何一个对象都有一个constructor属性来指向当前的构造函数
+    /* function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.say = function () {
+        console.log('hello');
+      }
+    }
+    Person.prototype.hehe = function () {
+      console.log('hehe');
+    }
+    Person.prototype.xxx = '非常牛X';
+
+    var p1 = new Person('小明', 18);
+    var p2 = new Person('小红', 18);
+    console.log(Person.prototype); // Peson的原型对象，默认有一个constructor属性，指向Person的构造函数
+    console.log(Person.prototype.constructor); */
+
+
+
+    // constructor 属性二
+    /* function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.say = function () {
+        console.log('hello');
+      }
+    }
+    // 这样子写，没有constructor属性，因为让Person.prototype指向了一个新的对象
+    Person.prototype = {
+      hehe: function () {
+        console.log('hehe');
+      },
+      constructor: Person, // 手动添加constructor属性
+    }
+    var p1 = new Person('小明', 18);
+    var p2 = new Person('小红', 18);
+    console.log(Person.prototype);
+    console.log(p1); */
+
+
+
+    // 原型链
+    function Person(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.say = function () {
+        console.log('hello');
+      }
+    }
+    Person.prototype.hehe = function () {
+      console.log('hehe');
+    }
+    var p1 = new Person('小明', 18);
+    console.log(Person.prototype.__proto__); // 这里找到了Object的原型对象
+    console.log(Person.prototype.__proto__ === Object.prototype);
+    // 不能写出下面的例子。因为prototype是个静态属性，静态属性只能通过构造函数去点。这样写是错误的，会报错：console.log(Person.prototype.prototype.prototype);
+  </script>
+</body>
+
+</html>

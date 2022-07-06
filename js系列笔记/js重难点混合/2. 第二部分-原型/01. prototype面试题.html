@@ -48,19 +48,20 @@
 
 
     // 3. 
-    function A(name) {
+    /* function A(name) {
       this.name = name;
     }
     A.prototype.getName = function () {
       console.log(this.name);
     }
-    let a1 = newA('a1');
-    let a2 = newA('a2');
-    a1.getName();
-    a2.getName();
+    let a1 = new A('a1');
+    let a2 = new A('a2');
+    a1.getName(); // 'a1'
+    a2.getName(); // 'a2'
     delete A.prototype.getName;
-    a1.getName();
-    a2.getName();
+    a1.getName(); // 报错
+    a2.getName(); */
+
   </script>
 </body>
 
