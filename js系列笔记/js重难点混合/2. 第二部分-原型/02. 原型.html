@@ -139,7 +139,7 @@
 
 
     // 原型链
-    function Person(uname, age) {
+    /* function Person(uname, age) {
       this.uname = uname;
       this.age = age;
       this.say = function () {
@@ -152,8 +152,13 @@
     var p1 = new Person('小明', 18);
     console.log(Person.prototype.__proto__); // 这里找到了Object的原型对象
     console.log(Person.prototype.__proto__ === Object.prototype);
-    // 不能写出下面的例子。因为prototype是个静态属性，静态属性只能通过构造函数去点。这样写是错误的，会报错：console.log(Person.prototype.prototype.prototype);
+    // 不能写出下面的例子。因为prototype是个静态属性，静态属性只能通过构造函数去点。这样写是错误的，会报错：console.log(Person.prototype.prototype.prototype); */
+
+
+
+    // 成员的查找机制：对象查找成员的方式，首先查找自身，自身有就用自身的，停止再查找，自己没有也就是通过原型链一层一层的查找，如果直到找到null仍然没有找到，最终返回undefined。
+
   </script>
-</body>
+</body> 
 
 </html>
