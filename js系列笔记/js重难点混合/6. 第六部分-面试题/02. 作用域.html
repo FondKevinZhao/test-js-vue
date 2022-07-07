@@ -1,32 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <!-- 
     js的作用域包括：全局作用域和函数作用域
 
-    内部原理分为：
-      - 编译阶段(了解)：边解释，边执行
-      - 执行阶段(了解)：引擎运行代码时首先查找当前的作用域，看a变量是否在当前的作用域下，如果是，引擎就会使用这个变量。如果否，引擎会继续查找该变量。没找到引擎会抛出异常。
-      - 查询阶段(了解)：
-      - 嵌套阶段
-      - 异常阶段
+    全局作用域：
+      - 全局作用域在页面打开时被创建，页面关闭时被销毁
+      - 编写在script标签中的变量和函数。作用域为全局，在页面的任意位置都可以访问到
+      - 在全局作用域中有全局对象window，代表一个浏览器窗口，由浏览器创建，可以直接调用
+      - 全局作用域中声明的变量和函数会作为window对象的属性和方法保存
+
+    函数作用域：
+      - 调用函数时，函数作用域被创建，函数执行完毕，函数作用域销毁
+      - 没调用一次函数就会创建一个新的函数作用域，他们之间是相互独立的
+      - 在函数作用域中可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量
+      - 在函数作用域中访问变量、函数时，会先在自身作用域中寻找，若没有找到，则会在函数的上一级作用域中寻找，一直到全局作用域
+
+
+    执行期的上下文：
+      - 单该函数代码执行的前期，会创建一个执行期上下文的内部对象AO(作用域)
+      - 这个内部的对象是预编译的时候创建出来的，因为当函数被调用的时候，会先进行预编译
+      - 在全局代码执行的前期会创建一个执行期的上下文的对象GO
    -->
 
   <script>
-    // 1. 编译阶段
-    var a = 2;
 
-    // 1.1 分词
-    // 词法单元：var, a,  =, 2;
+    // 1. 
+    /* var a = 'apple';
+    function fighting() {
+      console.log(a);
+      var a = 'angel';
+      console.log(ss());
+      function ss() {
+        return a;
+      }
+    }
+    fighting(); */
 
-    // 1.2 解析
 
+
+    // 2. 
+    /* var a = 456;
+    function demo(){
+      var a = 123;
+      console.log(a);
+    }
+    demo();
+    console.log(a); */
+
+
+
+    // 3. 
+    /* function demo(){
+      var a = 123;
+      b = 456;
+      console.log(a, b);
+    }
+    demo();
+    console.log(b);
+    console.log(a); */
+
+
+
+    // 4. 没有使用var/let/const关键字声明的变量是可以被删除的
+    /* var var1 = 1;
+    var2 = 2;
+    console.log('var1, var2', var1, var2);
+    console.log('window', window); 
+    console.log('delete var1', delete var1); 
+    console.log('delete var2', delete var2);
+    console.log('window', window); */
+
+
+
+    // 5. 
+    function fn(a, c) {
+      console.log(a);
+      var a = 123;
+      console.log(a);
+      console.log(c);
+      function a() { };
+      if (false) {
+        var d = 678;
+      }
+      console.log(d);
+      console.log(b);
+      var b = function () { };
+      console.log(b);
+      function c() { };
+      console.log(c);
+    }
+    fn(1, 2);
   </script>
 </body>
+
 </html>
