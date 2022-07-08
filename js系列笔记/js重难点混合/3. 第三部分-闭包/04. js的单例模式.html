@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="loginBtn">登录</button>
+  <script>
+    // 用闭包做单例模式
+    // 单例模式的作用：提供单一职责，全局的一个访问点。如：有三个地方要弹同样的框，我们只需要写一份就行了。
+    var createLogin = function () {
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录的弹窗';
+      div.style.display = 'none';
+      document.body.appendChild(div);
+      return div
+    }
+    var getSingle = function (fn) {
+      var result;
+      return function () {
+        return result || (result = fn.apply(this, arguments));
+      }
+    }
+
+    var create = getSingle(createLogin);
+
+    document.getElementById('loginBtn').onclick = function () {
+      var loginLay = create();
+      loginLay.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

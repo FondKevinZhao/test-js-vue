@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="input">
+  <script>
+    // js闭包的经典面试题
+    function debounce(fun, delay) {
+      let timer;
+      return function (args) {
+        clearInterval(timer);
+        timer = setTimeout(function () {
+          fun(args)
+        }, delay)
+      }
+    }
+    function inputFun(value) {
+      console.log(`你输出的结果是${value}`);
+    }
+    const input = document.getElementById('input');
+    const debounceInput = debounce(inputFun, 1000);
+    input.addEventListener('keyup', function (e) { debounceInput(e.target.value) });
+  </script>
+</body>
+
+</html>
