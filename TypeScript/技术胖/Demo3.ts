@@ -18,3 +18,6 @@ const xiaoJieJie: {
   name: '大脚',
   age: 18
 }
+
+const xiaoJieJies: string[] = ['谢大脚', '刘英', '123'];
+console.log(xiaoJieJies);
