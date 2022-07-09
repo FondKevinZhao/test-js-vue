@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 引入call文件 -->
+  <script src="../01. call函数封装实现/call.js"></script>
+  <!-- 引入bind文件 -->
+  <script src="./bind.js"></script>
+  <script>
+    // 声明一个函数
+    function add(a, b) {
+      console.log(this);
+      return a + b + this.c;
+    }
+
+    // 声明一个对象
+    let obj = {
+      c: 3,
+    }
+
+    // 添加全局属性
+    window.c = 40;
+
+    // 执行 函数
+    // 实参可以在bind调用时传入，也可以在返回的结果函数当中传入
+    let res = bind(add, obj, 1, 2);
+    console.log(res()); // 1 + 2 + 3
+
+    let res2 = bind(add, obj);
+    console.log(res2(1, 2)); // 1 + 2 + 3
+  </script>
+</body>
+
+</html>

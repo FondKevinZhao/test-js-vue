@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+      background: linear-gradient(#125, #eae);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    一些浏览器事件：window.onresize、window.mousemove、scroll、疯狂点击按钮等，触发的频率非常高，会造成界面卡顿
+    如果向后台发送请求，频繁触发，对服务器造成不必要的压力
+
+    函数节流(throttle)
+    理解：
+      - 在函数需要频繁触发时：函数执行一次后，只有大于设定的执行周期后才会执行第二次
+      - 适合多次事件按时间做平均分配触发
+   -->
+
+
+  <script src="./函数节流.js"></script>
+  <script>
+    // 绑定滚动事件
+    // 没有加节流的时候
+    /* window.addEventListener('scroll', function () {
+      console.log(Date.now());
+    }) */
+
+
+
+
+    // 加了节流的时候
+    // 使用：在throttle传入两个参数，1. 要执行的函数 2. 间隔时间
+    // 这个throttle最终执行的返回结果是一个函数
+    window.addEventListener('scroll', throttle(function (e) {
+      console.log(Date.now());
+      // console.log(e);
+    }, 500));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./call.js"></script>
+  <script>
+    // 声明一个函数
+    function add(a, b) {
+      console.log(this);
+      return a + b + this.c;
+    }
+    // 声明一个对象
+    let obj = {
+      c: 521
+    }
+
+    // 添加全局属性。表示当obj等于undefined或者是null的时候的表现
+    window.c = 1314;
+
+    // 执行call
+    var result = call(add, obj, 10, 20);
+    console.log(result);
+
+    // 测试obj等于undefined或者是null的时候
+    var res = call(add, null, 1, 2);
+    console.log(res);
+
+
+
+  </script>
+</body>
+
+</html>
