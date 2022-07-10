@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    some()：如果数组中至少有一个元素满足测试函数，则返回true，否则返回false
+   -->
+  <script src="./some.js"></script>
+  <script>
+    var arr = [1, 2, 3, 4, 5];
+    // 原生js中的some()
+    /* const result = arr.some(item => {
+      return item > 0;
+    })
+    console.log(result); */
+
+
+
+    // 自己实现some()
+    const result = some(arr, (item) => {
+      return item > 4;
+    })
+    console.log(result);
+  </script>
+</body>
+</html>

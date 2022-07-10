@@ -9,8 +9,25 @@
 </head>
 
 <body>
+  <!-- 
+    findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。
+   -->
+  <script src="./findIndex.js"></script>
   <script>
-    
+    var arr = [1, 2, 300, 4, 5, 1024];
+    // js原生findIndex
+    /* const result = arr.findIndex(item => {
+      return item > 1000;
+    });
+    console.log(result); */
+
+
+
+    // 自己实现findIndex
+    const result = findIndex(arr, (item) => {
+      return item > 1000;
+    })
+    console.log(result);
   </script>
 </body>
 

@@ -3,15 +3,13 @@
  * @param {Array} arr 
  * @param {Function} callback 
  */
-function findIndex(arr, callback) {
+function every(arr, callback) {
   // 遍历数组
   for (var i = 0; i < arr.length; i++) {
-    // 调用回调函数
     let res = callback(arr[i], i);
-    // 判断
-    if (res) {
-      return i;
+    if (!res) {
+      return false
     }
   }
-  return -1;
+  return true;
 }
