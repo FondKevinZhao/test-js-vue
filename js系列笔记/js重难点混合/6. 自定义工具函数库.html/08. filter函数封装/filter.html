@@ -9,15 +9,19 @@
 </head>
 
 <body>
-  <script src="./map.js"></script>
-
+  <script src="./filter.js"></script>
   <script>
-    // 声明一个数组
-    const arr = [1, 2, 3, 4, 5];
-    const result = map(arr, (item, index) => {
-      return item * 10 + ' - ' + index;
-    });
+    var arr = [1, 2, 3, 4, 5];
+    // js原生filter
+    /* const result = arr.filter(item => { return item % 2 == 0 });
+    console.log(result); */
 
+
+
+    // 自己实现filter
+    const result = filter(arr, (item, index) => {
+      return item % 2 == 0;
+    })
     console.log(result);
   </script>
 </body>
