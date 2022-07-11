@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    大白话：截取数组当中的一段，为一个新的数组
+    语法：slice(oldArr, [begin[,end]]);
+    功能：返回一个由begin和end决定的原数组的浅拷贝，原始数组不会被改变
+   -->
+  <script src="./slice.js"></script>
+  <script>
+    // js数组原型方法slice()
+    /* let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    // 截取2-6，形成一个新数组
+    const newArr = arr.slice(1, 6);
+    // const newArr = arr.slice(1, 60); // 如果长度大于数组长度，则直接截到数组的最后
+    console.log(newArr); */
+
+
+
+    // 自定义slice函数
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    const result = slice(arr, 1, 6);
+    console.log(result);
+  </script>
+</body>
+
+</html>

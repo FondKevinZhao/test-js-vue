@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
+  <!-- 
+    concat()：合并数组
+   -->
   <script src="./concat.js"></script>
   <script>
-    
+    /* // 原生js函数concat
+    let arr = [1, 2, 3];
+    const result = arr.concat([4, 5, 6]);
+    console.log(result); */
+
+
+
+    // 自定义实现concat
+    let arr = [1, 2, 3];
+    const result = concat(arr, [4, 5, 6], 7, 8);
+    console.log(result);
   </script>
 </body>
+
 </html>
