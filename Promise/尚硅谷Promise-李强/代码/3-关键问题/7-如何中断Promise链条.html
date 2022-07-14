@@ -15,7 +15,7 @@
 
         p.then(value => {
             console.log(111);
-            //有且只有一个方式
+            //有且只有一个方式：返回一个pending状态的promise对象，才能够终端promise链条
             return new Promise(() => {});
         }).then(value => {
             console.log(222);
