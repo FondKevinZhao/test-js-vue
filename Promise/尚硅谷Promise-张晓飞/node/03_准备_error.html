@@ -66,7 +66,7 @@
   console.log('--------')
 
 
-  /* 抛出error */
+  /* 抛出error：抛出异常，那么在调用的时候就用try catch 来接住这个异常 */ 
   function doThing() { // 当前时间如果为奇数就能正常干活, 否则不能干
     const time = Date.now()
     if (time %2== 1) {
