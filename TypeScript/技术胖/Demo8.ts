@@ -1,4 +1,4 @@
-// 初识接口 Interface
+// 初识接口1 Interface
 
 /* const screenResume = (name: string, age: number, bust: number) => {
   // bust 胸围
@@ -16,15 +16,17 @@ getResume('大脚', 18, 94); */
 
 
 // 优化上面的代码
-interface Girl {
+/* interface Girl {
   name: string;
   age: number;
-  bust: number
+  bust: number;
+  waistline?: number; // 可选值
 }
 const girl = {
   name: '大脚',
   age: 18,
-  bust: 94
+  bust: 94,
+  waistline: 21, // 可选值，可以不写
 }
 const screenResume = (girl: Girl) => {
   // bust 胸围
@@ -34,7 +36,8 @@ const screenResume = (girl: Girl) => {
 
 const getResume = (girl: Girl) => {
   console.log(girl.name + '年龄是' + girl.age + '胸围是' + girl.bust);
+  girl.waistline && console.log(girl.name + '腰围是：' + girl.waistline)
 }
 
 screenResume(girl);
-getResume(girl);
+getResume(girl); */
