@@ -19,17 +19,41 @@
   -->
 
   <script>
-    /* 先改变状态, 后指定回调函数 */
-    new Promise((resolve, reject) => { // 同步回调
-      console.log('excutor()')
-      resolve(1)  // pending ==> resolved  value为1
-      console.log('resolve()改变状态后')
-    }).then( // 先指定回调函数, 内部选将回调函数保存起来
-      value => { // 成功/失败的回调函数是异步执行的, 需要放入队列将来执行
-        console.log('onResolved()', value)
-      }
-    )
-    console.log('new Promise()之后')
+    // 常规的：先指定回调，后改变的状态
+    /* new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1); // 后改状态，同时指定了数据，异步执行回调函数
+      }, 1000);
+    }).then( // 先指定回调函数，保存当前指定的回调函数
+      (value) => console.log('成功1', value),
+      reason => console.log('失败1', reason),
+    ) */
+
+
+
+    // 如何先改状态，后指定回调函数
+    /* new Promise((resolve, reject) => {
+        resolve(1); // 先改状态，同时指定了数据
+    }).then( // 后指定回调函数，异步执行回调函数
+      (value) => console.log('成功2', value),
+      reason => console.log('失败2', reason),
+    ) */
+
+
+
+    // 通过计时器控制.then的时间拖延，就可以做到，先改变状态，再执行回调
+    /* const p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1); // 后改状态，同时指定了数据，异步执行回调函数
+      }, 1000);
+    })
+
+    setTimeout(() => {
+      p.then( // 先指定回调函数，保存当前指定的回调函数
+        (value) => console.log('成功3', value),
+        reason => console.log('失败3', reason),
+      )
+    }, 1200); */
   </script>
 </body>
 </html>
