@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <!-- 
     在mdn中Promise的方法有：都是返回一个新的promise对象
@@ -23,9 +25,26 @@
 
    -->
 
-   <script>
+  <script>
     // 原型方法
-    const p = new Promise
-   </script>
+    const p = new Promise((resolve, reject) => {
+      resolve(1)
+    })
+    p.then((value) => {
+      console.log('成功了', value);
+    })
+
+
+
+    // Promise构造函数的方法
+    const p2 = new Promise(() => {
+      Promise.reject(2)
+    })
+    p2.then(
+      (value) => { console.log('onResolved', value) },
+      (reason) => { console.log('onRejected', reason) },
+    )
+  </script>
 </body>
+
 </html>
