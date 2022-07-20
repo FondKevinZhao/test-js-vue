@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_变量的解构赋值</title>
+</head>
+<body>
+<!--
+1. 理解:
+  * 从对象或数组中提取数据, 并赋值给变量(多个)
+2. 对象的解构赋值
+  let {n, a} = {n:'tom', a:12}
+3. 数组的解构赋值
+  let [a,b] = [1, 'hello'];
+4. 用途
+  * 给多个形参赋值
+-->
+<script type="text/javascript">
+  
+  let person = {
+    name:'jkobe',
+    age:18
+  }
+  
+  let {age} = person
+  
+  console.log(age)
+  
+  
+  function show({name}) {
+    console.log(name);
+  }
+  show(person)
+  
+  let arr = [1,2,3]
+  let [,,c] = arr
+  console.log(c)
+  
+</script>
+</body>
+</html>

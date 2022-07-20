@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_Set和Map数据结构</title>
+</head>
+<body>
+<!--
+1. Set容器 : 无序不可重复的多个value的集合体
+  * Set()
+  * Set(array)
+  * add(value)
+  * delete(value)
+  * has(value)
+  * clear()
+  * size
+2. Map容器 : 无序的 key不重复的多个key-value的集合体
+  * Map()
+  * Map(array)
+  * set(key, value)//添加
+  * get(key)
+  * delete(key)
+  * has(key)
+  * clear()
+  * size
+-->
+
+<script type="text/javascript">
+  
+  let set = new Set([1,2,3,4,3,2,1,6]);
+  
+  //使用set容器完成数组的去重
+  let arr0 = [1,2,3,4,3,2,1,6]
+  Array.from(new Set(arr0));
+
+
+  /*//关于set容器的使用：
+  //1.set ------->新增
+  console.log(set);
+  set.add('abc');
+  console.log(set, set.size);
+
+  //2.delete(value)---->删除所有指定value的元素
+  set.delete(2);
+  console.log(set);
+
+  //3.has(value)------>是否拥有指定数值
+   console.log(set.has(1));//true
+   console.log(set.has(2));//false
+
+  //4.clear()
+  set.clear();//清空set容器里的所有数据
+  console.log(set);
+
+
+  //关于map容器的使用：
+  
+  //1.创建一个map容器并将数据放入map容器（注意是二维数组的形式传参）
+  let map = new Map([['name', 'kobe'],['age', '18']]);
+  console.log(map)
+
+  //set------>向map容器里增加一个key-value
+  map.set('sex', '男');
+  console.log(map);
+
+  //get------->从容器中获取指定key对应的value
+  console.log(map.get('age'));//18
+
+  //delete(key)------>从容器中删除指定
+  map.delete('sex');
+  console.log(map);
+
+  console.log(map.has('name'));//true
+  console.log(map.has('age'));//true
+  console.log(map.has('sex'));//fasle
+
+  map.clear();//清空
+  console.log(map);//Map(0) {}*!/!*!/
+ */
+</script>
+</body>
+
+</html>

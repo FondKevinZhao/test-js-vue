@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterator遍历器</title>
+</head>
+<body>
+  <!--
+    概念：iterator是一种接口机制，为各种不同的数据结构提供统一的访问机制
+    ES6创造了一种新的遍历命令:for of，并且for of底层依赖Symbol.iterator实现的遍历
+        
+    原生具备iterator接口的数据(即：可以用for of遍历)
+      1、Array
+      2、arguments
+      3、String
+      ...
+  -->
+
+  <script type="text/javascript">
+    let arr = [1,2,3,4]
+    
+    arr.forEach((item,index,source)=>{
+      console.log(item)
+    })
+    
+    for (let index in arr){
+       console.log(arr[index])
+    }
+    
+    for (let item of arr){
+       console.log(item)
+    }
+    
+    let a ={}
+    console.log(a)
+
+  </script>
+</body>
+</html>

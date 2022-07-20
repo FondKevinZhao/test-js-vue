@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>12_class</title>
+</head>
+<body>
+</body>
+<!--
+1. 通过 class 定义类/实现类的继承
+2. 在类中通过constructor定义构造方法
+3. 通过new来创建类的实例
+4. 通过 extends 来实现类的继承
+5. 通过super调用父类的构造方法
+6. 重写从父类中继承的一般方法
+-->
+<script type="text/javascript">
+  
+  //使用构造函数模拟“类”
+  function Person(name,age) {
+    this.name = name
+    this.age = age
+  }
+  Person.prototype.setName = function (name) {
+    this.name = name
+  }
+  
+  var p = new Person('kobe',18)
+  
+  //父类
+  class Person {
+    //属性放在constructor里去定义
+    constructor(name,age){
+      this.name = name
+      this.age = age
+    }
+    //方法直接定义
+    speak(){
+      console.log(this.name , this.age)
+    }
+  }
+  
+  
+  //子类
+  class Student extends Person{
+    constructor(name,age,sex){
+      super(name,age)
+      this.sex = sex
+    }
+    study(){
+      console.log('我正在学习')
+    }
+    speak(){
+      console.log(this.name , this.age,this.sex)
+    }
+  }
+  
+  let c = new Student('clt',18,'女')
+  console.log(c)
+  c.study()
+  c.speak()
+  
+  ;(()=>{
+  
+  })()
+
+
+</script>
+</html>

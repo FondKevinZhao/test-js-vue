@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_JSON对象</title>
+</head>
+<body>
+<!--
+1. JSON.stringify(obj/arr)
+  * js对象(数组)转换为json对象(数组)
+2. JSON.parse(json)
+  * json对象(数组)转换为js对象(数组)
+3.使用JSON进行数据交互的优点
+   * 1.数据相对小,更精简（相对于xml）
+        * 关于xml格式的数据传送：
+            <xml>
+              <name>lisi/name>
+              <age>12</age>
+            </xml>
+        * 如果是json数据：'{"name":"lisi","age":12}'
+     2.有完善的API直接把JSON对象转成js对象（反过来也可以）
+          
+-->
+<script type="text/javascript">
+  var jsonstr = '{"name":lisi,"age":12}'
+  var obj = JSON.parse(jsonstr)
+  console.log(obj)
+  
+  var obj2 = {
+    name:'小猪佩奇',
+    age:18
+  }
+  var str = JSON.stringify(obj2)
+  console.log(str)
+  
+  var arr = [1,2,3,4]
+  var arrStr = JSON.stringify(arr)
+  console.log(arrStr)
+  
+
+</script>
+</body>
+</html>

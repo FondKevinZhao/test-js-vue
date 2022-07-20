@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>async函数</title>
+</head>
+<body>
+
+<!--
+  async函数(源自ES7)
+  概念： 真正意义上去解决异步回调的问题，同步流程表达异步操作
+  语法：
+      async function foo(){
+        await 异步操作;
+        await 异步操作；
+      }
+  特点：
+    1、async函数返回的总是Promise对象，可以用then方法进行下一步操作
+    2、语意上更为明确，使用简单，经临床验证，暂时没有任何副作用
+
+-->
+<script type="text/javascript">
+
+  //模拟一个发送ajax请求的函数
+  function senAjax(i) {
+    let myPromise = new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        console.log(`第${i}次的请求成功了！`)
+        resolve()
+      },1000)
+    })
+    return myPromise
+  }
+
+  /*//第一次请求
+  senAjax(1)
+    .then(()=>{
+      return senAjax(2)
+      //then方法如果我们不手动返回Promise实例，程序会自动返回Promise实例，并且是成功状态
+    })
+    .then(()=>{
+      return senAjax(3)
+    })*/
+
+  async function demo() {
+    await senAjax(1)
+    await senAjax(2)
+    await senAjax(3)
+  }
+  var a = demo()
+  
+    //最终的写法
+  ;(async()=> {
+    await senAjax(1)
+    await senAjax(2)
+    await senAjax(3)
+  })()
+  
+
+</script>
+</body>
+</html>
