@@ -26,7 +26,7 @@ console.log(person.name); */
 
 
 // 继承时的构造函数的写法
-class Person {
+/* class Person {
   // 这里的public不能省略
   constructor(public name: string, public sex: string) {
     this.name = name;
@@ -40,7 +40,23 @@ class Teacher extends Person {
   }
 }
 
-const person = new Teacher(18);
-console.log(person.name);
-console.log(person.age);
-console.log(person.sex);
+const teacher = new Teacher(18);
+console.log(teacher.name);
+console.log(teacher.age);
+console.log(teacher.sex); */
+
+
+
+// 如果父类没有constructor，子类同样要写super
+class Person {
+
+}
+
+class Teacher extends Person {
+  constructor(public age: number) {
+    super(); 
+  }
+}
+
+const teacher = new Teacher(18);
+console.log(teacher.age);
