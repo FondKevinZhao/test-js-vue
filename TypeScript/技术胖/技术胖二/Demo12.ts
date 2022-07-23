@@ -48,7 +48,7 @@ console.log(teacher.sex); */
 
 
 // 如果父类没有constructor，子类同样要写super
-class Person {
+/* class Person {
 
 }
 
@@ -59,4 +59,4 @@ class Teacher extends Person {
 }
 
 const teacher = new Teacher(18);
-console.log(teacher.age);
+console.log(teacher.age); */

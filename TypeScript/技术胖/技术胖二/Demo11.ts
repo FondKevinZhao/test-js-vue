@@ -54,7 +54,7 @@ person.name = 'jspang';
 
 
 // 做一个继承，让sayHello可以被访问
-class Person {
+/* class Person {
   public name!: string; // 这样写也可以
   protected sayHello() {
     console.log(this);
@@ -72,4 +72,4 @@ const person = new Person()
 person.name = 'jspang';
 
 const teacher = new Teacher()
-teacher.sayGood();
+teacher.sayGood(); */
