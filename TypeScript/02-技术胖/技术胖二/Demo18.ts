@@ -40,7 +40,7 @@ console.log(selectGirl.getGirl(1)); */
 
 
 // 类+继承+接口+泛型
-interface Girl {
+/* interface Girl {
   name: string;
 }
 
@@ -58,4 +58,4 @@ const arr = [
   {name: '晓红'},
 ]
 const selectGirl = new SelectGirl(arr);
-console.log(selectGirl.getGirl(1));
+console.log(selectGirl.getGirl(1)); */
