@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    递归：自己调用自己，且必须要有出口，否则会死循环。
+
+    递归的经典使用：求阶乘、斐波那契数列、深拷贝
+   -->
+
+  <script>
+    /* 
+      利用递归求1~n的任意一个数的阶乘
+      阶乘：6! ===> 6 * 5 * 4 * 3 * 2 * 1
+      求一个数的阶乘，就是求1到这个数之间所有数相乘
+    */
+    function jiecheng(n) {
+      // 这里的判断就是出口，当n-1= 1的时候，会return掉
+      if (n === 1) {
+        return 1;
+      }
+
+      return n * jiecheng(n - 1);
+    }
+    console.log(jiecheng(3)); // 1 * 2 * 3
+    console.log(jiecheng(5)); // 1 * 2 * 3 * 4 * 5
+
+
+
+    /* 
+      利用递归函数求斐波那契数列(兔子序列)
+      1 1 2 3 5 8 13 21 ... 求第n个月有多少对兔子
+      当前第n个月有多少对兔子，就是让前两个月的兔子数相加
+    */
+
+    function fb(n) {
+      // 求第n个月的兔子
+      if (n === 1 || n === 2) {
+        return 1;
+      }
+      return fb(n - 1) + fb(n - 2);
+    }
+    console.log(fb(6));
+    console.log(fb(7));
+    console.log(fb(8));
+  </script>
+</body>
+
+</html>
