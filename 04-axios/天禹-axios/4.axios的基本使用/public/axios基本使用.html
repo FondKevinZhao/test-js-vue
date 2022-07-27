@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>axios的基本使用</title>
 </head>
+
 <body>
 	<script type="text/javascript" src="./axios.min.js"></script>
 	<button id="btn1">获取所有人信息</button><br><br>
@@ -14,7 +16,7 @@
 	<button id="btn4">修改一个人</button><br><br>
 	<button id="btn5">删除一个人</button>
 
-	<script type="text/javascript" >
+	<script type="text/javascript">
 		let btn1 = document.getElementById('btn1')
 		let btn2 = document.getElementById('btn2')
 		let btn3 = document.getElementById('btn3')
@@ -24,7 +26,7 @@
 		//所有用axios发送的请求，请求的基本路径均为：http://localhost:3000
 		axios.defaults.baseURL = 'http://localhost:3000'
 
-		btn1.onclick = ()=>{
+		btn1.onclick = async () => { // 不带参数
 			//完整版写法：
 			/* axios({
 				url:'/get_persons',
@@ -34,14 +36,27 @@
 				response => {console.log('成功了',response.data);},
 				error => {console.log('失败了',error);}
 			) */
+
+
+			/* try {
+				const response = await axios({
+					url: '/get_persons',
+					method: 'get',
+				})
+				console.log('response', response.data);
+			} catch (error) {
+				console.dir(error);
+			} */
+
+
 			//精简写法：
 			axios.get('/get_persons').then(
-				response => {console.log(response.data);},
-				error => {console.log(error);}
+				response => { console.log(response.data); },
+				error => { console.log(error); }
 			)
 		}
 
-		btn2.onclick = ()=>{
+		btn2.onclick = async () => { // query参数 params属性中书写
 			//完整写法：
 			/* axios({
 				url:'/get_person_byid',
@@ -51,32 +66,71 @@
 				response => {console.log(response.data);},
 				error => {console.log(error);}
 			) */
+
+			// async 写法
+
+			try {
+				const result = await axios({
+					url: '/get_person_byid',
+					// url: '/get_person_byid?id=2', // 也可以使用拼接的方式
+					method: 'get',
+					params: { id: 2 } //params属性是携带query参数！！！！
+				})
+				console.log('result', result.data);
+			} catch (error) {
+				console.log(err);
+			}
+
 			//精简写法：
-			axios.get('/get_person_byid',{params:{id:1}}).then(
-				response => {console.log(response.data);},
-				error => {console.log(error);}
-			)
+			/* axios.get('/get_person_byid', { params: { id: 1 } }).then(
+				response => { console.log(response.data); },
+				error => { console.log(error); }
+			) */
 		}
-		
-		btn3.onclick = ()=>{
+
+		btn3.onclick = async () => { // 请求体参数data
 			//完整写法
+			/* 
+				如果携带的是urlencoded参数：
+					1. 配置请求头：axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; 这个写在全局，某一个要使用可以写：headers: {'Content-Type' = 'application/x-www-form-urlencoded'};
+					2. 携带拼接参数：data:'name=peiqi&age=10'。如果在vue脚手架中，携带urlencoded参数可以写成：data:{name:peiqi,age:10}
+			*/
 			/* axios({
 				url:'/person',
 				method:'post',
 				//data:{name:'lisi',age:19} //data携带请求体参数，而且默认采用json编码
-				data:'name=peiqi&age=10' //该行写法就是携带urlencoded编码参数
+				// headers: {'Content-Type' = 'application/x-www-form-urlencoded'}; // 配置请求头(携带urlencoded的时候使用)
+				data:'name=peiqi&age=10' // 该行写法就是携带urlencoded编码参数
 			}).then(
 				response => {console.log(response.data);},
 				error => {console.log(error);}
 			) */
+
+			// async 写法
+			try {
+				const result = await axios({
+					url: '/person',
+					method: 'post',
+					data: { name: 'lisi', age: 19 } //data携带请求体参数，而且默认采用json编码
+					// data: 'name=peiqi&age=10' //该行写法就是携带urlencoded编码参数
+				})
+				console.log('result3', result.data);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				console.log('finally执行了')
+			}
+
+
+
 			//精简的写法
-			axios.post('/person',{name:'海峰',age:30}).then(
-				response => {console.log(response.data);},
-				error => {console.log(error);}
-			)
+			/* axios.post('/person', { name: '海峰', age: 30 }).then(
+				response => { console.log(response.data); },
+				error => { console.log(error); }
+			) */
 		}
-		
-		btn4.onclick = ()=>{
+
+		btn4.onclick = async () => { // 请求体参数 data
 			//完整写法
 			/* axios({
 				url:'/person',
@@ -86,22 +140,58 @@
 				response => {console.log(response.data);},
 				error => {console.log(error);}
 			) */
+
+
+			// async的写法
+			try {
+				const result4 = await axios({
+					url: '/person',
+					method: 'put',
+					data: { id: 1, name: '抽烟的渊哥4', age: 70 },
+				})
+				console.log('result4', result4.data);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				console.log('finally result4');
+			}
+
+
 			//精简写法
-			axios.put('/person',{id:1,name:'抽烟的渊哥',age:70}).then(
-				response => {console.log(response.data);},
-				error => {console.log(error);}
-			)
+			/* axios.put('/person', { id: 1, name: '抽烟的渊哥', age: 70 }).then(
+				response => { console.log(response.data); },
+				error => { console.log(error); }
+			) */
 		}
-		
-		btn5.onclick = ()=>{
-			axios({
-				url:'/person/1',
-				method:'delete'
+
+		btn5.onclick = async () => { // params参数axios中没有封装，要自己亲自去写
+			// 完整写法
+			/* axios({
+				url: '/person/1',
+				method: 'delete'
 			}).then(
-				response => {console.log(response.data);},
-				error => {console.log(error);}
-			)
+				response => { console.log(response.data); },
+				error => { console.log(error); }
+			) */
+
+			// async 写法
+			/* try {
+				const result5 = await axios({
+					url: '/person/2',
+					method: 'delete'
+				})
+				console.log('result5', result5.data);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				console.log('finally result5');
+			} */
+
+			// 精简写法
+			const res = await axios.delete('/person/1');
+			console.log('res', res.data);
 		}
 	</script>
 </body>
+
 </html>
