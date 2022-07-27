@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .header {
+      width: 400px;
+      height: 40px;
+      border: 1px solid #666;
+    }
+
+    .header span {
+      display: inline-block;
+      height: 40px;
+      width: 100px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    .bgc {
+      background-color: yellow;
+    }
+
+    .cont {
+      height: 500px;
+      width: 400px;
+      border: 1px dashed #333;
+    }
+
+    .cont div {
+      height: 500px;
+      width: 400px;
+      border: 1px dashed #333;
+      display: none;
+      font-size: 20px;
+      line-height: 30px;
+      ;
+      text-align: center;
+    }
+
+    div.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <!-- 头部 -->
+    <div class="header">
+      <span class="bgc">充话费</span><span>旅行</span><span>车险</span><span>游戏</span>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="cont" id="cont">
+      <div class="show">充话费送年货</div>
+      <div>去一个你想去的地方，但是请带好钱</div>
+      <div>交强险，等等的保险</div>
+      <div>你的游戏是否该放弃了？回答：不改，放弃了人生还有什么意义</div>
+    </div>
+  </div>
+
+  <!-- 使用var的写法 -->
+  <!-- <script>
+    // 获取元素
+    var spans = document.getElementsByTagName('span');
+    var divs = document.getElementById('cont').getElementsByTagName('div');
+    console.log(divs);
+    for (var i = 0; i < spans.length; i++) {
+      // 自定义属性
+      spans[i].index = i;
+      spans[i].onmouseover = function () {
+        // title的for循环
+        for (var i = 0; i < spans.length; i++) {
+          spans[i].className = '';
+        }
+        this.className = 'bgc';
+
+        // 内容的for循环
+        for (var i = 0; i < divs.length; i++) {
+          divs[i].className = '';
+        }
+        // 使用自定义属性
+        divs[this.index].className = 'show';
+      }
+    }
+  </script> -->
+
+
+  <!-- 使用let的写法 -->
+  <script>
+    // 获取元素
+    /* var spans = document.getElementsByTagName('span');
+    var divs = document.getElementById('cont').getElementsByTagName('div');
+    // console.log(divs);
+    for (let i = 0; i < spans.length; i++) {
+      spans[i].onmouseover = function () {
+        // title的for循环
+        for (let i = 0; i < spans.length; i++) {
+          spans[i].className = '';
+        }
+        this.className = 'bgc';
+
+        // 内容的for循环
+        for (let i = 0; i < divs.length; i++) {
+          divs[i].className = '';
+        }
+        divs[i].className = 'show';
+      }
+    } */
+  </script>
+</body>
+
+</html>
