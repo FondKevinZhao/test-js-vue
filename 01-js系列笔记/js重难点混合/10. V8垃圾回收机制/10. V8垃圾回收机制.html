@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    我们为什么要关注内存
+      - 防止页面占用内存，引起客户端卡顿，甚至无响应
+      - Node使用的也是v8，内存对于后端服务的性能至关重要。因为服务的持久性，后端更容易造成内存溢出
+    
+    V8由什么部分组成？它也分成栈和堆，具体组成请看图片
+
+    v8内存大小：
+      - 和操作系统有关64为为1.4G(1464MB)，32为0.7G(732MB)
+      - 64位新生代的控件为64MB，老生代为1400MB
+      - 32位新生代的控件为32MB，老生代为700MB
+      - 最新版的node(v14)的内存为2GB nodejs深入浅出
+
+    为什么把V8内存限制在2G呢？
+      - 因为前端代码不持久化(不想后端数据啥的要一直保持持久化，前端代码执行完变量啥的就需要从内存中清理出去)
+      - 因为前端代码更多的时候做的是一些轻业务，没有必要设计更大的内存空间(如果需要，通过命令可以随时扩充)
+      
+    垃圾回收算法
+      - 新生代简单来说就是Copy(复制)，Scavenge算法(新生代互换)
+      - 老生代就是标记、整理、清除
+        - 早期用的Mark-Sweep(标记清除)
+        - 现在用的Mark-Compact(标记整理)
+      - 变量一开始是存放在新生代中的，满足一定条件之后会晋升成老生代
+   -->
+</body>
+
+</html>
