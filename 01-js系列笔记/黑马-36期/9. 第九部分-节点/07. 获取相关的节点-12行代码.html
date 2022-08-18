@@ -15,6 +15,7 @@
     <ul id="uu">哈哈
       <li>乔峰</li>
       <li>鹿茸</li>嘿嘿
+      <li>鹿茸</li>嘿嘿
       <li id="three">段誉</li>呵呵
       <li>卡卡西</li>
       <li>雏田</li>嘎嘎
@@ -62,6 +63,30 @@
     console.log(my$('three').nextSibling);
     // 某个元素的后一个兄弟元素
     console.log(my$('three').nextElementSibling);
+
+
+
+    // 真正要记忆的如下：
+    /*  
+      父元素
+        - parentNode
+        - parentElement
+
+      子元素
+        - children
+
+      第一个子元素
+        - firstElementChild
+
+      最后一个子元素
+        - lastElementChild
+
+      上一个兄弟元素
+        - previousElementSibling
+
+      下一个兄弟元素
+        - nextElementSibling
+    */
   </script>
 </body>
 

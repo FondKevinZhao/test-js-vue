@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    /* 
+  <body>
+    <script>
+      /* 
       创建数组的方法有两种：
         1. 构造函数的方式
         var arr = new Array();
@@ -68,9 +67,8 @@
 
     */
 
-
-    // 判断数组是不是数组类型：两种
-    /* var arr = [1, 2, 4];
+      // 判断数组是不是数组类型：两种
+      /* var arr = [1, 2, 4];
     // 第一种：instanceof
     console.log(arr instanceof Array); // true
 
@@ -82,47 +80,39 @@
     var arr = Object.prototype.toString.call(arr).slice(8,-1).toLowerCase();
     console.log(arr); // 'array' */
 
-
-
-    // Array.from() 伪数组转数组。返回一个新的数组
-    /* var arr = 'abc';
+      // Array.from() 伪数组转数组。返回一个新的数组
+      /* var arr = 'abc';
     console.log(Array.from(arr)); // ['a', 'b', 'c'] */
 
-
-
-    // Array.prototype.concat(value1[,valu2...])
-    /* var arr1 = [1, 2, 3];
+      // Array.prototype.concat(value1[,valu2...])
+      /* var arr1 = [1, 2, 3];
     var arr2 = [4, 5, 6];
     console.log(arr1.concat(arr2)); // [1, 2, 3, 4, 5, 6]
     console.log([...arr1, ...arr2]); // [1, 2, 3, 4, 5, 6] */
 
-
-
-    // MDN: Array.prototype.every(callback(element[, index[, array]])[, thisArg]) 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。
-    /* var arr = [1000, 2000, 3000];
+      // MDN: Array.prototype.every(callback(element[, index[, array]])[, thisArg]) 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。
+      /* var arr = [1000, 2000, 3000];
     var flag = arr.every(function (item, index, array) {
       // 数组中的每个元素的值都要大于2000的情况，最后才返回true
       return item > 2000;
     })
     console.log(flag); // false */
 
-    /* var arr = ['小明明', '小dd', 'aaa', 'bbb'];
+      /* var arr = ['小明明', '小dd', 'aaa', 'bbb'];
     var flag = arr.every(function(item, index) {
       return item.length >= 3;
     })
     console.log(flag); // true */
 
-
-
-    // Array.prototype.filter()
-    /* var arr = [10, 20, 30, 40, 50, 60, 70, 80];
+      // Array.prototype.filter()
+      /* var arr = [10, 20, 30, 40, 50, 60, 70, 80];
     var newArr = arr.filter(function(item, index) {
       return item > 40;
     });
     console.log(newArr); // [50, 60, 70, 80] */
 
-    // 去掉数组中等于0的数
-    /* var arr = [10, 0, 20, 0, 40, 0, 60, 100, 4];
+      // 去掉数组中等于0的数
+      /* var arr = [10, 0, 20, 0, 40, 0, 60, 100, 4];
      // 方法一：newArr[newArr.length]
     var newArr = [];
     for (var i = 0; i < arr.length; i++) {
@@ -147,10 +137,8 @@
     });
     console.log(newArr); // [10, 20, 40, 60, 100, 4] */
 
-
-
-    // push()，pop()，shift()，unshift()
-    /* var arr = [10, 20, 30, 40, 50];
+      // push()，pop()，shift()，unshift()
+      /* var arr = [10, 20, 30, 40, 50];
     arr.push(100);
     console.log('push', arr); // push [10, 20, 30, 40, 50, 100]
     arr.pop(); // 不传参
@@ -160,10 +148,8 @@
     arr.unshift(11, 12);
     console.log('unshift', arr); // unshift [11, 12, 20, 30, 40, 50] */
 
-
-
-    // forEach(回调函数)
-    /* var arr = [10, 20, 30, 40];
+      // forEach(回调函数)
+      /* var arr = [10, 20, 30, 40];
     arr.forEach(function (item, index) {
       console.log(item + '---' + index);
     });
@@ -184,65 +170,52 @@
     });
     console.log('copy', copy);  */
 
-
-
-    // indexOf()：返回值如果找到就返回索引，如果没有找到就返回-1
-    /* var arr = [10, 20, 30, 40];
+      // indexOf()：返回值如果找到就返回索引，如果没有找到就返回-1
+      /* var arr = [10, 20, 30, 40];
     // 返回索引
     var index = arr.indexOf(30);
     console.log(index); // 2
     var index1 = arr.indexOf();
     console.log(index1); // -1 */
 
-
-
-    // lastIndexOf()
-    /* var arr = [10, 20, 30, 40, 20, 50];
+      // lastIndexOf()
+      /* var arr = [10, 20, 30, 40, 20, 50];
     var index = arr.lastIndexOf(20);
     console.log(index); // 4
     // 查找20，从索引为2的位置往左查找
     var index1 = arr.lastIndexOf(20, 2);
     console.log(index1); // 1 */
 
+      // join() 数组变字符串
+      /* var arr = ['小黑', '小白', '小红', '小苏']
+      console.log(arr.join()) // 小黑,小白,小红,小苏
+      console.log(arr.join().split())
+      console.log(arr.join('|')) // 小黑|小白|小红|小苏 */
 
-
-    // join() 数组变字符串
-    /* var arr = ['小黑', '小白', '小红', '小苏'];
-    console.log(arr.join()); // 小黑,小白,小红,小苏
-    console.log(arr.join('|')); // 小黑|小白|小红|小苏 */
-
-    // 数组转换成字符串的三种方式：
-    /* console.log(arr.toString());
+      // 数组转换成字符串的三种方式：
+      /* console.log(arr.toString());
     console.log(arr.toLocaleString());
     console.log(arr.join()); */
 
-
-
-    // map(函数) 
-    /* var numbers = [1, 4, 9];
+      // map(函数)
+      /* var numbers = [1, 4, 9];
     var roots = numbers.map(Math.sqrt);
     console.log(roots); // [1, 2, 3] */
 
-
-
-    // reverse()
-    /* var arr = [10, 20, 30, 40, 50];
+      // reverse()
+      /* var arr = [10, 20, 30, 40, 50];
     arr.reverse();
     console.log(arr); // [50, 40, 30, 20, 10] */
 
-
-
-    // sort(函数)
-    /* var arr = [1, 40, 20, 10, 100];
+      // sort(函数)
+      /* var arr = [1, 40, 20, 10, 100];
     var newArr = arr.sort(function(a, b){
       return a - b;
     });
     console.log(newArr); // [1, 10, 20, 40, 100] */
 
-
-
-    // slice()
-    /* var arr = [10, 20, 30, 40, 50, 60, 70, 80];
+      // slice()
+      /* var arr = [10, 20, 30, 40, 50, 60, 70, 80];
     // 从索引3开始，到索引4结束(不包括4)
     console.log(arr.slice(3, 4)); // [40]
     // 从索引3开始到结束
@@ -252,54 +225,50 @@
     // 结束索引大于数组的长度，那么以数组长度为准
     console.log(arr.slice(3, 100)); // [40, 50, 60, 70, 80] */
 
-
-    // some()
-    /* var arr = [1, 2, 3, 4, 5];
+      // some()
+      /* var arr = [1, 2, 3, 4, 5];
     var flag = arr.some(function(item, index) {
       console.log(item);
       return item > 3;
     })
     console.log(flag); // true */
 
-
-
-    // splice()
-    // 1. 从索引2的位置开始删除0个元素，插入"drum"
-    /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      // splice()
+      // 1. 从索引2的位置开始删除0个元素，插入"drum"
+      /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
     var removed = myFish.splice(2, 0, 'drum');
     console.log(removed); // []
     console.log(myFish); // ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'] */
 
-    // 2. 从索引 2 的位置开始删除 0 个元素，插入"drum" 和 "guitar"
-    /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      // 2. 从索引 2 的位置开始删除 0 个元素，插入"drum" 和 "guitar"
+      /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
     var removed = myFish.splice(2, 0, 'drum', 'guitar');
     console.log(myFish); // ['angel', 'clown', 'drum', 'guitar', 'mandarin', 'sturgeon']
     console.log(removed); // [] */
 
-    // 3. 从索引 3 的位置开始删除 1 个元素
-    /* var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+      // 3. 从索引 3 的位置开始删除 1 个元素
+      /* var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
     var removed = myFish.splice(3, 1);
     console.log(myFish); // ['angel', 'clown', 'drum', 'sturgeon']
     console.log(removed); // ['mandarin'] */
 
-    // 从索引 2 的位置开始删除 1 个元素，插入"trumpet"
-    /* var myFish = ['angel', 'clown', 'drum', 'sturgeon'];
+      // 从索引 2 的位置开始删除 1 个元素，插入"trumpet"
+      /* var myFish = ['angel', 'clown', 'drum', 'sturgeon'];
     var removed = myFish.splice(2, 1, "trumpet");
     console.log(myFish); // ['angel', 'clown', 'trumpet', 'sturgeon']
     console.log(removed); // ['drum'] */
 
-    // 从索引 0 的位置开始删除 2 个元素，插入"parrot"、"anemone"和"blue"
-    /* var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
+      // 从索引 0 的位置开始删除 2 个元素，插入"parrot"、"anemone"和"blue"
+      /* var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
     var removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue');
     console.log(myFish); // ['parrot', 'anemone', 'blue', 'trumpet', 'sturgeon']
     console.log(removed); // ['angel', 'clown'] */
 
-    // 从索引 -2 的位置开始删除 1 个元素
-    /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      // 从索引 -2 的位置开始删除 1 个元素
+      /* var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
     var removed = myFish.splice(-2, 1);
     console.log(myFish); // ['angel', 'clown', 'sturgeon']
     console.log(removed); // ['mandarin'] */
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

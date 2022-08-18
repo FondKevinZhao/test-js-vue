@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 150px;
+        border: 2px dashed pink;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    div {
-      width: 200px;
-      height: 150px;
-      border: 2px dashed pink;
-    }
-  </style>
-</head>
+  <body>
+    <input type="button" value="创建元素" id="btn" />
+    <div id="dv">
+      <p>aaa</p>
+    </div>
 
-<body>
-  <input type="button" value="创建元素" id="btn">
-  <div id="dv">
-    <p>aaa</p>
-  </div>
-
-  <!-- 获取元素 -->
-  <script src="./common.js"></script>
-  <script>
-    /* 
+    <!-- 获取元素 -->
+    <script src="./common.js"></script>
+    <script>
+      /* 
       创建元素的第三种方式：
         - document.createElement('标签名字');，返回一个对象。
         - 这种方式创建元素，创建完了还不行，还需要再把元素追加到父级元素中。
     */
 
-    // 点击按钮在div当中创建一个p
-    my$('btn').onclick = function () {
-      // 创建对象
-      var pObj = document.createElement('p');
-      // 给新创建的对象，添加内容
-      pObj.innerText = '我被添加了';
-      // 把创建好的子元素追加到父级元素中
-      my$('dv').appendChild(pObj);
-    };
-  </script>
-</body>
-
+      // 点击按钮在div当中创建一个p
+      my$('btn').onclick = function () {
+        // 创建对象
+        var pObj = document.createElement('p')
+        // 给新创建的对象，添加内容
+        pObj.innerText = '我被添加了'
+        // 把创建好的子元素追加到父级元素中
+        my$('dv').appendChild(pObj)
+      }
+    </script>
+  </body>
 </html>

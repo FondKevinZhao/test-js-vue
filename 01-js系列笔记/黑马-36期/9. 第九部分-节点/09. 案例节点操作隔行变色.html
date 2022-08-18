@@ -35,7 +35,8 @@
         // 判断这个节点是不是li标签
         if (nodes[i].nodeType == 1 && nodes[i].nodeName == 'LI') {
           // console.log(nodes[i] + '---' + i); 
-          // nodes[i].style.backgroundColor = i % 2 != 0 ? 'red' : 'yellow'; //直接这么找是找不到的，要使用一个count变量
+          // nodes[i].style.backgroundColor = i % 2 != 0 ? 'red' : 'yellow'; 
+          // 直接这么找是找不到的，要使用一个count变量
           nodes[i].style.backgroundColor = count % 2 != 0 ? 'red' : 'yewllow';
           count++;
         }

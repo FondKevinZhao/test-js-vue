@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    #txt {
-      color: rgb(118, 118, 118);
-    }
-  </style>
-</head>
-<body>
-  <!-- js的做法 -->
-  js的做法：
-  <input type="text" value="请输入搜索内容js" id="txt"><br><br>
-
-  <!-- h5的做法 -->
-  h5的做法：
-  <input type="text" placeholder="请输入搜索内容h5">
-  <script src="./common.js"></script>
-  <script>
-    // 模拟搜索框
-    // 用到获取焦点和失去焦点
-    // 获取焦点
-    my$('txt').onfocus = function() {
-      if(this.value == '请输入搜索内容js'){
-        this.value = '';
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #txt {
+        color: rgb(118, 118, 118);
       }
-    }
-    // 失去焦点
-    my$('txt').onblur = function() {
-      // 方法一：
-      /* if(this.value == ''){
+    </style>
+  </head>
+  <body>
+    <!-- js的做法 -->
+    js的做法：
+    <input type="text" value="请输入搜索内容js" id="txt" />
+    &nbsp;&nbsp;
+
+    <!-- h5的做法 -->
+    h5的做法：
+    <input type="text" placeholder="请输入搜索内容h5" />
+    <script src="./common.js"></script>
+    <script>
+      // 模拟搜索框
+      // 用到获取焦点和失去焦点
+      // 获取焦点
+      my$('txt').onfocus = function () {
+        if (this.value == '请输入搜索内容js') {
+          this.value = ''
+        }
+      }
+      // 失去焦点
+      my$('txt').onblur = function () {
+        // 方法一：
+        /* if(this.value == ''){
         this.value = '请输入搜索内容js';
         this.style.color = 'rgb(118, 118, 118)';
       } else {
         this.style.color = '#000';
       } */
 
-      // 方法二：更好。因为判断数字要比判断字符串的效率高。
-      if(this.value.length == 0){
-        this.value = '请输入搜索内容js';
-        this.style.color = 'rgb(118, 118, 118)';
-      } else {
-        this.style.color = '#000';
+        // 方法二：更好。因为判断数字要比判断字符串的效率高。
+        if (this.value.length == 0) {
+          this.value = '请输入搜索内容js'
+          this.style.color = 'rgb(118, 118, 118)'
+        } else {
+          this.style.color = '#000'
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
