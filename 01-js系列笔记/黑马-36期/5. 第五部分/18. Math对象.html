@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    // MDN --- 在线的帮助文档
-    /* 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // MDN --- 在线的帮助文档
+      /* 
       Math 是一个内置对象，它拥有一些数学常数属性和数学函数方法。Math 不是一个函数对象。
       Math 身上的方法都是静态的(直接通过Math.点出来的)。
 
       实例对象：通过构造函数创建出来的，实例化的对象。
         - 实例方法必须通过实例对象调用。
       静态对象：不需要创建，直接就是一个对象，方法(静态方法)直接通过这个对象名字调用。
-        - 静态方法必须通过大写的对象调用
+        - 静态方法必须通过大写的对象调用。
 
       
       Math 常用的属性(属性后面不加括号)：Math.PI
@@ -33,47 +33,41 @@
         - Math.random() --- 返回一个[0, 1]随机浮点数，包括0，不包括1
     */
 
-    // Math.PI
-    // console.log(Math.PI); // 3.141592653589793
+      // Math.PI
+      // console.log(Math.PI); // 3.141592653589793
 
-
-
-    // 绝对值：正数和负数的绝对值都是正数
-    // Math.abs()如果传入的是undefined 或 empty将返回NaN
-    /* console.log(Math.abs(5)); // 5
+      // 绝对值：正数和负数的绝对值都是正数
+      // Math.abs()如果传入的是undefined 或 empty将返回NaN
+      /* console.log(Math.abs(5)); // 5
     console.log(Math.abs(-5)); // 5
     console.log(Math.abs(undefined)); // NaN
+    console.log(Math.abs()); // NaN
     console.log(Math.abs('aaa')); // NaN
-    console.log(Math.abs(Boolean)); // NaN
+    console.log(Math.abs(Boolean)); // NaN // 因为console.log(Boolean) 得到的是 Boolean() { [native code] }
     console.log(Math.abs(Boolean())); // 0
     console.log(Math.abs(Boolean(true))); // 1
-    console.log(Math.abs()); // NaN
     console.log(Math.abs(null)); // 0 */
 
+      // 向上取整
+      /* console.log(Math.ceil(12.3)); // 13
+      console.log(Math.ceil(12.9)); // 13
+      console.log(Math.ceil(12.09)); // 13
+      console.log(Math.ceil(12.03)); // 13
+      console.log(Math.ceil(12.92)); // 13
+      console.log(Math.ceil(12.00000001)); // 13 
+      console.log(Math.ceil(-12.02)); // -12*/
 
-
-    // 向上取整
-    /* console.log(Math.ceil(12.3)); // 13
-    console.log(Math.ceil(12.9)); // 13
-    console.log(Math.ceil(12.09)); // 13
-    console.log(Math.ceil(12.03)); // 13
-    console.log(Math.ceil(12.92)); // 13
-    console.log(Math.ceil(12.00000001)); // 13 */
-
-
-
-    // 向下取整
-    /* console.log(Math.floor(12.3)); // 12
+      // 向下取整
+      /* console.log(Math.floor(12.3)); // 12
     console.log(Math.floor(12.9)); // 12
     console.log(Math.floor(12.09)); // 12
     console.log(Math.floor(12.03)); // 12
     console.log(Math.floor(12.92)); // 12
+     console.log(Math.floor(-12.92)); // -13
     console.log(Math.floor(12.00000001)); // 12 */
 
-
-
-    // Math.round(值) 四舍五入
-    console.log(Math.round(12.3)); // 12
+      // Math.round(值) 四舍五入
+      /* console.log(Math.round(12.3)); // 12
     console.log(Math.round(12.9)); // 13
     console.log(Math.round(12.09)); // 12
     console.log(Math.round(12.03)); // 12
@@ -83,44 +77,34 @@
     console.log(Math.round(1.5)); // -2
     console.log(Math.round(-1.5)); // -1
     console.log(Math.round(-2.5)); // -2
-    console.log(Math.round(-2.6)); // -3
+    console.log(Math.round(-2.6)); // -3 */
 
+      // Math.max(一组数) --- 求最大值
+      // console.log(Math.max(10, 1, 100, 200, 45, 78)); // 200
 
+      // Math.min(一组数) --- 求最小值
+      // console.log(Math.min(10, 1, 100, 200, 45, 78)); // 1
 
-    // Math.max(一组数) --- 求最大值
-    // console.log(Math.max(10, 1, 100, 200, 45, 78)); // 200
-
-
-
-    // Math.min(一组数) --- 求最小值
-    // console.log(Math.min(10, 1, 100, 200, 45, 78)); // 1
-
-
-
-    // Math.pow(base, exponent)
-    /* // 5 的平方 5 * 5
+      // Math.pow(base, exponent)
+      /* // 5 的平方 5 * 5
     console.log(Math.pow(5, 2)); // 25 
     // 5 的立方 5 * 5 * 5
     console.log(Math.pow(5, 3)); // 125 
     // 3 * 3 * 3 * 3 * 3
     console.log(Math.pow(3, 5)); // 243  */
 
+      // Math.sqrt(值) --- 平方根
+      // console.log(Math.sqrt(9)); // 3
+      // console.log(Math.sqrt(81)); // 9
 
-
-    // Math.sqrt(值) --- 平方根
-    // console.log(Math.sqrt(9)); // 3
-    // console.log(Math.sqrt(81)); // 9
-
-
-
-    // Math.random() 随机浮点数
-    // console.log(Math.random()); // 得到一个[0, 1]的随机浮点数
-    // // 0-5之间的随机数
-    // console.log(parseInt(Math.random() * 6));
-    // // 1-5之间的随机数
-    // console.log(parseInt(Math.random()  * 5 + 1));
-    // // 1-100之间的随机数
-    // console.log(parseInt(Math.random()  * 100 + 1));
-  </script>
-</body>
+      // Math.random() 随机浮点数
+      // console.log(Math.random()); // 得到一个[0, 1]的随机浮点数
+      // // 0-5之间的随机数
+      // console.log(parseInt(Math.random() * 6));
+      // // 1-5之间的随机数
+      // console.log(parseInt(Math.random()  * 5 + 1));
+      // // 1-100之间的随机数
+      // console.log(parseInt(Math.random()  * 100 + 1));
+    </script>
+  </body>
 </html>

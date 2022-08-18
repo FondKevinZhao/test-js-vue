@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    /* 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
       预解析：提前解析代码
 
       预解析：就是在解析代码之前。
@@ -17,13 +17,11 @@
         - 函数的声明也会被提前 --- 提前到当前所在的作用域的最上面
     */
 
-    /* 变量的声明提前了
+      /* 变量的声明提前了
     console.log(num); // undefined
     var num = 10; */
 
-
-
-    /* 
+      /* 
       f1();
 
       function f1() {
@@ -31,8 +29,7 @@
       } 
     */
 
-
-    /* 
+      /* 
       f1();
       var num = 20;
       function f1() {
@@ -41,7 +38,7 @@
       }
     */
 
-    /* 
+      /* 
       f1(); // 调用在前面
       var num = 20;
       function f1() {
@@ -60,7 +57,6 @@
       num = 20;
     */
 
-    
       /* 
         var num = 20;
         function f1() {
@@ -70,7 +66,15 @@
 
         f1(); // 调用在后面
       */
-   
-  </script>
-</body>
+
+
+
+      /* function foo() {
+        console.log('a')
+      }
+      foo()
+      var foo
+      console.log(foo) */
+    </script>
+  </body>
 </html>

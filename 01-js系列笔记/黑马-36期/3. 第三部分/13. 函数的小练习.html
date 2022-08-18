@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    /* 
+  <body>
+    <script>
+      /* 
       函数调用之前需要先定义
       函数名字：要遵循驼峰命名法
       函数重名：后面的函数会覆盖前面的函数
@@ -25,41 +24,44 @@
       console.log(f1());
     */
 
-    // 求两个数字的和
-    /* function sum(num1, num2) {
+      // 求两个数字的和
+      /* function sum(num1, num2) {
       var sum1 = num1 + num2;
       return sum1;
     }
     console.log(sum(2, 3)); // 5 */
 
 
-    // 求三个数字的和
-    // 方法1：
-    /* function sum(num1, num2, num3) {
+
+      // 求三个数字的和
+      // 方法1：
+      /* function sum(num1, num2, num3) {
       var num4 = num1 + num2 + num3;
       return num4
     }
     console.log(sum(1, 2, 3)); // 6 */
 
-    // 方法2：
-    /* function sum() {
-      var num1 = 0;
-      for (var i = 0; i <= arguments.length; i++) {
-        num1 += i;
+      // 方法2：
+      /* function sum() {
+        var num1 = 0
+        for (var i = 0; i <= arguments.length; i++) {
+          num1 += i
+        }
+        console.log(arguments)
+        return num1
       }
-      return num1;
-    }
-    console.log(sum(1, 2, 3)); // 6 */
+      console.log(sum(1, 2, 3)) // 6 */
 
 
-    // 求两个数字的最大值
-    /* function getMax(num1, num2) {
+
+      // 求两个数字的最大值
+      /* function getMax(num1, num2) {
       var max = num1 > num2 ? num1 : num2;
       return max;
     }
     console.log(getMax(3, 5)); // 5 */
 
-    /* function getMax(num1, num2) {
+      /* function getMax(num1, num2) {
       var max = 0;
       if(num1>num2) {
         max = num1;
@@ -71,8 +73,9 @@
     console.log(getMax(44, 3)); */
 
 
-    // 求三个数字的最大值
-    /* function getMax() {
+
+      // 求三个数字的最大值
+      /* function getMax() {
       var max = 0;
       for (var i = 0; i<= arguments.length; i++) {
         if(arguments[i] > max) {
@@ -84,8 +87,9 @@
     console.log(getMax(3,10,7)); // 10 */
 
 
-    // 求1-100之间所有数字的和
-    /* function getSum() {
+
+      // 求1-100之间所有数字的和
+      /* function getSum() {
       var sum = 0;
       for (var i = 0; i <= 100; i++) {
         sum += i;
@@ -95,8 +99,9 @@
     console.log(getSum()); // 5050 */
 
 
-    // 求1-100之间所有偶数的和
-    /* function getEvenSum() {
+
+      // 求1-100之间所有偶数的和
+      /* function getEvenSum() {
       var sum = 0;
       for (var i = 0; i <= 100; i++) {
         if(i % 2 == 0) {
@@ -107,9 +112,10 @@
     }
     console.log(getEvenSum()); // 2550 */
 
+    
 
-    // 求一个数组的和
-    /* var arr = [2, 3, 4, 5];
+      // 求一个数组的和
+      /* var arr = [2, 3, 4, 5];
     function getArrSum () {
       var sum = 0;
       for (var i = 0; i < arr.length; i++) {
@@ -119,16 +125,15 @@
     }
     console.log(getArrSum()); */
 
-    var arr = [2, 3, 4, 5];
-    function getArrSum(arr1) {
-      var sum = 0;
-      for (var i = 0; i < arr1.length; i++) {
-        sum += arr[i];
+      var arr = [2, 3, 4, 5]
+      function getArrSum(arr1) {
+        var sum = 0
+        for (var i = 0; i < arr1.length; i++) {
+          sum += arr[i]
+        }
+        return sum
       }
-      return sum;
-    }
-    console.log(getArrSum(arr));
-  </script>
-</body>
-
+      console.log(getArrSum(arr))
+    </script>
+  </body>
 </html>

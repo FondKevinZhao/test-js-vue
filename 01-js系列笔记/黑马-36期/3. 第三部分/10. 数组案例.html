@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    // 案例6：把数组中每个元素用竖线拼接到一起产生一个字符串并输出
-    // 最后一个有竖线
-    /* var arr6 = [10, 20, 30, 'aaa', true];
+  <body>
+    <script>
+      // 案例6：把数组中每个元素用竖线拼接到一起产生一个字符串并输出
+      // 最后一个有竖线
+      /* var arr6 = [10, 20, 30, 'aaa', true];
     str = '';
     for(var i = 0; i < arr6.length; i++) {
       str += arr6[i] + '|'; // str = str + arr6[i] + '|'
     }
     console.log(str); */
 
-    // 最后一个没有竖线(方法1)
-    /* var arr6 = [10, 20, 30, 'aaa', true];
+      // 最后一个没有竖线(方法1)
+      /* var arr6 = [10, 20, 30, 'aaa', true];
     str = '';
     for (var i = 0; i < arr6.length -1; i++) {
       str += arr6[i] + '|';
@@ -28,8 +27,8 @@
     str += arr6[arr6.length-1]; // str = str + arr6[arr6.length -1];
     console.log(str); */
 
-    // 最后一个没有竖线(方法2)
-    /* var arr6 = [10, 20, 30, 'aaa', true];
+      // 最后一个没有竖线(方法2)
+      /* var arr6 = [10, 20, 30, 'aaa', true];
     str = '';
     // 从索引1开始算
     for(var i = 1; i < arr6.length; i++) {
@@ -38,10 +37,9 @@
     str = arr6[0] + str;
     console.log(str); */
 
-
-    // 案例7：去掉数组中重复的0，把其他的数据放在一个新的数组中
-    // 方法1：
-    /* var arr7 = [1, 0, 39, 8, 0, 5, 0];
+      // 案例7：去掉数组中重复的0，把其他的数据放在一个新的数组中
+      // 方法1：
+      /* var arr7 = [1, 0, 39, 8, 0, 5, 0];
     var newArr = [];
     for(var i = 0; i < arr7.length; i++) {
       if(arr7[i] != 0) {
@@ -50,8 +48,20 @@
     }
     console.log(newArr); */
 
-    // 方法2：
-    /* var arr7 = [1, 0, 39, 8, 0, 5, 0];
+      // 方法2：
+      /* var arr7 = [1, 0, 39, 8, 0, 5, 0]
+      var newArr = []
+      for (var i = 0; i < arr7.length; i++) {
+        if (arr7[i] == 0) {
+          continue
+        }
+        // 把新数组的长度作为下标使用，数组的长度是可以改变的
+        newArr[newArr.length] = arr7[i]
+      }
+      console.log(newArr) */
+
+      // 方法:3：
+      /* var arr7 = [1, 0, 39, 8, 0, 5, 0];
     var newArr = [];
     for(var i = 0; i < arr7.length; i++){
       if(arr7[i] != 0) {
@@ -61,15 +71,14 @@
     }
     console.log(newArr); */
 
-
-    // 案例8：反转数组
-    // 方法1：reverse()
-    /* var arr8 = [1, 2, 3, 4, 5, 'aaa', 'bbb', true];
+      // 案例8：反转数组
+      // 方法1：reverse()
+      /* var arr8 = [1, 2, 3, 4, 5, 'aaa', 'bbb', true];
     var result = arr8.reverse();
     console.log(result); */
 
-    // 方法2: for 循环
-    /* var arr8 = [1, 2, 3, 4, 5, 'aaa', 'bbb', true];
+      // 方法2: for 循环
+      /* var arr8 = [1, 2, 3, 4, 5, 'aaa', 'bbb', true];
     var result = [];
     for(var i = arr8.length - 1; i >= 0; i--) {
       // console.log(arr8[i]);
@@ -77,8 +86,8 @@
     }
     console.log(result); */
 
-    // 方法3：for 循环(重点)
-    /* var arr = [1, 5, 3, 4, 5, 6, 'aaa', 'bbb', true];
+      // 方法3：for 循环(重点)
+      /* var arr = [1, 5, 3, 4, 5, 6, 'aaa', 'bbb', true];
     // 循环的目的是控制交换的次数
     for(var i = 0; i < arr.length/2; i++) {
       // 先把第一个元素的值方在第三方变量中
@@ -90,41 +99,41 @@
     }
     console.log(arr); */
 
-
-    // 案例9：提示用户输入班级人数，求总成绩，平均值，最高分，最低分
-    // 提示用户输入人数，并转成数字类型
-    var perCount = parseInt(prompt('请输入班级人数'));
-    // 定义数组，存储班级的每个人的成绩
-    var perScores = [];
-    // 循环录入每个人的成绩
-    for (var i = 0; i < perCount; i++) {
-      // 把每个人的成绩存储到数组中
-      perScores[perScores.length] = parseInt(prompt('请输入第' + (i + 1) + '个人的成绩'));
-    }
-    console.log(perScores);
-    // 求总成绩
-    var sum = 0;
-    // 求平均成绩
-    var average = 0;
-    // 求最大值
-    var max = perScores[0];
-    // 求最小值
-    var min = perScores[0];
-    for (var i = 0; i < perScores.length; i++) {
-      // console.log(perScores[i]);
-      sum += perScores[i]
-      if (perScores[i] > max) {
-        max = perScores[i]
-      } else if (perScores[i] < min) {
-        min = perScores[i];
+      // 案例9：提示用户输入班级人数，求总成绩，平均值，最高分，最低分
+      // 提示用户输入人数，并转成数字类型
+      var perCount = parseInt(prompt('请输入班级人数'))
+      // 定义数组，存储班级的每个人的成绩
+      var perScores = []
+      // 循环录入每个人的成绩
+      for (var i = 0; i < perCount; i++) {
+        // 把每个人的成绩存储到数组中
+        perScores[perScores.length] = parseInt(
+          prompt('请输入第' + (i + 1) + '个人的成绩'),
+        )
       }
-    }
-    average = sum / perScores.length;
-    console.log('sum:' + sum);
-    console.log('average:' + average);
-    console.log('max:' + max);
-    console.log('min:' + min);
-  </script>
-</body>
-
+      console.log(perScores)
+      // 求总成绩
+      var sum = 0
+      // 求平均成绩
+      var average = 0
+      // 求最大值
+      var max = perScores[0]
+      // 求最小值
+      var min = perScores[0]
+      for (var i = 0; i < perScores.length; i++) {
+        // console.log(perScores[i]);
+        sum += perScores[i]
+        if (perScores[i] > max) {
+          max = perScores[i]
+        } else if (perScores[i] < min) {
+          min = perScores[i]
+        }
+      }
+      average = sum / perScores.length
+      console.log('sum:' + sum)
+      console.log('average:' + average)
+      console.log('max:' + max)
+      console.log('min:' + min)
+    </script>
+  </body>
 </html>
