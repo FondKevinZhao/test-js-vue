@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- 原性关系图 -->
-  <img src="./原型关系图.png" width="1600" alt="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 原性关系图 -->
+    <img src="./原型关系图.png" width="1600" alt="" />
 
-  <script>
-    // 动物有名字，有体重，有吃东西的行为
-    // 小狗有名字，有体重，有毛色，有吃东西的行为，还有咬人的行为
-    // 哈士奇名字，有体重，有毛色，性别，有吃东西的行为，还有咬人的行为，逗主人开心
+    <script>
+      // 动物有名字，有体重，有吃东西的行为
+      // 小狗有名字，有体重，有毛色，有吃东西的行为，还有咬人的行为
+      // 哈士奇名字，有体重，有毛色，性别，有吃东西的行为，还有咬人的行为，逗主人开心
 
-    // 动物的构造函数
-    function Animal(name, weight){
-      this.name = name;
-      this.weight = weight;
-    };
-    // 动物的原型的方法
-    Animal.prototype.eat = function (){
-      console.log('天天吃东西，就是吃');
-    };
+      // 动物的构造函数
+      function Animal(name, weight) {
+        this.name = name
+        this.weight = weight
+      }
+      // 动物的原型的方法
+      Animal.prototype.eat = function () {
+        console.log('天天吃东西，就是吃')
+      }
 
-    // 狗的构造函数
-    function Dog(color){
-      this.color = color;
-    };
-    Dog.prototype = new Animal('哮天犬', '50kg');
-    Dog.prototype.bitePerson = function (){
-      console.log('哼~汪汪~咬死你');
-    };
-    
-    // 哈士奇
-    function ErHa(sex){
-      this.sex = sex;
-    };
-    ErHa.prototype = new Dog('黑白色');
-    ErHa.prototype.playHost = function (){
-    console.log('哈哈~咬坏衣服，咬坏桌子，拆家，嘎嘎，好玩，开心不，惊喜不，意外不');
-    };
+      // 狗的构造函数
+      function Dog(color) {
+        this.color = color
+      }
+      Dog.prototype = new Animal('哮天犬', '50kg')
+      Dog.prototype.bitePerson = function () {
+        console.log('哼~汪汪~咬死你')
+      }
 
-    var ErHa = new ErHa('雄性');
-    console.log(ErHa.name, ErHa.weight, ErHa.color);
-    ErHa.eat();
-    ErHa.bitePerson();
-    ErHa.playHost();
-  </script>
-</body>
+      // 哈士奇
+      function ErHa(sex) {
+        this.sex = sex
+      }
+      ErHa.prototype = new Dog('黑白色')
+      ErHa.prototype.playHost = function () {
+        console.log(
+          '哈哈~咬坏衣服，咬坏桌子，拆家，嘎嘎，好玩，开心不，惊喜不，意外不',
+        )
+      }
+
+      var ErHa = new ErHa('雄性')
+      console.log(ErHa.name, ErHa.weight, ErHa.color)
+      ErHa.eat()
+      ErHa.bitePerson()
+      ErHa.playHost()
+    </script>
+  </body>
 </html>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <!-- 
+  <body>
+    <!-- 
     创建正则表达式对象，有两种方式:
       1. 通过构造函数创建对象： var reg = new RegExp(/内容/);
 
@@ -17,8 +16,8 @@
 
     正则表达式的作用：匹配字符串的
    -->
-  <script>
-    /* // 对象创建完毕 --- 
+    <script>
+      /* // 对象创建完毕 --- 
     var reg = new RegExp(/\d{5}/);
     // 字符串
     var str = "我的电话是10086";
@@ -26,12 +25,10 @@
     var flag = reg.test(str);
     console.log(flag); */
 
-
-
-    // 字面量的方式创建正则表达式
-    var reg = /\d{1,5}/;
-    var flag = reg.test('小苏的幸运数字:888');
-  </script>
-</body>
-
+      // 字面量的方式创建正则表达式
+      var reg = /\d{1,5}/
+      var flag = reg.test('小苏的幸运数字:888')
+      console.log(flag)
+    </script>
+  </body>
 </html>

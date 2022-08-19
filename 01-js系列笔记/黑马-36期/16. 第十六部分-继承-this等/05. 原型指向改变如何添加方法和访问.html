@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <!-- 
+  <body>
+    <!-- 
     会报错：
       1. 先在原型中添加方法
       2. 改变了原型对象的指向
@@ -24,15 +23,17 @@
       如果原型指向改变了，那么就应该在原型改变指向之后添加原型方法，否则就 访问不到。
    -->
 
-  <!-- 先添加方法后改变指向图解：会报错 -->
-  <img src="./先添加方法后改变指向图解.png" width="800" alt=""><br><br>
+    <!-- 先添加方法后改变指向图解：会报错 -->
+    <img src="./先添加方法后改变指向图解.png" width="800" alt="" />
+    <br />
+    <br />
 
-  <!-- 先改变指向后添加方法图解：不会报错 -->
-  <img src="./先改变指向后添加方法.png" width="800" alt="">
+    <!-- 先改变指向后添加方法图解：不会报错 -->
+    <img src="./先改变指向后添加方法.png" width="800" alt="" />
 
-  <script>
-    // 会报错
-    /* // 人的构造函数
+    <script>
+      // 会报错
+      /* // 人的构造函数
     function Person(age){
       this.age = age;
     };
@@ -54,59 +55,60 @@
 
     var stu = new Student("男");
     stu.sayHi(); // stu.sayHi is not a function */
-  </script>
+    </script>
 
-  <script>
-    // 不会报错
-    // 人的构造函数
-    function Person(age) {
-      this.age = age;
-    };
-    // 人的原型中添加方法
-    Person.prototype.eat = function () {
-      console.log('人正在吃东西');
-    };
-
-    // 学生构造函数
-    function Student(sex) {/*  */
-      this.sex = sex;
-    };
-    // 1. 改变了原型对象的指向
-    Student.prototype = new Person(10);
-
-    // 学生的原型中添加方法 --- 先在原型中添加方法
-    Student.prototype.sayHi = function () {
-      console.log('您好啊');
-    };
-
-
-    var stu = new Student("男");
-    stu.sayHi(); // 您好啊
-    console.dir(stu);
-  </script>
-
-  <script>
-    // 能否访问sayHi();
-    function Person(age){
-      this.age = age;
-    };
-
-    Person.prototype.sayHi = function (){
-      console.log('您好');
-    };
-
-    // 指向改变了 
-    // Person.prototype = new Person(); 这个new Person()是一个对象
-    // Person.prototype = 一个对象
-    Person.prototype = {
-      eat: function (){
-        console.log('吃');
+    <script>
+      // 不会报错
+      // 人的构造函数
+      function Person(age) {
+        this.age = age
       }
-    };
+      // 人的原型中添加方法
+      Person.prototype.eat = function () {
+        console.log('人正在吃东西')
+      }
 
-    var per = new Person(10);
-    per.sayHi(); // 会报错
-  </script>
-</body>
+      // 学生构造函数
+      function Student(sex) {
+        /*  */
+        this.sex = sex
+      }
+      // 1. 改变了原型对象的指向
+      Student.prototype = new Person(10)
 
+      // 2. 学生的原型中添加方法
+      Student.prototype.sayHi = function () {
+        console.log('您好啊')
+      }
+
+      var stu = new Student('男')
+      stu.sayHi() // 您好啊
+      stu.eat() // Person的方法
+      console.dir(stu)
+    </script>
+
+    <script>
+      // 能否访问sayHi();
+      function Person(age) {
+        this.age = age
+      }
+
+      Person.prototype.sayHi = function () {
+        console.log('您好')
+      }
+
+      // 指向改变了
+      // Person.prototype = new Person(); 这个new Person()是一个对象
+      // Person.prototype = 一个对象
+      Person.prototype = {
+        eat: function () {
+          console.log('吃')
+        },
+      }
+
+      var per = new Person(10)
+      per.eat() // 吃
+      per.sayHi() // 会报错
+    </script>
+  </body>
 </html>
