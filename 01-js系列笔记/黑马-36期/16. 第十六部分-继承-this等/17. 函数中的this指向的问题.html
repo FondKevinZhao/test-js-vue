@@ -49,8 +49,8 @@
           console.log('aa', this)
         },
       }
-      console.log(obj.fill()) // 没有隐式丢失
-      let obj1 = obj.fill // 隐式丢失 -- 自己不掉用，把它存入一个变量，变量来调用，this的指向会发生变化
+      console.log(obj.fill()) // 没有隐式丢失 --- this指向obj对象
+      let obj1 = obj.fill // 隐式丢失 -- 自己不掉用，把它存入一个变量，变量来调用 --- this指向了window
       console.log(obj1())
 
       // 严格模式：我这里不写了，因为工作中不用自己写
