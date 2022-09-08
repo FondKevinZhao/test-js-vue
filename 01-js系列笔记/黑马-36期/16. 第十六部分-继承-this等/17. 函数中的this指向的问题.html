@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="dv">444</div>
-  <!-- 
+  <body>
+    <div class="dv">444</div>
+    <!-- 
     函数中的this的指向：
       - 普通函数中的this是谁？ window
       - 严格模式下，普通函数中的this是谁？ undefined
@@ -23,30 +22,39 @@
       - 事件中的this是谁？事件源
       - 箭头函数没有自己的this。
    -->
-  <script>
-    document.querySelector('.dv').onclick = function () {
-      console.log(this);
-    }
-
-    // 闭包函数中的this
-    var a = 0;
-    var obj = {
-      a: 2,
-      foo: function () {
-        var c = this.a;
-        return function test() {
-          console.log(this);
-          return c;
-        }
+    <script>
+      document.querySelector('.dv').onclick = function () {
+        console.log(this)
       }
-    }
-    var fn = obj.foo();
-    console.log(fn());
 
+      // 闭包函数中的this
+      var a = 0
+      var obj = {
+        a: 2,
+        foo: function () {
+          var c = this.a
+          return function test() {
+            console.log(this)
+            return c
+          }
+        },
+      }
+      var fn = obj.foo()
+      console.log(fn())
 
-    // 严格模式：我这里不写了，因为工作中不用自己写
-    // 严格模式地址: https://segmentfault.com/a/1190000015798019
-  </script>
-</body>
+      // 隐式丢失现象
+      let obj = {
+        name: 'zs',
+        fill() {
+          console.log('aa', this)
+        },
+      }
+      console.log(obj.fill()) // 没有隐式丢失
+      let obj1 = obj.fill // 隐式丢失 -- 自己不掉用，把它存入一个变量，变量来调用，this的指向会发生变化
+      console.log(obj1())
 
+      // 严格模式：我这里不写了，因为工作中不用自己写
+      // 严格模式地址: https://segmentfault.com/a/1190000015798019
+    </script>
+  </body>
 </html>
